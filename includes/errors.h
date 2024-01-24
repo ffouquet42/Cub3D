@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/24 15:29:07 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/24 15:27:30 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#ifndef ERRORS_H
+# define ERRORS_H
 
-int	main(int argc, char **argv)
-{
-	t_data data;
+# define E_INIT_DATA "Error\nInit data failed.\n"
 
-	if (init_data(&data))
-		return (ft_putstr(E_INIT_DATA), 1);
-
-
-
-	(void)argc; // dev
-	(void)argv; // dev
-	return (0);
-}
+#endif

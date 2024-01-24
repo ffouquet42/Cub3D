@@ -1,4 +1,6 @@
-SRCS		=	srcs/main.c	\
+SRCS		=	srcs/main.c						\
+				srcs/parsing/init/init_data.c	\
+				srcs/utils/libft/ft_putstr.c	\
 
 OBJS		=	$(SRCS:.c=.o)
 

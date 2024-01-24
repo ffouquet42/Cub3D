@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/24 15:29:07 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/24 15:20:26 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/24 15:21:37 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
-int	main(int argc, char **argv)
+void	ft_putstr(char *str)
 {
-	t_data data;
-
-	if (init_data(&data))
-		return (ft_putstr(E_INIT_DATA), 1);
-
-
-
-	(void)argc; // dev
-	(void)argv; // dev
-	return (0);
+	while (*str)
+		write(1, str++, 1);
 }
