@@ -1,4 +1,4 @@
-SRCS		=	
+SRCS		=	srcs/main.c	\
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -6,15 +6,26 @@ CC			=	cc
 
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -I ./include # -g -MMD -g3
+#CFLAGS		= 	-Wall -Wextra -Werror -g3 -I./srcs/includes
+
+# HEADERS		=	-I ./include
+
+MLX			=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 NAME		=	prog
-#NAME		=	Cub3D
+#NAME		=	cub3D
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
+#%.o: %.c
+#	$(CC) $(CFLAGS) $(HEADERS) -I/usr/include -Imlx_linux -c $< -o $@
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@make -C ./mlx_linux
+	$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $(NAME)	
 
 clean:
 	$(RM) $(OBJS)
@@ -22,6 +33,6 @@ clean:
 fclean:		clean
 	$(RM) $(NAME)
 
-re:			fclean $(NAME)
+re:		fclean $(NAME)
 
 .PHONY:		all clean fclean re
