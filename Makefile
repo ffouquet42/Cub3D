@@ -3,6 +3,7 @@ SRCS		=	srcs/cub3D.c					\
 				srcs/parsing/init/init_mlx.c	\
 				srcs/utils/libft/ft_putstr.c	\
 				srcs/utils/exit.c				\
+				srcs/utils/free.c				\
 
 OBJS		=	$(SRCS:.c=.o)
 

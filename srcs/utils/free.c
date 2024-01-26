@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 09:45:45 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 10:56:45 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/26 10:33:22 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
-int	init_mlx(t_data *data)
+void	free_data_1(t_data *data)
 {
-	data->mlx = mlx_init();
-	if (!data->mlx)
-		exit_1(data);
-	return (0);
+	free(data->mini);
+	free(data->ray);
+	free(data->game);
 }

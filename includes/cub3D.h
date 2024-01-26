@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 10:05:10 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/26 10:59:53 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 //**********************************************//
 
 # include "errors.h"
+# include "../mlx_linux/mlx.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -89,6 +90,10 @@ int		init_mlx(t_data *data);
 
 //---------------   exit.c   ---------------//
 void 	exit_1(t_data *data);
+
+//---------------   free.c   ---------------//
+void	free_data_1(t_data *data);
+
 
 //**********************************************//
 //					LIBFT						//
