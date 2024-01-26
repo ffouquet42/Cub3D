@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 09:53:54 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 10:26:52 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/26 11:06:08 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void exit_1(t_data *data)
 {
+	ft_putstr(E_INIT_MLX);
 	free_data_1(data);
 	exit (1);
 }

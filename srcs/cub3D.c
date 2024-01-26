@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 09:35:30 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/26 11:17:28 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int	main(int argc, char **argv)
 
 	if (init_data(&data))
 		return (ft_putstr(E_INIT_DATA), 1);
-
-
+	
+	
+	// finir les structs
+	// finir les frees pour les structs
+	// parsing
+	// free mlx
 
 	(void)argc; // dev
 	(void)argv; // dev

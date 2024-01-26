@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 10:01:47 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/26 11:04:53 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	init_data(t_data *data)
 	data->game = malloc(sizeof(t_game));
 	if (!data->game)
 		return (1);
-	data->ray = malloc(sizeof(t_ray));
-	if (!data->ray)
+	data->raycast = malloc(sizeof(t_raycast));
+	if (!data->raycast)
 		return (1);
-	data->mini = malloc(sizeof(t_mini));
-	if (!data->mini)
+	data->minimap = malloc(sizeof(t_minimap));
+	if (!data->minimap)
 		return (1);
 	init_data_2(data);
 	init_mlx(data);
