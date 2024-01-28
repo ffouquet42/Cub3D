@@ -1,4 +1,5 @@
 SRCS		=	srcs/cub3D.c					\
+				srcs/parsing/check/args.c		\
 				srcs/parsing/init/init_data.c	\
 				srcs/parsing/init/init_mlx.c	\
 				srcs/parsing/parser/parsing.c	\

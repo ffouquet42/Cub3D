@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/28 12:02:28 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/28 12:24:42 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	if (parsing(argc, argv, &data))
 		return (1);
 	
+	// mettre les Error en rouge
 	// finir les structs
 	// finir les frees pour les structs
 	// parsing

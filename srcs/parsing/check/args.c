@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 12:05:52 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/28 12:06:23 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/28 12:25:31 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	check_args(int argc, char **argv)
 {
-	
+	if (argc != 2)
+		return (1);
+	// i = ft_strlen(av[1]) - 1; <=>
+	(void)argv; // dev
+	return (0);
 }
