@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 11:15:36 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/28 12:07:29 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,6 @@
 //**********************************************//
 //					STRUCTURES					//
 //**********************************************//
-
-typedef struct s_minimap
-{
-	// int			size_x; // height witdh
-	// int			size_y;
-	// int			wall_size;
-	// int			mini_map_x;
-	// int			mini_map_y;
-	// int			map_x;
-	// int			map_y;
-	// int			display;
-	// int			dist_x;
-	// int			dist_y;
-	// double		coord_x;
-	// double		coord_y;
-	// int			real_coord_x;
-	// int			real_coord_y;
-}			t_minimap;
 
 typedef struct s_raycast
 {
@@ -122,7 +104,6 @@ typedef struct s_data
 	int			window_y;
 	t_game		*game;
 	t_raycast	*raycast;
-	t_minimap	*minimap;
 	
 	// t_img		*mini_img;
 	// t_img		textures[4];
@@ -145,7 +126,7 @@ typedef struct s_data
 //					PROTOTYPES					//
 //**********************************************//
 
-//---------------   cub3D.c   ---------------//
+//---------------   cub3D.c   ------------------//
 int		main(int argc, char **argv);
 
 
@@ -154,25 +135,39 @@ int		main(int argc, char **argv);
 //**********************************************//
 
 //**********************************************//
+//					CHECK						//
+//**********************************************//
+
+//---------------   check_args.c   -------------//
+int		check_args(int argc, char **argv);
+
+//**********************************************//
 //					INIT						//
 //**********************************************//
 
-//---------------   init_data.c   ---------------//
+//---------------   init_data.c   --------------//
 int		init_data(t_data *data);
 void	init_data_2(t_data *data);
 
 //---------------   init_mlx.c   ---------------//
 int		init_mlx(t_data *data);
 
+//**********************************************//
+//					PARSER						//
+//**********************************************//
+
+//---------------   parsing.c   ----------------//
+int		parsing(int argc, char **argv, t_data *data);
+
 
 //**********************************************//
 //					UTILS						//
 //**********************************************//
 
-//---------------   exit.c   ---------------//
+//---------------   exit.c   -------------------//
 void 	exit_1(t_data *data);
 
-//---------------   free.c   ---------------//
+//---------------   free.c   -------------------//
 void	free_data_1(t_data *data);
 
 
@@ -180,8 +175,8 @@ void	free_data_1(t_data *data);
 //					LIBFT						//
 //**********************************************//
 
-//---------------   ft_putstr.c   ---------------//
-void	ft_putstr(char *str);
+//---------------   ft_putstr.c   --------------//
+void	ft_putstr(char *str, int fd);
 
 //**********************************************//
 //					EXEC						//

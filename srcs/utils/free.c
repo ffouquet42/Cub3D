@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/26 11:04:28 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/28 11:46:37 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	free_data_1(t_data *data)
 {
-	free(data->minimap);
 	free(data->raycast);
 	free(data->game);
 }

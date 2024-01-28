@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 15:20:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/28 12:01:27 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/28 12:08:23 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-
-void	ft_putstr(char *str, int fd)
+int	parsing(int argc, char **argv, t_data *data)
 {
-	if (fd < 0)
-		return ;
-	while (*str)
-		write(fd, str++, 1);
+	if (check_args(argc, argv))
+		return (1);
+	(void)data; // dev
+	return (0);
 }

@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 15:20:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/28 12:01:27 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/28 12:05:52 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/28 12:06:23 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-
-void	ft_putstr(char *str, int fd)
+int	check_args(int argc, char **argv)
 {
-	if (fd < 0)
-		return ;
-	while (*str)
-		write(fd, str++, 1);
+	
 }
