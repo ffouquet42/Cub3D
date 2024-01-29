@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 09:12:21 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/29 09:58:08 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/29 09:59:07 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-int	parsing(int argc, char **argv, t_data *data)
+char	*ft_strchr(const char *s, int c)
 {
-	if (check_args(argc, argv))
-		return (ft_putstr(E_PARS_ARGS, 2), 1);
-	data->scene = get_scene(argv[1]);
-	if (!data->scene)
-		return (ft_putstr(E_GET_SCENE, 2), 1);
-		
-	(void)data; // dev
+	const char	*ptr;
+
+	ptr = s;
+	while ((unsigned char)*ptr != '\0'
+		&& (unsigned char)*ptr != (unsigned char)c)
+		ptr++;
+	if ((unsigned char)*ptr == (unsigned char)c)
+		return ((char *)ptr);
 	return (0);
 }
+
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	int		i;
+// 	char	ch;
+
+// 	i = 0;
+// 	ch = c;
+// 	while (s[i] != ch)
+// 	{
+// 		if (s[i] == '\0')
+// 			return (NULL);
+// 		i++;
+// 	}
+// 	return ((char *)s + i);
+// }

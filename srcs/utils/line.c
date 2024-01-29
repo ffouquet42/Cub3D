@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 09:04:42 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/29 10:01:30 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/29 10:02:08 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
-int	main(int argc, char **argv)
+int	line_is_empty(char *str) //
 {
-	t_data data;
+	int	i;
 
-	if (init_data(&data))
-		return (ft_putstr(E_INIT_DATA, 2), 1);
-	if (parsing(argc, argv, &data))
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == '\n' || str[i] == '\0')
 		return (1);
-	
-	// ajouter textures
-	// finir les structs
-	// finir les frees pour les structs
-	// parsing
-	// free mlx
-
 	return (0);
 }

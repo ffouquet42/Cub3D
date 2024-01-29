@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 09:12:21 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/29 09:39:17 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/29 09:39:29 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-int	parsing(int argc, char **argv, t_data *data)
+void	ft_bzero(void *s, size_t n)
 {
-	if (check_args(argc, argv))
-		return (ft_putstr(E_PARS_ARGS, 2), 1);
-	data->scene = get_scene(argv[1]);
-	if (!data->scene)
-		return (ft_putstr(E_GET_SCENE, 2), 1);
-		
-	(void)data; // dev
-	return (0);
+	size_t	i;
+	char	*str;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*tab;
+	size_t	total_size;
+
+	total_size = nmemb * size;
+	if (nmemb && ((total_size / nmemb) != size))
+		return (NULL);
+	tab = malloc(total_size);
+	if (!tab)
+		return (NULL);
+	ft_bzero(tab, total_size);
+	return (tab);
 }

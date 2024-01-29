@@ -3,10 +3,15 @@ SRCS		=	srcs/cub3D.c					\
 				srcs/parsing/init/init_data.c	\
 				srcs/parsing/init/init_mlx.c	\
 				srcs/parsing/parser/parsing.c	\
+				srcs/parsing/parser/scene.c		\
+				srcs/utils/libft/ft_calloc.c	\
 				srcs/utils/libft/ft_putstr.c	\
+				srcs/utils/libft/ft_strchr.c	\
 				srcs/utils/libft/ft_strlen.c	\
 				srcs/utils/exit.c				\
 				srcs/utils/free.c				\
+				srcs/utils/get_next_line.c		\
+				srcs/utils/line.c				\
 
 OBJS		=	$(SRCS:.c=.o)
 

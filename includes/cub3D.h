@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 08:29:56 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/29 10:03:04 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,16 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 
 //**********************************************//
 //					DEFINES						//
 //**********************************************//
+
+# define BUFFER_SIZE 1
 
 
 //**********************************************//
@@ -104,11 +109,11 @@ typedef struct s_data
 	int			window_y;
 	t_game		*game;
 	t_raycast	*raycast;
+	char		**scene;
 	
 	// t_img		*mini_img;
 	// t_img		textures[4];
 	// t_img		*img;
-	// char		**desc;
 	// int			floor[4];
 	// int			ceiling[4];
 	// char		**map;
@@ -159,6 +164,10 @@ int		init_mlx(t_data *data);
 //---------------   parsing.c   ----------------//
 int		parsing(int argc, char **argv, t_data *data);
 
+//---------------   scene.c   ------------------//
+char	**get_scene(char *scene_path);
+int		scene_len(char *scene_path, int fd);
+
 
 //**********************************************//
 //					UTILS						//
@@ -170,10 +179,23 @@ void 	exit_1(t_data *data);
 //---------------   free.c   -------------------//
 void	free_data_1(t_data *data);
 
+//---------------   get_next_line.c   ----------//
+char	*get_next_line(int fd);
+char	*merge_stash_and_buff(char *stash, char *buff);
+char	*buff_to_stash(char *buff);
+int		search_newline(const char *buff);
+char	*stash_to_line(char *stash, char *buf);
+
+//---------------   line.c   -------------------//
+int		line_is_empty(char *str);
 
 //**********************************************//
 //					LIBFT						//
 //**********************************************//
+
+//---------------   ft_calloc.c   --------------//
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_bzero(void *s, size_t n);
 
 //---------------   ft_putstr.c   --------------//
 void	ft_putstr(char *str, int fd);
