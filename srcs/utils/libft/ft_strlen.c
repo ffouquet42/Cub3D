@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 08:41:45 by fllanet          ###   ########.fr       */
+/*   Created: 2024/01/29 08:28:08 by fllanet           #+#    #+#             */
+/*   Updated: 2024/01/29 08:29:10 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *str)
 {
-	t_data data;
-
-	if (init_data(&data))
-		return (ft_putstr(E_INIT_DATA, 2), 1);
-	if (parsing(argc, argv, &data))
-		return (1);
+	size_t	len;
 	
-	
-	// finir les structs
-	// finir les frees pour les structs
-	// parsing
-	// free mlx
-
-	return (0);
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[len])
+		len++;
+	return (len);
 }

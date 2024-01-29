@@ -4,6 +4,7 @@ SRCS		=	srcs/cub3D.c					\
 				srcs/parsing/init/init_mlx.c	\
 				srcs/parsing/parser/parsing.c	\
 				srcs/utils/libft/ft_putstr.c	\
+				srcs/utils/libft/ft_strlen.c	\
 				srcs/utils/exit.c				\
 				srcs/utils/free.c				\
 
