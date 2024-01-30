@@ -6,13 +6,13 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:01:30 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 10:02:08 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:47:23 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	line_is_empty(char *str) //
+int	line_is_empty(char *str)
 {
 	int	i;
 
