@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 10:03:04 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 10:49:43 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,11 @@ typedef struct s_data
 	// double		movespeed;
 }			t_data;
 
+typedef struct s_lst
+{
+	void			*content;
+	struct s_lst	*next;
+}			t_lst;
 
 //**********************************************//
 //					PROTOTYPES					//
@@ -166,7 +171,7 @@ int		parsing(int argc, char **argv, t_data *data);
 
 //---------------   scene.c   ------------------//
 char	**get_scene(char *scene_path);
-int		scene_len(char *scene_path, int fd);
+int		scene_len(char *scene_path);
 
 
 //**********************************************//
@@ -200,6 +205,9 @@ void	ft_bzero(void *s, size_t n);
 //---------------   ft_putstr.c   --------------//
 void	ft_putstr(char *str, int fd);
 
+//---------------   ft_strchr.c   --------------//
+char	*ft_strchr(const char *s, int c);
+
 //---------------   ft_strlen.c   --------------//
 size_t	ft_strlen(const char *str);
 
@@ -207,5 +215,7 @@ size_t	ft_strlen(const char *str);
 //					EXEC						//
 //**********************************************//
 
+// dev
+void	print_scene(char **scene);
 
 #endif
