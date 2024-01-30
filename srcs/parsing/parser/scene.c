@@ -6,11 +6,39 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:37:11 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 13:13:36 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
+
+char	**clean_scene(char **scene)
+{
+	char	*tmp;
+	int 	i;
+	int 	j;
+	int 	k;
+
+	i = 0;
+	while (i < 6)
+	{
+		j = 0;
+		k = 0;
+		tmp = scene[i];
+		while (tmp[j])
+		{
+			if (tmp[j] != ' ')
+			{
+				scene[i][k++] = tmp[j++];
+			}
+			else
+				j++;
+		}
+		scene[i][k] = '\0';
+		i++;
+	}
+	return (scene);
+}
 
 int		scene_len(char *scene_path)
 {
@@ -61,6 +89,6 @@ char	**get_scene(char *scene_path)
 			scene[++i] = get_next_line(fd);
 	}
 	scene[i] = NULL;
-	// print_scene(scene); // dev
-	return (scene);
+	print_scene(scene); // dev
+	return (clean_scene(scene));
 }

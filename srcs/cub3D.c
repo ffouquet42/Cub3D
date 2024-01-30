@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:35:27 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:52:15 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ int	main(int argc, char **argv)
 		return (ft_putstr(E_INIT_DATA, 2), 1);
 	if (parsing(argc, argv, &data))
 		return (1);
-	
-	// ajouter textures
-	// finir les structs
-	// finir les frees pour les structs
-	// parsing
-	// free mlx
-	// strchr utiliser ?
-
+	//
 	return (0);
 }
+
+/*
+ajouter textures
+finir les structs
+finir les frees pour les structs
+parsing
+free mlx
+strchr utiliser ?
+*/
 
 // dev
 void	print_scene(char **scene)

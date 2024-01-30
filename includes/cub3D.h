@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:46:06 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 13:15:02 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,13 @@ typedef struct s_data
 	t_game		*game;
 	t_raycast	*raycast;
 	char		**scene;
+	// char		**map;
 	
 	// t_img		*mini_img;
 	// t_img		textures[4];
 	// t_img		*img;
 	// int			floor[4];
 	// int			ceiling[4];
-	// char		**map;
 	// int			map_height;
 	// int			mouse_x;
 	// int			fc;
@@ -167,7 +167,7 @@ int		parsing(int argc, char **argv, t_data *data);
 //---------------   scene.c   ------------------//
 char	**get_scene(char *scene_path);
 int		scene_len(char *scene_path);
-
+char	**clean_scene(char **scene);
 
 //**********************************************//
 //					UTILS						//
