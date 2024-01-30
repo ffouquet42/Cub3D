@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 09:04:42 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:35:27 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ int	main(int argc, char **argv)
 	// finir les frees pour les structs
 	// parsing
 	// free mlx
+	// strchr utiliser ?
 
 	return (0);
+}
+
+// dev
+void	print_scene(char **scene)
+{
+	int i = 0;
+	while (scene[i])
+	{
+		printf("scene[%i] = %s", i, scene[i]);
+		i++;
+	}
+	printf("\nscene[%i] = %s\n", i, scene[i]);
 }
