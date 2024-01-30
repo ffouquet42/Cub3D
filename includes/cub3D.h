@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:32:35 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:46:06 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 //					DEFINES						//
 //**********************************************//
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 100
 
 
 //**********************************************//
@@ -126,11 +126,6 @@ typedef struct s_data
 	// double		movespeed;
 }			t_data;
 
-typedef struct s_lst
-{
-	void			*content;
-	struct s_lst	*next;
-}			t_lst;
 
 //**********************************************//
 //					PROTOTYPES					//

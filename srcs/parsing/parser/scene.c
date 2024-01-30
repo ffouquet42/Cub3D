@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:35:24 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:37:11 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ char	**get_scene(char *scene_path)
 			scene[++i] = get_next_line(fd);
 	}
 	scene[i] = NULL;
-	print_scene(scene); // dev
+	// print_scene(scene); // dev
 	return (scene);
 }

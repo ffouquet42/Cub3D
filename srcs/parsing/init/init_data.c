@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/28 12:04:19 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:36:59 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	init_data_2(t_data *data)
 	// data->game->texture = 0;
 	// data->game->cur_time = 0;
 	// data->game->old_time = 0;
-	// data->mini->mini_map_x = data->window_x - 10 - (data->window_x / 5);
-	// data->mini->mini_map_y = 10 + (data->window_y / 5);
 	// data->mini->display = 0;
 	// data->mouse_x = 0;
 	// data->rotation_speed = ROTSPEED;

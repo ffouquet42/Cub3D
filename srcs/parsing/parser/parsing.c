@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 09:12:21 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:39:43 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	parsing(int argc, char **argv, t_data *data)
 	data->scene = get_scene(argv[1]);
 	if (!data->scene)
 		return (ft_putstr(E_GET_SCENE, 2), 1);
-		
-	(void)data; // dev
+	print_scene(data->scene); // dev
+	
 	return (0);
 }
