@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 13:34:10 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 13:47:41 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@ int	parsing(int argc, char **argv, t_data *data)
 		return (ft_putstr(E_SORT_SCE, 2), 1);
 	print_scene(data->scene); // dev
 	
-	if (parse_scene(data) || parse_map(data))
+	if (parse_scene(data) || parse_map(data)) // <=
 		return (1); // ^^^ msg erreurs dans parse_...
 		
+	// check path img and init img ?
+	
 	return (0);
 }
+// <=
+// delete parse scene ? ou alors faire les premiers checks de img, textures path
