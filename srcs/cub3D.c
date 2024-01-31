@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:52:15 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 11:59:05 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,15 @@ void	print_scene(char **scene)
 		i++;
 	}
 	printf("\nscene[%i] = %s\n", i, scene[i]);
+}
+
+void	print_map(char **map)
+{
+	int i = 0;
+	while (map[i])
+	{
+		printf("map[%i] = %s", i, map[i]);
+		i++;
+	}
+	printf("map[%i] = %s\n", i, map[i]);
 }

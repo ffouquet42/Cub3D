@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 13:15:02 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 11:57:15 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ typedef struct s_data
 	t_game		*game;
 	t_raycast	*raycast;
 	char		**scene;
-	// char		**map;
+	char		**map;
 	
 	// t_img		*mini_img;
 	// t_img		textures[4];
@@ -160,6 +160,9 @@ int		init_mlx(t_data *data);
 //**********************************************//
 //					PARSER						//
 //**********************************************//
+
+//---------------   map.c   --------------------//
+char	**get_map(char **scene);
 
 //---------------   parsing.c   ----------------//
 int		parsing(int argc, char **argv, t_data *data);
@@ -212,5 +215,6 @@ size_t	ft_strlen(const char *str);
 
 // dev
 void	print_scene(char **scene);
+void	print_map(char **map);
 
 #endif

@@ -2,6 +2,7 @@ SRCS		=	srcs/cub3D.c					\
 				srcs/parsing/check/args.c		\
 				srcs/parsing/init/init_data.c	\
 				srcs/parsing/init/init_mlx.c	\
+				srcs/parsing/parser/map.c		\
 				srcs/parsing/parser/parsing.c	\
 				srcs/parsing/parser/scene.c		\
 				srcs/utils/libft/ft_calloc.c	\
