@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 11:36:59 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 12:41:58 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	init_data_2(t_data *data)
 {
+	data->e_scene->no = 0;
+	data->e_scene->so = 0;
+	data->e_scene->ea = 0;
+	data->e_scene->we = 0;
+	data->e_scene->f = 0;
+	data->e_scene->c = 0;
 	// data->game->key_w = 0;
 	// data->game->key_a = 0;
 	// data->game->key_s = 0;
@@ -33,7 +39,6 @@ void	init_data_2(t_data *data)
 	// data->mouse_active = 0;
 	// data->run = 0;
 	// data->movespeed = MOVESPEED;
-	(void)data; // dev
 }
 
 int	init_data(t_data *data)
@@ -47,6 +52,9 @@ int	init_data(t_data *data)
 		return (1);
 	data->raycast = malloc(sizeof(t_raycast));
 	if (!data->raycast)
+		return (1);
+	data->e_scene = malloc(sizeof(t_e_scene));
+	if (!data->e_scene)
 		return (1);
 	init_data_2(data);
 	init_mlx(data);

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 11:57:15 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 13:14:49 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,16 @@ typedef struct s_textures // sprite / texture
 	// t_img	*ea;
 }			t_textures;
 
+typedef struct s_e_scene
+{
+	int		no;
+	int		so;
+	int		ea;
+	int		we;
+	int		f;
+	int		c;
+}			t_e_scene;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -111,6 +121,7 @@ typedef struct s_data
 	t_raycast	*raycast;
 	char		**scene;
 	char		**map;
+	t_e_scene	*e_scene;
 	
 	// t_img		*mini_img;
 	// t_img		textures[4];
@@ -171,6 +182,11 @@ int		parsing(int argc, char **argv, t_data *data);
 char	**get_scene(char *scene_path);
 int		scene_len(char *scene_path);
 char	**clean_scene(char **scene);
+char	**remove_map_from_scene(t_data *data);
+
+//---------------   sort_scene.c   -------------//
+char	**sort_scene(t_data *data);
+int		all_identifiants(t_data *data);
 
 //**********************************************//
 //					UTILS						//

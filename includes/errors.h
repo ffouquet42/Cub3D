@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 11:53:10 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 12:57:46 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define E_PARS_ARGS COLOR_RED "Error\nNeed a single argument, a .cub map.\n" COLOR_RESET
 # define E_GET_SCENE COLOR_RED "Error\nGet scene failed.\n" COLOR_RESET
 # define E_GET_MAP COLOR_RED "Error\nGet map failed.\n" COLOR_RESET
+# define E_RM_MAP COLOR_RED "Error\nRemove map from scene failed.\n" COLOR_RESET
+# define E_SORT_SCE COLOR_RED "Error\nSort scene failed.\n" COLOR_RESET
 # define E_OPEN_FAIL COLOR_RED "Error\nOPEN FAILURE\n" COLOR_RESET
 
 #endif

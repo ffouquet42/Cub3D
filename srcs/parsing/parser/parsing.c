@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 11:57:21 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 13:11:05 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,17 @@ int	parsing(int argc, char **argv, t_data *data)
 	if (!data->scene)
 		return (ft_putstr(E_GET_SCENE, 2), 1);
 	print_scene(data->scene); // dev
-	
 	data->map = get_map(data->scene);
 	if (!data->map)
 		return (ft_putstr(E_GET_MAP, 2), 1);
 	print_map(data->map); // dev
-	
+	data->scene = remove_map_from_scene(data);
+	if (!data->scene)
+		return (ft_putstr(E_RM_MAP, 2), 1);
+	print_scene(data->scene); // dev
+	data->scene = sort_scene(data);
+	if (!data->scene)
+		return (ft_putstr(E_SORT_SCE, 2), 1);
+	print_scene(data->scene); // dev
 	return (0);
 }

@@ -6,11 +6,25 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 13:13:36 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 13:21:35 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
+
+char	**remove_map_from_scene(t_data *data)
+{
+	char	**new_scene;
+	int		i;
+	
+	new_scene = ft_calloc(sizeof(char *), 7);
+	if (!new_scene)
+		return (NULL);
+	i = -1;
+	while (i++ < 5)
+		new_scene[i] = data->scene[i]; // strdup ?
+	return (new_scene);
+}
 
 char	**clean_scene(char **scene)
 {
