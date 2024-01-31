@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 13:14:49 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/01/31 13:37:59 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,12 @@ int		init_mlx(t_data *data);
 //---------------   map.c   --------------------//
 char	**get_map(char **scene);
 
+//---------------   parse_map.c   --------------//
+int		parse_map(t_data *data);
+
+//---------------   parse_scene.c   ------------//
+int		parse_scene(t_data *data);
+
 //---------------   parsing.c   ----------------//
 int		parsing(int argc, char **argv, t_data *data);
 
@@ -187,6 +193,7 @@ char	**remove_map_from_scene(t_data *data);
 //---------------   sort_scene.c   -------------//
 char	**sort_scene(t_data *data);
 int		all_identifiants(t_data *data);
+
 
 //**********************************************//
 //					UTILS						//
