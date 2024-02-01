@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 08:17:45 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 10:29:42 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,12 @@ typedef struct s_data
 	char		**scene;
 	char		**map;
 	t_e_scene	*e_scene;
+	int			rgb_floor[3];
+	int			rgb_ceiling[3];
 	
 	// t_img		*mini_img;
 	// t_img		textures[4];
 	// t_img		*img;
-	// int			floor[4];
-	// int			ceiling[4];
 	// int			map_height;
 	// int			mouse_x;
 	// int			fc;
@@ -181,9 +181,15 @@ int		parse_map(t_data *data);
 //---------------   parse_scene.c   ------------//
 int		parse_scene(t_data *data);
 int		path_is_xpm(char *path);
+int		check_rgb(char *rgb);
 
 //---------------   parsing.c   ----------------//
 int		parsing(int argc, char **argv, t_data *data);
+
+//---------------   rgb.c   --------------------//
+int		count_comma(char *str);
+int		rgb_format(char *str);
+int		rgb_value(char *str);
 
 //---------------   scene.c   ------------------//
 char	**get_scene(char *scene_path);
@@ -199,6 +205,11 @@ int		all_identifiants(t_data *data);
 //**********************************************//
 //					UTILS						//
 //**********************************************//
+
+//---------------   digit.c   ------------------//
+int		only_digit_or_comma(char *str);
+int		only_digit(char *str);
+int		is_digit(char c);
 
 //---------------   exit.c   -------------------//
 void 	exit_1(t_data *data);
@@ -219,6 +230,8 @@ int		line_is_empty(char *str);
 //**********************************************//
 //					LIBFT						//
 //**********************************************//
+
+//---------------   ft_atoi.c   ----------------//
 
 //---------------   ft_calloc.c   --------------//
 void	*ft_calloc(size_t nmemb, size_t size);

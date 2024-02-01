@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 08:22:13 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 09:58:16 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define E_RM_MAP COLOR_RED "Error\nRemove map from scene failed.\n" COLOR_RESET
 # define E_SORT_SCE COLOR_RED "Error\nSort scene failed.\n" COLOR_RESET
 # define E_OPEN_FAIL COLOR_RED "Error\nOPEN FAILURE\n" COLOR_RESET
-# define E_NO_XPM COLOR_RED "Error\nNeed .xpm files for textures\n" COLOR_RESET
+# define E_NO_XPM COLOR_RED "Error\nNeed .xpm files for textures.\n" COLOR_RESET
+# define E_RGB COLOR_RED "Error\nInvalid RGB values.\n" COLOR_RESET
 
 #endif
