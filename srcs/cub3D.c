@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 09:05:08 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:30:16 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,15 @@ void	print_map(char **map)
 		i++;
 	}
 	printf("map[%i] = %s\n", i, map[i]);
+}
+
+void	print_rgb(t_data *data)
+{
+	printf("floor[0] = %i\n", data->rgb_floor[0]);
+	printf("floor[1] = %i\n", data->rgb_floor[1]);
+	printf("floor[2] = %i\n", data->rgb_floor[2]);
+
+	printf("ceiling[0] = %i\n", data->rgb_ceiling[0]);
+	printf("ceiling[1] = %i\n", data->rgb_ceiling[1]);
+	printf("ceiling[2] = %i\n", data->rgb_ceiling[2]);
 }

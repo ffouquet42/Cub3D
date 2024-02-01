@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 13:47:41 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:35:18 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	parsing(int argc, char **argv, t_data *data)
 	
 	if (parse_scene(data) || parse_map(data)) // <=
 		return (1); // ^^^ msg erreurs dans parse_...
-		
+	print_rgb(data);
+
 	// check path img and init img ?
 	
 	return (0);

@@ -6,16 +6,16 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 10:29:59 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:14:54 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-int	check_rgb(char *rgb)
+int	check_rgb(char *rgb, t_data *data, int fc)
 {
 	if (only_digit_or_comma(&rgb[1]) || count_comma(&rgb[1])
-		|| rgb_format(&rgb[1]) || rgb_value(&rgb[1]))
+		|| rgb_format(&rgb[1]) || rgb_value(&rgb[1], data, fc))
 		return (1);
 	return (0);
 }
@@ -33,6 +33,7 @@ int	path_is_xpm(char *path)
 int	parse_scene(t_data *data)
 {
 	int	i;
+	int	fc;
 
 	i = 0;
 	while (i < 4)
@@ -41,11 +42,13 @@ int	parse_scene(t_data *data)
 			return (ft_putstr(E_NO_XPM, 2), 1);
 		i++;
 	}
+	fc = 0;
 	while (i < 6)
 	{
-		if (check_rgb(data->scene[i]))
+		if (check_rgb(data->scene[i], data, fc))
 			return (ft_putstr(E_RGB, 2), 1);
 		i++;
+		fc++;
 	}
 	return (0);
 }

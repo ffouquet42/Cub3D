@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 10:29:42 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:34:30 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ int		parse_map(t_data *data);
 //---------------   parse_scene.c   ------------//
 int		parse_scene(t_data *data);
 int		path_is_xpm(char *path);
-int		check_rgb(char *rgb);
+int		check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   parsing.c   ----------------//
 int		parsing(int argc, char **argv, t_data *data);
@@ -189,7 +189,9 @@ int		parsing(int argc, char **argv, t_data *data);
 //---------------   rgb.c   --------------------//
 int		count_comma(char *str);
 int		rgb_format(char *str);
-int		rgb_value(char *str);
+int		rgb_value(char *str, t_data *data, int fc);
+int		save_rgb_value(char *str, t_data *data, int rgb, int fc);
+int		correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
 char	**get_scene(char *scene_path);
@@ -232,6 +234,7 @@ int		line_is_empty(char *str);
 //**********************************************//
 
 //---------------   ft_atoi.c   ----------------//
+int		ft_atoi(const char *str);
 
 //---------------   ft_calloc.c   --------------//
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -253,5 +256,6 @@ size_t	ft_strlen(const char *str);
 // dev
 void	print_scene(char **scene);
 void	print_map(char **map);
+void	print_rgb(t_data *data);
 
 #endif
