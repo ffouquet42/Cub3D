@@ -6,13 +6,13 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:58:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 09:59:07 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 08:12:37 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c) // used?
 {
 	const char	*ptr;
 
