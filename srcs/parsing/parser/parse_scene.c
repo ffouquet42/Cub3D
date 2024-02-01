@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 11:14:54 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:45:19 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	check_rgb(char *rgb, t_data *data, int fc)
 	return (0);
 }
 
-int	path_is_xpm(char *path)
+int	path_is_xpm(char *path) // + check si valide
 {
 	int	i;
-	i = ft_strlen(path) - 5;
+	i = ft_strlen(path) - 5; // change si malloc ?
 	if (path[i] != '.' || path[i + 1] != 'x' ||
 		path[i + 2] != 'p' || path[i + 3] != 'm')
 		return (1);

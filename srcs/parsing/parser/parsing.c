@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 11:35:18 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:46:26 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,3 @@ int	parsing(int argc, char **argv, t_data *data)
 	
 	return (0);
 }
-// <=
-// delete parse scene ? ou alors faire les premiers checks de img, textures path
