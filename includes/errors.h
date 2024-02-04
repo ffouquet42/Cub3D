@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 09:58:16 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 03:15:01 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 # define E_OPEN_FAIL COLOR_RED "Error\nOPEN FAILURE\n" COLOR_RESET
 # define E_NO_XPM COLOR_RED "Error\nNeed .xpm files for textures.\n" COLOR_RESET
 # define E_RGB COLOR_RED "Error\nInvalid RGB values.\n" COLOR_RESET
+# define E_MAP_CHAR COLOR_RED "Error\nInvalid char for map.\n" COLOR_RESET
+# define E_ONE_START COLOR_RED "Error\nNeed one start position.\n" COLOR_RESET
 
 #endif

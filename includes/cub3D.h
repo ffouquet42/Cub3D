@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 11:34:30 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 02:14:25 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,8 @@ char	**get_map(char **scene);
 
 //---------------   parse_map.c   --------------//
 int		parse_map(t_data *data);
+int		check_map_char(t_data *data);
+int		is_map_char(char c, char *set);
 
 //---------------   parse_scene.c   ------------//
 int		parse_scene(t_data *data);
@@ -245,6 +247,9 @@ void	ft_putstr(char *str, int fd);
 
 //---------------   ft_strchr.c   --------------//
 char	*ft_strchr(const char *s, int c);
+
+//---------------   ft_strdup.c   --------------//
+char	*ft_strdup(const char *s);
 
 //---------------   ft_strlen.c   --------------//
 size_t	ft_strlen(const char *str);

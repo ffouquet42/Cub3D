@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 11:30:16 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 01:51:30 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ finir les frees pour les structs
 parsing
 free mlx
 strchr utiliser ?
+trouver textures
 */
 
 // dev

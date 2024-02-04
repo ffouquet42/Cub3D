@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 03:07:26 by fllanet          ###   ########.fr       */
+/*   Created: 2024/02/04 02:13:48 by fllanet           #+#    #+#             */
+/*   Updated: 2024/02/04 02:14:05 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-char	**get_map(char **scene)
+char	*ft_strdup(const char *s)
 {
-	char	**map;
 	int		i;
-	int		j;
-	int		x;
+	char	*tmp;
+	char	*dest;
 
-	i = 6;
-	j = 0;
-	x = 0;
-	while (scene[i++])
-		j++;
-	printf("j = %i\n", j); // dev
-	map = malloc(sizeof(char *) * (j + 1));
-	if (!map)
+	tmp = (char *)s;
+	i = 0;
+	while (tmp[i])
+		i++;
+	dest = malloc(sizeof(char) * (i + 1));
+	if (!dest)
 		return (NULL);
-	i = 6;
-	while (scene[i])
-		map[x++] = ft_strdup(scene[i++]);
-	map[x] = NULL;
-	return (map);
+	i = 0;
+	while (tmp[i])
+	{
+		dest[i] = tmp[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
