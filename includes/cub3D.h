@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 02:14:25 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 16:23:36 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ typedef struct s_data
 	t_raycast	*raycast;
 	char		**scene;
 	char		**map;
+	int			map_height;
+	int			map_width;
 	t_e_scene	*e_scene;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
@@ -173,12 +175,16 @@ int		init_mlx(t_data *data);
 //**********************************************//
 
 //---------------   map.c   --------------------//
-char	**get_map(char **scene);
+char	**get_map(char **scene, t_data *data);
+void	get_map_size(char **map, t_data *data);
+char	**resize_map(char **map, t_data *data);
 
 //---------------   parse_map.c   --------------//
 int		parse_map(t_data *data);
 int		check_map_char(t_data *data);
 int		is_map_char(char c, char *set);
+int		one_start_pos(t_data *data);
+int		is_start_char(char c, char *set);
 
 //---------------   parse_scene.c   ------------//
 int		parse_scene(t_data *data);
@@ -205,6 +211,8 @@ char	**remove_map_from_scene(t_data *data);
 char	**sort_scene(t_data *data);
 int		all_identifiants(t_data *data);
 
+//---------------   wall.c   -------------------//
+int		closed_by_wall(t_data *data);
 
 //**********************************************//
 //					UTILS						//

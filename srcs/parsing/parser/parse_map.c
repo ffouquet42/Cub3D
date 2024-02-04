@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 03:20:35 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 16:54:17 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_map_char(char c, char *set)
 	i = 0;
 	while (set[i])
 	{
-		if (c == set[i] || c == '\n')
+		if (c == set[i])
 			return (1);
 		i++;
 	}
@@ -93,9 +93,7 @@ int	parse_map(t_data *data)
 		return (ft_putstr(E_MAP_CHAR, 2), 1);
 	if (one_start_pos(data))
 		return (ft_putstr(E_ONE_START, 2), 1);
+	if (closed_by_wall(data))
+		return (ft_putstr(E_CLO_WALL, 2), 1);
 	return (0);
 }
-
-/*
-2. Map doit etre fermer / entouree de mur
-*/

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 01:51:30 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 16:53:32 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void	print_map(char **map)
 	int i = 0;
 	while (map[i])
 	{
-		printf("map[%i] = %s", i, map[i]);
+		printf("map[%i] = [%s]\n", i, map[i]);
 		i++;
 	}
-	printf("map[%i] = %s\n", i, map[i]);
+	printf("map[%i] = [%s]\n", i, map[i]);
 }
 
 void	print_rgb(t_data *data)

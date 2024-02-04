@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 03:15:01 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 15:35:07 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@
 # define E_RGB COLOR_RED "Error\nInvalid RGB values.\n" COLOR_RESET
 # define E_MAP_CHAR COLOR_RED "Error\nInvalid char for map.\n" COLOR_RESET
 # define E_ONE_START COLOR_RED "Error\nNeed one start position.\n" COLOR_RESET
+# define E_CLO_WALL COLOR_RED "Error\nMap must be closed by walls.\n" COLOR_RESET
 
 #endif
