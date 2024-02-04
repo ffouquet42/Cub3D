@@ -6,13 +6,13 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 16:54:52 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 16:56:35 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-char	**resize_map(char **map, t_data *data) // char de trop
+char	**resize_map(char **map, t_data *data)
 {
 	int		y;
 	int		x;

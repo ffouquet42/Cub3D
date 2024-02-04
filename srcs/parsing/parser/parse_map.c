@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 16:54:17 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/04 16:56:02 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_map_char(char c, char *set)
 	i = 0;
 	while (set[i])
 	{
-		if (c == set[i])
+		if (c == set[i]) // + \n ?
 			return (1);
 		i++;
 	}
