@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/05 18:49:25 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/05 20:34:14 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,9 @@ int		all_identifiants(t_data *data);
 int		closed_by_wall(t_data *data);
 char	**copy_map(t_data *data);
 int		fill_map(t_data *data, char **map, char *to_replace);
+int		no_void_around(t_data *data, char **map);
+int		test_around(char **map, int y, int x);
+
 
 //**********************************************//
 //					UTILS						//

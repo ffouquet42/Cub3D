@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/05 18:56:11 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/05 20:34:29 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,47 @@
 // 	printf("#####\n"); // dev
 // 	print_map(map);
 // 	printf("#####\n"); // dev
+
+int	test_around(char **map, int y, int x)
+{
+	if (map[y - 1][x - 1] != '1' || map[y - 1][x - 1] != '-')
+		return (1);
+	if (map[y - 1][x] != '1' || map[y - 1][x] != '-')
+		return (1);
+	if (map[y - 1][x + 1] != '1' || map[y - 1][x + 1] != '-')
+		return (1);
+	if (map[y][x - 1] != '1' || map[y][x - 1] != '-')
+		return (1);
+	if (map[y][x + 1] != '1' || map[y][x + 1] != '-')
+		return (1);
+	if (map[y + 1][x - 1] != '1' || map[y + 1][x - 1] != '-')
+		return (1);
+	if (map[y + 1][x] != '1' || map[y + 1][x] != '-')
+		return (1);
+	if (map[y + 1][x + 1] != '1' || map[y + 1][x + 1] != '-')
+		return (1);
+	return (0);
+}
+
+int	no_void_around(t_data *data, char **map)
+{
+	int	y;
+	int	x;
+
+	y = 1;
+	while (y < data->map_height - 1)
+	{
+		x = 1;
+		while (x < data->map_width - 1)
+		{
+			if (test_around(map, y, x))
+				return (1);
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
 
 int	fill_map(t_data *data, char **map, char *to_replace)
 {
@@ -36,6 +77,8 @@ int	fill_map(t_data *data, char **map, char *to_replace)
 	printf("#####\n"); // dev
 	print_map(map); // dev
 	printf("#####\n"); // dev
+	if (no_void_around(data, map))
+		return (1);
 	return (0);
 }
 
@@ -93,8 +136,5 @@ remplir de A
 check autour des A
 reprendre celui de so long du coup ?
 verif les espaces en pleins milieu de la map bien entourer par des murs
+ca fait quoi si ya deja des '-' dans la map ? sur les bords ou autres
 */
-
-// printf("+++\n"); // dev
-// print_map(map_cpy);
-// printf("+++\n"); // dev
