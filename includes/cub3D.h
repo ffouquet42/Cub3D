@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 16:23:36 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/05 18:49:25 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ int		parse_map(t_data *data);
 int		check_map_char(t_data *data);
 int		is_map_char(char c, char *set);
 int		one_start_pos(t_data *data);
-int		is_start_char(char c, char *set);
+int		char_is_in_set(char c, char *set);
 
 //---------------   parse_scene.c   ------------//
 int		parse_scene(t_data *data);
@@ -213,6 +213,8 @@ int		all_identifiants(t_data *data);
 
 //---------------   wall.c   -------------------//
 int		closed_by_wall(t_data *data);
+char	**copy_map(t_data *data);
+int		fill_map(t_data *data, char **map, char *to_replace);
 
 //**********************************************//
 //					UTILS						//

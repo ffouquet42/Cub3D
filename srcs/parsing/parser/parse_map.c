@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 16:56:02 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/05 18:49:12 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // printf("c = %c\n", c); // dev
 // printf("y = %i\n", y); // dev
 
-int	is_start_char(char c, char *set)
+int	char_is_in_set(char c, char *set)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ int	one_start_pos(t_data *data)
 		x = 0;
 		while (data->map[y][x])
 		{
-			if (is_start_char(data->map[y][x], "NSEW"))
+			if (char_is_in_set(data->map[y][x], "NSEW"))
 				pos++;
 			x++;
 		}
