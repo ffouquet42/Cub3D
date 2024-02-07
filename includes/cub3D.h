@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 14:13:07 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:30:56 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,5 +282,6 @@ size_t	ft_strlen(const char *str);
 void	print_scene(char **scene);
 void	print_map(char **map);
 void	print_rgb(t_data *data);
+void	print_img(t_data *data);
 
 #endif

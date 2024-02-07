@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 14:15:15 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:30:38 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,21 @@ void	print_rgb(t_data *data)
 	printf("ceiling[0] = %i\n", data->rgb_ceiling[0]);
 	printf("ceiling[1] = %i\n", data->rgb_ceiling[1]);
 	printf("ceiling[2] = %i\n", data->rgb_ceiling[2]);
+}
+
+void	print_img(t_data *data)
+{
+	int i = 0;
+
+	while (i < 4)
+	{
+		printf("img[%i].addr         = %s\n", i, data->images[i].addr);
+		printf("img[%i].bpp          = %i\n", i, data->images[i].bpp);
+		printf("img[%i].rowlen       = %i\n", i, data->images[i].rowlen);
+		printf("img[%i].end          = %i\n", i, data->images[i].end);
+		printf("img[%i].image_height = %i\n", i, data->images[i].img_height);
+		printf("img[%i].image_width  = %i\n", i, data->images[i].img_width);
+		i++;
+	}
 }
 // dev
