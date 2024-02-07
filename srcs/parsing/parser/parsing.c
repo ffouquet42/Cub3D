@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 16:48:21 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 12:54:19 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	parsing(int argc, char **argv, t_data *data)
 	printf("----------\n"); // dev
 	print_map(data->map); // dev
 	printf("----------\n"); // dev
-	printf("* map_h = %i\n", data->map_height); // dev
-	printf("* map_w = %i\n", data->map_width); // dev
+	printf("* map_height = %i\n", data->map_height); // dev
+	printf("* map_width  = %i\n", data->map_width); // dev
 
 	data->scene = remove_map_from_scene(data);
 	if (!data->scene)
@@ -41,8 +41,8 @@ int	parsing(int argc, char **argv, t_data *data)
 		return (ft_putstr(E_SORT_SCE, 2), 1);
 	print_scene(data->scene); // dev
 	
-	if (parse_scene(data) || parse_map(data)) // <=
-		return (1); // ^^^ msg erreurs dans parse_...
+	if (parse_scene(data) || parse_map(data))
+		return (1);
 	print_rgb(data);
 
 	// check path img and init img ?

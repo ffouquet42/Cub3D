@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/31 12:41:58 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 13:51:51 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ void	init_data_2(t_data *data)
 	data->e_scene->we = 0;
 	data->e_scene->f = 0;
 	data->e_scene->c = 0;
+	data->images[0].mlx_img = NULL;
+	data->images[1].mlx_img = NULL;
+	data->images[2].mlx_img = NULL;
+	data->images[3].mlx_img = NULL;
+	
 	// data->game->key_w = 0;
-	// data->game->key_a = 0;
+	// data->game->key_a = 0;images
 	// data->game->key_s = 0;
 	// data->game->key_d = 0;
 	// data->game->key_left = 0;
@@ -32,10 +37,6 @@ void	init_data_2(t_data *data)
 	// data->mini->display = 0;
 	// data->mouse_x = 0;
 	// data->rotation_speed = ROTSPEED;
-	// data->textures[NO_TEXT].mlx_img = NULL;
-	// data->textures[SO_TEXT].mlx_img = NULL;
-	// data->textures[EA_TEXT].mlx_img = NULL;
-	// data->textures[WE_TEXT].mlx_img = NULL;
 	// data->mouse_active = 0;
 	// data->run = 0;
 	// data->movespeed = MOVESPEED;

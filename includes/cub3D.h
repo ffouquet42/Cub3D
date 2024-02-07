@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/05 20:34:14 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 13:37:26 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,22 @@ typedef struct s_game
 
 typedef struct s_image
 {
-	// void	*mlx_img;
-	// char	*addr;
-	// int		bpp;
-	// int		rowlen;
-	// int		end;
-	// int		tex_width;
-	// int		tex_height;
+	void	*mlx_img;	// rename
+	char	*addr;		// rename
+	int		bpp;		// rename
+	int		rowlen;		// rename
+	int		end;		// rename
+	int		img_height;
+	int		img_width;
 }			t_image;
 
-typedef struct s_textures // sprite / texture
+typedef struct s_texture
 {
-	// t_img	*no;
-	// t_img	*so;
-	// t_img	*we;
-	// t_img	*ea;
-}			t_textures;
+	// t_image	*no; // rename
+	// t_image	*so; // rename
+	// t_image	*we; // rename
+	// t_image	*ea; // rename
+}			t_texture;
 
 typedef struct s_e_scene
 {
@@ -126,11 +126,10 @@ typedef struct s_data
 	t_e_scene	*e_scene;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
+	t_image		images[4];
 	
 	// t_img		*mini_img;
-	// t_img		textures[4];
 	// t_img		*img;
-	// int			map_height;
 	// int			mouse_x;
 	// int			fc;
 	// double		rotation_speed;
@@ -166,6 +165,13 @@ int		check_args(int argc, char **argv);
 //---------------   init_data.c   --------------//
 int		init_data(t_data *data);
 void	init_data_2(t_data *data);
+
+//---------------   init_game.c   --------------//
+int		init_game(t_data *data);
+
+//---------------   init_images.c   ------------//
+int		init_images(t_data *data);
+int		init_image(t_data *data, int i);
 
 //---------------   init_mlx.c   ---------------//
 int		init_mlx(t_data *data);

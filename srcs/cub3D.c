@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/04 16:53:32 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 13:05:40 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int	main(int argc, char **argv)
 	if (init_data(&data))
 		return (ft_putstr(E_INIT_DATA, 2), 1);
 	if (parsing(argc, argv, &data))
-		return (1); // + free all
-	//
+		return (1); // + free all (end of prog)
+	if (init_game(&data))
+		return (1); // + free ...
 	return (0);
 }
 
@@ -66,3 +67,4 @@ void	print_rgb(t_data *data)
 	printf("ceiling[1] = %i\n", data->rgb_ceiling[1]);
 	printf("ceiling[2] = %i\n", data->rgb_ceiling[2]);
 }
+// dev
