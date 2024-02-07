@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:26:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 10:25:23 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:16:03 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_digit(char c)
 	return (0);
 }
 
-int	only_digit(char *str) // used?
+int	only_digit(char *str) // Verif si utiliser
 {
 	int	i;
 	int	len;

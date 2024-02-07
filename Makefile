@@ -15,7 +15,6 @@ SRCS		=	srcs/cub3D.c						\
 				srcs/utils/libft/ft_atoi.c			\
 				srcs/utils/libft/ft_calloc.c		\
 				srcs/utils/libft/ft_putstr.c		\
-				srcs/utils/libft/ft_strchr.c		\
 				srcs/utils/libft/ft_strdup.c		\
 				srcs/utils/libft/ft_strlen.c		\
 				srcs/utils/digit.c					\

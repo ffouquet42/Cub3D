@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 13:37:26 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:13:07 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,13 @@ typedef struct s_raycast
 
 typedef struct s_game
 {
-	// double	p_pos_x;
-	// double	p_pos_y;
-	// double	p_ori_x;
-	// double	p_ori_y;
-	// double	plane_x;
-	// double	plane_y;
+	double	player_pos_x;
+	double	player_pos_y;
+	double	player_ori_x;
+	double	player_ori_y;
+	double	plane_x; //
+	double	plane_y; //
+	
 	// double	cur_time;
 	// double	old_time;
 	// int		key_w;
@@ -168,6 +169,9 @@ void	init_data_2(t_data *data);
 
 //---------------   init_game.c   --------------//
 int		init_game(t_data *data);
+int		get_player_pos(t_data *data);
+void	get_first_orientation(t_data *data, char c);
+void	get_first_orientation_two(t_data *data, char c);
 
 //---------------   init_images.c   ------------//
 int		init_images(t_data *data);
@@ -263,9 +267,6 @@ void	ft_bzero(void *s, size_t n);
 
 //---------------   ft_putstr.c   --------------//
 void	ft_putstr(char *str, int fd);
-
-//---------------   ft_strchr.c   --------------//
-char	*ft_strchr(const char *s, int c);
 
 //---------------   ft_strdup.c   --------------//
 char	*ft_strdup(const char *s);

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 13:05:40 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:15:15 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,24 @@ int	main(int argc, char **argv)
 {
 	t_data data;
 
+	// PARSING - FLO
 	if (init_data(&data))
 		return (ft_putstr(E_INIT_DATA, 2), 1);
 	if (parsing(argc, argv, &data))
 		return (1); // + free all (end of prog)
 	if (init_game(&data))
 		return (1); // + free ...
+		
+	// EXEC - MICKA
+	
 	return (0);
 }
 
-/*
-finir les structs
-finir les frees pour les structs
-parsing
-free mlx
-strchr utiliser ?
-trouver textures
-*/
 
-// dev
+// Y'a full leaks j'ai pas encore fait les frees ect
+
+
+// dev (fonctions pour visualiser les structs dans le terminal pendant le dev, a supprimer avant de rendre le projet)
 void	print_scene(char **scene)
 {
 	int i = 0;

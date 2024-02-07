@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 13:52:22 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:20:00 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	init_images(t_data *data)
 	while (i < 4)
 	{
 		if (init_image(data, i))
-			return (0); // return (1)
+			return (0); // Doit etre return 1 mais la fonction au dessus bug
 	}
 	return (0);
 }

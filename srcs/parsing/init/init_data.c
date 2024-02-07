@@ -6,12 +6,13 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 13:51:51 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:17:56 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
+// decommenter si besoin des lignes dont j'ai pas eu besoin pour le parsing mais que peut etre t'aura besoin pour l'exec
 void	init_data_2(t_data *data)
 {
 	data->e_scene->no = 0;
@@ -42,6 +43,7 @@ void	init_data_2(t_data *data)
 	// data->movespeed = MOVESPEED;
 }
 
+// init la struct data
 int	init_data(t_data *data)
 {
 	data->mlx = NULL;

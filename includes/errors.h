@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 13:45:56 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/07 14:01:07 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@
 # define E_CLO_WALL COLOR_RED "Error\nMap must be closed by walls.\n" COLOR_RESET
 # define E_INIT_IMG COLOR_RED "Error\nInit images failed.\n" COLOR_RESET
 # define E_MLX_WIN COLOR_RED "Error\nmlx new window failed.\n" COLOR_RESET
+# define E_GET_P_POS COLOR_RED "Error\nGet player pos failed.\n" COLOR_RESET
 
 #endif
