@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 15:30:38 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/08 16:12:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
-
-int	main(int argc, char **argv)
-{
-	t_data data;
-
-	// PARSING - FLO
-	if (init_data(&data))
-		return (ft_putstr(E_INIT_DATA, 2), 1);
-	if (parsing(argc, argv, &data))
-		return (1); // + free all (end of prog)
-	if (init_game(&data))
-		return (1); // + free ...
-		
-	// EXEC - MICKA
-	
-	return (0);
-}
-
 
 // Y'a full leaks j'ai pas encore fait les frees ect
 
@@ -81,5 +63,22 @@ void	print_img(t_data *data)
 		printf("img[%i].image_width  = %i\n", i, data->images[i].img_width);
 		i++;
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_data data;
+
+	// PARSING - FLO
+	if (init_data(&data))
+		return (ft_putstr(E_INIT_DATA, 2), 1);
+	if (parsing(argc, argv, &data))
+		return (1); // + free all (end of prog)
+	if (init_game(&data))
+		return (1); // + free ...
+		
+	// EXEC - MICKA
+	
+	return (0);
 }
 // dev
