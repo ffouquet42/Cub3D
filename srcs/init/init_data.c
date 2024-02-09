@@ -6,11 +6,19 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/09 18:10:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:30:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+int	init_mlx(t_data *data)
+{
+	data->mlx = mlx_init();
+	if (!data->mlx)
+		exit_1(data); // je doit refaire les exits et free
+	return (0);
+}
 
 // decommenter si besoin des lignes dont j'ai pas eu besoin pour le parsing mais que peut etre t'aura besoin pour l'exec
 void	init_data_2(t_data *data)
