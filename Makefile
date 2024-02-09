@@ -12,11 +12,7 @@ SRCS		=	srcs/cub3D.c						\
 				srcs/parsing/parser/scene.c			\
 				srcs/parsing/parser/sort_scene.c	\
 				srcs/parsing/parser/wall.c			\
-				srcs/utils/libft/ft_atoi.c			\
-				srcs/utils/libft/ft_calloc.c		\
-				srcs/utils/libft/ft_putstr.c		\
-				srcs/utils/libft/ft_strdup.c		\
-				srcs/utils/libft/ft_strlen.c		\
+				srcs/utils/libft.c					\
 				srcs/utils/digit.c					\
 				srcs/utils/exit.c					\
 				srcs/utils/free.c					\
