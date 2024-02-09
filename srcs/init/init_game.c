@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 15:31:20 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/09 18:10:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	get_first_orientation_two(t_data *data, char c) //
 {

@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/09 17:18:33 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:10:49 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	init_image(t_data *data, int i)
 {
