@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 16:13:54 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/09 17:18:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	init_images(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		path = malloc(sizeof(char) * (ft_strlen(data->scene[i])))
+		path = malloc(sizeof(char) * (ft_strlen(data->scene[i])));
 		if (init_image(data, i))
 			return (1); // Doit etre return 1 mais la fonction au dessus bug
 	}
