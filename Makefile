@@ -14,10 +14,8 @@ SRCS		=	srcs/cub3D.c						\
 				srcs/parsing/parser/wall.c			\
 				srcs/utils/libft.c					\
 				srcs/utils/digit.c					\
-				srcs/utils/exit.c					\
 				srcs/utils/free.c					\
 				srcs/utils/get_next_line.c			\
-				srcs/utils/line.c					\
 
 OBJS		=	$(SRCS:.c=.o)
 
