@@ -6,12 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/09 18:06:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:20:28 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
 
 void exit_1(t_data *data)
 {

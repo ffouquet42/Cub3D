@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 12:05:52 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/29 08:40:19 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/09 18:23:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	check_args(int argc, char **argv)
 	while (argv[1][i])
 		i++;
 	i -= 4;
+
+	// is_cub
+	
 	if (argv[1][i] != '.' || argv[1][i + 1] != 'c' ||
 		argv[1][i + 2] != 'u' || argv[1][i + 3] != 'b')
 		return (1);
