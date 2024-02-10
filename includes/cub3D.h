@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:54:49 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:01:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ void	get_first_orientation_two(t_data *data, char c);
 //---------------   init_images.c   ------------//
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
+bool	clean_nl_scene(t_data *data);
 
 //**********************************************//
 //					PARSER						//
