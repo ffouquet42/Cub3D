@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 15:30:56 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/10 14:54:49 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
+#include <stdbool.h>
 
 
 //**********************************************//
@@ -147,38 +148,28 @@ typedef struct s_data
 //---------------   cub3D.c   ------------------//
 int		main(int argc, char **argv);
 
-
 //**********************************************//
 //					PARSING						//
 //**********************************************//
-
-//**********************************************//
-//					CHECK						//
-//**********************************************//
-
-//---------------   args.c   -------------------//
-int		check_args(int argc, char **argv);
 
 //**********************************************//
 //					INIT						//
 //**********************************************//
 
 //---------------   init_data.c   --------------//
-int		init_data(t_data *data);
+bool	init_data(t_data *data);
 void	init_data_2(t_data *data);
+bool	init_mlx(t_data *data);
 
 //---------------   init_game.c   --------------//
-int		init_game(t_data *data);
-int		get_player_pos(t_data *data);
+bool	init_game(t_data *data);
+bool	get_player_pos(t_data *data);
 void	get_first_orientation(t_data *data, char c);
 void	get_first_orientation_two(t_data *data, char c);
 
 //---------------   init_images.c   ------------//
-int		init_images(t_data *data);
-int		init_image(t_data *data, int i);
-
-//---------------   init_mlx.c   ---------------//
-int		init_mlx(t_data *data);
+bool	init_images(t_data *data);
+bool	init_image(t_data *data, int i);
 
 //**********************************************//
 //					PARSER						//
@@ -190,43 +181,45 @@ void	get_map_size(char **map, t_data *data);
 char	**resize_map(char **map, t_data *data);
 
 //---------------   parse_map.c   --------------//
-int		parse_map(t_data *data);
-int		check_map_char(t_data *data);
-int		is_map_char(char c, char *set);
-int		one_start_pos(t_data *data);
-int		char_is_in_set(char c, char *set);
+bool	parse_map(t_data *data);
+bool	check_map_char(t_data *data);
+bool	is_map_char(char c, char *set);
+bool	one_start_pos(t_data *data);
+bool	char_is_in_set(char c, char *set);
 
 //---------------   parse_scene.c   ------------//
-int		parse_scene(t_data *data);
-int		path_is_xpm(char *path);
-int		check_rgb(char *rgb, t_data *data, int fc);
+bool	parse_scene(t_data *data);
+bool	path_is_xpm(char *path);
+bool	check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   parsing.c   ----------------//
-int		parsing(int argc, char **argv, t_data *data);
+bool	parsing(int argc, char **argv, t_data *data);
+bool	check_args(int argc, char **argv);
 
 //---------------   rgb.c   --------------------//
-int		count_comma(char *str);
-int		rgb_format(char *str);
-int		rgb_value(char *str, t_data *data, int fc);
-int		save_rgb_value(char *str, t_data *data, int rgb, int fc);
-int		correct_rgb_value(t_data *data);
+bool	count_comma(char *str);
+bool	rgb_format(char *str);
+bool	rgb_value(char *str, t_data *data, int fc);
+bool	save_rgb_value(char *str, t_data *data, int rgb, int fc);
+bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
 char	**get_scene(char *scene_path);
 int		scene_len(char *scene_path);
+bool	line_is_empty(char *str);
 char	**clean_scene(char **scene);
 char	**remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
 char	**sort_scene(t_data *data);
-int		all_identifiants(t_data *data);
+bool	all_identifiants(t_data *data);
 
 //---------------   wall.c   -------------------//
-int		closed_by_wall(t_data *data);
+bool	closed_by_wall(t_data *data);
 char	**copy_map(t_data *data);
-int		fill_map(t_data *data, char **map, char *to_replace);
-int		no_void_around(t_data *data, char **map);
-int		test_around(char **map, int y, int x);
+bool	fill_map(t_data *data, char **map, char *to_replace);
+bool	no_void_around(t_data *data, char **map);
+bool	test_around(char **map, int y, int x);
 
 
 //**********************************************//
@@ -234,44 +227,30 @@ int		test_around(char **map, int y, int x);
 //**********************************************//
 
 //---------------   digit.c   ------------------//
-int		only_digit_or_comma(char *str);
-int		only_digit(char *str);
-int		is_digit(char c);
-
-//---------------   exit.c   -------------------//
-void 	exit_1(t_data *data);
+bool	only_digit_or_comma(char *str);
+bool	only_digit(char *str);
+bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
+void 	exit_1(t_data *data);
 void	free_data_1(t_data *data);
 
 //---------------   get_next_line.c   ----------//
 char	*get_next_line(int fd);
 char	*merge_stash_and_buff(char *stash, char *buff);
 char	*buff_to_stash(char *buff);
-int		search_newline(const char *buff);
+bool	search_newline(const char *buff);
 char	*stash_to_line(char *stash, char *buf);
-
-//---------------   line.c   -------------------//
-int		line_is_empty(char *str);
 
 //**********************************************//
 //					LIBFT						//
 //**********************************************//
 
-//---------------   ft_atoi.c   ----------------//
 int		ft_atoi(const char *str);
-
-//---------------   ft_calloc.c   --------------//
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-
-//---------------   ft_putstr.c   --------------//
 void	ft_putstr(char *str, int fd);
-
-//---------------   ft_strdup.c   --------------//
 char	*ft_strdup(const char *s);
-
-//---------------   ft_strlen.c   --------------//
 size_t	ft_strlen(const char *str);
 
 //**********************************************//

@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:49:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	correct_rgb_value(t_data *data)
+bool	correct_rgb_value(t_data *data)
 {
 	int	rgb;
 
@@ -33,7 +33,7 @@ int	correct_rgb_value(t_data *data)
 	return (0);
 }
 
-int	save_rgb_value(char *str, t_data *data, int rgb, int fc)
+bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 {
 	int		i;
 	int		j;
@@ -59,7 +59,7 @@ int	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 	return (0);
 }
 
-int	rgb_value(char *str, t_data *data, int fc)
+bool	rgb_value(char *str, t_data *data, int fc)
 {
 	int	i;
 	int	rgb;
@@ -84,7 +84,7 @@ int	rgb_value(char *str, t_data *data, int fc)
 	return (0);
 }
 
-int	rgb_format(char *str)
+bool	rgb_format(char *str)
 {
 	int	i;
 	int	digit_row;
@@ -106,7 +106,7 @@ int	rgb_format(char *str)
 	return (0);
 }
 
-int	count_comma(char *str)
+bool	count_comma(char *str)
 {
 	int i;
 	int	comma;

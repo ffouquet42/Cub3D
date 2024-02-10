@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:47:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // printf("c = %c\n", c); // dev
 // printf("y = %i\n", y); // dev
 
-int	char_is_in_set(char c, char *set)
+bool	char_is_in_set(char c, char *set)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ int	char_is_in_set(char c, char *set)
 	return (0);
 }
 
-int	one_start_pos(t_data *data)
+bool	one_start_pos(t_data *data)
 {
 	int	pos;
 	int	y;
@@ -53,7 +53,7 @@ int	one_start_pos(t_data *data)
 	return (0);
 }
 
-int	is_map_char(char c, char *set)
+bool	is_map_char(char c, char *set)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ int	is_map_char(char c, char *set)
 	return (0);
 }
 
-int	check_map_char(t_data *data)
+bool	check_map_char(t_data *data)
 {
 	int	y;
 	int	x;
@@ -87,7 +87,7 @@ int	check_map_char(t_data *data)
 	return (0);
 }
 
-int	parse_map(t_data *data)
+bool	parse_map(t_data *data)
 {
 	if (check_map_char(data))
 		return (ft_putstr(E_MAP_CHAR, 2), 1);

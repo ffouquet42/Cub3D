@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/09 18:10:49 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:45:49 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	init_image(t_data *data, int i)
+bool	init_image(t_data *data, int i)
 {
 	printf("# init_image i = [%i]\n", i); // dev
 	printf("### img_h = %i\n", data->images[0].img_height); // dev
@@ -31,7 +31,7 @@ int	init_image(t_data *data, int i)
 	return (0);
 }
 
-int	init_images(t_data *data)
+bool	init_images(t_data *data)
 {
 	int	i;
 	char *path;

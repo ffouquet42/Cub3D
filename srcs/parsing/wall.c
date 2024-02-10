@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:52:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // 	print_map(map);
 // 	printf("#####\n"); // dev
 
-int	test_around(char **map, int y, int x)
+bool	test_around(char **map, int y, int x)
 {
 	printf("tested char = map[%i][%i] = [%c]\n", y, x, map[y][x]); // dev
 	if (map[y - 1][x - 1] != '1' && map[y - 1][x - 1] != '-')
@@ -38,7 +38,7 @@ int	test_around(char **map, int y, int x)
 	return (0);
 }
 
-int	no_void_around(t_data *data, char **map)
+bool	no_void_around(t_data *data, char **map)
 {
 	int	y;
 	int	x;
@@ -61,7 +61,7 @@ int	no_void_around(t_data *data, char **map)
 	return (0);
 }
 
-int	fill_map(t_data *data, char **map, char *to_replace)
+bool	fill_map(t_data *data, char **map, char *to_replace)
 {
 	int	y;
 	int	x;
@@ -104,7 +104,7 @@ char	**copy_map(t_data *data)
 	return (map_cpy);
 }
 
-int	closed_by_wall(t_data *data)
+bool	closed_by_wall(t_data *data)
 {
 	int		i;
 	char	**map_cpy;

@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:13 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:41:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	check_args(int argc, char **argv)
+bool	check_args(int argc, char **argv)
 {
 	int	i;
 	
@@ -30,7 +30,7 @@ int	check_args(int argc, char **argv)
 	return (0);
 }
 
-int	parsing(int argc, char **argv, t_data *data)
+bool	parsing(int argc, char **argv, t_data *data)
 {
 	if (check_args(argc, argv))
 		return (ft_putstr(E_PARS_ARGS, 2), 1);

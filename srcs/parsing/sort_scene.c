@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:21 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:51:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	all_identifiants(t_data *data)
+bool	all_identifiants(t_data *data)
 {
 	if (!data->e_scene->no)
 		return (1);

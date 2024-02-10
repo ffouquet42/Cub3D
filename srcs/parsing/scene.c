@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:17:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:50:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**clean_scene(char **scene)
 	return (scene);
 }
 
-int	line_is_empty(char *str)
+bool	line_is_empty(char *str)
 {
 	int	i;
 

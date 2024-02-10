@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:48:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	check_rgb(char *rgb, t_data *data, int fc)
+bool	check_rgb(char *rgb, t_data *data, int fc)
 {
 	if (only_digit_or_comma(&rgb[1]) || count_comma(&rgb[1])
 		|| rgb_format(&rgb[1]) || rgb_value(&rgb[1], data, fc))
@@ -20,7 +20,7 @@ int	check_rgb(char *rgb, t_data *data, int fc)
 	return (0);
 }
 
-int	path_is_xpm(char *path) // + check si valide
+bool	path_is_xpm(char *path) // + check si valide
 {
 	int	i;
 	i = ft_strlen(path) - 5; // changer si malloc ?
@@ -30,7 +30,7 @@ int	path_is_xpm(char *path) // + check si valide
 	return (0);
 }
 
-int	parse_scene(t_data *data)
+bool	parse_scene(t_data *data)
 {
 	int	i;
 	int	fc;

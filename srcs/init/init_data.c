@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/09 18:30:13 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:39:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	init_mlx(t_data *data)
+bool	init_mlx(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
@@ -52,7 +52,7 @@ void	init_data_2(t_data *data)
 }
 
 // init la struct data
-int	init_data(t_data *data)
+bool	init_data(t_data *data)
 {
 	data->mlx = NULL;
 	data->win = NULL;
