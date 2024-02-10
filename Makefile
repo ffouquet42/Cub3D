@@ -1,16 +1,15 @@
 SRCS		=	srcs/cub3D.c						\
-				srcs/parsing/check/args.c			\
 				srcs/init/init_data.c				\
 				srcs/init/init_game.c				\
 				srcs/init/init_images.c				\
-				srcs/parsing/parser/map.c			\
-				srcs/parsing/parser/parse_map.c		\
-				srcs/parsing/parser/parse_scene.c	\
-				srcs/parsing/parser/parsing.c		\
-				srcs/parsing/parser/rgb.c			\
-				srcs/parsing/parser/scene.c			\
-				srcs/parsing/parser/sort_scene.c	\
-				srcs/parsing/parser/wall.c			\
+				srcs/parsing/map.c					\
+				srcs/parsing/parse_map.c			\
+				srcs/parsing/parse_scene.c			\
+				srcs/parsing/parsing.c				\
+				srcs/parsing/rgb.c					\
+				srcs/parsing/scene.c				\
+				srcs/parsing/sort_scene.c			\
+				srcs/parsing/wall.c					\
 				srcs/utils/libft.c					\
 				srcs/utils/digit.c					\
 				srcs/utils/free.c					\

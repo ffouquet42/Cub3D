@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 12:54:19 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/10 14:16:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
+
+int	check_args(int argc, char **argv)
+{
+	int	i;
+	
+	i = 0;
+	if (argc != 2)
+		return (1);
+	if (ft_strlen(argv[1]) < 5)
+		return (1);
+	while (argv[1][i])
+		i++;
+	i -= 4;
+	if (argv[1][i] != '.' || argv[1][i + 1] != 'c' ||
+		argv[1][i + 2] != 'u' || argv[1][i + 3] != 'b')
+		return (1);
+	return (0);
+}
 
 int	parsing(int argc, char **argv, t_data *data)
 {

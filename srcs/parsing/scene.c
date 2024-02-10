@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/09 18:03:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 14:17:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 char	**remove_map_from_scene(t_data *data)
 {
@@ -54,7 +54,7 @@ char	**clean_scene(char **scene)
 	return (scene);
 }
 
-int		line_is_empty(char *str)
+int	line_is_empty(char *str)
 {
 	int	i;
 
