@@ -6,20 +6,41 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 21:41:21 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:57:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
-int	init_image(t_data *data, int i)
+bool	clean_nl_scene(t_data *data)  
 {
-	printf("# init_image i = [%i]\n", i); // dev
-	printf("### img_h = %i\n", data->images[0].img_height); // dev
-	//print_img(data); // dev
-	ft_putstr(&data->scene[0][2], 1); // dev
-	ft_putstr("test", 1); // dev
+	int		i;
+	int		j;
+	int		len;
+	char	*dest;
 
+	i = 0;
+	while (i < 4)
+	{
+		len = ft_strlen(data->scene[i]) - 1;
+		dest = malloc(sizeof(char) * (len));
+		if (!dest)
+			return (1);
+		j = 0;
+		while (j < len)
+		{
+			dest[j] = data->scene[i][j];
+			j++;
+		}
+		dest[j] = '\0';
+		data->scene[i] = dest;
+		i++;
+	}
+	return (0);
+}
+
+bool	init_image(t_data *data, int i)
+{
 	data->images[i].mlx_img = mlx_xpm_file_to_image(data->mlx,
 		&data->scene[i][2], &data->images[i].img_width,
 		&data->images[i].img_height);
@@ -31,17 +52,17 @@ int	init_image(t_data *data, int i)
 	return (0);
 }
 
-int	init_images(t_data *data)
+bool	init_images(t_data *data)
 {
 	int	i;
-	char *path;
 
 	i = 0;
+	clean_nl_scene(data);
 	while (i < 4)
 	{
-		path = malloc(sizeof(char) * (ft_strlen(data->scene[i])))
 		if (init_image(data, i))
-			return (1); // Doit etre return 1 mais la fonction au dessus bug
+			return (1);
+		i++;
 	}
 	return (0);
 }

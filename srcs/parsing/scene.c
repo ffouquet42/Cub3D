@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 21:40:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:58:44 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 char	**remove_map_from_scene(t_data *data)
 {
@@ -22,7 +22,7 @@ char	**remove_map_from_scene(t_data *data)
 		return (NULL);
 	i = -1;
 	while (i++ < 5)
-		new_scene[i] = data->scene[i]; // strdup ?
+		new_scene[i] = ft_strdup(data->scene[i]);
 	return (new_scene);
 }
 
@@ -52,6 +52,18 @@ char	**clean_scene(char **scene)
 		i++;
 	}
 	return (scene);
+}
+
+bool	line_is_empty(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == '\n' || str[i] == '\0')
+		return (1);
+	return (0);
 }
 
 int		scene_len(char *scene_path)
