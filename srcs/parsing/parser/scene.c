@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/01 08:58:50 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/10 15:59:07 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**remove_map_from_scene(t_data *data)
 		return (NULL);
 	i = -1;
 	while (i++ < 5)
-		new_scene[i] = data->scene[i]; // strdup ?
+		new_scene[i] = ft_strdup(data->scene[i]);
 	return (new_scene);
 }
 
