@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:52:20 by fllanet           #+#    #+#             */
-/*   Updated: 2024/01/30 10:42:00 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/10 14:53:52 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*stash_to_line(char *stash, char *buff)
 	return (line);
 }
 
-int	search_newline(const char *buff)
+bool	search_newline(const char *buff)
 {
 	int	i;
 
