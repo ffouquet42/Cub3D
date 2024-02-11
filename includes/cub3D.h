@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/11 20:54:25 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:09:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,9 @@ typedef struct s_e_scene
 
 typedef struct s_data
 {
+	
+	t_error	*error;
+	
 	void		*mlx;
 	void		*win;
 	int			window_x;
@@ -196,7 +199,8 @@ bool	check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   parsing.c   ----------------//
 bool	parsing(int argc, char **argv, t_data *data);
-bool	check_args(int argc, char **argv);
+bool	check_args(int argc, char **argv, t_data *data);
+bool	is_cub(char **argv);
 
 //---------------   rgb.c   --------------------//
 bool	count_comma(char *str);
@@ -244,6 +248,12 @@ char	*buff_to_stash(char *buff);
 bool	search_newline(const char *buff);
 char	*stash_to_line(char *stash, char *buf);
 
+//---------------	print.c			  ----------//
+
+void	parsing_msg_error(t_error *error);
+void	ft_putstr(char *str, int fd);
+
+
 //**********************************************//
 //					LIBFT						//
 //**********************************************//
@@ -251,7 +261,6 @@ char	*stash_to_line(char *stash, char *buf);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-void	ft_putstr(char *str, int fd);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 21:24:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:10:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,19 @@ void	print_img(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	t_data data;
+	t_data	data;
+	t_error	error;
 
-	// PARSING - FLO
+	ft_bzero(&data, sizeof(t_data));
+	ft_bzero(&error, sizeof(t_error));
+	data.error = &error;
+	
+	if (parsing(argc, argv, &data))
+		return (0);
 	if (init_data(&data))
 		return (ft_putstr(E_INIT_DATA, 2), 1);
-	if (parsing(argc, argv, &data))
-		return (1); // + free all (end of prog)
 	if (init_game(&data))
 		return (1); // + free ...
-		
-	// EXEC - MICKA
 	
 	return (0);
 }
-// dev
