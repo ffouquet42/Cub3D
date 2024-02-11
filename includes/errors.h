@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/07 14:01:07 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:55:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
+
+# include <stdint.h>
+
+typedef struct s_error
+{
+	uint16_t	error_g;
+}				t_error;
 
 # define COLOR_RESET   "\x1b[0m"
 # define COLOR_RED     "\x1b[31m"
