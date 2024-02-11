@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 21:01:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:42:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
-#include <stdbool.h>
+# include <stdbool.h>
 
 
 //**********************************************//
