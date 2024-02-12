@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 21:58:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 00:56:30 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,15 @@ bool	line_is_empty(char *str)
 	return (0);
 }
 
-int		scene_len(char *scene_path)
+int		scene_len(char *scene_path, t_data *data)
 {
 	int		len;
 	char	*line;
 	int		fd;
 
 	fd = open(scene_path, O_RDONLY);
-	if (fd < 0)
-		return (ft_putstr(E_OPEN_FAIL, 2), -1);
+	if (fd < 0 || fd > 1024)
+		return (data->error->error_g |= ERROR_FILE, close (fd), -1);
 	len = 0;
 	line = get_next_line(fd);
 	while (line)
@@ -87,25 +87,25 @@ int		scene_len(char *scene_path)
 			line = get_next_line(fd);
 		}
 	}
-	printf("scene_len len = %i\n", len); // dev
 	return (close(fd), len);
 }
 
-char	**get_scene(char *scene_path)
+bool	get_scene(char *scene_path, t_data *data)
 {
 	char	**scene;
 	int		fd;
 	int		i;
-	int		len;
 
+	data->map_height = scene_len(scene_path, data);
+	if (data->map_height < 3)
+		return (data->error->error_g |= ERROR_EMPTY, 1);
 	i = 0;
-	fd = open(scene_path, O_RDONLY); // close ?
-	if (fd < 0)
-		return (ft_putstr(E_OPEN_FAIL, 2), NULL);
-	len = scene_len(scene_path);
-	if (len == -1)
-		return (NULL);
-	scene = ft_calloc(sizeof(char *), len + 1);
+	fd = open(scene_path, O_RDONLY); // close à la fin, à test
+	if (fd < 0 || fd > 1024)
+		return (data->error->error_g |= ERROR_FILE, close (fd), 1);
+	scene = malloc(sizeof(char *) * (data->map_height + 1));
+	if (!scene)
+		return (close(fd), 1); // DEFINE ERROR MALLOC
 	scene[i] = get_next_line(fd);
 	while (scene[i])
 	{
@@ -115,6 +115,7 @@ char	**get_scene(char *scene_path)
 			scene[++i] = get_next_line(fd);
 	}
 	scene[i] = NULL;
-	print_scene(scene); // dev
-	return (clean_scene(scene));
+ 	close(fd);
+	data->scene = clean_scene(scene);
+	return (0);
 }

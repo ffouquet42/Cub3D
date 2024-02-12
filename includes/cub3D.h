@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/11 23:09:35 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 00:25:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,8 +210,8 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
-char	**get_scene(char *scene_path);
-int		scene_len(char *scene_path);
+bool	get_scene(char *scene_path, t_data *data);
+int		scene_len(char *scene_path, t_data *data);
 bool	line_is_empty(char *str);
 char	**clean_scene(char **scene);
 char	**remove_map_from_scene(t_data *data);
