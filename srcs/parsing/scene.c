@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 12:38:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:04:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		scene_len(char *scene_path, t_data *data)
 
 bool	get_scene(char *scene_path, t_data *data)
 {
-	// char	**scene;
+	char	**scene;
 	int		fd;
 	int		i;
 

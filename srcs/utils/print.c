@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/12 12:39:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:03:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	parsing_msg_error(t_error *error)
 	if (error->error_g & ERROR_NO_VALID_PATH)
 		ft_putstr("- Incorrect path\n", 1);
 	if (error->error_g & ERROR_MALLOC)
-		ft_putstr(E_EMPTY_MAP, 1);
+		ft_putstr(E_MALLOC_FAIL, 1);
 }
