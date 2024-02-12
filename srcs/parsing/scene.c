@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 00:56:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:38:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		scene_len(char *scene_path, t_data *data)
 
 bool	get_scene(char *scene_path, t_data *data)
 {
-	char	**scene;
+	// char	**scene;
 	int		fd;
 	int		i;
 
@@ -105,7 +105,7 @@ bool	get_scene(char *scene_path, t_data *data)
 		return (data->error->error_g |= ERROR_FILE, close (fd), 1);
 	scene = malloc(sizeof(char *) * (data->map_height + 1));
 	if (!scene)
-		return (close(fd), 1); // DEFINE ERROR MALLOC
+		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1); // DEFINE ERROR MALLOC
 	scene[i] = get_next_line(fd);
 	while (scene[i])
 	{
