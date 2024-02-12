@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 13:02:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:55:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ typedef struct s_error
 # define COLOR_RED     "\x1b[31m"
 
 
-
 # define ERROR_ARG				0x1
 # define ERROR_FILE				0x2
 # define ERROR_CUB				0x4
 # define ERROR_EMPTY			0x8
-
 
 # define ERROR_RECT				0x10
 # define ERROR_WALL				0x20

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 14:44:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:24:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ bool	check_args(int argc, char **argv, t_data *data)
 
 	if (argc != 2)
 		return (data->error->error_g |= ERROR_ARG, 1);
-	if (ft_strlen(argv[1]) < 5)
-		return (data->error->error_g |= ERROR_FILE, 1);
+	// if (ft_strlen(argv[1]) < 5)
+	// 	return (data->error->error_g |= ERROR_FILE, 1); // fichier .cub ok ? Si non -->is_cub
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0 || fd > 1024)
-		return (data->error->error_g |= ERROR_FILE, close (fd), 1);
+	if (fd < 0 || fd > 1024 || ft_strlen(argv[1]) < 5)
+		return (data->error->error_g |= ERROR_FILE, 1);
 	close (fd);
 	if (is_cub(argv))
 		return (data->error->error_g |= ERROR_CUB, 1);
