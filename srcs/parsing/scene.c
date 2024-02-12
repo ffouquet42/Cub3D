@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 14:04:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:18:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,55 +68,58 @@ bool	line_is_empty(char *str)
 
 int		scene_len(char *scene_path, t_data *data)
 {
-	int		len;
-	char	*line;
 	int		fd;
+	char	*line;
+	int		len;
 
 	fd = open(scene_path, O_RDONLY);
 	if (fd < 0 || fd > 1024)
-		return (data->error->error_g |= ERROR_FILE, close (fd), -1);
+		return (data->error->error_g |= ERROR_FILE, close (fd), -1); // close(fd)?
 	len = 0;
 	line = get_next_line(fd);
+	if (!line)
+		return (close(fd), 0); // Gerer ce retour 
 	while (line)
-	{
-		if (line_is_empty(line))
+	{		
+			free(line);
 			line = get_next_line(fd);
-		else
-		{
+			// if (line_is_empty(line))
 			len++;
-			line = get_next_line(fd);
-		}
 	}
+	len++;
+	free(line);
 	return (close(fd), len);
 }
 
 bool	get_scene(char *scene_path, t_data *data)
 {
-	char	**scene;
-	int		fd;
-	int		i;
-
-	data->map_height = scene_len(scene_path, data);
-	if (data->map_height < 3)
+	// char	**scene;
+	// int		fd;
+	// int		i;
+	
+	data->scene_len = scene_len(scene_path, data);
+	if (data->scene_len < 3)
 		return (data->error->error_g |= ERROR_EMPTY, 1);
-	i = 0;
-	fd = open(scene_path, O_RDONLY); // close à la fin, à test
-	if (fd < 0 || fd > 1024)
-		return (data->error->error_g |= ERROR_FILE, close (fd), 1);
-	scene = malloc(sizeof(char *) * (data->map_height + 1));
-	if (!scene)
-		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
-	scene[i] = get_next_line(fd);
-	while (scene[i])
-	{
-		if (line_is_empty(scene[i]))
-			scene[i] = get_next_line(fd);
-		else
-			scene[++i] = get_next_line(fd);
-	}
-	scene[i] = NULL;
- 	close(fd);
-	data->scene = clean_scene(scene);
-
+	printf("%d", data->scene_len);
+	
+// 	i = 0;
+// 	fd = open(scene_path, O_RDONLY); // close à la fin, à test
+// 	if (fd < 0 || fd > 1024)
+// 		return (data->error->error_g |= ERROR_FILE, close (fd), 1); // close?
+// 	scene = malloc(sizeof(char *) * (data->map_height + 1));
+// 	if (!scene)
+// 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
+// 	scene[i] = get_next_line(fd);
+// 	while (scene[i])
+// 	{
+// 		if (line_is_empty(scene[i]))
+// 			scene[i] = get_next_line(fd);
+// 		else
+// 			scene[++i] = get_next_line(fd);
+// 	}
+// 	scene[i] = NULL;
+// 	print_scene(scene);
+//  	close(fd);
+// 	// data->scene = clean_scene(scene);
 	return (0);
 }
