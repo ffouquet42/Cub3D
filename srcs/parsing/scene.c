@@ -6,12 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 21:57:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:34:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+// ??
 char	**remove_map_from_scene(t_data *data)
 {
 	char	**new_scene;
@@ -75,14 +76,18 @@ int		scene_len(char *scene_path, t_data *data)
 	fd = open(scene_path, O_RDONLY);
 	if (fd < 0 || fd > 1024)
 		return (data->error->error_g |= ERROR_FILE, close (fd), -1); // close(fd)?
-	len = 0;
 	line = get_next_line(fd);
 	if (!line)
 		return (data->error->error_g |= ERROR_MALLOC, close (fd), 0); // Gerer ce retour // 
+	data->scene[0] =  malloc(sizeof(char *)); //*2 ??
+	len = 0;
 	while (line)
 	{		
 			if (!(line_is_empty(line)))
+			{
+				data->scene[len] = line;
 				len++;
+			}
 			free(line);
 			line = get_next_line(fd);
 	}
