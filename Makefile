@@ -37,7 +37,7 @@ clean:
 
 fclean:		clean
 			make  clean -C ./mlx_linux
-			$(RM) all
+			$(RM) $(NAME)
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:39:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:30:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	init_mlx(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		exit_1(data); // je doit refaire les exits et free
+		exit_game(data); // je doit refaire les exits et free
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 00:57:21 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:50:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,24 @@ bool	parsing(int argc, char **argv, t_data *data)
 		return (parsing_msg_error(data->error), 1);
 	if (get_scene(argv[1], data))
 		return (parsing_msg_error(data->error), 1);
-	if (!data->scene)
-		return (ft_putstr(E_GET_SCENE, 2), 1); // a mettre dans get_scene
+	// if (!data->scene)
+	// 	return (ft_putstr(E_GET_SCENE, 2), 1); // a mettre dans get_scene
 
-	//même chose que pour get_scene
-	data->map = get_map(data->scene, data); 
-	if (!data->map)
-		return (ft_putstr(E_GET_MAP, 2), 1);
+	// //même chose que pour get_scene
+	// data->map = get_map(data->scene, data);
+	// if (!data->map)
+	// 	return (ft_putstr(E_GET_MAP, 2), 1);
 
-	data->scene = remove_map_from_scene(data);
-	if (!data->scene)
-		return (ft_putstr(E_RM_MAP, 2), 1);
+	// data->scene = remove_map_from_scene(data);
+	// if (!data->scene)
+	// 	return (ft_putstr(E_RM_MAP, 2), 1);
 	
-	data->scene = sort_scene(data);
-	if (!data->scene)
-		return (ft_putstr(E_SORT_SCE, 2), 1);
+	// data->scene = sort_scene(data);
+	// if (!data->scene)
+	// 	return (ft_putstr(E_SORT_SCE, 2), 1);
 	
-	if (parse_scene(data) || parse_map(data))
-		return (1);
+	// if (parse_scene(data) || parse_map(data))
+	// 	return (1);
 
 	// check path img and init img ?
 	
