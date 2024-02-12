@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 17:18:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 21:39:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ int		scene_len(char *scene_path, t_data *data)
 		return (close(fd), 0); // Gerer ce retour 
 	while (line)
 	{		
+			if (!(line_is_empty(line)))
+				len++;
 			free(line);
 			line = get_next_line(fd);
-			// if (line_is_empty(line))
-			len++;
+			printf("%s", line);
 	}
-	len++;
 	free(line);
 	return (close(fd), len);
 }
