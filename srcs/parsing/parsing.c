@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 15:29:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:10:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	is_cub(char **argv)
 	uint16_t len;
 
 	len = ft_strlen(argv[1]);
-	if (argv[1][len - 4] != '.' || argv[1][len -  3] != 'c' ||
+	if (!argv[1][len - 5] || argv[1][len - 4] != '.' || argv[1][len -  3] != 'c' ||
 		argv[1][len - 2] != 'u' || argv[1][len - 1] != 'b')
 		return (1);
 	return (0);
@@ -29,10 +29,8 @@ bool	check_args(int argc, char **argv, t_data *data)
 
 	if (argc != 2)
 		return (data->error->error_g |= ERROR_ARG, 1);
-	// if (ft_strlen(argv[1]) < 5)
-	// 	return (data->error->error_g |= ERROR_FILE, 1); // fichier .cub ok ? Si non -->is_cub
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0 || fd > 1024 || ft_strlen(argv[1]) < 5) 
+	if (fd < 0 || fd > 1024) 
 		return (data->error->error_g |= ERROR_FILE, 1);
 	close (fd);
 	if (is_cub(argv))
