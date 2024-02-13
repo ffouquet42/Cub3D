@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:12:52 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:19:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,14 @@ bool	parsing(int argc, char **argv, t_data *data)
 	if (get_map(data->scene, data))
 		return (parsing_msg_error(data->error), 1);
 	if (!data->map)
-		return (data->error->error_g |= ERROR_MALLOC, parsing_msg_error(data->error), 1);
+		return (data->error->error_g |= ERROR_MALLOC, parsing_msg_error(data->error), 1); // a mettre dans get_map
 
-	// data->scene = remove_map_from_scene(data);
-	// if (!data->scene)
-	// 	return (ft_putstr(E_RM_MAP, 2), 1);
+	if (remove_map_from_scene(data))
+		return(arsing_msg_error(data->error), 1);
+	
+	data->scene = remove_map_from_scene(data);
+	if (!data->scene)
+		return (ft_putstr(E_RM_MAP, 2), 1);
 	
 	// data->scene = sort_scene(data);
 	// if (!data->scene)
