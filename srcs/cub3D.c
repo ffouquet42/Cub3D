@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 17:18:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:08:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int	main(int argc, char **argv)
 	
 	//close(fd) general
 	// free_mlx(&data);
-	// free_map(&data);
+	// free_scene(&data);
 	return (0);
 }

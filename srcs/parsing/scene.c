@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 22:34:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:23:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-// ??
+// util??
 char	**remove_map_from_scene(t_data *data)
 {
 	char	**new_scene;
@@ -43,11 +43,9 @@ char	**clean_scene(char **scene)
 		while (tmp[j])
 		{
 			if (tmp[j] != ' ')
-			{
-				scene[i][k++] = tmp[j++];
-			}
+				scene[i][k++] = tmp[j++]; 
 			else
-				j++;
+				j++; // ==0?
 		}
 		scene[i][k] = '\0';
 		i++;
@@ -76,18 +74,14 @@ int		scene_len(char *scene_path, t_data *data)
 	fd = open(scene_path, O_RDONLY);
 	if (fd < 0 || fd > 1024)
 		return (data->error->error_g |= ERROR_FILE, close (fd), -1); // close(fd)?
+	len = 0;
 	line = get_next_line(fd);
 	if (!line)
 		return (data->error->error_g |= ERROR_MALLOC, close (fd), 0); // Gerer ce retour // 
-	data->scene[0] =  malloc(sizeof(char *)); //*2 ??
-	len = 0;
 	while (line)
 	{		
 			if (!(line_is_empty(line)))
-			{
-				data->scene[len] = line;
 				len++;
-			}
 			free(line);
 			line = get_next_line(fd);
 	}
@@ -101,26 +95,34 @@ bool	get_scene(char *scene_path, t_data *data)
 	int		fd;
 	int		i;
 	
-	if (scene_len(scene_path, data) < 9) //6 + 3 lignes de map min
+	data->scene_height = scene_len(scene_path, data);
+	if (data->scene_height < 9) //6 + 3 lignes de map min
 		return (data->error->error_g |= ERROR_EMPTY, 1);
 	
-	i = 0;
 	fd = open(scene_path, O_RDONLY); // close à la fin, à test
 	if (fd < 0 || fd > 1024)
 		return (data->error->error_g |= ERROR_FILE, close (fd), 1); // close?
-	scene = malloc(sizeof(char *) * (data->map_height + 1));
+	scene = malloc(sizeof(char *) * ( data->scene_height + 1));
 	if (!scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
-	scene[i] = get_next_line(fd);
+	i = 0;
+	scene[i] = get_next_line(fd); // protect??
 	while (scene[i])
 	{
-		if (line_is_empty(scene[i]))
+		if (!line_is_empty(scene[i]))
 			scene[i] = get_next_line(fd);
-		else
-			scene[++i] = get_next_line(fd);
+		free(scene[i]);
+		scene[++i] = get_next_line(fd);
 	}
 	scene[i] = NULL;
 	print_scene(scene);
+	i = 0;
+	while(scene[i])
+	{
+		free(scene[i]);
+		i++;
+	}
+	free(scene);
  	close(fd);
 	// data->scene = clean_scene(scene);
 	return (0);

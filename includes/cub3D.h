@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 21:57:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:12:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ typedef struct s_data
 	char		**map;
 	int			map_height;
 	int			map_width;
+	int			scene_height;
 	t_e_scene	*e_scene;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
@@ -242,6 +243,7 @@ void	free_mlx(t_data *data);
 void	free_map(t_data *data);
 void 	exit_game(t_data *data); //wrongname
 void	free_data(t_data *data);
+void	free_scene(t_data *data);
 
 //---------------   get_next_line.c   ----------//
 char	*get_next_line(int fd);
