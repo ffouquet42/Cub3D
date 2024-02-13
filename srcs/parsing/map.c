@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:45:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:48:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,8 @@ bool	get_map(char **scene, t_data *data)
 {
 	char	**map;
 	int		i;
-	int		j;
 	int		x;
 
-	i = 6;
-	j = 0;
 	x = 0;
 	map = malloc(sizeof(char *) * (data->scene_height -1)); //-6 + 5
 	if (!map)
