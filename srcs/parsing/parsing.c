@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:19:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:31:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,29 @@ bool	parsing(int argc, char **argv, t_data *data)
 	if (get_scene(argv[1], data))
 		return (parsing_msg_error(data->error), 1);
 	// print_scene(data->scene); a test !!!!
-	if (!data->scene)
+	if (!data->scene) //Pas la bonne erreur, la bonne existe deja
 		return (data->error->error_g |= ERROR_MALLOC, parsing_msg_error(data->error), 1); // rename la fct pars_msg_err pour -80, essayer de la mettre dans get_scene
 
+	// bool les fcts 
 	if (get_map(data->scene, data))
 		return (parsing_msg_error(data->error), 1);
-	if (!data->map)
+	if (!data->map) //Pas la bonne erreur, la bonne existe deja
 		return (data->error->error_g |= ERROR_MALLOC, parsing_msg_error(data->error), 1); // a mettre dans get_map
-
+	
 	if (remove_map_from_scene(data))
 		return(arsing_msg_error(data->error), 1);
-	
-	data->scene = remove_map_from_scene(data);
 	if (!data->scene)
 		return (ft_putstr(E_RM_MAP, 2), 1);
 	
-	// data->scene = sort_scene(data);
-	// if (!data->scene)
-	// 	return (ft_putstr(E_SORT_SCE, 2), 1);
+	if (sort_scene(data))
+		return(parsing_msg_error(data->error), 1);
+	if (!data->scene)
+		return (ft_putstr(E_SORT_SCE, 2), 1);
 	
-	// if (parse_scene(data) || parse_map(data))
-	// 	return (1);
+	if (parse_scene(data) || parse_map(data))
+		return (1);
 
-	// check path img and init img ?
+	// check path img and init img ? check path
 	
 	return (0);
 }
