@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:31:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:42:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	is_cub(char **argv)
 	len = ft_strlen(argv[1]);
 	if (!argv[1][len - 5] || argv[1][len - 4] != '.' || argv[1][len -  3] != 'c' ||
 		argv[1][len - 2] != 'u' || argv[1][len - 1] != 'b')
-		return (1);
+		return (1); // test le len-5
 	return (0);
 }
 
@@ -46,7 +46,7 @@ bool	parsing(int argc, char **argv, t_data *data)
 		return (parsing_msg_error(data->error), 1);
 	// print_scene(data->scene); a test !!!!
 	if (!data->scene) //Pas la bonne erreur, la bonne existe deja
-		return (data->error->error_g |= ERROR_MALLOC, parsing_msg_error(data->error), 1); // rename la fct pars_msg_err pour -80, essayer de la mettre dans get_scene
+		return (data->error->error_g |= ERROR_SCENE, parsing_msg_error(data->error), 1); // rename la fct pars_msg_err pour -80, essayer de la mettre dans get_scene
 
 	// bool les fcts 
 	if (get_map(data->scene, data))

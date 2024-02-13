@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 21:52:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:40:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ typedef struct s_error
 # define ERROR_FILE				0x2
 # define ERROR_CUB				0x4
 # define ERROR_EMPTY			0x8
+# define ERROR_SCENE			0X10
 
-# define ERROR_RECT				0x10
-# define ERROR_WALL				0x20
-# define ERROR_POS				0x40
-# define ERROR_EXIT				0x80
-# define ERROR_COL				0x100
-# define ERROR_CHAR				0x200
-# define ERROR_NO_VALID_PATH	0x400
+# define ERROR_RECT				0x20
+# define ERROR_WALL				0x40
+# define ERROR_POS				0x80
+# define ERROR_EXIT				0x100
+# define ERROR_COL				0x200
+# define ERROR_CHAR				0x400
+# define ERROR_NO_VALID_PATH	0x800
 
-# define ERROR_MALLOC			0x800
+# define ERROR_MALLOC			0x100
 
 
 
@@ -45,7 +46,6 @@ typedef struct s_error
 # define E_PARS_FILE COLOR_RED "Error\nOPEN FAILURE. Need an existing file. \n" COLOR_RESET
 # define E_PARS_CUB COLOR_RED "Error\nInvalid file format. Need a .cub map. \n" COLOR_RESET
 # define E_EMPTY_MAP COLOR_RED "Error\nInformation is missing or the map is too small\n" COLOR_RESET
-
 # define E_GET_SCENE COLOR_RED "Error\nGet scene failed.\n" COLOR_RESET
 
 # define E_INIT_DATA COLOR_RED "Error\nInit data failed.\n" COLOR_RESET

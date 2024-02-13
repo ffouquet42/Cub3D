@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/12 15:29:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:40:52 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	parsing_msg_error(t_error *error)
 		ft_putstr(E_PARS_CUB, 1);
 	if (error->error_g & ERROR_EMPTY)
 		ft_putstr(E_EMPTY_MAP, 1);
+	if (error->error_g & ERROR_SCENE)
+		ft_putstr(E_GET_SCENE, 1);
 		
 	if (error->error_g & ERROR_RECT)
 		ft_putstr("- Incorrect rectangle\n", 1);
