@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:16:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:54:29 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	**get_map(char **scene, t_data *data)
 		return (NULL);
 	i = 6;
 	while (scene[i])
-		map[x++] = ft_strdup(scene[i++]);
+		map[x++] = ft_strdup(scene[i++]); 
 	map[x] = NULL;
 	get_map_size(map, data);
 	return (resize_map(map, data));
