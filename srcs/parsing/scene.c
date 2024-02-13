@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 18:19:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:02:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ bool	get_scene(char *scene_path, t_data *data)
 	fd = open(scene_path, O_RDONLY); // close à la fin, à test
 	if (fd < 0 || fd > 1024)
 		return (data->error->error_g |= ERROR_FILE, close (fd), 1); // close?
-	data->scene = malloc(sizeof(char *) * (data->scene_height + 1) + 1);
+	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
 	i = 0;
@@ -110,15 +110,11 @@ bool	get_scene(char *scene_path, t_data *data)
 	while (line) // fct pour la boucle (-25)
 	{
 		if (!line_is_empty(line))
-		{
-			printf("%d", i); 
-			data->scene[i] = line;
-			i++;
-		}
+			data->scene[i++] = line;
 		free(line);
 		line = get_next_line(fd);
 	}
 	data->scene[i] = NULL;
 	free(line);
-	return (close(fd));
+	return (close(fd),0);
 }
