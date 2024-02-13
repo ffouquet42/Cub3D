@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:34:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:45:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ char	**resize_map(char **map, t_data *data)
 	return (map);
 }
 
-void	get_map_size(char **map, t_data *data) // a refaire
+void	get_map_size(char **map, t_data *data) // map pas droite? plusieurs longueurs?
 {
-	int	y;
 	int	x;
+	int	y;
 	int	z;
 
 	y = 0;
@@ -57,7 +57,7 @@ void	get_map_size(char **map, t_data *data) // a refaire
 			z = x;
 		y++;
 	}
-	data->map_height = y;
+	data->map_height = data->scene_height;
 	data->map_width = z - 1;
 	return ;
 }
@@ -72,8 +72,6 @@ bool	get_map(char **scene, t_data *data)
 	i = 6;
 	j = 0;
 	x = 0;
-	// while (scene[i++])
-		// j++;
 	map = malloc(sizeof(char *) * (data->scene_height -1)); //-6 + 5
 	if (!map)
 		return (1);
@@ -83,6 +81,5 @@ bool	get_map(char **scene, t_data *data)
 	map[x] = NULL;
 	get_map_size(map, data);
 	resize_map(map, data);
-
 	return(0);
 }
