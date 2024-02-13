@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 13:13:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:32:49 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool	init_data(t_data *data)
 	data->mlx = NULL;
 	data->win = NULL;
 	data->window_x = 1920; // Largeur de l'image * la longueur
-	data->window_y = 1080; // Hauteur de l'image * la hauteur 
+	data->window_y = 1080; // Hauteur de l'image * la hauteur, voir init_game
 	data->game = malloc(sizeof(t_game));
 	if (!data->game)
 		return (1);
