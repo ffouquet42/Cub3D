@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 14:54:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:12:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	get_map_size(char **map, t_data *data)
 	return ;
 }
 
-char	**get_map(char **scene, t_data *data)
+bool	get_map(char **scene, t_data *data)
 {
 	char	**map;
 	int		i;
@@ -72,15 +72,16 @@ char	**get_map(char **scene, t_data *data)
 	i = 6;
 	j = 0;
 	x = 0;
-	while (scene[i++])
-		j++;
-	map = malloc(sizeof(char *) * (j + 1));
+	// while (scene[i++])
+		// j++;
+	map = malloc(sizeof(char *) * (data->scene_height -1)); //-6 + 5
 	if (!map)
-		return (NULL);
+		return (1);
 	i = 6;
 	while (scene[i])
-		map[x++] = ft_strdup(scene[i++]); 
+		map[x++] = ft_strdup(scene[i++]); // dont need strdup
 	map[x] = NULL;
 	get_map_size(map, data);
-	return (resize_map(map, data));
+	resize_map(map, data);
+	return(0);
 }
