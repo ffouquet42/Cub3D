@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 15:00:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:35:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int		scene_len(char *scene_path, t_data *data)
 
 bool	get_scene(char *scene_path, t_data *data)
 {
-	// char	**scene;
+	char	*line;
 	int		fd;
 	int		i;
 	
@@ -106,16 +106,17 @@ bool	get_scene(char *scene_path, t_data *data)
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
 	i = 0;
-	data->scene[i] = get_next_line(fd); // protect??
-	while (data->scene[i])
+	line = get_next_line(fd); // protect??
+	while (line) // fct pour la boucle (-25)
 	{
-		if (!line_is_empty(data->scene[i]))
-			data->scene[i] = get_next_line(fd);
-		data->scene[++i] = get_next_line(fd);
+		if (!line_is_empty(line))
+			data->scene[i++] = line;
+		free(line);
+		line = get_next_line(fd);
 	}
+	free(line);
 	data->scene[i] = NULL;
-	// print_scene(scene);
- 	// close(fd);
+	print_scene(data->scene);
 	// data->scene = clean_scene(scene);
 	return (close(fd));
 }
