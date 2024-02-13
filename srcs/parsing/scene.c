@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 15:35:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:39:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ bool	get_scene(char *scene_path, t_data *data)
 	}
 	free(line);
 	data->scene[i] = NULL;
-	print_scene(data->scene);
+	// print_scene(data->scene);
 	// data->scene = clean_scene(scene);
 	return (close(fd));
 }
