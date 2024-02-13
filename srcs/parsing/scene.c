@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 16:39:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:19:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	**remove_map_from_scene(t_data *data)
 	return (new_scene);
 }
 
-char	**clean_scene(char **scene)
-{
+char	**clean_scene(char **scene) // plus tard, auusinon ca deforme des maps valide avec les espaces 
+{ 
 	char	*tmp;
 	int 	i;
 	int 	j;
@@ -45,7 +45,7 @@ char	**clean_scene(char **scene)
 			if (tmp[j] != ' ')
 				scene[i][k++] = tmp[j++]; 
 			else
-				j++; // ==0?
+				j++;
 		}
 		scene[i][k] = '\0';
 		i++;
@@ -97,12 +97,12 @@ bool	get_scene(char *scene_path, t_data *data)
 	
 	data->scene_height = scene_len(scene_path, data);
 	if (data->scene_height < 9) //6 + 3 lignes de map min
-		return (data->error->error_g |= ERROR_EMPTY, 1);
+		return (data->error->error_g |= ERROR_EMPTY, 1); // peut etre test plus tard pour les 25 l
 	
 	fd = open(scene_path, O_RDONLY); // close à la fin, à test
 	if (fd < 0 || fd > 1024)
 		return (data->error->error_g |= ERROR_FILE, close (fd), 1); // close?
-	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
+	data->scene = malloc(sizeof(char *) * (data->scene_height + 1) + 1);
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
 	i = 0;
@@ -110,13 +110,15 @@ bool	get_scene(char *scene_path, t_data *data)
 	while (line) // fct pour la boucle (-25)
 	{
 		if (!line_is_empty(line))
-			data->scene[i++] = line;
+		{
+			printf("%d", i); 
+			data->scene[i] = line;
+			i++;
+		}
 		free(line);
 		line = get_next_line(fd);
 	}
-	free(line);
 	data->scene[i] = NULL;
-	// print_scene(data->scene);
-	// data->scene = clean_scene(scene);
+	free(line);
 	return (close(fd));
 }
