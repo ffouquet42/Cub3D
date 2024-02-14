@@ -22,6 +22,7 @@ SRCS		=	srcs/cub3D.c						\
 				srcs/utils/print.c					\
 				srcs/utils/digit.c					\
 				srcs/utils/free.c					\
+				srcs/utils/scene_utils.c			\
 				srcs/utils/get_next_line.c			\
 
 OBJS		=	$(SRCS:.c=.o)

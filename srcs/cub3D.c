@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:37:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 05:31:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_scene(char **scene)
 		printf("scene[%i] = %s", i, scene[i]);
 		i++;
 	}
-	// printf("\nscene[%i] = %s\n", i, scene[i]);
+	printf("\nscene[%i] = %s\n", i, scene[i]);
 }
 
 void	print_map(char **map)

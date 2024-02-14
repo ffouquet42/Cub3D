@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 05:17:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:07:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,17 @@ bool	parsing(int argc, char **argv, t_data *data)
 {
 	if (check_args(argc, argv, data))
 		return (parsing_msg_error(data->error), 1);
-	// if (get_scene(argv[1], data))
-	// 	return (parsing_msg_error(data->error), 1);
-	// // print_scene(data->scene); a test !!!!
-	// if (!data->scene) //Pas la bonne erreur, la bonne existe deja
-	// 	return (data->error->error_g |= ERROR_SCENE, parsing_msg_error(data->error), 1); // rename la fct pars_msg_err pour -80, essayer de la mettre dans get_scene
+	if (get_data_scene(argv[1], data))
+		return (parsing_msg_error(data->error), 1);
+	// print_scene(data->scene);
 
-	// // bool les fcts 
-	// if (get_map(data->scene, data))
-	// 	return (parsing_msg_error(data->error), 1);
-	// if (!data->map) //Pas la bonne erreur, la bonne existe deja
-	// 	return (data->error->error_g |= ERROR_MALLOC, parsing_msg_error(data->error), 1); // a mettre dans get_map
+	// // bool les fcts ou void 
+	
+	if (get_map(data))
+		return (parsing_msg_error(data->error), 1);
 	
 	// if (remove_map_from_scene(data))
-	// 	return(arsing_msg_error(data->error), 1);
+	// 	return(parsing_msg_error(data->error), 1);
 	// if (!data->scene)
 	// 	return (ft_putstr(E_RM_MAP, 2), 1);
 	

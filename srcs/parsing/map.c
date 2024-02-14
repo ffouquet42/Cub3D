@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:48:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:09:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,19 @@ void	get_map_size(char **map, t_data *data) // map pas droite? plusieurs longueu
 	z = 0;
 	while (map[y])
 	{
-		x = 0;
-		while (map[y][x])
-			x++;
+		x = ft_strlen(map[x]);
+		// while (map[y][x])
+		// 	x++;
 		if (x > z)
 			z = x;
 		y++;
 	}
 	data->map_height = data->scene_height;
-	data->map_width = z - 1;
+	data->map_width = z - 1; // test voir si -1
 	return ;
 }
 
-bool	get_map(char **scene, t_data *data)
+bool	get_map(t_data *data)
 {
 	char	**map;
 	int		i;
@@ -71,12 +71,14 @@ bool	get_map(char **scene, t_data *data)
 	x = 0;
 	map = malloc(sizeof(char *) * (data->scene_height -1)); //-6 + 5
 	if (!map)
-		return (1);
+		return (data->error->error_g |= ERROR_MALLOC, 1);
 	i = 6;
-	while (scene[i])
-		map[x++] = ft_strdup(scene[i++]); // dont need strdup
+	while (data->scene[i])
+		map[x++] = ft_strdup(data->scene[i++]); // dont need strdup?
 	map[x] = NULL;
 	get_map_size(map, data);
 	resize_map(map, data);
+	if (!data->map) 
+		return (data->error->error_g |= ERROR_MALLOC, 1);
 	return(0);
 }

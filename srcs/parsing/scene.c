@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:02:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:00:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**remove_map_from_scene(t_data *data)
 	return (new_scene);
 }
 
-char	**clean_scene(char **scene) // plus tard, auusinon ca deforme des maps valide avec les espaces 
+void	clean_scene(t_data *data)
 { 
 	char	*tmp;
 	int 	i;
@@ -39,29 +39,37 @@ char	**clean_scene(char **scene) // plus tard, auusinon ca deforme des maps vali
 	{
 		j = 0;
 		k = 0;
-		tmp = scene[i];
+		tmp = data->scene[i];
 		while (tmp[j])
 		{
 			if (tmp[j] != ' ')
-				scene[i][k++] = tmp[j++]; 
+				data->scene[i][k++] = tmp[j++]; 
 			else
 				j++;
 		}
-		scene[i][k] = '\0';
+		data->scene[i][k] = '\0';
 		i++;
 	}
-	return (scene);
 }
 
-bool	line_is_empty(char *str)
+bool	get_scene(int fd, t_data *data)
 {
-	int	i;
+	char	*line;
+	int		i;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	if (str[i] == '\n' || str[i] == '\0')
-		return (1);
+	line = get_next_line(fd);
+	if (!line)
+		return (data->error->error_g |= ERROR_MALLOC, 1);
+	while (line) 
+	{
+		if (!line_is_empty(line))
+			data->scene[i++] = line;
+		free(line);
+		line = get_next_line(fd);
+	}
+	data->scene[i] = NULL;
+	free(line);
 	return (0);
 }
 
@@ -77,7 +85,7 @@ int		scene_len(char *scene_path, t_data *data)
 	len = 0;
 	line = get_next_line(fd);
 	if (!line)
-		return (data->error->error_g |= ERROR_MALLOC, close (fd), 0); // Gerer ce retour // 
+		return (data->error->error_g |= ERROR_MALLOC, close (fd), -1);
 	while (line)
 	{		
 			if (!(line_is_empty(line)))
@@ -89,32 +97,25 @@ int		scene_len(char *scene_path, t_data *data)
 	return (close(fd), len);
 }
 
-bool	get_scene(char *scene_path, t_data *data)
+bool	get_data_scene(char *scene_path, t_data *data)
 {
-	char	*line;
 	int		fd;
-	int		i;
 	
 	data->scene_height = scene_len(scene_path, data);
 	if (data->scene_height < 9) //6 + 3 lignes de map min
-		return (data->error->error_g |= ERROR_EMPTY, 1); // peut etre test plus tard pour les 25 l
-	
+		return (data->error->error_g |= ERROR_EMPTY, 1);
 	fd = open(scene_path, O_RDONLY); // close à la fin, à test
 	if (fd < 0 || fd > 1024)
 		return (data->error->error_g |= ERROR_FILE, close (fd), 1); // close?
 	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
-	i = 0;
-	line = get_next_line(fd); // protect??
-	while (line) // fct pour la boucle (-25)
-	{
-		if (!line_is_empty(line))
-			data->scene[i++] = line;
-		free(line);
-		line = get_next_line(fd);
-	}
-	data->scene[i] = NULL;
-	free(line);
+	if(get_scene(fd, data))
+		return (1);
+	if(!data->scene)
+		return (data->error->error_g |= ERROR_SCENE, 1);
+	clean_scene(data);
+	if(!data->scene)
+		return (data->error->error_g |= ERROR_SCENE, 1);
 	return (close(fd),0);
 }

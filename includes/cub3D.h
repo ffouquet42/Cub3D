@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:09:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:07:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ bool	clean_nl_scene(t_data *data);
 //**********************************************//
 
 //---------------   map.c   --------------------//
-bool	get_map(char **scene, t_data *data);
+bool	get_map(t_data *data);
 void	get_map_size(char **map, t_data *data);
 char	**resize_map(char **map, t_data *data);
 
@@ -211,10 +211,10 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
-bool	get_scene(char *scene_path, t_data *data);
+bool	get_data_scene(char *scene_path, t_data *data);
 int		scene_len(char *scene_path, t_data *data);
-bool	line_is_empty(char *str);
-char	**clean_scene(char **scene);
+bool	get_scene(int fd, t_data *data);
+void	clean_scene(t_data *data);
 char	**remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
@@ -252,21 +252,23 @@ char	*buff_to_stash(char *buff);
 bool	search_newline(const char *buff);
 char	*stash_to_line(char *stash, char *buf);
 
-//---------------	print.c			  ----------//
+//---------------	print.c			 ----------//
 
 void	parsing_msg_error(t_error *error);
 void	ft_putstr(char *str, int fd);
 
-
-//**********************************************//
-//					LIBFT						//
-//**********************************************//
+//---------------	libft.c			  ----------//
 
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
+
+//---------------	scene&map_utils.c ----------//
+
+bool	line_is_empty(char *str);
+
 
 //**********************************************//
 //					EXEC						//
