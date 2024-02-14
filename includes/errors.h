@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 10:54:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:20:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ typedef struct s_error
 # define ERROR_FILE				0x2
 # define ERROR_CUB				0x4
 # define ERROR_EMPTY			0x8
-# define ERROR_SCENE			0X10
-# define ERROR_MAP				0X20
-# define ERROR_RM_MAP			0x40
-# define ERROR_SORT_S			0x80
-# define ERROR_CHAR				0x100
-# define ERROR_START			0x200
-# define ERROR_WALL				0x400
-# define ERROR_XPM				0x800
-# define ERROR_RGB				0x1000
-# define ERROR_INIT_MLX			0x2000
-# define ERROR_INIT_IMG			0x4000
-# define ERROR_MLX_WIN			0x8000
-# define ERROR_POS				0x10000
-# define ERROR_MALLOC			0x20000
-
+# define ERROR_EMPTY_LINE		0x10
+# define ERROR_SCENE			0X20
+# define ERROR_MAP				0X40
+# define ERROR_RM_MAP			0x80
+# define ERROR_SORT_S			0x100
+# define ERROR_CHAR				0x200
+# define ERROR_START			0x400
+# define ERROR_WALL				0x800
+# define ERROR_XPM				0x1000
+# define ERROR_RGB				0x2000
+# define ERROR_INIT_MLX			0x4000
+# define ERROR_INIT_IMG			0x8000
+# define ERROR_MLX_WIN			0x10000
+# define ERROR_POS				0x20000
+# define ERROR_MALLOC			0x40000
 
 
 # define ERROR_EXIT				0x800
@@ -57,6 +57,7 @@ typedef struct s_error
 # define E_PARS_FILE COLOR_RED "Error\nOPEN FAILURE. Need an existing file. \n" COLOR_RESET
 # define E_PARS_CUB COLOR_RED "Error\nInvalid file format. Need a .cub map. \n" COLOR_RESET
 # define E_EMPTY_MAP COLOR_RED "Error\nInformation is missing or the map is too small\n" COLOR_RESET
+# define E_EMPTY_LINE COLOR_RED "Error\nThere are one or more empty lines on the map\n" COLOR_RESET
 # define E_GET_SCENE COLOR_RED "Error\nGet scene failed.\n" COLOR_RESET
 # define E_GET_MAP COLOR_RED "Error\nGet map failed.\n" COLOR_RESET
 # define E_RM_MAP COLOR_RED "Error\nRemove map from scene failed.\n" COLOR_RESET

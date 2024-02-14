@@ -6,17 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:07:51 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:25:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-// 	printf("#####\n"); // dev
-// 	print_map(map);
-// 	printf("#####\n"); // dev
-
-bool	test_around(char **map, int y, int x)
+bool	test_around(char **map, int y, int x) // essayer de while
 {
 	if (map[y - 1][x - 1] != '1' && map[y - 1][x - 1] != '-')
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 08:07:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:25:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	remove_map_from_scene(t_data *data) // possible sans calloc et strdup?
 	return(0);
 }
 
-void	clean_scene(t_data *data)
+void	clean_scene(t_data *data) // voir si il faut pas laisser certains " "
 { 
 	char	*tmp;
 	int 	i;
@@ -54,7 +54,7 @@ void	clean_scene(t_data *data)
 	}
 }
 
-bool	get_scene(int fd, t_data *data)
+bool	get_scene(int fd, t_data *data) // si ligne vide dans la map, erreur 
 {
 	char	*line;
 	int		i;
@@ -67,6 +67,8 @@ bool	get_scene(int fd, t_data *data)
 	{
 		if (!line_is_empty(line))
 			data->scene[i++] = line;
+		else if (i > 6)
+			return(data->error->error_g |= ERROR_EMPTY_LINE, 1);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -116,8 +118,9 @@ bool	get_data_scene(char *scene_path, t_data *data)
 		return (1);
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, 1);
-	clean_scene(data);
-	if (!data->scene)
-		return (data->error->error_g |= ERROR_SCENE, 1);
-	return (close(fd),0);
+	print_scene(data->scene);
+	// clean_scene(data);
+	// if (!data->scene)
+	// 	return (data->error->error_g |= ERROR_SCENE, 1);
+	return (close(fd), 0);
 }

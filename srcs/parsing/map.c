@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:22:26 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:10:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	resize_map(t_data *data)
 	while (data->map[y])
 	{
 		x = 0;
-		// dest = ft_calloc(sizeof(char), data->map_width);
-		dest = malloc(sizeof(char ) * (data->map_width));
+		dest = ft_calloc(sizeof(char), data->map_width);
+		dest = malloc(sizeof(char ) * (data->map_width ));
 		while (data->map[y][x] && data->map[y][x] != '\n')
 		{
 			dest[x] = data->map[y][x];
