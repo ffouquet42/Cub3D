@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 14:53:11 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:22:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ bool	get_data_scene(char *scene_path, t_data *data)
 		return (free(data->scene), 1);
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, free(data->scene), 1);
-	clean_scene(data);
+	// clean_scene(data);
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, free(data->scene),1);
 	return (close(fd), 0);
