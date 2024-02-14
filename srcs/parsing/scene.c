@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 15:22:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:08:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool	get_scene(int fd, t_data *data) // si ligne vide dans la map, erreur
 		else
 		{
 			if (i > 6)
-				return(data->error->error_g |= ERROR_EMPTY_LINE, free(line), 1); 
+				return(data->error->error_g |= ERROR_EMPTY_LINE, 1); 
 		}
 		free(line);
 		line = get_next_line(fd);
@@ -121,8 +121,8 @@ bool	get_data_scene(char *scene_path, t_data *data)
 		return (free(data->scene), 1);
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, free(data->scene), 1);
-	// clean_scene(data);
+	clean_scene(data);
 	if (!data->scene)
-		return (data->error->error_g |= ERROR_SCENE, free(data->scene),1);
+		return (data->error->error_g |= ERROR_SCENE, free(data->scene), 1);
 	return (close(fd), 0);
 }
