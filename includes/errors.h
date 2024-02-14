@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 14:08:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:13:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ typedef struct s_error
 # define ERROR_POS				0x20000
 # define ERROR_MALLOC			0x40000
 
-
-# define ERROR_EXIT				0x800
-# define ERROR_COL				0x1000
-# define ERROR_NO_VALID_PATH	0x4000
 
 
 
