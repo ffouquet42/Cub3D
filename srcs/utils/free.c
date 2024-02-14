@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 08:01:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:12:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-void exit_game(t_data *data)
+void exit_all (t_data *data)
 {
 	ft_putstr(E_INIT_MLX, 2);
 	free_data(data);

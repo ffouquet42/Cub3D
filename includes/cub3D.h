@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:42:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:12:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,7 +224,7 @@ bool	all_identifiants(t_data *data);
 
 //---------------   wall.c   -------------------//
 bool	closed_by_wall(t_data *data);
-char	**copy_map(t_data *data);
+char	**copy_map(t_data *data); // a check 
 bool	fill_map(t_data *data, char **map, char *to_replace);
 bool	no_void_around(t_data *data, char **map);
 bool	test_around(char **map, int y, int x);
@@ -242,7 +242,7 @@ bool	is_digit(char c);
 //---------------   free.c   -------------------//
 void	free_mlx(t_data *data);
 void	free_map(t_data *data);
-void 	exit_game(t_data *data); //wrongname
+void 	exit_all(t_data *data); 
 void	free_data(t_data *data);
 void	free_scene(t_data *data);
 

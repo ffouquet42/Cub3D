@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/12 14:59:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:07:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 bool	test_around(char **map, int y, int x)
 {
-	printf("tested char = map[%i][%i] = [%c]\n", y, x, map[y][x]); // dev
 	if (map[y - 1][x - 1] != '1' && map[y - 1][x - 1] != '-')
 		return (1);
 	if (map[y - 1][x] != '1' && map[y - 1][x] != '-')
@@ -78,9 +77,6 @@ bool	fill_map(t_data *data, char **map, char *to_replace)
 		}
 		y++;
 	}
-	printf("#####\n"); // dev
-	print_map(map); // dev
-	printf("#####\n"); // dev
 	if (no_void_around(data, map))
 		return (1);
 	return (0);
@@ -136,5 +132,5 @@ bool	closed_by_wall(t_data *data)
 }
 
 /*
-ca fait quoi si ya deja des '-' dans la map ? sur les bords ou autres
+ca fait quoi si ya deja des '-' dans la map ? sur les bords ou autres : Pas accpeter dans la map, dehors jsp
 */
