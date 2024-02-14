@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:51:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 08:07:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	remove_map_from_scene(t_data *data) // possible sans calloc et strdup?
 		new_scene[i] = ft_strdup(data->scene[i]); // strdup oblige?
 	data->scene = new_scene;
 	if (!data->scene)
-		return (data->error->error_g |= ERROR_RM_MAP_, 1);
+		return (data->error->error_g |= ERROR_RM_MAP, 1);
 	return(0);
 }
 
