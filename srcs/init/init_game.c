@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:36:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:16:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ bool	init_game(t_data *data)
 {
 	if (init_images(data)) // bug
 		return (ft_putstr(E_INIT_IMG, 2), 1);
-	print_img(data); // dev
 	data->win = mlx_new_window(data->mlx, data->window_x,
 		data->window_y, "Cub3D"); // taille img * largeur 
 	if (!data->win)

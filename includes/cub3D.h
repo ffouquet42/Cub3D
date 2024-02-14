@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:12:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:31:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,8 @@ typedef struct s_data
 	
 	void		*mlx;
 	void		*win;
-	int			window_x;
-	int			window_y;
+	int			window_x; // a supp
+	int			window_y; // a supp
 	t_game		*game;
 	t_raycast	*raycast;
 	char		**scene;
@@ -165,7 +165,6 @@ int		main(int argc, char **argv);
 //---------------   init_data.c   --------------//
 bool	init_data(t_data *data);
 void	init_data_2(t_data *data);
-bool	init_mlx(t_data *data);
 
 //---------------   init_game.c   --------------//
 bool	init_game(t_data *data);
