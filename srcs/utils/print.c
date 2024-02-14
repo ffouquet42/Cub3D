@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/14 09:05:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:10:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,14 @@ void	parsing_msg_error(t_error *error) //Rename for more spaces
 		ft_putstr(E_NO_XPM, 2);
 	if (error->error_g & ERROR_RGB)
 		ft_putstr(E_RGB, 2);
-	// if (error->error_g & ERROR_EXIT)
-	// 	ft_putstr("- Incorrect exit\n", 1);
-	// if (error->error_g & ERROR_COL)
-	// 	ft_putstr("- Incorrect collectibles\n", 1);
-	// if (error->error_g & ERROR_CHAR)
-	// 	ft_putstr("- Incorrect characters\n", 1);
-	// if (error->error_g & ERROR_NO_VALID_PATH)
-	// 	ft_putstr("- Incorrect path\n", 1);
-	
+	if (error->error_g & ERROR_INIT_MLX)
+		ft_putstr(E_INIT_MLX , 2);
+	if (error->error_g & ERROR_INIT_IMG)
+		ft_putstr(E_INIT_IMG, 2);
+	if (error->error_g & ERROR_MLX_WIN)
+		ft_putstr(E_MLX_WIN , 2);
+	if (error->error_g & ERROR_POS)
+		ft_putstr(E_GET_P_POS, 2);
 	if (error->error_g & ERROR_MALLOC)
 		ft_putstr(E_MALLOC_FAIL, 2);
 }

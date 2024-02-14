@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:31:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:04:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -275,7 +275,7 @@ bool	line_is_empty(char *str);
 //**********************************************//
 
 // dev
-void	print_scene(char **scene);
+void	print_scene(t_data *data);
 void	print_map(char **map);
 void	print_rgb(t_data *data);
 void	print_img(t_data *data);

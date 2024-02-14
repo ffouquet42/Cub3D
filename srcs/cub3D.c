@@ -6,23 +6,23 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 11:16:26 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:03:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
 // dev (fonctions pour visualiser les structs dans le terminal pendant le dev, a supprimer avant de rendre le projet)
-void	print_scene(char **scene)  
+void	print_scene(t_data *data)  
 {
 	int i;
 	i = 0;
-	while (scene[i])
+	while (data->scene[i])
 	{
-		printf("scene[%i] = %s", i, scene[i]);
+		printf("scene[%i] = %s", i, data->scene[i]);
 		i++;
 	}
-	printf("\nscene[%i] = %s\n", i, scene[i]);
+	printf("\nscene[%i] = %s\n", i, data->scene[i]);
 }
 
 void	print_map(char **map)
@@ -83,6 +83,6 @@ int	main(int argc, char **argv)
 	// free_mlx(&data);
 	// free_data(&data); // general 
 	// free(data.map);
-	free(data.scene);
+	// free_scene(&data);
 	return (0);
 }
