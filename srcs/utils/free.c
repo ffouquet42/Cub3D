@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:12:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:41:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	free_scene(t_data *data)
 {
 	int	i;
 
-	i = 0;
-	while (data->scene[i])
-		free(data->scene[i++]);
+	i = -1;
+	while (data->scene[++i])
+		free(data->scene[i]);
 	free(data->scene);
 }
 

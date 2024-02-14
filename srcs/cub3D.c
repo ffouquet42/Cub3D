@@ -6,13 +6,12 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 14:57:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:27:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-// dev (fonctions pour visualiser les structs dans le terminal pendant le dev, a supprimer avant de rendre le projet)
 void	print_scene(t_data *data)  
 {
 	int i;
@@ -83,6 +82,6 @@ int	main(int argc, char **argv)
 	// free_mlx(&data);
 	// free_data(&data); // general 
 	// free(data.map);
-	free(data.scene); // a mettre dans free_all
+	free_scene(&data); // a mettre dans free_all
 	return (0);
 }
