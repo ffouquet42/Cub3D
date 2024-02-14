@@ -6,26 +6,27 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:09:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:22:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-char	**resize_map(char **map, t_data *data)
+void	resize_map(t_data *data)
 {
 	int		y;
 	int		x;
 	char	*dest;
 
 	y = 0;
-	while (map[y])
+	while (data->map[y])
 	{
 		x = 0;
-		dest = ft_calloc(sizeof(char), data->map_width); // malloc?
-		while (map[y][x] && map[y][x] != '\n')
+		// dest = ft_calloc(sizeof(char), data->map_width);
+		dest = malloc(sizeof(char ) * (data->map_width));
+		while (data->map[y][x] && data->map[y][x] != '\n')
 		{
-			dest[x] = map[y][x];
+			dest[x] = data->map[y][x];
 			x++;
 		}
 		while (x < data->map_width)
@@ -34,10 +35,9 @@ char	**resize_map(char **map, t_data *data)
 			x++;
 		}
 		dest[x] = '\0';
-		map[y] = dest;
+		data->map[y] = dest;
 		y++;
 	}
-	return (map);
 }
 
 void	get_map_size(char **map, t_data *data) // map pas droite? plusieurs longueurs?
@@ -69,7 +69,7 @@ bool	get_map(t_data *data)
 	int		x;
 
 	x = 0;
-	map = malloc(sizeof(char *) * (data->scene_height -1)); //-6 + 5
+	map = malloc(sizeof(char *) * (data->scene_height -5)); //-6 + 1
 	if (!map)
 		return (data->error->error_g |= ERROR_MALLOC, 1);
 	i = 6;
@@ -77,8 +77,9 @@ bool	get_map(t_data *data)
 		map[x++] = ft_strdup(data->scene[i++]); // dont need strdup?
 	map[x] = NULL;
 	get_map_size(map, data);
-	resize_map(map, data);
+	resize_map(data);
 	if (!data->map) 
-		return (data->error->error_g |= ERROR_MALLOC, 1);
+		return (data->error->error_g |= ERROR_MAP, 1);
+	// print_map(data->scene);
 	return(0);
 }
