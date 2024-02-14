@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/14 08:25:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:05:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,24 @@ void	parsing_msg_error(t_error *error) //Rename for more spaces
 	if (error->error_g & ERROR_SORT_S)
 		ft_putstr(E_SORT_SCE, 2);
 	if (error->error_g & ERROR_CHAR)
-		ft_putstr(E_MAP_CHAR, 1);
+		ft_putstr(E_MAP_CHAR, 2);
 	if (error->error_g & ERROR_START)
-		ft_putstr(E_ONE_START, 1);
+		ft_putstr(E_ONE_START, 2);
 	if (error->error_g & ERROR_WALL)
-		ft_putstr(E_CLO_WALL, 1);
-
-	if (error->error_g & ERROR_EXIT)
-		ft_putstr("- Incorrect exit\n", 1);
-	if (error->error_g & ERROR_COL)
-		ft_putstr("- Incorrect collectibles\n", 1);
-	if (error->error_g & ERROR_CHAR)
-		ft_putstr("- Incorrect characters\n", 1);
-	if (error->error_g & ERROR_NO_VALID_PATH)
-		ft_putstr("- Incorrect path\n", 1);
+		ft_putstr(E_CLO_WALL, 2);
+	if (error->error_g & ERROR_XPM)
+		ft_putstr(E_NO_XPM, 2);
+	if (error->error_g & ERROR_RGB)
+		ft_putstr(E_RGB, 2);
+	// if (error->error_g & ERROR_EXIT)
+	// 	ft_putstr("- Incorrect exit\n", 1);
+	// if (error->error_g & ERROR_COL)
+	// 	ft_putstr("- Incorrect collectibles\n", 1);
+	// if (error->error_g & ERROR_CHAR)
+	// 	ft_putstr("- Incorrect characters\n", 1);
+	// if (error->error_g & ERROR_NO_VALID_PATH)
+	// 	ft_putstr("- Incorrect path\n", 1);
 	
 	if (error->error_g & ERROR_MALLOC)
-		ft_putstr(E_MALLOC_FAIL, 1);
+		ft_putstr(E_MALLOC_FAIL, 2);
 }

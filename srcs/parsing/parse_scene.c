@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:48:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:01:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ bool	parse_scene(t_data *data)
 	while (i < 4)
 	{
 		if (path_is_xpm(data->scene[i]))
-			return (ft_putstr(E_NO_XPM, 2), 1);
+			return (data->error->error_g |= ERROR_XPM, 1);
 		i++;
 	}
 	fc = 0;
 	while (i < 6)
 	{
 		if (check_rgb(data->scene[i], data, fc))
-			return (ft_putstr(E_RGB, 2), 1);
+			return (data->error->error_g |= ERROR_RGB, 1);
 		i++;
 		fc++;
 	}

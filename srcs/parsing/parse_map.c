@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 08:22:11 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 08:26:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ bool	parse_map(t_data *data)
 	if (check_map_char(data))
 		return (data->error->error_g |= ERROR_CHAR, 1);
 	if (one_start_pos(data))
-		return (data->error->error_g |= ERROR_POS, 1);
+		return (data->error->error_g |= ERROR_START, 1);
 	if (closed_by_wall(data))
 		return (data->error->error_g |= ERROR_WALL, 1);
 	return (0);
