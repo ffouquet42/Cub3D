@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:02:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:54:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ERRORS_H
 
 # include <stdint.h>
+
+/*Struct errors*/
 
 typedef struct s_error
 {
@@ -37,13 +39,17 @@ typedef struct s_error
 # define ERROR_WALL				0x400
 # define ERROR_XPM				0x800
 # define ERROR_RGB				0x1000
+# define ERROR_INIT_MLX			0x2000
+# define ERROR_INIT_IMG			0x4000
+# define ERROR_MLX_WIN			0x8000
+# define ERROR_POS				0x10000
+# define ERROR_MALLOC			0x20000
+
 
 
 # define ERROR_EXIT				0x800
 # define ERROR_COL				0x1000
 # define ERROR_NO_VALID_PATH	0x4000
-
-# define ERROR_MALLOC			0x8000
 
 
 
@@ -60,14 +66,17 @@ typedef struct s_error
 # define E_CLO_WALL COLOR_RED "Error\nMap must be closed by walls.\n" COLOR_RESET
 # define E_NO_XPM COLOR_RED "Error\nNeed .xpm files for textures.\n" COLOR_RESET
 # define E_RGB COLOR_RED "Error\nInvalid RGB values.\n" COLOR_RESET
-
-
-# define E_INIT_DATA COLOR_RED "Error\nInit data failed.\n" COLOR_RESET
 # define E_INIT_MLX COLOR_RED "Error\nInit mlx failed.\n" COLOR_RESET
 # define E_INIT_IMG COLOR_RED "Error\nInit images failed.\n" COLOR_RESET
 # define E_MLX_WIN COLOR_RED "Error\nmlx new window failed.\n" COLOR_RESET
 # define E_GET_P_POS COLOR_RED "Error\nGet player pos failed.\n" COLOR_RESET
-
 # define E_MALLOC_FAIL COLOR_RED "Error\nA malloc have failed.\n" COLOR_RESET
+
+
+
+# define E_INIT_DATA COLOR_RED "Error\nInit data failed.\n" COLOR_RESET
+
+
+
 
 #endif

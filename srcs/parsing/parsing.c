@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:10:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:38:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ bool	check_args(int argc, char **argv, t_data *data)
 
 bool	parsing(int argc, char **argv, t_data *data)
 {
+	// tt mettre sur une ligne 
 	if (check_args(argc, argv, data))
 		return (parsing_msg_error(data->error), 1);
 	if (get_data_scene(argv[1], data))

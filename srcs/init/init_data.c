@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:33:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 09:42:30 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // decommenter si besoin des lignes dont j'ai pas eu besoin pour le parsing mais que peut etre t'aura besoin pour l'exec
 void	init_data_2(t_data *data)
 {
-	// bzero data->e_scene-> ?
+	// bzero data->e_scene-> ? dans init_data
 	data->e_scene->no = 0;
 	data->e_scene->so = 0;
 	data->e_scene->ea = 0;
@@ -53,16 +53,16 @@ bool	init_data(t_data *data)
 	data->window_y = 1080; // Hauteur de l'image * la hauteur, voir init_game
 	data->game = malloc(sizeof(t_game));
 	if (!data->game)
-		return (1); // error malloc 
+		return (data->error->error_g |= ERROR_MALLOC, 1); // error malloc 
 	data->raycast = malloc(sizeof(t_raycast));
 	if (!data->raycast)
-		return (1);
+		return (data->error->error_g |= ERROR_MALLOC, 1);
 	data->e_scene = malloc(sizeof(t_e_scene));
 	if (!data->e_scene)
-		return (1);
+		return (data->error->error_g |= ERROR_MALLOC, 1);
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (EXIT_FAILURE);
+		return (data->error->error_g |= ERROR_INIT_MLX, 1);
 	init_data_2(data);
 	return (0);
 }
