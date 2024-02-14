@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:39:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:51:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	remove_map_from_scene(t_data *data) // possible sans calloc et strdup?
 		new_scene[i] = ft_strdup(data->scene[i]); // strdup oblige?
 	data->scene = new_scene;
 	if (!data->scene)
-		return (data->error->error_g |= ERROR_SCENE	, 1);
+		return (data->error->error_g |= ERROR_RM_MAP_, 1);
 	return(0);
 }
 
@@ -112,12 +112,12 @@ bool	get_data_scene(char *scene_path, t_data *data)
 	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
-	if(get_scene(fd, data))
+	if (get_scene(fd, data))
 		return (1);
-	if(!data->scene)
+	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, 1);
 	clean_scene(data);
-	if(!data->scene)
+	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, 1);
 	return (close(fd),0);
 }

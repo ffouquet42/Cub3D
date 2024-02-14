@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:19:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:55:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,18 @@ typedef struct s_error
 # define ERROR_EMPTY			0x8
 # define ERROR_SCENE			0X10
 # define ERROR_MAP				0X20
+# define ERROR_RM_MAP			0x40
+# define ERROR_SORT_S			0x80
 
-# define ERROR_RECT				0x40
-# define ERROR_WALL				0x80
-# define ERROR_POS				0x100
-# define ERROR_EXIT				0x200
-# define ERROR_COL				0x400
-# define ERROR_CHAR				0x800
-# define ERROR_NO_VALID_PATH	0x1000
+# define ERROR_RECT				0x100
+# define ERROR_WALL				0x200
+# define ERROR_POS				0x400
+# define ERROR_EXIT				0x800
+# define ERROR_COL				0x1000
+# define ERROR_CHAR				0x2000
+# define ERROR_NO_VALID_PATH	0x4000
 
-# define ERROR_MALLOC			0x2000
+# define ERROR_MALLOC			0x8000
 
 
 
@@ -49,11 +51,13 @@ typedef struct s_error
 # define E_EMPTY_MAP COLOR_RED "Error\nInformation is missing or the map is too small\n" COLOR_RESET
 # define E_GET_SCENE COLOR_RED "Error\nGet scene failed.\n" COLOR_RESET
 # define E_GET_MAP COLOR_RED "Error\nGet map failed.\n" COLOR_RESET
+# define E_RM_MAP COLOR_RED "Error\nRemove map from scene failed.\n" COLOR_RESET
+# define E_SORT_SCE COLOR_RED "Error\nSort scene failed.\n" COLOR_RESET
+
+
 
 # define E_INIT_DATA COLOR_RED "Error\nInit data failed.\n" COLOR_RESET
 # define E_INIT_MLX COLOR_RED "Error\nInit mlx failed.\n" COLOR_RESET
-# define E_RM_MAP COLOR_RED "Error\nRemove map from scene failed.\n" COLOR_RESET
-# define E_SORT_SCE COLOR_RED "Error\nSort scene failed.\n" COLOR_RESET
 # define E_NO_XPM COLOR_RED "Error\nNeed .xpm files for textures.\n" COLOR_RESET
 # define E_RGB COLOR_RED "Error\nInvalid RGB values.\n" COLOR_RESET
 # define E_MAP_CHAR COLOR_RED "Error\nInvalid char for map.\n" COLOR_RESET

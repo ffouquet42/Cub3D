@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:39:31 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:44:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ bool	all_identifiants(t_data *data) // une ligne
 	return (0);
 }
 
-char	**sort_scene(t_data *data) // sans calloc
+bool	sort_scene(t_data *data) // sans calloc
 {
 	char	**new_scene;
 	int		i;
 
 	new_scene = ft_calloc(sizeof(char *), 7);
 	if (!new_scene)
-		return (NULL);
+		return (data->error->error_g |= ERROR_MALLOC, 1);
 	i = 0;
 	while (data->scene[i])
 	{
@@ -74,6 +74,9 @@ char	**sort_scene(t_data *data) // sans calloc
 	}
 	new_scene[6] = NULL;
 	if (all_identifiants(data))
-		return (NULL);
-	return (new_scene);
+		return (1);
+	data->scene = new_scene;
+	if (!data->scene)
+		return (data->error->error_g |= ERROR_SCENE, 1);
+	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/14 06:44:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:56:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ void	parsing_msg_error(t_error *error) //Rename for more spaces
 		ft_putstr(E_EMPTY_MAP, 1);
 	if (error->error_g & ERROR_SCENE)
 		ft_putstr(E_GET_SCENE, 1);
+	if (error->error_g & ERROR_MAP)
+		ft_putstr(E_GET_MAP, 1);
+	if (error->error_g & ERROR_RM_MAP)
+		ft_putstr(E_RM_MAP, 1);
+	if (error->error_g & ERROR_SORT_S)
+		ft_putstr(E_SORT_SCE, 1);
 		
 	if (error->error_g & ERROR_RECT)
 		ft_putstr("- Incorrect rectangle\n", 1);
