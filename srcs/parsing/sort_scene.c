@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 13:04:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:39:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	all_identifiants(t_data *data) // une ligne
 	return (0);
 }
 
-char	**sort_scene(t_data *data)
+char	**sort_scene(t_data *data) // sans calloc
 {
 	char	**new_scene;
 	int		i;

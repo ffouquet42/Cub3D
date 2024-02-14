@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:16:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:36:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ typedef struct s_data
 //**********************************************//
 
 //---------------   cub3D.c   ------------------//
+
 int		main(int argc, char **argv);
 
 //**********************************************//
@@ -215,7 +216,7 @@ bool	get_data_scene(char *scene_path, t_data *data);
 int		scene_len(char *scene_path, t_data *data);
 bool	get_scene(int fd, t_data *data);
 void	clean_scene(t_data *data);
-char	**remove_map_from_scene(t_data *data);
+bool	remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
 char	**sort_scene(t_data *data);
@@ -265,7 +266,7 @@ void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
 
-//---------------	scene&map_utils.c ----------//
+//---------------	scene_utils.c ----------//
 
 bool	line_is_empty(char *str);
 

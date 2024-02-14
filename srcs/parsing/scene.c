@@ -6,14 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 07:00:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:39:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-// util??
-char	**remove_map_from_scene(t_data *data)
+bool	remove_map_from_scene(t_data *data) // possible sans calloc et strdup?
 {
 	char	**new_scene;
 	int		i;
@@ -23,8 +22,11 @@ char	**remove_map_from_scene(t_data *data)
 		return (NULL);
 	i = -1;
 	while (i++ < 5)
-		new_scene[i] = ft_strdup(data->scene[i]);
-	return (new_scene);
+		new_scene[i] = ft_strdup(data->scene[i]); // strdup oblige?
+	data->scene = new_scene;
+	if (!data->scene)
+		return (data->error->error_g |= ERROR_SCENE	, 1);
+	return(0);
 }
 
 void	clean_scene(t_data *data)
