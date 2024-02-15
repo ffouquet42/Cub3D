@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 16:47:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:47:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,7 @@ bool	remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
 bool	sort_scene(t_data *data);
+char 	**sort_scene_2(t_data *data);
 bool	all_identifiants(t_data *data);
 
 //---------------   wall.c   -------------------//
@@ -246,6 +247,7 @@ void	free_map(t_data *data);
 void 	exit_all(t_data *data); 
 void	free_data(t_data *data);
 void	free_scene(t_data *data);
+void free_tmp(char **scenet);
 
 
 //---------------   get_next_line.c   ----------//

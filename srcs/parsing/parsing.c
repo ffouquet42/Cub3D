@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 16:50:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:20:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ bool	parsing(int argc, char **argv, t_data *data)
 		return (parsing_msg_error(data->error), 1);
 	if (remove_map_from_scene(data))
 		return(parsing_msg_error(data->error), 1);
-	// if (sort_scene(data))
-	// 	return(parsing_msg_error(data->error), 1);
+	// print_scene(data->f_scene);
+	if (sort_scene(data))
+		return(parsing_msg_error(data->error), 1);
+	// print_scene(data->f_scene);
 	// if (parse_scene(data) || parse_map(data))
 	// 	return(parsing_msg_error(data->error), 1);
 	

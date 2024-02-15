@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 16:45:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:46:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,32 @@ void	free_map(t_data *data)
 	free(data->map);
 }
 
+
+void free_tmp(char **scenet)
+{
+	int	i;
+
+	i = 0;
+		// free(data->f_scene);
+	if(scenet)
+	{
+		while (scenet[i])
+			free(scenet[i++]);
+		free(scenet);
+	}
+}
 void	free_scene(t_data *data)
 {
 	int	i;
 
-	// i = 0;
+	i = 0;
+		// free(data->f_scene);
 	if(data->f_scene)
+	{
+		while (data->f_scene[i])
+			free(data->f_scene[i++]);
 		free(data->f_scene);
-	// {
-	// 	while (data->f_scene[i])
-	// 		free(data->f_scene[i++]);
-	// 	free(data->f_scene);
-	// }
+	}
 	i = 0;
 	if(data->scene)
 	{
