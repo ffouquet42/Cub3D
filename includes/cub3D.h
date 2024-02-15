@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 15:00:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:13:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ bool	clean_nl_scene(t_data *data);
 
 //---------------   map.c   --------------------//
 bool	get_map(t_data *data);
-void	get_map_size(char **map, t_data *data);
+void	get_map_size(t_data *data);
 void	resize_map(t_data *data);
 
 //---------------   parse_map.c   --------------//

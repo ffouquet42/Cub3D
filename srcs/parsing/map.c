@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 15:08:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:13:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	resize_map(t_data *data)
 	}
 }
 
-void	get_map_size(char **map, t_data *data) // map pas droite? plusieurs longueurs?
+void	get_map_size(t_data *data) // map pas droite? plusieurs longueurs?
 {
 	int	x;
 	int	y;
@@ -48,9 +48,9 @@ void	get_map_size(char **map, t_data *data) // map pas droite? plusieurs longueu
 
 	y = 0;
 	z = 0;
-	while (map[y])
+	while (data->map[y])
 	{
-		x = ft_strlen(map[y]);
+		x = ft_strlen(data->map[y]);
 		if (x > z)
 			z = x;
 		y++;
@@ -73,9 +73,9 @@ bool	get_map(t_data *data)
 	while (data->scene[i])
 		data->map[y++] = data->scene[i++];
 	data->map[y] = NULL;
-	print_map(data->map);
-	// get_map_size(map, data);
-	// resize_map(data);
+	// print_map(data->map);
+	get_map_size(data);
+	resize_map(data);
 	if (!data->map) 
 		return (data->error->error_g |= ERROR_MAP, 1);
 	return(0);
