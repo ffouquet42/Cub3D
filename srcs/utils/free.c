@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 18:46:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:02:19 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,39 +30,42 @@ void	free_map(t_data *data)
 {
 	int	i;
 
-	i = -1;
-	while (data->map[++i])
-		free(data->map[i]);
+	i = 0;
+	while (data->map[i])
+		free(data->map[i++]);
 	free(data->map);
 }
 
-
-void free_tmp(char **scenet)
+void	free_map_cpy(char **map)
 {
 	int	i;
 
 	i = 0;
-		// free(data->f_scene);
-	if(scenet)
-	{
-		while (scenet[i])
-			free(scenet[i++]);
-		free(scenet);
-	}
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }
+
+
+// void free_tmp(char **scenet)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 		// free(data->f_scene);
+// 	if(scenet)
+// 	{
+// 		while (scenet[i])
+// 			free(scenet[i++]);
+// 		free(scenet);
+// 	}
+// }
 void	free_scene(t_data *data)
 {
 	int	i;
 
-	// i = 0;
-	// if(data->f_scene)
-	// {
-	// 	// free(data->f_scene);
-	// 	while (data->f_scene[i])
-	// 		free(data->f_scene[i++]);
 	free(data->f_scene);
 	free(data->f2_scene);
-	// }
 	i = 0;
 	if(data->scene)
 	{
@@ -70,6 +73,7 @@ void	free_scene(t_data *data)
 			free(data->scene[i++]);
 		free(data->scene);
 	}
+	free_map(data);
 }
 
 void free_all(t_data *data)

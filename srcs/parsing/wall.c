@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 11:25:22 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:58:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ char	**copy_map(t_data *data)
 
 	map_cpy = malloc(sizeof(char *) * (data->map_height + 1));
 	if (!map_cpy)
-		return (NULL);
+		return (NULL);// gerer les retour 
 	i = 0;
 	while (i < data->map_height)
 	{
-		map_cpy[i] = ft_strdup(data->map[i]);
+		map_cpy[i] = data->map[i];
 		i++;
 	}
 	map_cpy[i] = NULL;
@@ -121,9 +121,10 @@ bool	closed_by_wall(t_data *data)
 	}
 	map_cpy = copy_map(data);
 	if (!map_cpy)
-		return (1);
+		return (1); // msg err 
 	if (fill_map(data, map_cpy, "0NSEW"))
 		return (1);
+	free_map_cpy(map_cpy);
 	return (0);
 }
 

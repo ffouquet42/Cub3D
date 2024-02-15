@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:49:13 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:01:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 		data->rgb_floor[rgb] = ft_atoi(val);
 	else if (fc == 1)
 		data->rgb_ceiling[rgb] = ft_atoi(val);
+	// free(val);
 	return (0);
 }
 
