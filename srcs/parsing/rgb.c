@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 19:01:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:14:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	correct_rgb_value(t_data *data)
 	return (0);
 }
 
-bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
+char *save_rgb_value(char *str, t_data *data, int rgb, int fc)
 {
 	int		i;
 	int		j;
@@ -45,7 +45,7 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 		i++;
 	val = malloc(sizeof(char) * (i + 1));
 	if (!val)
-		return (1);
+		return (NULL);
 	while (j < i)
 	{
 		val[j] = str[j];
@@ -57,7 +57,7 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 	else if (fc == 1)
 		data->rgb_ceiling[rgb] = ft_atoi(val);
 	// free(val);
-	return (0);
+	return (val);
 }
 
 bool	rgb_value(char *str, t_data *data, int fc)
@@ -65,13 +65,15 @@ bool	rgb_value(char *str, t_data *data, int fc)
 	int	i;
 	int	rgb;
 	int	loop;
+	char *val_cpy;
 
 	i = 0;
 	rgb = 0;
 	loop = 0;
+	val_cpy = save_rgb_value(&str[i], data, rgb, fc);
 	while (loop < 3)
 	{
-		if (save_rgb_value(&str[i], data, rgb, fc))
+		if (!val_cpy)
 			return (1);
 		while (is_digit(str[i]))
 			i++;

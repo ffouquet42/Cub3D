@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 18:58:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:07:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ bool	is_cub(char **argv);
 bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
-bool	save_rgb_value(char *str, t_data *data, int rgb, int fc);
+char 	*save_rgb_value(char *str, t_data *data, int rgb, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
