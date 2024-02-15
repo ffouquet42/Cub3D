@@ -6,26 +6,30 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 14:17:49 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:00:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	remove_map_from_scene(t_data *data) // possible sans calloc et strdup?
+bool	remove_map_from_scene(t_data *data) // su
 {
 	char	**new_scene;
 	int		i;
 	
-	new_scene = ft_calloc(sizeof(char *), 7);
+	new_scene =  malloc(sizeof(char *) * (7));
 	if (!new_scene)
-		return (NULL);
+		return (data->error->error_g |= ERROR_MALLOC, 1);
 	i = -1;
 	while (i++ < 5)
 		new_scene[i] = data->scene[i]; // strdup oblige?
 	data->scene = new_scene;
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_RM_MAP, 1);
+	i = -1;
+	while (new_scene[++i])
+		free(new_scene[i]);
+	// free(new_scene);
 	return(0);
 }
 
@@ -65,14 +69,20 @@ bool	get_scene(int fd, t_data *data) // si ligne vide dans la map, erreur
 		return (data->error->error_g |= ERROR_MALLOC, 1);
 	while (line) 
 	{
-		if (!line_is_empty(line)) {
+		if (!line_is_empty(line)) 
+		{
 			data->scene[i] = line;
 			i++;
 		}
 		else
 		{
-			if (i > 6)
+			if (i > 6 && i < data->scene_height)
+			{
+				free(line);
+				data->scene[i] = NULL;
 				return(data->error->error_g |= ERROR_EMPTY_LINE, 1);
+				
+			}
 			free(line);
 		}
 		line = get_next_line(fd);
