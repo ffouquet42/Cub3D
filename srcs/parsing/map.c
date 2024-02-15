@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 14:23:19 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:08:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	resize_map(t_data *data)
 	while (data->map[y])
 	{
 		x = 0;
-		dest = ft_calloc(sizeof(char), data->map_width);
-		// dest = malloc(sizeof(char ) * (data->map_width ));
+		// dest = ft_calloc(sizeof(char), data->map_width);
+		dest = malloc(sizeof(char ) * (data->map_width + 1));
 		while (data->map[y][x] && data->map[y][x] != '\n')
 		{
 			dest[x] = data->map[y][x];
@@ -61,24 +61,22 @@ void	get_map_size(char **map, t_data *data) // map pas droite? plusieurs longueu
 
 bool	get_map(t_data *data)
 {
-	char	**map;
+	// char	**map;
 	int		i;
 	int		y;
 
 	y = 0;
-	map = malloc(sizeof(char *) * (data->scene_height - 5)); 
-	if (!map)
-		return (data->error->error_g |= ERROR_MALLOC, 1);
 	i = 6;
-	printf("%d", data->scene_height);
-	while (y < data->scene_height)
-		map[y++] = data->scene[i++];
-	map[y] = NULL;
-	print_map(map);
-	get_map_size(map, data);
-	resize_map(data);
+	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); 
+	if (!data->map)
+		return (data->error->error_g |= ERROR_MALLOC, 1);
+	while (data->scene[i])
+		data->map[y++] = data->scene[i++];
+	data->map[y] = NULL;
+	print_map(data->map);
+	// get_map_size(map, data);
+	// resize_map(data);
 	if (!data->map) 
 		return (data->error->error_g |= ERROR_MAP, 1);
-	// print_map(data->scene);
 	return(0);
 }

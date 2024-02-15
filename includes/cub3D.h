@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 13:10:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:00:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,11 +239,13 @@ bool	only_digit(char *str);
 bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
+void 	free_all(t_data *data);
 void	free_mlx(t_data *data);
 void	free_map(t_data *data);
 void 	exit_all(t_data *data); 
 void	free_data(t_data *data);
 void	free_scene(t_data *data);
+
 
 //---------------   get_next_line.c   ----------//
 char	*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 14:08:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:07:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	main(int argc, char **argv)
 	
 	if (parsing(argc, argv, &data))
 	{
+		printf("ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
 		if (data.scene)
 			free_scene(&data);
 		return (1);
@@ -84,7 +85,8 @@ int	main(int argc, char **argv)
 	
 	// free_mlx(&data);
 	// free_data(&data); // general 
-	// free(data.map);
+	free(data.map);
+	printf("Noooooooooooooooooooon");
 	// free_map(&data);
 	free_scene(&data); // a mettre dans free_all
 	return (0);
