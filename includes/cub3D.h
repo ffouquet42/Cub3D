@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 17:47:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:29:44 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ typedef struct s_data
 	t_raycast	*raycast;
 	char		**scene;
 	char		**f_scene;
+	char		**f2_scene;
 	char		**map;
 	int			map_height;
 	int			map_width;
@@ -247,7 +248,7 @@ void	free_map(t_data *data);
 void 	exit_all(t_data *data); 
 void	free_data(t_data *data);
 void	free_scene(t_data *data);
-void free_tmp(char **scenet);
+void 	free_tmp(char **scenet);
 
 
 //---------------   get_next_line.c   ----------//

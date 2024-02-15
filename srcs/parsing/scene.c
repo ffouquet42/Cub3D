@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 16:42:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:30:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	remove_map_from_scene(t_data *data) // su
 {
 	int		i;
 	
-	data->f_scene =  malloc(sizeof(char *) * (7));
+	data->f_scene = malloc(sizeof(char *) * (7));
 	if (!data->f_scene)
 		return (data->error->error_g |= ERROR_MALLOC, 1);
 	i = 0;

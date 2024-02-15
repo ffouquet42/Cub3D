@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 16:46:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:21:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,14 @@ void	print_img(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_error	error;
+	t_e_scene	e_scene;
 	t_data	data;
 
 	error = (t_error){0};
+	e_scene = (t_e_scene){0};
 	data = (t_data){0};
 	data.error = &error;
+	data.e_scene = &e_scene;
 	
 	if (parsing(argc, argv, &data))
 	{

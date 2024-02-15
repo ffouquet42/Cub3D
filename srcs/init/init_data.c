@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 09:42:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:45:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 void	init_data_2(t_data *data)
 {
 	// bzero data->e_scene-> ? dans init_data
-	data->e_scene->no = 0;
-	data->e_scene->so = 0;
-	data->e_scene->ea = 0;
-	data->e_scene->we = 0;
-	data->e_scene->f = 0;
-	data->e_scene->c = 0; 
+	// data->e_scene->no = 0;
+	// data->e_scene->so = 0;
+	// data->e_scene->ea = 0;
+	// data->e_scene->we = 0;
+	// data->e_scene->f = 0;
+	// data->e_scene->c = 0; 
 	data->images[0].mlx_img = NULL;
 	data->images[1].mlx_img = NULL;
 	data->images[2].mlx_img = NULL;
