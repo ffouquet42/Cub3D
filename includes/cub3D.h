@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 14:04:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:10:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ typedef struct s_e_scene
 typedef struct s_data
 {
 	
-	t_error	*error;
+	t_error		*error;
 	
 	void		*mlx;
 	void		*win;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 19:27:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:08:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,24 +64,28 @@ void	print_img(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
 	t_error	error;
+	t_data	data;
 
-	ft_bzero(&data, sizeof(t_data));
-	ft_bzero(&error, sizeof(t_error));
+	error = (t_error){0};
+	data = (t_data){0};
 	data.error = &error;
 	
 	if (parsing(argc, argv, &data))
+	{
+		if (data.scene)
+			free_scene(&data);
 		return (1);
+	}
 	// if (init_data(&data))
 	// 	return(parsing_msg_error(data.error), 1);
 	// if (init_game(&data))
 	// 	return(parsing_msg_error(data.error), 1);
 	
-	//close(fd) general
 	// free_mlx(&data);
 	// free_data(&data); // general 
 	// free(data.map);
+	// free_map(&data);
 	free_scene(&data); // a mettre dans free_all
 	return (0);
 }

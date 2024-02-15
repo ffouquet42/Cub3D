@@ -6,7 +6,7 @@ NAME		=	cub3D
 
 #CFLAGS		= 	-Wall -Wextra -Werror -g3 -I./srcs/includes
 
-SRCS		=	srcs/cub3D.c						\
+SRCS		=	srcs/main.c							\
 				srcs/init/init_data.c				\
 				srcs/init/init_game.c				\
 				srcs/init/init_images.c				\

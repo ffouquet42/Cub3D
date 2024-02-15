@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 14:13:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:10:18 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct s_error
 # define ERROR_MLX_WIN			0x10000
 # define ERROR_POS				0x20000
 # define ERROR_MALLOC			0x40000
-
-
 
 
 # define E_PARS_ARGS COLOR_RED "Error\nNeed a single argument, a .cub map.\n" COLOR_RESET

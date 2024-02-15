@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 19:41:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:53:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	free_map(t_data *data)
 {
 	int	i;
 
-	i = 0;
-	while (data->map[i])
-		free(data->map[i++]);
+	i = -1;
+	while (data->map[++i])
+		free(data->map[i]);
 	free(data->map);
 }
 
@@ -40,13 +40,17 @@ void	free_scene(t_data *data)
 {
 	int	i;
 
-	i = -1;
-	while (data->scene[++i])
-		free(data->scene[i]);
+	i = 0;
+	while (data->scene[i])
+		free(data->scene[i++]);
 	free(data->scene);
 }
 
-
+void free_all(t_data *data)
+{
+	free_map(data);
+	free_scene(data);
+}
 // void	free_mlx(t_data *data)
 // {
 // 	if (data->map)
