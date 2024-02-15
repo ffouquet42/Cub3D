@@ -6,22 +6,22 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 15:14:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:46:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-void	print_scene(t_data *data)  
+void	print_scene(char **scene)  
 {
 	int i;
 	i = 0;
-	while (data->scene[i])
+	while (scene[i])
 	{
-		printf("scene[%i] = %s", i, data->scene[i]);
+		printf("scene[%i] = %s", i, scene[i]);
 		i++;
 	}
-	printf("\nscene[%i] = %s\n", i, data->scene[i]);
+	printf("\nscene[%i] = %s\n", i, scene[i]);
 }
 
 void	print_map(char **map)
