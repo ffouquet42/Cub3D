@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 18:01:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:02:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool	clean_nl_scene(t_data *data)
 		len = ft_strlen(data->f2_scene[i]); // Faire un f3_scene ?
 		dest = malloc(sizeof(char) * (len));
 		if (!dest)
-			return (1);
+			return (1); // gerer le retour 
 		j = 0;
 		while (j < len)
 		{

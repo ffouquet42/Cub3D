@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 17:59:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:03:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	free_mlx(t_data *data)
 	// 	mlx_destroy_image(data->mlx, data->exit_img);
 	// if (data->mlx)
 	// 	mlx_destroy_display(data->mlx);
+	//boucle pour free les images 
 	if (data->mlx)
 		free(data->mlx);
 	exit(0);
