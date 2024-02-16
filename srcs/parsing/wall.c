@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 08:11:48 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 12:05:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ bool	no_void_around(t_data *data, char *to_replace)
 	return (0);
 }
 
-bool	fill_map(t_data *data, char *to_replace) // pas bon nom de fonction
-{
-	if (no_void_around(data, to_replace)) // to_replace pas le bon nom de variable
-		return (1);
-	return (0);
-}
+// bool	fill_map(t_data *data, char *to_replace) // pas bon nom de fonction, poosible de le mettre dans close_wall
+// {
+// 	if (no_void_around(data, to_replace)) // to_replace pas le bon nom de variable
+// 		return (1);
+// 	return (0);
+// }
 
 bool	closed_by_wall(t_data *data)
 {
@@ -99,7 +99,7 @@ bool	closed_by_wall(t_data *data)
 			return (1);
 		i++;
 	}
-	if (fill_map(data, "0NSEW"))
+	if (no_void_around(data, "0NSEW"))
 		return (1);
 	return (0);
 }
