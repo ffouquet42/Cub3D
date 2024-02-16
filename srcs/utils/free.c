@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 08:13:04 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 16:11:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-void exit_all (t_data *data)
-{
-	ft_putstr(E_INIT_MLX, 2);
-	free_data(data);
-	exit (1);
-}
+// void exit_all (t_data *data)
+// {
+// 	ft_putstr(E_INIT_MLX, 2);
+// 	free_data(data);
+// 	exit (1);
+// }
 
 void	free_data(t_data *data)
 {
@@ -35,15 +35,15 @@ void	free_map(t_data *data)
 	free(data->map);
 }
 
-void	free_map_cpy(char **map)
-{
-	int	i;
+// void	free_map_cpy(char **map)
+// {
+// 	int	i;
 
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-}
+// 	i = 0;
+// 	while (map[i])
+// 		free(map[i++]);
+// 	free(map);
+// }
 
 void	free_map_scene(t_data *data) // fonctionne pour l'instant
 {
@@ -90,26 +90,26 @@ void free_all(t_data *data)
 	free_scene(data);
 }
 
-// void	free_mlx(t_data *data)
-// {
-// 	if (data->map)
-// 		free_map(data);
-// 	if (data->mlx_win)
-// 		mlx_destroy_window(data->mlx, data->mlx_win);
-// 	if (data->wall_img)
-// 		mlx_destroy_image(data->mlx, data->wall_img);
-// 	if (data->coll_img)
-// 		mlx_destroy_image(data->mlx, data->coll_img);
-// 	if (data->ground_img)
-// 		mlx_destroy_image(data->mlx, data->ground_img);
-// 	if (data->player_img)
-// 		mlx_destroy_image(data->mlx, data->player_img);
-// 	if (data->exit_img)
-// 		mlx_destroy_image(data->mlx, data->exit_img);
-// 	if (data->mlx)
-// 		mlx_destroy_display(data->mlx);
-// 	if (data->mlx)
-// 		free(data->mlx);
-// 	exit(0);
-// }
+void	free_mlx(t_data *data)
+{
+	// if (data->map)
+	// 	free_map(data);
+	// if (data->mlx_win)
+	// 	mlx_destroy_window(data->mlx, data->mlx_win);
+	// if (data->wall_img)
+	// 	mlx_destroy_image(data->mlx, data->wall_img);
+	// if (data->coll_img)
+	// 	mlx_destroy_image(data->mlx, data->coll_img);
+	// if (data->ground_img)
+	// 	mlx_destroy_image(data->mlx, data->ground_img);
+	// if (data->player_img)
+	// 	mlx_destroy_image(data->mlx, data->player_img);
+	// if (data->exit_img)
+	// 	mlx_destroy_image(data->mlx, data->exit_img);
+	// if (data->mlx)
+	// 	mlx_destroy_display(data->mlx);
+	if (data->mlx)
+		free(data->mlx);
+	exit(0);
+}
 
