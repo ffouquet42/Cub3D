@@ -3,66 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   init_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 08:03:30 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 16:19:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+// #include "../../includes/cub3D.h"
 
-bool	clean_nl_scene(t_data *data)  
-{
-	int		i;
-	int		j;
-	int		len;
-	char	*dest;
+// bool	clean_nl_scene(t_data *data)  
+// {
+// 	int		i;
+// 	int		j;
+// 	int		len;
+// 	char	*dest;
 
-	i = 0;
-	while (i < 4)
-	{
-		len = ft_strlen(data->f2_scene[i]) - 1; // Faire un f3_scene ?
-		dest = malloc(sizeof(char) * (len));
-		if (!dest)
-			return (1);
-		j = 0;
-		while (j < len)
-		{
-			dest[j] = data->f2_scene[i][j];
-			j++;
-		}
-		dest[j] = '\0';
-		data->f2_scene[i] = dest; // leaks juste trouver ou free f2_scene du coup pas free dest
-		i++;
-	}
-	return (0);
-}
+// 	i = 0;
+// 	while (i < 4)
+// 	{
+// 		len = ft_strlen(data->f2_scene[i]) - 1; // Faire un f3_scene ?
+// 		dest = malloc(sizeof(char) * (len));
+// 		if (!dest)
+// 			return (1);
+// 		j = 0;
+// 		while (j < len)
+// 		{
+// 			dest[j] = data->f2_scene[i][j];
+// 			j++;
+// 		}
+// 		dest[j] = '\0';
+// 		data->f2_scene[i] = dest; // leaks juste trouver ou free f2_scene du coup pas free dest
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
-bool	init_image(t_data *data, int i)
-{
-	data->images[i].mlx_img = mlx_xpm_file_to_image(data->mlx,
-		&data->f2_scene[i][2], &data->images[i].img_width,
-		&data->images[i].img_height);
-	if (!data->images[i].mlx_img)
-		return (1);
-	data->images[i].addr = mlx_get_data_addr(data->images[i].mlx_img,
-		&data->images[i].bpp, &data->images[i].rowlen,
-		&data->images[i].end);
-	return (0);
-}
+// bool	init_image(t_data *data, int i)
+// {
+// 	data->images[i].mlx_img = mlx_xpm_file_to_image(data->mlx,
+// 		&data->f2_scene[i][2], &data->images[i].img_width,
+// 		&data->images[i].img_height);
+// 	if (!data->images[i].mlx_img)
+// 		return (1);
+// 	data->images[i].addr = mlx_get_data_addr(data->images[i].mlx_img,
+// 		&data->images[i].bpp, &data->images[i].rowlen,
+// 		&data->images[i].end);
+// 	return (0);
+// }
 
-bool	init_images(t_data *data) // init image fonctionne
-{
-	int	i;
+// bool	init_images(t_data *data) // init image fonctionne
+// {
+// 	int	i;
 
-	i = 0;
-	clean_nl_scene(data);
-	while (i < 4)
-	{
-		if (init_image(data, i))
-			return (1);
-		i++;
-	}
-	return (0);
-}
+// 	i = 0;
+// 	clean_nl_scene(data);
+// 	while (i < 4)
+// 	{
+// 		if (init_image(data, i))
+// 			return (1);
+// 		i++;
+// 	}
+// 	return (0);
+// }

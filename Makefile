@@ -9,7 +9,6 @@ NAME		=	cub3D
 SRCS		=	srcs/main.c							\
 				srcs/init/init_data.c				\
 				srcs/init/init_game.c				\
-				srcs/init/init_images.c				\
 				srcs/parsing/map.c					\
 				srcs/parsing/parse_map.c			\
 				srcs/parsing/parse_scene.c			\

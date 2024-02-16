@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:18:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:21:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ bool	init_data(t_data *data)
 	if (!data->mlx)
 		return (data->error->error_g |= ERROR_INIT_MLX, 1);
 	if (init_images(data))
-		return (1); // msg error 
+		return (data->error->error_g |= ERROR_INIT_IMG, 1);
 	// init_data_2(data);
 	return (0);
 }
