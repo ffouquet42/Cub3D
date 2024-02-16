@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 12:56:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:08:02 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char **sort_scene_2(t_data *data)
 		{
 			new_scene[3] = data->f_scene[i];
 			data->e_scene->we = 1;
-		}
+		} // decoupe logique (-25l);
 		else if (data->f_scene[i][0] == 'F')
 		{
 			new_scene[4] = data->f_scene[i];

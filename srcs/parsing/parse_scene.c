@@ -6,17 +6,26 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 13:58:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:36:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+void print_rgb2(t_data *data)
+{
+
+	printf("%s%i%i\n","rgb_floor :", 0, data->rgb_floor[0]);
+	printf("%s%i%i\n","rgb_floor :", 1, data->rgb_floor[1]);
+	printf("%s%i%i\n","rgb_floor :", 2, data->rgb_floor[2]);
+}
 
 bool	check_rgb(char *rgb, t_data *data, int fc)
 {
 	if (only_digit_or_comma(&rgb[1]) || count_comma(&rgb[1])
 		|| rgb_format(&rgb[1]) || rgb_value(&rgb[1], data, fc))
 		return (1);
+	print_rgb2(data);
 	return (0);
 }
 
