@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 02:57:04 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 05:37:48 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,17 @@ bool	check_args(int argc, char **argv, t_data *data)
 
 bool	parsing(int argc, char **argv, t_data *data)
 {
-	// tt mettre sur une ligne 
 	if (check_args(argc, argv, data))
 		return (parsing_msg_error(data->error), 1);
 	if (get_data_scene(argv[1], data))
-		return (parsing_msg_error(data->error), 1); // leak 3.cub
+		return (parsing_msg_error(data->error), 1);
 	if (get_map(data))
 		return (parsing_msg_error(data->error), 1);
-	printf("**print map parsing\n"); // dev
-	print_map(data->map);
 	if (remove_map_from_scene(data))
-		return(parsing_msg_error(data->error), 1);
-	printf("**print map parsing remove scene\n"); // dev
-	print_map(data->map);
+		return (parsing_msg_error(data->error), 1);
 	if (sort_scene(data))
-		return(parsing_msg_error(data->error), 1);
-	printf("**print map parsing sort scene\n"); // dev
-	print_map(data->map);
-	print_scene(data->f2_scene); // dev
+		return (parsing_msg_error(data->error), 1);
 	if (parse_scene(data) || parse_map(data))
-	 	return(parsing_msg_error(data->error), 1);
-	print_rgb(data); // dev
-	printf("**print map apres parse map\n"); // dev
-	print_map(data->map);
+	 	return (parsing_msg_error(data->error), 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 03:18:11 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 05:35:25 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,8 @@ int	main(int argc, char **argv)
 	data.e_scene = &e_scene;
 	
 	if (parsing(argc, argv, &data))
-	{
-		printf("ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\n");
-		if (data.scene)
-			free_scene(&data);
-		return (1);
-	}
+		return (free_map_scene(&data), 1);
+
 	// if (init_data(&data))
 	// 	return(parsing_msg_error(data.error), 1);
 	// if (init_game(&data))
@@ -88,11 +84,5 @@ int	main(int argc, char **argv)
 	
 	// free_mlx(&data);
 	// free_data(&data); // general 
-	// free(data.map);
-	printf("*** print_map\n"); // dev
-	print_map(data.map); // dev
-	free_map(&data);
-	free_scene(&data); // a mettre dans free_all
-	printf("********** END OF PROG **********\n"); // dev
-	return (0);
+	return (free_map_scene(&data), 0);
 }

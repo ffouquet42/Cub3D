@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 02:52:35 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 05:38:45 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void exit_all (t_data *data)
 	exit (1);
 }
 
-// Je fait refaire entierement tout les free une fois que le parsing est nickel
 void	free_data(t_data *data)
 {
 	free(data->raycast);
@@ -46,20 +45,29 @@ void	free_map_cpy(char **map)
 	free(map);
 }
 
+void	free_map_scene(t_data *data)
+{
+	int	i;
 
-// void free_tmp(char **scenet)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 		// free(data->f_scene);
-// 	if(scenet)
-// 	{
-// 		while (scenet[i])
-// 			free(scenet[i++]);
-// 		free(scenet);
-// 	}
-// }
+	i = 0;
+	if (data->map)
+	{
+		while (data->map[i])
+			free(data->map[i++]);
+		free(data->map);
+	}
+	if (data->f_scene)
+		free(data->f_scene);
+	if (data->f2_scene)
+		free(data->f2_scene);
+	i = 0;
+	if(data->scene)
+	{
+		while (data->scene[i])
+			free(data->scene[i++]);
+		free(data->scene);
+	}
+}
 
 void	free_scene(t_data *data)
 {
@@ -81,6 +89,7 @@ void free_all(t_data *data)
 	free_map(data);
 	free_scene(data);
 }
+
 // void	free_mlx(t_data *data)
 // {
 // 	if (data->map)
