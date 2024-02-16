@@ -6,15 +6,15 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 17:02:51 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:01:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
 // decommenter si besoin des lignes dont j'ai pas eu besoin pour le parsing mais que peut etre t'aura besoin pour l'exec
-void	init_data_2(t_data *data)
-{
+// void	init_data_2(t_data *data)
+// {
 	// bzero data->e_scene-> ? dans init_data
 	// data->e_scene->no = 0;
 	// data->e_scene->so = 0;
@@ -42,7 +42,7 @@ void	init_data_2(t_data *data)
 	// data->mouse_active = 0;
 	// data->run = 0;
 	// data->movespeed = MOVESPEED;
-}
+// }
 
 bool	clean_nl_scene(t_data *data)  
 {
@@ -54,7 +54,7 @@ bool	clean_nl_scene(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		len = ft_strlen(data->f2_scene[i]) - 1; // Faire un f3_scene ?
+		len = ft_strlen(data->f2_scene[i]); // Faire un f3_scene ?
 		dest = malloc(sizeof(char) * (len));
 		if (!dest)
 			return (1);

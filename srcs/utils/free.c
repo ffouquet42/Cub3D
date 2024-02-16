@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:11:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:59:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,6 @@ void	free_map(t_data *data)
 		free(data->map[i++]);
 	free(data->map);
 }
-
-// void	free_map_cpy(char **map)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (map[i])
-// 		free(map[i++]);
-// 	free(map);
-// }
 
 void	free_map_scene(t_data *data) // fonctionne pour l'instant
 {
@@ -94,8 +84,8 @@ void	free_mlx(t_data *data)
 {
 	// if (data->map)
 	// 	free_map(data);
-	// if (data->mlx_win)
-	// 	mlx_destroy_window(data->mlx, data->mlx_win);
+	// if (data->win)
+	// 	mlx_destroy_window(data->mlx, data->win);
 	// if (data->wall_img)
 	// 	mlx_destroy_image(data->mlx, data->wall_img);
 	// if (data->coll_img)
@@ -112,4 +102,3 @@ void	free_mlx(t_data *data)
 		free(data->mlx);
 	exit(0);
 }
-
