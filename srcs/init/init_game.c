@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:21:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:25:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,11 @@ bool	init_game(t_data *data)
 		return (data->error->error_g |= ERROR_MLX_WIN, 1);
 	if (get_player_pos(data))
 		return (data->error->error_g |= ERROR_POS, 1);
+	// print_map(data);
+	// mlx_key_hook(data->win, (void *)move_player, data);
+	// mlx_hook(data->win, 17, 0, (void *)free_mlx, data);
+	// mlx_loop(data->mlx);
+
+	//so_long cpy(repasser dessus)
 	return (0);
 }
