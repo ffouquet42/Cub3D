@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 18:30:11 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 08:07:36 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	remove_map_from_scene(t_data *data) // su
 	return(0);
 }
 
-void	clean_scene(t_data *data) // voir si il faut pas laisser  " " entre NO ET LE PATH
+void	clean_scene(t_data *data)
 { 
 	char	*tmp;
 	int 	i;
@@ -56,7 +56,7 @@ void	clean_scene(t_data *data) // voir si il faut pas laisser  " " entre NO ET L
 	}
 }
 
-bool	get_scene(int fd, t_data *data) // si ligne vide dans la map, erreur 
+bool	get_scene(int fd, t_data *data)
 {
 	char	*line;
 	int		i;

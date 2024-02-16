@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 02:38:13 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 08:07:05 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 		data->rgb_floor[rgb] = ft_atoi(val);
 	else if (fc == 1)
 		data->rgb_ceiling[rgb] = ft_atoi(val);
-	return (free(val), 0);
+	return (free(val), 0); // avec ce free j'ai plus de leaks pour rgb
 }
 
 bool	rgb_value(char *str, t_data *data, int fc)

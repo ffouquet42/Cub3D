@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 07:12:42 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 08:03:30 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	clean_nl_scene(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		len = ft_strlen(data->f2_scene[i]) - 1;
+		len = ft_strlen(data->f2_scene[i]) - 1; // Faire un f3_scene ?
 		dest = malloc(sizeof(char) * (len));
 		if (!dest)
 			return (1);
@@ -33,8 +33,7 @@ bool	clean_nl_scene(t_data *data)
 			j++;
 		}
 		dest[j] = '\0';
-		data->f2_scene[i] = dest;
-		printf("f2scene[%i] = [%s]\n", i, data->f2_scene[i]); // dev
+		data->f2_scene[i] = dest; // leaks juste trouver ou free f2_scene du coup pas free dest
 		i++;
 	}
 	return (0);
@@ -53,7 +52,7 @@ bool	init_image(t_data *data, int i)
 	return (0);
 }
 
-bool	init_images(t_data *data)
+bool	init_images(t_data *data) // init image fonctionne
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 05:43:25 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 08:13:04 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	free_map_cpy(char **map)
 	free(map);
 }
 
-void	free_map_scene(t_data *data)
+void	free_map_scene(t_data *data) // fonctionne pour l'instant
 {
 	int	i;
 

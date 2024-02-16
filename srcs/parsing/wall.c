@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 05:47:31 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 08:11:48 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	test_around(char **map, int y, int x, char *to_replace)
 	return (0);
 }
 
-bool	is_start_pos(char c, char *str)
+bool	is_start_pos(char c, char *str) // pas bon nom de fonction / fonction existe deja ?
 {
 	int i;
 
@@ -70,9 +70,9 @@ bool	no_void_around(t_data *data, char *to_replace)
 	return (0);
 }
 
-bool	fill_map(t_data *data, char *to_replace)
+bool	fill_map(t_data *data, char *to_replace) // pas bon nom de fonction
 {
-	if (no_void_around(data, to_replace))
+	if (no_void_around(data, to_replace)) // to_replace pas le bon nom de variable
 		return (1);
 	return (0);
 }
@@ -103,4 +103,3 @@ bool	closed_by_wall(t_data *data)
 		return (1);
 	return (0);
 }
-
