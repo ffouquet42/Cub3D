@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 07:09:55 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 12:56:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	all_identifiants(t_data *data) // une ligne 
+bool	all_identifiants(t_data *data) // une ligne a mette dans sort_scene
 {
 	if (!data->e_scene->no)
 		return (1);
@@ -29,18 +29,18 @@ bool	all_identifiants(t_data *data) // une ligne
 	return (0);
 }
 
-bool	sort_scene(t_data *data) // sans calloc
+bool	sort_scene(t_data *data) 
 {
 	
-	data->f2_scene = sort_scene_2(data); // afree
+	data->f2_scene = sort_scene_2(data); 
 	if (!data->f2_scene)
 		return (data->error->error_g |= ERROR_SORT_S, 1);
 	if (all_identifiants(data))
 		return (1); //Msg erreur 
-	return(0);
+	return (0);
 }
 
-char **sort_scene_2(t_data *data) // sans calloc
+char **sort_scene_2(t_data *data)
 {
 	char	**new_scene;
 	int		i;

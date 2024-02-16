@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 11:59:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:21:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ bool	check_map_char(t_data *data)
 		x = 0;
 		while (data->map[y][x])
 		{
-			if (!is_map_char(data->map[y][x], "01NSEW ")) //space expres?
+			if (!is_map_char(data->map[y][x], "01NSEW ")) //space expreshn?
 				return (1);
 			x++;
 		}

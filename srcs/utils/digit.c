@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:26:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:53:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:04:52 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,33 @@ bool	is_digit(char c)
 	return (0);
 }
 
-bool	only_digit(char *str) // Verif si utiliser
-{
-	int	i;
-	int	len;
+// bool	only_digit(char *str) // Verif si utiliser
+// {
+// 	int	i;
+// 	int	len;
 
-	len = ft_strlen(str);
-	i = 0;
-	while (i < len - 1)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
-		i++;
-	}
-	return (0);
-}
+// 	len = ft_strlen(str) - 1;
+// 	i = 0;
+// 	while (i < len)
+// 	{
+// 		if (str[i] < '0' || str[i] > '9')
+// 			return (1);
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
 bool	only_digit_or_comma(char *str)
 {
 	int	i;
 	int	len;
 
-	len = ft_strlen(str);
+	len = ft_strlen(str) - 1;
 	i = 0;
-	while (i < len - 1)
+	while (i < len)
 	{
 		if ((str[i] < '0' || str[i] > '9') && str[i] != ',')
-			return (1);
+			return (1); 
 		i++;
 	}
 	return (0);

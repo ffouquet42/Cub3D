@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 08:07:36 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 12:46:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	remove_map_from_scene(t_data *data) // su
+bool	remove_map_from_scene(t_data *data) 
 {
 	int		i;
 	
@@ -28,7 +28,7 @@ bool	remove_map_from_scene(t_data *data) // su
 	data->f_scene[i] = NULL;
 	if (!data->f_scene)
 		return (data->error->error_g |= ERROR_RM_MAP, 1);
-	return(0);
+	return (0);
 }
 
 void	clean_scene(t_data *data)
@@ -69,7 +69,7 @@ bool	get_scene(int fd, t_data *data)
 	{
 		if (!line_is_empty(line)) 
 		{
-			data->scene[i] = line;
+			data->scene[i] = line; // one line
 			i++;
 		}
 		else
@@ -126,7 +126,7 @@ bool	get_data_scene(char *scene_path, t_data *data)
 	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
-	if (get_scene(fd, data)) //leaks 3.cub
+	if (get_scene(fd, data)) 
 		return (1);
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_SCENE, 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 08:07:05 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 14:33:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	correct_rgb_value(t_data *data)
 {
-	int	rgb;
+	int	rgb; // uint 
 
 	rgb = 0;
 	while (rgb < 3)
@@ -53,10 +53,10 @@ bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 	}
 	val[j] = '\0';
 	if (fc == 0)
-		data->rgb_floor[rgb] = ft_atoi(val);
+		data->rgb_floor[rgb] = ft_atoi(val); // ft_atoi direct le str 
 	else if (fc == 1)
 		data->rgb_ceiling[rgb] = ft_atoi(val);
-	return (free(val), 0); // avec ce free j'ai plus de leaks pour rgb
+	return (free(val), 0);
 }
 
 bool	rgb_value(char *str, t_data *data, int fc)
@@ -68,8 +68,10 @@ bool	rgb_value(char *str, t_data *data, int fc)
 	i = 0;
 	rgb = 0;
 	loop = 0;
+	printf("%s%s\n", "str: ", str);
 	while (loop < 3)
 	{
+		printf("%s%s\n", "&str: ", &str[i]);
 		if (save_rgb_value(&str[i], data, rgb, fc))
 			return (1);
 		while (is_digit(str[i]))
@@ -84,10 +86,10 @@ bool	rgb_value(char *str, t_data *data, int fc)
 	return (0);
 }
 
-bool	rgb_format(char *str)
+bool	rgb_format(char *str)  
 {
 	int	i;
-	int	digit_row;
+	uint8_t	digit_row; //uint 
 
 	digit_row = 0;
 	i = 0;
@@ -106,7 +108,7 @@ bool	rgb_format(char *str)
 	return (0);
 }
 
-bool	count_comma(char *str)
+bool	count_comma(char *str) //utils digit
 {
 	int i;
 	int	comma;
