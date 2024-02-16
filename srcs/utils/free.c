@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 19:02:19 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:52:35 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	free_map_cpy(char **map)
 // 		free(scenet);
 // 	}
 // }
+
 void	free_scene(t_data *data)
 {
 	int	i;
@@ -73,7 +74,6 @@ void	free_scene(t_data *data)
 			free(data->scene[i++]);
 		free(data->scene);
 	}
-	free_map(data);
 }
 
 void free_all(t_data *data)

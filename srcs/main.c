@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 18:51:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 03:18:11 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	
 	if (parsing(argc, argv, &data))
 	{
-		printf("ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+		printf("ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\n");
 		if (data.scene)
 			free_scene(&data);
 		return (1);
@@ -89,8 +89,10 @@ int	main(int argc, char **argv)
 	// free_mlx(&data);
 	// free_data(&data); // general 
 	// free(data.map);
-	printf("Noooooooooooooooooooon");
-	// free_map(&data);
+	printf("*** print_map\n"); // dev
+	print_map(data.map); // dev
+	free_map(&data);
 	free_scene(&data); // a mettre dans free_all
+	printf("********** END OF PROG **********\n"); // dev
 	return (0);
 }

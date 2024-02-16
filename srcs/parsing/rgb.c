@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 19:14:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 02:38:13 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	correct_rgb_value(t_data *data)
 	return (0);
 }
 
-char *save_rgb_value(char *str, t_data *data, int rgb, int fc)
+bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
 {
 	int		i;
 	int		j;
@@ -45,7 +45,7 @@ char *save_rgb_value(char *str, t_data *data, int rgb, int fc)
 		i++;
 	val = malloc(sizeof(char) * (i + 1));
 	if (!val)
-		return (NULL);
+		return (1);
 	while (j < i)
 	{
 		val[j] = str[j];
@@ -56,8 +56,7 @@ char *save_rgb_value(char *str, t_data *data, int rgb, int fc)
 		data->rgb_floor[rgb] = ft_atoi(val);
 	else if (fc == 1)
 		data->rgb_ceiling[rgb] = ft_atoi(val);
-	// free(val);
-	return (val);
+	return (free(val), 0);
 }
 
 bool	rgb_value(char *str, t_data *data, int fc)
@@ -65,15 +64,13 @@ bool	rgb_value(char *str, t_data *data, int fc)
 	int	i;
 	int	rgb;
 	int	loop;
-	char *val_cpy;
 
 	i = 0;
 	rgb = 0;
 	loop = 0;
-	val_cpy = save_rgb_value(&str[i], data, rgb, fc);
 	while (loop < 3)
 	{
-		if (!val_cpy)
+		if (save_rgb_value(&str[i], data, rgb, fc))
 			return (1);
 		while (is_digit(str[i]))
 			i++;

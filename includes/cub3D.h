@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 19:07:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 04:01:33 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ bool	is_cub(char **argv);
 bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
-char 	*save_rgb_value(char *str, t_data *data, int rgb, int fc);
+bool 	save_rgb_value(char *str, t_data *data, int rgb, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
@@ -227,9 +227,10 @@ bool	all_identifiants(t_data *data);
 //---------------   wall.c   -------------------//
 bool	closed_by_wall(t_data *data);
 char	**copy_map(t_data *data); // a check 
-bool	fill_map(t_data *data, char **map, char *to_replace);
-bool	no_void_around(t_data *data, char **map);
-bool	test_around(char **map, int y, int x);
+bool	fill_map(t_data *data, char *to_replace);
+bool	no_void_around(t_data *data, char *to_replace);
+bool	test_around(char **map, int y, int x, char *to_replace);
+bool	is_start_pos(char c, char *str);
 
 
 //**********************************************//
