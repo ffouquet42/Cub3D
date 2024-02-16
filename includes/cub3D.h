@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/11 20:54:25 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:46:17 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,16 +116,22 @@ typedef struct s_e_scene
 
 typedef struct s_data
 {
+	
+	t_error		*error;
+	
 	void		*mlx;
 	void		*win;
-	int			window_x;
-	int			window_y;
+	int			window_x; // a supp
+	int			window_y; // a supp
 	t_game		*game;
 	t_raycast	*raycast;
 	char		**scene;
+	char		**f_scene;
+	char		**f2_scene;
 	char		**map;
 	int			map_height;
 	int			map_width;
+	int			scene_height;
 	t_e_scene	*e_scene;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
@@ -147,6 +153,7 @@ typedef struct s_data
 //**********************************************//
 
 //---------------   cub3D.c   ------------------//
+
 int		main(int argc, char **argv);
 
 //**********************************************//
@@ -160,7 +167,6 @@ int		main(int argc, char **argv);
 //---------------   init_data.c   --------------//
 bool	init_data(t_data *data);
 void	init_data_2(t_data *data);
-bool	init_mlx(t_data *data);
 
 //---------------   init_game.c   --------------//
 bool	init_game(t_data *data);
@@ -178,9 +184,9 @@ bool	clean_nl_scene(t_data *data);
 //**********************************************//
 
 //---------------   map.c   --------------------//
-char	**get_map(char **scene, t_data *data);
-void	get_map_size(char **map, t_data *data);
-char	**resize_map(char **map, t_data *data);
+bool	get_map(t_data *data);
+void	get_map_size(t_data *data);
+void	resize_map(t_data *data);
 
 //---------------   parse_map.c   --------------//
 bool	parse_map(t_data *data);
@@ -196,32 +202,34 @@ bool	check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   parsing.c   ----------------//
 bool	parsing(int argc, char **argv, t_data *data);
-bool	check_args(int argc, char **argv);
+bool	check_args(int argc, char **argv, t_data *data);
+bool	is_cub(char **argv);
 
 //---------------   rgb.c   --------------------//
 bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
-bool	save_rgb_value(char *str, t_data *data, int rgb, int fc);
+bool 	save_rgb_value(char *str, t_data *data, int rgb, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
-char	**get_scene(char *scene_path);
-int		scene_len(char *scene_path);
-bool	line_is_empty(char *str);
-char	**clean_scene(char **scene);
-char	**remove_map_from_scene(t_data *data);
+bool	get_data_scene(char *scene_path, t_data *data);
+int		scene_len(char *scene_path, t_data *data);
+bool	get_scene(int fd, t_data *data);
+void	clean_scene(t_data *data);
+bool	remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
-char	**sort_scene(t_data *data);
+bool	sort_scene(t_data *data);
+char 	**sort_scene_2(t_data *data);
 bool	all_identifiants(t_data *data);
 
 //---------------   wall.c   -------------------//
 bool	closed_by_wall(t_data *data);
-char	**copy_map(t_data *data);
-bool	fill_map(t_data *data, char **map, char *to_replace);
-bool	no_void_around(t_data *data, char **map);
-bool	test_around(char **map, int y, int x);
+bool	fill_map(t_data *data, char *to_replace);
+bool	no_void_around(t_data *data, char *to_replace);
+bool	test_around(char **map, int y, int x, char *to_replace);
+bool	is_start_pos(char c, char *str);
 
 
 //**********************************************//
@@ -234,8 +242,14 @@ bool	only_digit(char *str);
 bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
-void 	exit_1(t_data *data);
-void	free_data_1(t_data *data);
+void 	free_all(t_data *data);
+void	free_mlx(t_data *data);
+void	free_map(t_data *data);
+void 	exit_all(t_data *data); 
+void	free_data(t_data *data);
+void	free_scene(t_data *data);
+void	free_map_cpy(char **map);
+void	free_map_scene(t_data *data);
 
 //---------------   get_next_line.c   ----------//
 char	*get_next_line(int fd);
@@ -244,16 +258,23 @@ char	*buff_to_stash(char *buff);
 bool	search_newline(const char *buff);
 char	*stash_to_line(char *stash, char *buf);
 
-//**********************************************//
-//					LIBFT						//
-//**********************************************//
+//---------------	print.c			 ----------//
+
+void	parsing_msg_error(t_error *error);
+void	ft_putstr(char *str, int fd);
+
+//---------------	libft.c			  ----------//
 
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-void	ft_putstr(char *str, int fd);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
+
+//---------------	scene_utils.c ----------//
+
+bool	line_is_empty(char *str);
+
 
 //**********************************************//
 //					EXEC						//

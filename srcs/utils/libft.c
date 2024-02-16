@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:22:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/10 14:11:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/11 22:46:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,6 @@ char	*ft_strdup(const char *s)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-//a mettre dans print_utils plus tard 
-
-void	ft_putstr(char *str, int fd)
-{
-	if (fd < 0)
-		return ;
-	while (*str)
-		write(fd, str++, 1);
 }
 
 int	ft_atoi(const char *str)

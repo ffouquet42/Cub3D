@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:44:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 06:24:38 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,12 @@ bool	get_player_pos(t_data *data) //
 
 bool	init_game(t_data *data)
 {
-	if (init_images(data)) // bug
-		return (ft_putstr(E_INIT_IMG, 2), 1);
-	print_img(data); // dev
-	data->win = mlx_new_window(data->mlx, data->window_x,
-		data->window_y, "Cub3D");
+	if (init_images(data))
+		return (data->error->error_g |= ERROR_INIT_IMG, 1);
+	data->win = mlx_new_window(data->mlx, data->window_x, data->window_y, "Cub3D"); // taille img * largeur 
 	if (!data->win)
-	{
-		// mlx_do_key_autorepeaton(data->mlx); //
-		// free / exit
-		return (ft_putstr(E_MLX_WIN, 2), 1);
-	}
+		return (data->error->error_g |= ERROR_MLX_WIN, 1);
 	if (get_player_pos(data))
-		return (ft_putstr(E_GET_P_POS, 2), 1);
+		return (data->error->error_g |= ERROR_POS, 1);
 	return (0);
 }

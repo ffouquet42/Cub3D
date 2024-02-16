@@ -6,26 +6,26 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/13 19:51:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:48:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-char	**resize_map(char **map, t_data *data)
+void	resize_map(t_data *data)
 {
 	int		y;
 	int		x;
 	char	*dest;
 
 	y = 0;
-	while (map[y])
+	while (data->map[y])
 	{
 		x = 0;
-		dest = ft_calloc(sizeof(char), data->map_width);
-		while (map[y][x] && map[y][x] != '\n')
+		dest = malloc(sizeof(char ) * (data->map_width + 1));
+		while (data->map[y][x] && data->map[y][x] != '\n')
 		{
-			dest[x] = map[y][x];
+			dest[x] = data->map[y][x];
 			x++;
 		}
 		while (x < data->map_width)
@@ -34,53 +34,46 @@ char	**resize_map(char **map, t_data *data)
 			x++;
 		}
 		dest[x] = '\0';
-		map[y] = dest;
+		data->map[y] = dest;
 		y++;
 	}
-	return (map);
 }
 
-void	get_map_size(char **map, t_data *data)
+void	get_map_size(t_data *data)
 {
-	int	y;
 	int	x;
+	int	y;
 	int	z;
 
 	y = 0;
 	z = 0;
-	while (map[y])
+	while (data->map[y])
 	{
-		x = 0;
-		while (map[y][x])
-			x++;
+		x = ft_strlen(data->map[y]);
 		if (x > z)
 			z = x;
 		y++;
 	}
-	data->map_height = y;
+	data->map_height = data->scene_height - 6;
 	data->map_width = z - 1;
-	return ;
 }
 
-char	**get_map(char **scene, t_data *data)
+bool	get_map(t_data *data)
 {
-	char	**map;
 	int		i;
-	int		j;
-	int		x;
+	int		y;
 
+	y = 0;
 	i = 6;
-	j = 0;
-	x = 0;
-	while (scene[i++])
-		j++;
-	map = malloc(sizeof(char *) * (j + 1));
-	if (!map)
-		return (NULL);
-	i = 6;
-	while (scene[i])
-		map[x++] = ft_strdup(scene[i++]);
-	map[x] = NULL;
-	get_map_size(map, data);
-	return (resize_map(map, data));
+	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); 
+	if (!data->map)
+		return (data->error->error_g |= ERROR_MALLOC, 1);
+	while (data->scene[i])
+		data->map[y++] = data->scene[i++];
+	data->map[y] = NULL;
+	get_map_size(data);
+	resize_map(data);
+	if (!data->map) 
+		return (data->error->error_g |= ERROR_MAP, 1);
+	return(0);
 }

@@ -3,67 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:41:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:37:48 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	check_args(int argc, char **argv)
+bool	is_cub(char **argv)
 {
-	int	i;
-	
-	i = 0;
+	uint16_t len;
+
+	len = ft_strlen(argv[1]);
+	if (argv[1][len - 4] != '.' || argv[1][len -  3] != 'c' ||
+		argv[1][len - 2] != 'u' || argv[1][len - 1] != 'b')
+		return (1); 
+	return (0);
+}
+
+bool	check_args(int argc, char **argv, t_data *data)
+{	
+	int	fd;
+
 	if (argc != 2)
-		return (1);
-	if (ft_strlen(argv[1]) < 5)
-		return (1);
-	while (argv[1][i])
-		i++;
-	i -= 4;
-	if (argv[1][i] != '.' || argv[1][i + 1] != 'c' ||
-		argv[1][i + 2] != 'u' || argv[1][i + 3] != 'b')
-		return (1);
+		return (data->error->error_g |= ERROR_ARG, 1);
+	fd = open(argv[1], O_RDONLY);
+	if (ft_strlen(argv[1]) < 10 || fd < 0 || fd > 1024) 
+		return (data->error->error_g |= ERROR_FILE, 1);
+	close (fd);
+	if (is_cub(argv))
+		return (data->error->error_g |= ERROR_CUB, 1);
 	return (0);
 }
 
 bool	parsing(int argc, char **argv, t_data *data)
 {
-	if (check_args(argc, argv))
-		return (ft_putstr(E_PARS_ARGS, 2), 1);
-		
-	data->scene = get_scene(argv[1]);
-	if (!data->scene)
-		return (ft_putstr(E_GET_SCENE, 2), 1);
-	print_scene(data->scene); // dev
-	
-	data->map = get_map(data->scene, data);
-	if (!data->map)
-		return (ft_putstr(E_GET_MAP, 2), 1);
-	printf("----------\n"); // dev
-	print_map(data->map); // dev
-	printf("----------\n"); // dev
-	printf("* map_height = %i\n", data->map_height); // dev
-	printf("* map_width  = %i\n", data->map_width); // dev
-
-	data->scene = remove_map_from_scene(data);
-	if (!data->scene)
-		return (ft_putstr(E_RM_MAP, 2), 1);
-	print_scene(data->scene); // dev
-	
-	data->scene = sort_scene(data);
-	if (!data->scene)
-		return (ft_putstr(E_SORT_SCE, 2), 1);
-	print_scene(data->scene); // dev
-	
+	if (check_args(argc, argv, data))
+		return (parsing_msg_error(data->error), 1);
+	if (get_data_scene(argv[1], data))
+		return (parsing_msg_error(data->error), 1);
+	if (get_map(data))
+		return (parsing_msg_error(data->error), 1);
+	if (remove_map_from_scene(data))
+		return (parsing_msg_error(data->error), 1);
+	if (sort_scene(data))
+		return (parsing_msg_error(data->error), 1);
 	if (parse_scene(data) || parse_map(data))
-		return (1);
-	print_rgb(data);
-
-	// check path img and init img ?
-	
+	 	return (parsing_msg_error(data->error), 1);
 	return (0);
 }

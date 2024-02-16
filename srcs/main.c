@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 21:24:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:45:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-// dev (fonctions pour visualiser les structs dans le terminal pendant le dev, a supprimer avant de rendre le projet)
 void	print_scene(char **scene)  
 {
 	int i;
 	i = 0;
 	while (scene[i])
 	{
-		printf("scene[%i] = %s", i, scene[i]);
+		printf("scene[%i] = [%s]", i, scene[i]);
 		i++;
 	}
-	printf("\nscene[%i] = %s\n", i, scene[i]);
+	printf("\nscene[%i] = [%s]\n", i, scene[i]);
 }
 
 void	print_map(char **map)
@@ -65,18 +64,33 @@ void	print_img(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	t_data data;
+	t_error	error;
+	t_e_scene	e_scene;
+	t_data	data;
 
-	// PARSING - FLO
-	if (init_data(&data))
-		return (ft_putstr(E_INIT_DATA, 2), 1);
-	if (parsing(argc, argv, &data))
-		return (1); // + free all (end of prog)
-	if (init_game(&data))
-		return (1); // + free ...
-		
-	// EXEC - MICKA
+	error = (t_error){0};
+	e_scene = (t_e_scene){0};
+	data = (t_data){0};
+	data.error = &error;
+	data.e_scene = &e_scene;
 	
-	return (0);
+	if (parsing(argc, argv, &data))
+		return (free_map_scene(&data), 1);
+
+	if (init_data(&data))
+	{
+		free_map_scene(&data);
+		//free_mlx(&data);
+	 	return(parsing_msg_error(data.error), 1);
+	}
+	
+	if (init_game(&data))
+	{
+		free_map_scene(&data);
+		//free_mlx(&data);
+	 	return(parsing_msg_error(data.error), 1);
+	}
+	
+	//free_mlx(&data);
+	return (free_map_scene(&data), 0);
 }
-// dev

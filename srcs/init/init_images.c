@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 22:04:49 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 08:03:30 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ bool	clean_nl_scene(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		len = ft_strlen(data->scene[i]) - 1;
+		len = ft_strlen(data->f2_scene[i]) - 1; // Faire un f3_scene ?
 		dest = malloc(sizeof(char) * (len));
 		if (!dest)
 			return (1);
 		j = 0;
 		while (j < len)
 		{
-			dest[j] = data->scene[i][j];
+			dest[j] = data->f2_scene[i][j];
 			j++;
 		}
 		dest[j] = '\0';
-		data->scene[i] = dest;
+		data->f2_scene[i] = dest; // leaks juste trouver ou free f2_scene du coup pas free dest
 		i++;
 	}
 	return (0);
@@ -42,7 +42,7 @@ bool	clean_nl_scene(t_data *data)
 bool	init_image(t_data *data, int i)
 {
 	data->images[i].mlx_img = mlx_xpm_file_to_image(data->mlx,
-		&data->scene[i][2], &data->images[i].img_width,
+		&data->f2_scene[i][2], &data->images[i].img_width,
 		&data->images[i].img_height);
 	if (!data->images[i].mlx_img)
 		return (1);
@@ -52,7 +52,7 @@ bool	init_image(t_data *data, int i)
 	return (0);
 }
 
-bool	init_images(t_data *data)
+bool	init_images(t_data *data) // init image fonctionne
 {
 	int	i;
 

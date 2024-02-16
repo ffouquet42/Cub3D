@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:47:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:44:51 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-// printf("c = %c\n", c); // dev
-// printf("y = %i\n", y); // dev
 
 bool	char_is_in_set(char c, char *set)
 {
@@ -60,7 +57,7 @@ bool	is_map_char(char c, char *set)
 	i = 0;
 	while (set[i])
 	{
-		if (c == set[i]) // + \n ?
+		if (c == set[i])
 			return (1);
 		i++;
 	}
@@ -90,10 +87,10 @@ bool	check_map_char(t_data *data)
 bool	parse_map(t_data *data)
 {
 	if (check_map_char(data))
-		return (ft_putstr(E_MAP_CHAR, 2), 1);
+		return (data->error->error_g |= ERROR_CHAR, 1);
 	if (one_start_pos(data))
-		return (ft_putstr(E_ONE_START, 2), 1);
+		return (data->error->error_g |= ERROR_START, 1);
 	if (closed_by_wall(data))
-		return (ft_putstr(E_CLO_WALL, 2), 1);
+		return (data->error->error_g |= ERROR_WALL, 1);
 	return (0);
 }

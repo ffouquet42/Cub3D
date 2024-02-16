@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/10 14:48:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 08:05:18 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ bool	check_rgb(char *rgb, t_data *data, int fc)
 	return (0);
 }
 
-bool	path_is_xpm(char *path) // + check si valide
+bool	path_is_xpm(char *path)
 {
 	int	i;
-	i = ft_strlen(path) - 5; // changer si malloc ?
+	
+	i = ft_strlen(path) - 5;
 	if (path[i] != '.' || path[i + 1] != 'x' ||
 		path[i + 2] != 'p' || path[i + 3] != 'm')
 		return (1);
@@ -38,15 +39,15 @@ bool	parse_scene(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		if (path_is_xpm(data->scene[i]))
-			return (ft_putstr(E_NO_XPM, 2), 1);
+		if (path_is_xpm(data->f2_scene[i]))
+			return (data->error->error_g |= ERROR_XPM, 1);
 		i++;
 	}
 	fc = 0;
 	while (i < 6)
 	{
-		if (check_rgb(data->scene[i], data, fc))
-			return (ft_putstr(E_RGB, 2), 1);
+		if (check_rgb(data->f2_scene[i], data, fc))
+			return (data->error->error_g |= ERROR_RGB, 1);
 		i++;
 		fc++;
 	}
