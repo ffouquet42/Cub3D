@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:21:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:02:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	init_data_2(t_data *data)
 	// data->e_scene->we = 0;
 	// data->e_scene->f = 0;
 	// data->e_scene->c = 0; 
-	data->images[0].mlx_img = NULL;
-	data->images[1].mlx_img = NULL;
-	data->images[2].mlx_img = NULL;
-	data->images[3].mlx_img = NULL;
+	// data->images[0].mlx_img = NULL;
+	// data->images[1].mlx_img = NULL;
+	// data->images[2].mlx_img = NULL;
+	// data->images[3].mlx_img = NULL;
 	
 	// data->game->key_w = 0;
 	// data->game->key_a = 0;images
@@ -43,6 +43,7 @@ void	init_data_2(t_data *data)
 	// data->run = 0;
 	// data->movespeed = MOVESPEED;
 }
+
 bool	clean_nl_scene(t_data *data)  
 {
 	int		i;
@@ -119,6 +120,5 @@ bool	init_data(t_data *data)
 		return (data->error->error_g |= ERROR_INIT_MLX, 1);
 	if (init_images(data))
 		return (data->error->error_g |= ERROR_INIT_IMG, 1);
-	// init_data_2(data);
 	return (0);
 }
