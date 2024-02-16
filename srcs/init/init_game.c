@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 13:11:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:57:15 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ bool	get_player_pos(t_data *data) //
 
 bool	init_game(t_data *data)
 {
-	if (init_images(data)) //bug
+	printf("before init img\n");
+	if (init_images(data))
 		return (data->error->error_g |= ERROR_INIT_IMG, 1);
+	printf("after init img\n");
 	data->win = mlx_new_window(data->mlx, data->window_x, data->window_y, "Cub3D"); // taille img * largeur 
 	if (!data->win)
 		return (data->error->error_g |= ERROR_MLX_WIN, 1);

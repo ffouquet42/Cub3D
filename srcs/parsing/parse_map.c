@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 08:26:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:44:51 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-// printf("c = %c\n", c); // dev
-// printf("y = %i\n", y); // dev
 
 bool	char_is_in_set(char c, char *set)
 {
@@ -60,7 +57,7 @@ bool	is_map_char(char c, char *set)
 	i = 0;
 	while (set[i])
 	{
-		if (c == set[i]) // + \n ?
+		if (c == set[i])
 			return (1);
 		i++;
 	}

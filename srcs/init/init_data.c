@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 18:45:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:59:53 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // decommenter si besoin des lignes dont j'ai pas eu besoin pour le parsing mais que peut etre t'aura besoin pour l'exec
 void	init_data_2(t_data *data)
 {
+	printf("init data 2\n");
+	
 	// bzero data->e_scene-> ? dans init_data
 	// data->e_scene->no = 0;
 	// data->e_scene->so = 0;
@@ -48,7 +50,7 @@ void	init_data_2(t_data *data)
 bool	init_data(t_data *data)
 {
 	// data->mlx = NULL;
-	// data->win = NULL; Plus obligatoire puisque bzero la struct 
+	// data->win = NULL; // Plus obligatoire puisque bzero la struct
 	data->window_x = 1920; // Largeur de l'image * la longueur
 	data->window_y = 1080; // Hauteur de l'image * la hauteur, voir init_game
 	data->game = malloc(sizeof(t_game));

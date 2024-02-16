@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 15:13:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 05:44:38 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	resize_map(t_data *data)
 	while (data->map[y])
 	{
 		x = 0;
-		// dest = ft_calloc(sizeof(char), data->map_width);
 		dest = malloc(sizeof(char ) * (data->map_width + 1));
 		while (data->map[y][x] && data->map[y][x] != '\n')
 		{
@@ -40,7 +39,7 @@ void	resize_map(t_data *data)
 	}
 }
 
-void	get_map_size(t_data *data) // map pas droite? plusieurs longueurs?
+void	get_map_size(t_data *data)
 {
 	int	x;
 	int	y;
@@ -56,12 +55,11 @@ void	get_map_size(t_data *data) // map pas droite? plusieurs longueurs?
 		y++;
 	}
 	data->map_height = data->scene_height - 6;
-	data->map_width = z - 1; // test voir si -1
+	data->map_width = z - 1;
 }
 
 bool	get_map(t_data *data)
 {
-	// char	**map;
 	int		i;
 	int		y;
 
@@ -73,7 +71,6 @@ bool	get_map(t_data *data)
 	while (data->scene[i])
 		data->map[y++] = data->scene[i++];
 	data->map[y] = NULL;
-	// print_map(data->map);
 	get_map_size(data);
 	resize_map(data);
 	if (!data->map) 

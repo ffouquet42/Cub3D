@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 05:35:25 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 05:56:41 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,18 @@ int	main(int argc, char **argv)
 	if (parsing(argc, argv, &data))
 		return (free_map_scene(&data), 1);
 
-	// if (init_data(&data))
-	// 	return(parsing_msg_error(data.error), 1);
-	// if (init_game(&data))
-	// 	return(parsing_msg_error(data.error), 1);
+	if (init_data(&data))
+	{
+		free_map_scene(&data); // + mlx
+	 	return(parsing_msg_error(data.error), 1);
+	}
 	
-	// free_mlx(&data);
-	// free_data(&data); // general 
+	if (init_game(&data))
+	{
+		free_map_scene(&data); // + mlx
+	 	return(parsing_msg_error(data.error), 1);
+	}
+	
+	//free_mlx(&data);
 	return (free_map_scene(&data), 0);
 }

@@ -6,36 +6,28 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 04:03:42 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 05:47:31 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	test_around(char **map, int y, int x, char *to_replace) // essayer de while
+bool	test_around(char **map, int y, int x, char *to_replace)
 {
-	// if (map[y - 1][x - 1] != '1' && map[y - 1][x - 1] != '0')
 	if (map[y - 1][x - 1] != '1' && !is_start_pos(map[y - 1][x - 1], to_replace))
 		return (1);
-	// if (map[y - 1][x] != '1' && map[y - 1][x] != '0')
 	if (map[y - 1][x] != '1' && !is_start_pos(map[y - 1][x], to_replace))
 		return (1);
-	// if (map[y - 1][x + 1] != '1' && map[y - 1][x + 1] != '0')
 	if (map[y - 1][x + 1] != '1' && !is_start_pos(map[y - 1][x + 1], to_replace))
 		return (1);
-	// if (map[y][x - 1] != '1' && map[y][x - 1] != '0')
 	if (map[y][x - 1] != '1' && !is_start_pos(map[y][x - 1], to_replace))
 		return (1);
-	// if (map[y][x + 1] != '1' && map[y][x + 1] != '0')
 	if (map[y][x + 1] != '1' && !is_start_pos(map[y][x + 1], to_replace))
 		return (1);
-	// if (map[y + 1][x - 1] != '1' && map[y + 1][x - 1] != '0')
 	if (map[y + 1][x - 1] != '1' && !is_start_pos(map[y + 1][x - 1], to_replace))
 		return (1);
-	// if (map[y + 1][x] != '1' && map[y + 1][x] != '0')
 	if (map[y + 1][x] != '1' && !is_start_pos(map[y + 1][x], to_replace))
 		return (1);
-	// if (map[y + 1][x + 1] != '1' && map[y + 1][x + 1] != '0')
 	if (map[y + 1][x + 1] != '1' && !is_start_pos(map[y + 1][x + 1], to_replace))
 		return (1);
 	return (0);
@@ -80,53 +72,14 @@ bool	no_void_around(t_data *data, char *to_replace)
 
 bool	fill_map(t_data *data, char *to_replace)
 {
-	// int	y;
-	// int	x;
-
-	printf("## print map base\n");
-	print_map(data->map);
-	// y = 1;
-	// while (y < data->map_height - 1)
-	// {
-	// 	x = 1;
-	// 	while (x < data->map_width - 1)
-	// 	{
-	// 		if (char_is_in_set(map[y][x], to_replace))
-	// 			map[y][x] = '-';
-	// 		x++;
-	// 	}
-	// 	y++;
-	// }
 	if (no_void_around(data, to_replace))
 		return (1);
 	return (0);
 }
 
-char	**copy_map(t_data *data)
-{
-	char	**map_cpy;
-	int		i;
-
-	printf("map_height = %i\n", data->map_height); // dev
-	map_cpy = malloc(sizeof(char *) * (data->map_height + 1));
-	if (!map_cpy)
-		return (NULL);// gerer les retour 
-	i = 0;
-	while (i < data->map_height)
-	{
-		map_cpy[i] = data->map[i];
-		i++;
-	}
-	map_cpy[i] = NULL;
-	printf("## print map cpy\n");
-	print_map(map_cpy);
-	return (map_cpy);
-}
-
 bool	closed_by_wall(t_data *data)
 {
 	int		i;
-	//char	**map_cpy;
 
 	i = 0;
 	while (i < data->map_width)
@@ -146,23 +99,8 @@ bool	closed_by_wall(t_data *data)
 			return (1);
 		i++;
 	}
-	//map_cpy = copy_map(data);
-	//if (!map_cpy)
-	//	return (1); // msg err
-	// printf("## print map base\n");
-	// print_map(data->map);
-	// printf("## print map cpy\n");
-	// print_map(map_cpy);
 	if (fill_map(data, "0NSEW"))
 		return (1);
-	// printf("## print map base\n");
-	// print_map(data->map);
-	// printf("## print map cpy\n");
-	// print_map(map_cpy);
-	//free_map_cpy(map_cpy);
 	return (0);
 }
 
-/*
-ca fait quoi si ya deja des '-' dans la map ? sur les bords ou autres : Pas accpeter dans la map, dehors jsp
-*/
