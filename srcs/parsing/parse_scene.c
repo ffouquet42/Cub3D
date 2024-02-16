@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 19:03:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/16 07:09:27 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ bool	check_rgb(char *rgb, t_data *data, int fc)
 bool	path_is_xpm(char *path) // + check si valide
 {
 	int	i;
+	
 	i = ft_strlen(path) - 5; // changer si malloc ?
 	if (path[i] != '.' || path[i + 1] != 'x' ||
 		path[i + 2] != 'p' || path[i + 3] != 'm')

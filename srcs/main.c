@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 05:56:41 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 06:29:37 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	print_scene(char **scene)
 	i = 0;
 	while (scene[i])
 	{
-		printf("scene[%i] = %s", i, scene[i]);
+		printf("scene[%i] = [%s]", i, scene[i]);
 		i++;
 	}
-	printf("\nscene[%i] = %s\n", i, scene[i]);
+	printf("\nscene[%i] = [%s]\n", i, scene[i]);
 }
 
 void	print_map(char **map)
@@ -79,13 +79,15 @@ int	main(int argc, char **argv)
 
 	if (init_data(&data))
 	{
-		free_map_scene(&data); // + mlx
+		free_map_scene(&data);
+		//free_mlx(&data);
 	 	return(parsing_msg_error(data.error), 1);
 	}
 	
 	if (init_game(&data))
 	{
-		free_map_scene(&data); // + mlx
+		free_map_scene(&data);
+		//free_mlx(&data);
 	 	return(parsing_msg_error(data.error), 1);
 	}
 	

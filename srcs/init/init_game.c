@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 05:57:15 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 06:24:38 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,8 @@ bool	get_player_pos(t_data *data) //
 
 bool	init_game(t_data *data)
 {
-	printf("before init img\n");
 	if (init_images(data))
 		return (data->error->error_g |= ERROR_INIT_IMG, 1);
-	printf("after init img\n");
 	data->win = mlx_new_window(data->mlx, data->window_x, data->window_y, "Cub3D"); // taille img * largeur 
 	if (!data->win)
 		return (data->error->error_g |= ERROR_MLX_WIN, 1);

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:02:10 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 06:02:59 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/16 07:12:42 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ bool	clean_nl_scene(t_data *data)
 		}
 		dest[j] = '\0';
 		data->f2_scene[i] = dest;
+		printf("f2scene[%i] = [%s]\n", i, data->f2_scene[i]); // dev
 		i++;
 	}
 	return (0);
