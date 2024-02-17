@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 17:22:14 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/17 18:03:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@
 //**********************************************//
 
 # define BUFFER_SIZE 100
+
+//**********************************************//
+//					KEYCODE						//
+//**********************************************//
+
+# define MOVE_LEFT	65361
+# define MOVE_UP	65362
+# define MOVE_RIGHT 65363
+# define MOVE_DOWN	65364	
+# define ESC	 	65307
 
 
 //**********************************************//
@@ -111,8 +121,6 @@ typedef struct s_data
 	
 	void		*mlx;
 	void		*win;
-	int			window_x; // a supp
-	int			window_y; // a supp
 	t_game		*game;
 	t_raycast	*raycast;
 	char		**scene;
@@ -242,6 +250,7 @@ char	*stash_to_line(char *stash, char *buf);
 
 void	parsing_msg_error(t_error *error);
 void	ft_putstr(char *str, int fd);
+void	print_map();
 
 //---------------	libft.c			  ----------//
 
@@ -260,10 +269,10 @@ bool	line_is_empty(char *str);
 //					EXEC						//
 //**********************************************//
 
-// dev
-void	print_scene(char **scene);
-void	print_map(char **map);
-void	print_rgb(t_data *data);
-void	print_img(t_data *data);
+// void	print_scene(char **scene);
+// void	print_rgb(t_data *data);
+// void	print_img(t_data *data);
+
+void	move_player();
 
 #endif
