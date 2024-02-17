@@ -3,51 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 17:51:51 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:42:18 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	test_around(char **map, int y, int x, char *to_replace)
+bool	test_around(char **map, int y, int x, char *charset)
 {
-	if (map[y - 1][x - 1] != '1' && !is_start_pos(map[y - 1][x - 1], to_replace))
+	if (map[y - 1][x - 1] != '1' && !char_is_in_set(map[y - 1][x - 1], charset))
 		return (1);
-	if (map[y - 1][x] != '1' && !is_start_pos(map[y - 1][x], to_replace))
+	if (map[y - 1][x] != '1' && !char_is_in_set(map[y - 1][x], charset))
 		return (1);
-	if (map[y - 1][x + 1] != '1' && !is_start_pos(map[y - 1][x + 1], to_replace))
+	if (map[y - 1][x + 1] != '1' && !char_is_in_set(map[y - 1][x + 1], charset))
 		return (1);
-	if (map[y][x - 1] != '1' && !is_start_pos(map[y][x - 1], to_replace))
+	if (map[y][x - 1] != '1' && !char_is_in_set(map[y][x - 1], charset))
 		return (1);
-	if (map[y][x + 1] != '1' && !is_start_pos(map[y][x + 1], to_replace))
+	if (map[y][x + 1] != '1' && !char_is_in_set(map[y][x + 1], charset))
 		return (1);
-	if (map[y + 1][x - 1] != '1' && !is_start_pos(map[y + 1][x - 1], to_replace))
+	if (map[y + 1][x - 1] != '1' && !char_is_in_set(map[y + 1][x - 1], charset))
 		return (1);
-	if (map[y + 1][x] != '1' && !is_start_pos(map[y + 1][x], to_replace))
+	if (map[y + 1][x] != '1' && !char_is_in_set(map[y + 1][x], charset))
 		return (1);
-	if (map[y + 1][x + 1] != '1' && !is_start_pos(map[y + 1][x + 1], to_replace))
+	if (map[y + 1][x + 1] != '1' && !char_is_in_set(map[y + 1][x + 1], charset))
 		return (1);
 	return (0);
 }
 
-bool	is_start_pos(char c, char *str) // pas bon nom de fonction / fonction existe deja ?
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (c == str[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-bool	no_void_around(t_data *data, char *to_replace)
+bool	no_void_around(t_data *data, char *charset)
 {
 	int	y;
 	int	x;
@@ -58,9 +44,9 @@ bool	no_void_around(t_data *data, char *to_replace)
 		x = 1;
 		while (x < data->map_width - 1)
 		{
-			if (is_start_pos(data->map[y][x], to_replace))
+			if (char_is_in_set(data->map[y][x], charset))
 			{
-				if (test_around(data->map, y, x, to_replace))
+				if (test_around(data->map, y, x, charset))
 					return (1);
 			}
 			x++;

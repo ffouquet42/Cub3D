@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:36:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:22:14 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,16 +104,6 @@ typedef struct s_texture
 	// t_image	*ea; // rename
 }			t_texture;
 
-typedef struct s_e_scene
-{
-	int		no;
-	int		so;
-	int		ea;
-	int		we;
-	int		f;
-	int		c;
-}			t_e_scene;
-
 typedef struct s_data
 {
 	
@@ -132,7 +122,6 @@ typedef struct s_data
 	int			map_height;
 	int			map_width;
 	int			scene_height;
-	t_e_scene	*e_scene;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
 	t_image		images[4];
@@ -220,13 +209,10 @@ bool	remove_map_from_scene(t_data *data);
 //---------------   sort_scene.c   -------------//
 bool	sort_scene(t_data *data);
 char 	**sort_scene_2(t_data *data);
-bool	all_identifiants(t_data *data);
-
 //---------------   wall.c   -------------------//
 bool	closed_by_wall(t_data *data);
-bool	no_void_around(t_data *data, char *to_replace);
-bool	test_around(char **map, int y, int x, char *to_replace);
-bool	is_start_pos(char c, char *str);
+bool	no_void_around(t_data *data, char *charset);
+bool	test_around(char **map, int y, int x, char *charset);
 
 
 //**********************************************//

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:46:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:50:01 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ bool	check_rgb(char *rgb, t_data *data, int fc)
 	return (0);
 }
 
-bool	path_is_xpm(char *path) 
+bool	path_is_xpm(char *path) //test 
 {
 	int	i;
-	
+
 	i = ft_strlen(path) - 5;
-	if (path[i] != '.' || path[i + 1] != 'x' ||
-		path[i + 2] != 'p' || path[i + 3] != 'm')
+	if (path[i] != '.' || path[i + 1] != 'x'
+		|| path[i + 2] != 'p' || path[i + 3] != 'm')
 		return (1);
 	return (0);
 }

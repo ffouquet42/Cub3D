@@ -3,44 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:08:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:21:49 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	all_identifiants(t_data *data) // une ligne a mette dans sort_scene
-{
-	if (!data->e_scene->no)
-		return (1);
-	if (!data->e_scene->so)
-		return (1);
-	if (!data->e_scene->ea)
-		return (1);
-	if (!data->e_scene->we)
-		return (1);
-	if (!data->e_scene->f)
-		return (1);
-	if (!data->e_scene->c)
-		return (1);
-	return (0);
-}
-
-bool	sort_scene(t_data *data) 
-{
-	
-	data->f2_scene = sort_scene_2(data); 
-	if (!data->f2_scene)
-		return (data->error->error_g |= ERROR_SORT_S, 1);
-	if (all_identifiants(data))
-		return (1); //Msg erreur 
-	return (0);
-}
-
-char **sort_scene_2(t_data *data)
+char	**sort_scene_2(t_data *data)
 {
 	char	**new_scene;
 	int		i;
@@ -52,37 +24,33 @@ char **sort_scene_2(t_data *data)
 	while (data->f_scene[i])
 	{
 		if (data->f_scene[i][0] == 'N' && data->f_scene[i][1] == 'O')
-		{
 			new_scene[0] = data->f_scene[i];
-			data->e_scene->no = 1;
-		}
 		else if (data->f_scene[i][0] == 'S' && data->f_scene[i][1] == 'O')
-		{
 			new_scene[1] = data->f_scene[i];
-			data->e_scene->so = 1;
-		}
 		else if (data->f_scene[i][0] == 'E' && data->f_scene[i][1] == 'A')
-		{
 			new_scene[2] = data->f_scene[i];
-			data->e_scene->ea = 1;
-		}
 		else if (data->f_scene[i][0] == 'W' && data->f_scene[i][1] == 'E')
-		{
 			new_scene[3] = data->f_scene[i];
-			data->e_scene->we = 1;
-		} // decoupe logique (-25l);
 		else if (data->f_scene[i][0] == 'F')
-		{
 			new_scene[4] = data->f_scene[i];
-			data->e_scene->f = 1;
-		}
 		else if (data->f_scene[i][0] == 'C')
-		{
 			new_scene[5] = data->f_scene[i];
-			data->e_scene->c = 1;
-		}
 		i++;
 	}
 	new_scene[6] = NULL;
-	return(new_scene);
+	return (new_scene);
+}
+
+bool	sort_scene(t_data *data)
+{
+	data->f2_scene = sort_scene_2(data);
+	if (!data->f2_scene)
+		return (data->error->error_g |= ERROR_SORT_S, 1);
+	if ((data->f2_scene[0][0] != 'N' && data->f2_scene[0][1] != 'O')
+		|| (data->f2_scene[1][0] != 'S' && data->f2_scene[1][1] != 'O')
+		|| (data->f2_scene[2][0] != 'E' && data->f2_scene[2][1] != 'A')
+		|| (data->f2_scene[3][0] != 'W' && data->f2_scene[3][1] != 'E')
+		|| (data->f2_scene[4][0] != 'F') || (data->f2_scene[5][0] != 'C'))
+		return (data->error->error_g |= ERROR_SORT_S, 1);
+	return (0);
 }
