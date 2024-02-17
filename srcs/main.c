@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 17:48:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 15:13:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 		return (free_map_scene(&data), 1);
 	if (init_data(&data))
 	{
+		printf("Error Thread");
 		free_map_scene(&data);
 		free_mlx(&data);
 	 	return(parsing_msg_error(data.error), 1);
@@ -91,7 +92,7 @@ int	main(int argc, char **argv)
 	//  	return(parsing_msg_error(data.error), 1);
 	// }
 	
-	
-	//free_mlx(&data);
+	printf("Main Thread");
+	// free_mlx(&data);
 	return (free_map_scene(&data), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 18:03:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 15:20:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,23 +82,21 @@ void free_all(t_data *data)
 
 void	free_mlx(t_data *data)
 {
+	uint8_t i;
+
+	i = 0;
 	// if (data->map)
 	// 	free_map(data);
 	// if (data->win)
 	// 	mlx_destroy_window(data->mlx, data->win);
-	// if (data->wall_img)
-	// 	mlx_destroy_image(data->mlx, data->wall_img);
-	// if (data->coll_img)
-	// 	mlx_destroy_image(data->mlx, data->coll_img);
-	// if (data->ground_img)
-	// 	mlx_destroy_image(data->mlx, data->ground_img);
-	// if (data->player_img)
-	// 	mlx_destroy_image(data->mlx, data->player_img);
-	// if (data->exit_img)
-	// 	mlx_destroy_image(data->mlx, data->exit_img);
+	//boucle pour free les images 
 	// if (data->mlx)
 	// 	mlx_destroy_display(data->mlx);
-	//boucle pour free les images 
+	while(data->images[i].mlx_img)
+	{
+		if(data->images[i].mlx_img)
+			mlx_destroy_image(data->mlx, data->images[i++].mlx_img);
+	}
 	if (data->mlx)
 		free(data->mlx);
 	exit(0);
