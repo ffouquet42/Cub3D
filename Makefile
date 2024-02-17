@@ -17,7 +17,9 @@ SRCS		=	srcs/main.c							\
 				srcs/parsing/scene.c				\
 				srcs/parsing/sort_scene.c			\
 				srcs/parsing/wall.c					\
-				srcs/exec/game.c					\
+				srcs/exec/game_management.c			\
+				srcs/exec/move.c					\
+				srcs/exec/rotate.c					\
 				srcs/utils/libft.c					\
 				srcs/utils/print.c					\
 				srcs/utils/digit.c					\

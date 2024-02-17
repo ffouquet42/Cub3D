@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 20:59:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 22:36:14 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define KEY_A 97
 # define KEY_D 100
 # define KEY_S 115
+# define KEY_M 109
 # define KEY_LEFT	65361
 # define KEY_RIGHT	65363
 # define KEY_SHIFT	65505
@@ -50,6 +51,10 @@
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+
+/*SPEED*/
+# define MOVESPEED 0.05
+# define ROTSPEED 0.02
 
 //**********************************************//
 //					STRUCTURES					//
@@ -91,7 +96,7 @@ typedef struct s_game
 	
 	// double	cur_time;
 	// double	old_time;
-	int		key_w;
+	int		key_w; // uint8_t
 	int		key_s;
 	int		key_a;
 	int		key_d;
@@ -139,14 +144,14 @@ typedef struct s_data
 	int			rgb_ceiling[3];
 	t_image		images[4];
 	bool		run;
+	bool		mouse;
+	int			mouse_x;
+	double		speed;
+	double		rotation_speed;
 	
 	// t_img		*mini_img;
 	// t_img		*img;
-	// int			mouse_x;
 	// int			fc;
-	// double		rotation_speed;
-	// int			mouse_active;
-	// double		movespeed;
 }			t_data;
 
 
