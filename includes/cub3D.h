@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 05:46:17 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/17 13:23:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,6 @@ int		main(int argc, char **argv);
 
 //---------------   init_data.c   --------------//
 bool	init_data(t_data *data);
-void	init_data_2(t_data *data);
 
 //---------------   init_game.c   --------------//
 bool	init_game(t_data *data);
@@ -226,7 +225,6 @@ bool	all_identifiants(t_data *data);
 
 //---------------   wall.c   -------------------//
 bool	closed_by_wall(t_data *data);
-bool	fill_map(t_data *data, char *to_replace);
 bool	no_void_around(t_data *data, char *to_replace);
 bool	test_around(char **map, int y, int x, char *to_replace);
 bool	is_start_pos(char c, char *str);
@@ -238,7 +236,7 @@ bool	is_start_pos(char c, char *str);
 
 //---------------   digit.c   ------------------//
 bool	only_digit_or_comma(char *str);
-bool	only_digit(char *str);
+// bool	only_digit(char *str);
 bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
@@ -248,7 +246,6 @@ void	free_map(t_data *data);
 void 	exit_all(t_data *data); 
 void	free_data(t_data *data);
 void	free_scene(t_data *data);
-void	free_map_cpy(char **map);
 void	free_map_scene(t_data *data);
 
 //---------------   get_next_line.c   ----------//
