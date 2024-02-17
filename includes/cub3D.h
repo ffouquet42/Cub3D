@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 23:39:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 23:54:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ typedef struct s_game
 	int		key_d;
 	int		key_right;
 	int		key_left;
-	// int		texture;
+	int		texture;
 }			t_game;
 
 typedef struct s_image
@@ -133,8 +133,7 @@ typedef struct s_data
 	void		*mlx;
 	void		*win;
 	t_game		*game;
-	t_raycast	*raycast;
-	t_ray		*ray;
+	t_raycast	*ray;
 	t_image		images[4];
 	char		**scene;
 	char		**f_scene;

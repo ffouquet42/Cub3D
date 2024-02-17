@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   digit.c                                            :+:      :+:    :+:   */
+/*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 09:26:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 23:46:37 by mfeldman         ###   ########.fr       */
+/*   Created: 2024/02/17 23:47:32 by mfeldman          #+#    #+#             */
+/*   Updated: 2024/02/17 23:58:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	is_digit(char c)
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+	char	*dst;
 
-bool	only_digit_or_comma(char *str)
-{
-	int	i;
-	int	len;
-
-	len = ft_strlen(str) - 1;
-	i = 0;
-	while (i < len)
-	{
-		if ((str[i] < '0' || str[i] > '9') && str[i] != ',')
-			return (1); 
-		i++;
-	}
-	return (0);
+	if (y < 0 || y > WIN_HEIGHT - 1 || x < 0 || x > WIN_WIDTH - 1)
+		return ;
+	dst = img->add + (y * img->rowlen + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
 }
