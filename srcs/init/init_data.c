@@ -6,12 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:36:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:41:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
 
 void	clean_nl_scene(t_data *data)
 {
@@ -19,13 +18,13 @@ void	clean_nl_scene(t_data *data)
 	int		j;
 
 	i = 0;
-	while (data->map[i])
+	while (data->f2_scene[i])
 	{
 		j = 0;
-		while (data->map[i][j])
+		while (data->f2_scene[i][j])
 		{
-			if (data->map[i][j] == '\n' || data->map[i][j] == '\r')
-				data->map[i][j] = '\0';
+			if (data->f2_scene[i][j] == '\n' || data->f2_scene[i][j] == '\r')
+				data->f2_scene[i][j] = '\0';
 			j++;
 		}
 		i++;
