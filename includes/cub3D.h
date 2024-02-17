@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 18:03:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:40:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # include <sys/stat.h>
 # include <stdbool.h>
 
-
-
 //**********************************************//
 //					DEFINES						//
 //**********************************************//
@@ -39,12 +37,14 @@
 //					KEYCODE						//
 //**********************************************//
 
-# define MOVE_LEFT	65361
-# define MOVE_UP	65362
-# define MOVE_RIGHT 65363
-# define MOVE_DOWN	65364	
-# define ESC	 	65307
 
+# define MOVE_W 119
+# define MOVE_A 97
+# define MOVE_D 100
+# define MOVE_S 115
+# define TURN_LEFT	65361
+# define TURN_RIGHT 65363	
+# define ESC	 	65307
 
 //**********************************************//
 //					STRUCTURES					//
@@ -79,8 +79,8 @@ typedef struct s_game
 {
 	double	player_pos_x;
 	double	player_pos_y;
-	double	player_ori_x;
-	double	player_ori_y;
+	double	player_or_x;
+	double	player_or_y;
 	double	plane_x; //
 	double	plane_y; //
 	
@@ -166,7 +166,7 @@ bool	init_data(t_data *data);
 
 //---------------   init_game.c   --------------//
 bool	init_game(t_data *data);
-bool	get_player_pos(t_data *data);
+void	get_player_pos(t_data *data);
 void	get_first_orientation(t_data *data, char c);
 void	get_first_orientation_two(t_data *data, char c);
 
@@ -273,6 +273,6 @@ bool	line_is_empty(char *str);
 // void	print_rgb(t_data *data);
 // void	print_img(t_data *data);
 
-void	move_player();
+bool	game_management(t_data *data);
 
 #endif
