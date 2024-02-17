@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 22:36:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 23:39:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <stdbool.h>
+#include <limits.h>
 
 //**********************************************//
 //					DEFINES						//
@@ -62,27 +63,27 @@
 
 typedef struct s_raycast
 {
-	// double	camera;
-	// double	diray_x;
-	// double	diray_y;
-	// int		map_x;
-	// int		map_y;
-	// double	side_dist_x;
-	// double	side_dist_y;
-	// double	delta_dist_x;
-	// double	delta_dist_y;
-	// double	ray_length;
-	// int		step_x;
-	// int		step_y;
-	// int		hit;
-	// int		side;
-	// int		line_height;
-	// double	wall_x;
-	// int		tex_x;
-	// double	step;
-	// double	tex_pos;
-	// int		draw_start;
-	// int		draw_end;
+	double	camera;
+	double	diray_x;
+	double	diray_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	ray_length;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	double	wall_x;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
+	int		draw_start;
+	int		draw_end;
 }			t_raycast;
 
 typedef struct s_game
@@ -107,11 +108,11 @@ typedef struct s_game
 
 typedef struct s_image
 {
-	void	*mlx_img;	// rename
-	char	*addr;		// rename
-	int		bpp;		// rename
-	int		rowlen;		// rename
-	int		end;		// rename
+	void	*mlx_img;	
+	char	*add;		
+	int		bpp;		
+	int		rowlen;		
+	int		end;
 	int		img_height;
 	int		img_width;
 }			t_image;
@@ -133,6 +134,8 @@ typedef struct s_data
 	void		*win;
 	t_game		*game;
 	t_raycast	*raycast;
+	t_ray		*ray;
+	t_image		images[4];
 	char		**scene;
 	char		**f_scene;
 	char		**f2_scene;
@@ -142,16 +145,12 @@ typedef struct s_data
 	int			scene_height;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
-	t_image		images[4];
 	bool		run;
 	bool		mouse;
 	int			mouse_x;
 	double		speed;
 	double		rotation_speed;
-	
-	// t_img		*mini_img;
-	// t_img		*img;
-	// int			fc;
+	t_image		*img;
 }			t_data;
 
 

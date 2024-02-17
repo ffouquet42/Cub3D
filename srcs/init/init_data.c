@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:43:31 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 23:39:28 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,11 @@ bool	init_image(t_data *data, int i)
 	verif_hpi = data->images[0].img_height;
 	if (verif_wpi != data->images[i].img_width || verif_hpi != data->images[i].img_height)
 		return (1);
+	data->images[i].add = mlx_get_data_addr(data->images[i].mlx_img,
+		&data->images[i].bpp, &data->images[i].rowlen,
+		&data->images[i].end);
 	return (0);
 }
-
-// data->images[i].addr = mlx_get_data_addr(data->images[i].mlx_img,
-		// &data->images[i].bpp, &data->images[i].rowlen,
-		// &data->images[i].end);
 
 bool	init_images(t_data *data) // init image fonctionne
 {
