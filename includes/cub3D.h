@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 13:23:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:36:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ void	get_first_orientation_two(t_data *data, char c);
 //---------------   init_images.c   ------------//
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
-bool	clean_nl_scene(t_data *data);
+void	clean_nl_scene(t_data *data);
 
 //**********************************************//
 //					PARSER						//
@@ -208,7 +208,6 @@ bool	is_cub(char **argv);
 bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
-bool 	save_rgb_value(char *str, t_data *data, int rgb, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
@@ -242,9 +241,7 @@ bool	is_digit(char c);
 //---------------   free.c   -------------------//
 void 	free_all(t_data *data);
 void	free_mlx(t_data *data);
-void	free_map(t_data *data);
-void 	exit_all(t_data *data); 
-void	free_data(t_data *data);
+void	free_map(t_data *data); 
 void	free_scene(t_data *data);
 void	free_map_scene(t_data *data);
 

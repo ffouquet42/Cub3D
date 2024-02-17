@@ -6,45 +6,30 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:25:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:36:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-// void	init_data_2(t_data *data)
-// {
 
-	// data->rotation_speed = ROTSPEED;
-
-	// data->movespeed = MOVESPEED;
-// }
-
-bool	clean_nl_scene(t_data *data)
+void	clean_nl_scene(t_data *data)
 {
 	int		i;
 	int		j;
-	int		len;
-	char	*dest;
 
 	i = 0;
-	while (i < 4)
+	while (data->map[i])
 	{
-		len = ft_strlen(data->f2_scene[i]) -1 ; // Faire un f3_scene ?
-		dest = malloc(sizeof(char) * (len));
-		if (!dest)
-			return (1); // gerer le retour 
 		j = 0;
-		while (j < len)
+		while (data->map[i][j])
 		{
-			dest[j] = data->f2_scene[i][j];
+			if (data->map[i][j] == '\n' || data->map[i][j] == '\r')
+				data->map[i][j] = '\0';
 			j++;
 		}
-		dest[j] = '\0';
-		data->f2_scene[i] = dest; // leaks juste trouver ou free f2_scene du coup pas free dest
 		i++;
 	}
-	return (0);
 }
 
 bool	init_image(t_data *data, int i)
@@ -73,8 +58,9 @@ bool	init_images(t_data *data) // init image fonctionne
 	int	i;
 
 	i = 0;
+	print_scene(data->f2_scene);
 	clean_nl_scene(data);
-
+	print_scene(data->f2_scene);
 	while (i < 4)
 	{
 		if (init_image(data, i))

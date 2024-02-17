@@ -6,24 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 15:20:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:36:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-// void exit_all (t_data *data)
-// {
-// 	ft_putstr(E_INIT_MLX, 2);
-// 	free_data(data);
-// 	exit (1);
-// }
 
-void	free_data(t_data *data)
-{
-	free(data->raycast);
-	free(data->game);
-}
 
 void	free_map(t_data *data)
 {
