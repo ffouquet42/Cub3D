@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/17 22:17:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 22:36:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ bool	game_loop(t_data *data)
 {
 
 	if (data->run == 1)
-		data->movespeed = 2 * MOVESPEED;
+		data->speed = 2 * MOVESPEED;
 	else
-		data->movespeed = MOVESPEED;
+		data->speed = MOVESPEED;
 	move(data);
 	ray_cast(data);
 	return (0);
