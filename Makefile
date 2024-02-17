@@ -20,6 +20,8 @@ SRCS		=	srcs/main.c							\
 				srcs/exec/game_management.c			\
 				srcs/exec/move.c					\
 				srcs/exec/rotate.c					\
+				srcs/exec/raycasting.c				\
+				srcs/exec/draw.c					\
 				srcs/utils/libft.c					\
 				srcs/utils/print.c					\
 				srcs/utils/digit.c					\

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 23:39:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 23:40:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool	init_image(t_data *data, int i)
 	return (0);
 }
 
-bool	init_images(t_data *data) // init image fonctionne
+bool	init_images(t_data *data)
 {
 	int	i;
 
