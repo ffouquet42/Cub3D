@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/17 23:57:31 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:00:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,20 @@ void	draw_textures(t_data *data, t_raycast *ray, int x)
 	i = ray->draw_start;
 	while (i >= 0)
 	{
-		my_mlx_pixel_put(data->img, x, i, get_rgb(data->rgb_ceiling));
+		ft_mlx_pixel_put(data->img, x, i, get_rgb(data->rgb_ceiling));
 		i--;
 	}
 	i = ray->draw_start;
 	while (i <= ray->draw_end)
 	{
-		my_mlx_pixel_put(data->img, x, i,
+		ft_mlx_pixel_put(data->img, x, i,
 			get_color(data, ray->tex_x, ray->tex_pos, data->game->texture));
 		ray->tex_pos += ray->step;
 		i++;
 	}
 	while (i < WIN_HEIGHT)
 	{
-		my_mlx_pixel_put(data->img, x, i, get_rgb(data->rgb_floor));
+		ft_mlx_pixel_put(data->img, x, i, get_rgb(data->rgb_floor));
 		i++;
 	}
 }
