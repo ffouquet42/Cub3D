@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 15:48:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:23:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,19 @@ bool	get_player_pos(t_data *data) //
 	return (1);
 }
 
-bool	init_game(t_data *data)
-{
-	data->win = mlx_new_window(data->mlx, 
-		data->images[0].img_width * data->map_width, 
-		data->images[0].img_height * data->map_height, "Cub3D");
-	if (!data->win)
-		return (data->error->error_g |= ERROR_MLX_WIN, 1);
-	if (get_player_pos(data))
-		return (data->error->error_g |= ERROR_POS, 1);
-	print_map(data);
-	mlx_key_hook(data->win, (void *)move_player, data);
-	mlx_hook(data->win, 17, 0, (void *)free_mlx, data);
-	mlx_loop(data->mlx);
+// bool	init_game(t_data *data)
+// {
+// 	data->win = mlx_new_window(data->mlx, 
+// 		data->images[0].img_width * data->map_width, 
+// 		data->images[0].img_height * data->map_height, "Cub3D");
+// 	if (!data->win)
+// 		return (data->error->error_g |= ERROR_MLX_WIN, 1);
+// 	if (get_player_pos(data))
+// 		return (data->error->error_g |= ERROR_POS, 1);
+// 	print_map(data);
+// 	mlx_key_hook(data->win, (void *)move_player, data);
+// 	mlx_hook(data->win, 17, 0, (void *)free_mlx, data);
+// 	mlx_loop(data->mlx);
 
-	return (0);
-}
+// 	return (0);
+// }

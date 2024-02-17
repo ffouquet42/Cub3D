@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 15:48:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:25:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 	// data->movespeed = MOVESPEED;
 // }
 
-bool	clean_nl_scene(t_data *data)  
+bool	clean_nl_scene(t_data *data)
 {
 	int		i;
 	int		j;
@@ -30,7 +30,7 @@ bool	clean_nl_scene(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		len = ft_strlen(data->f2_scene[i]); // Faire un f3_scene ?
+		len = ft_strlen(data->f2_scene[i]) -1 ; // Faire un f3_scene ?
 		dest = malloc(sizeof(char) * (len));
 		if (!dest)
 			return (1); // gerer le retour 
@@ -73,9 +73,8 @@ bool	init_images(t_data *data) // init image fonctionne
 	int	i;
 
 	i = 0;
-	// print_scene(data->f2_scene);
-	// clean_nl_scene(data);
-	// print_scene(data->f2_scene);
+	clean_nl_scene(data);
+
 	while (i < 4)
 	{
 		if (init_image(data, i))
