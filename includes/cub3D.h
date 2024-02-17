@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 19:40:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:59:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
+# include <X11/X.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <stdbool.h>
@@ -31,20 +33,23 @@
 //					DEFINES						//
 //**********************************************//
 
+/*GNL BUFFER*/
 # define BUFFER_SIZE 100
 
-//**********************************************//
-//					KEYCODE						//
-//**********************************************//
+/*KEYCODE*/
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_D 100
+# define KEY_S 115
+# define KEY_LEFT	65361
+# define KEY_RIGHT	65363
+# define KEY_SHIFT	65505
+# define KEY_ESC	65307
 
+/*WINDOWS SIZE*/
 
-# define MOVE_W 119
-# define MOVE_A 97
-# define MOVE_D 100
-# define MOVE_S 115
-# define TURN_LEFT	65361
-# define TURN_RIGHT 65363	
-# define ESC	 	65307
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 
 //**********************************************//
 //					STRUCTURES					//
@@ -86,12 +91,12 @@ typedef struct s_game
 	
 	// double	cur_time;
 	// double	old_time;
-	// int		key_w;
-	// int		key_s;
-	// int		key_a;
-	// int		key_d;
-	// int		key_right;
-	// int		key_left;
+	int		key_w;
+	int		key_s;
+	int		key_a;
+	int		key_d;
+	int		key_right;
+	int		key_left;
 	// int		texture;
 }			t_game;
 
@@ -110,7 +115,7 @@ typedef struct s_texture
 {
 	// t_image	*no; // rename
 	// t_image	*so; // rename
-	// t_image	*we; // rename
+	// t_image	*we; // rename//---------------   cub3D.c   ------------------//
 	// t_image	*ea; // rename
 }			t_texture;
 
@@ -133,6 +138,7 @@ typedef struct s_data
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
 	t_image		images[4];
+	bool		run;
 	
 	// t_img		*mini_img;
 	// t_img		*img;
@@ -140,7 +146,6 @@ typedef struct s_data
 	// int			fc;
 	// double		rotation_speed;
 	// int			mouse_active;
-	// int			run;
 	// double		movespeed;
 }			t_data;
 
@@ -153,7 +158,7 @@ typedef struct s_data
 
 int		main(int argc, char **argv);
 
-//**********************************************//
+//*****************wrap_mlx_init*****************************//
 //					PARSING						//
 //**********************************************//
 
