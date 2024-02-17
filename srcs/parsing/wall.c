@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:42:18 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/17 18:02:00 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 bool	test_around(char **map, int y, int x, char *charset)
 {
-	if (map[y - 1][x - 1] != '1' && !char_is_in_set(map[y - 1][x - 1], charset))
-		return (1);
 	if (map[y - 1][x] != '1' && !char_is_in_set(map[y - 1][x], charset))
-		return (1);
-	if (map[y - 1][x + 1] != '1' && !char_is_in_set(map[y - 1][x + 1], charset))
 		return (1);
 	if (map[y][x - 1] != '1' && !char_is_in_set(map[y][x - 1], charset))
 		return (1);
 	if (map[y][x + 1] != '1' && !char_is_in_set(map[y][x + 1], charset))
 		return (1);
-	if (map[y + 1][x - 1] != '1' && !char_is_in_set(map[y + 1][x - 1], charset))
-		return (1);
 	if (map[y + 1][x] != '1' && !char_is_in_set(map[y + 1][x], charset))
-		return (1);
-	if (map[y + 1][x + 1] != '1' && !char_is_in_set(map[y + 1][x + 1], charset))
 		return (1);
 	return (0);
 }

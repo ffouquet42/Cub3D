@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 17:50:01 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/17 22:29:51 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	check_rgb(char *rgb, t_data *data, int fc)
 	return (0);
 }
 
-bool	path_is_xpm(char *path) //test 
+bool	path_is_xpm(char *path)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 17:22:14 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/17 20:55:09 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,7 @@ bool	remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
 bool	sort_scene(t_data *data);
-char 	**sort_scene_2(t_data *data);
+char 	**sort_scene_2(char **scene);
 //---------------   wall.c   -------------------//
 bool	closed_by_wall(t_data *data);
 bool	no_void_around(t_data *data, char *charset);
