@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:41:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:43:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,16 @@ bool	init_images(t_data *data) // init image fonctionne
 	int	i;
 
 	i = 0;
-	print_scene(data->f2_scene);
 	clean_nl_scene(data);
-	print_scene(data->f2_scene);
 	while (i < 4)
 	{
 		if (init_image(data, i))
-			return (1); // messge erreur 
+			return (1); 
 		i++;
 	}
 	return (0);
 }
 
-// init la struct data
 bool	init_data(t_data *data)
 {
 	data->mlx = mlx_init();

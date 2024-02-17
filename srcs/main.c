@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:23:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:44:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 	
 	if (parsing(argc, argv, &data))
 		return (free_map_scene(&data), 1);
-	if (init_data(&data))
+	if (init_data(&data) || init_data(&data))
 	{
 		printf("Error Thread");
 		free_map_scene(&data);
