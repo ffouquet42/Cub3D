@@ -6,12 +6,18 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 17:56:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:21:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+
+
+int exit_all()
+{
+	exit(1);
+}
 void	free_map(t_data *data)
 {
 	int	i;

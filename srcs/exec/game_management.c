@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/17 23:22:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:24:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	move(t_data *data)
 	}
 }
 
-bool	game_loop(t_data *data)
+int game_loop(t_data *data) // uint 
 {
 
 	if (data->run == 1)
@@ -51,7 +51,7 @@ bool	game_loop(t_data *data)
 	return (0);
 }
 
-bool	key_release(int keycode, t_data *data)
+int 	key_release(int keycode, t_data *data) // voir uint 
 {
 	if (keycode == KEY_W)
 		data->game->key_w = 0;
@@ -74,7 +74,7 @@ bool	key_release(int keycode, t_data *data)
 	return (0);
 }
 
-bool	key_press(int keycode, t_data *data)
+int key_press(int keycode, t_data *data) // voir uint 
 {
 	if (keycode == KEY_ESC)
 		exit(1); //exit free a faire 
@@ -103,7 +103,7 @@ bool	game_management(t_data *data)
 	mlx_mouse_move(data->mlx, data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	mlx_hook(data->win, KeyPress, KeyPressMask, &key_press, &data);
 	mlx_hook(data->win, KeyRelease, KeyReleaseMask, &key_release, &data);
-	mlx_hook(data->win, 17, 1l << 17, &exit_prog, &data); // a faire 
+	mlx_hook(data->win, 17, 1l << 17, exit_all, &data); // a faire 
 	mlx_loop_hook(data->mlx, game_loop, &data);
 	mlx_loop(data->mlx);
 	mlx_do_key_autorepeaton(data->mlx);

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 19:47:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:11:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 		free_mlx(&data);
 	 	return(parsing_msg_error(data.error), 1);
 	}
-	if (game_manangement(&data))
+	if (game_management(&data))
 	{
 		free_map_scene(&data);
 		free_mlx(&data);

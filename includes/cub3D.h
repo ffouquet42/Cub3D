@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 23:54:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:18:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,15 +272,51 @@ size_t	ft_strlen(const char *str);
 
 bool	line_is_empty(char *str);
 
+//---------------	draw_utils.c ----------//
+
+void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
+
 
 //**********************************************//
 //					EXEC						//
 //**********************************************//
 
-// void	print_scene(char **scene);
-// void	print_rgb(t_data *data);
-// void	print_img(t_data *data);
+//---------------	game_management.c ----------//
 
 bool	game_management(t_data *data);
+int 	key_press(int keycode, t_data *data);
+int 	key_release(int keycode, t_data *data);
+int 	game_loop(t_data *data);
+void	move(t_data *data);
+
+//---------------	move.c ----------//
+
+void	move_right(t_data *data);
+void	move_down(t_data *data);
+void	move_left(t_data *data);
+void	move_up(t_data *data);
+
+//---------------	rotate.c ----------//
+
+void	rotate_left(t_data *data);
+void	rotate_right(t_data *data);
+void	get_rotate_speed(t_data *data);
+
+//---------------	raycasting.c ----------//
+
+void	raycast(t_data *data);
+void	init_cast_img(t_data *data);
+void	set_side_dist(t_data *data, t_raycast *ray);
+void	set_camera(t_data *data, t_raycast *ray, int x);
+
+//---------------	draw.c ----------//
+
+void	draw_textures(t_data *data, t_raycast *ray, int x);
+void	pick_texture(t_data *cub, t_raycast *ray);
+void	set_textures_variables(t_data *data, t_raycast *ray, int x);
+int		get_rgb(int *color);
+int		get_color(t_data *data, int x, int y, int image);
+
+int exit_all();
 
 #endif

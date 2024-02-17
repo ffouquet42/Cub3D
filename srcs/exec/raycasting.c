@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:46:34 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/17 23:43:22 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:24:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void	set_side_dist(t_data *data, t_raycast *ray)
 
 void	init_cast_img(t_data *data)
 {
-	// init image a 0
 	data->img->mlx_img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!data->img->mlx_img)
-		end_of_prog(data, 2);
+		exit_all();
+		// end_of_prog(data, 2);
 	data->img->add = mlx_get_data_addr(data->img->mlx_img,
 			&(data->img->bpp), &(data->img->rowlen),
 			&(data->img->end));
