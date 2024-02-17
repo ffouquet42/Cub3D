@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 23:40:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:05:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,13 @@ bool	init_images(t_data *data)
 
 bool	init_data(t_data *data)
 {
+	t_game	game;
+	t_raycast ray;
+
+	game = (t_game){0};
+	ray = (t_raycast){0};
+	data->game = &game;
+	data->ray = &ray;
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (data->error->error_g |= ERROR_INIT_MLX, 1);
