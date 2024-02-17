@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 16:23:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:22:24 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,21 @@ int	main(int argc, char **argv)
 {
 	// fct init strcut ?
 	t_error	error;
-	t_e_scene	e_scene;
 	t_data	data;
 
 	error = (t_error){0};
-	e_scene = (t_e_scene){0};
 	data = (t_data){0};
 	data.error = &error;
-	data.e_scene = &e_scene; 
 	
 	if (parsing(argc, argv, &data))
 		return (free_map_scene(&data), 1);
-	if (init_data(&data))
-	{
-		printf("Error Thread");
-		free_map_scene(&data);
-		free_mlx(&data);
-	 	return(parsing_msg_error(data.error), 1);
-	}
+	// if (init_data(&data))
+	// {
+	// 	printf("Error Thread");
+	// 	free_map_scene(&data);
+	// 	free_mlx(&data);
+	//  	return(parsing_msg_error(data.error), 1);
+	// }
 	// if (init_game(&data))
 	// {
 	// 	free_map_scene(&data);

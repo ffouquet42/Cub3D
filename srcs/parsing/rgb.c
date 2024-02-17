@@ -3,66 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:44:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:37:55 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-
 bool	correct_rgb_value(t_data *data)
 {
-	int	rgb; // uint 
+	int	rgb;
 
 	rgb = 0;
 	while (rgb < 3)
 	{
 		if (data->rgb_floor[rgb] < 0 || data->rgb_floor[rgb] > 255)
-			return (1); // msg error 
+			return (data->error->error_g |= ERROR_RGB, 1);
 		rgb++;
 	}
 	rgb = 0;
 	while (rgb < 3)
 	{
 		if (data->rgb_ceiling[rgb] < 0 || data->rgb_ceiling[rgb] > 255)
-			return (1);  // msg error 
+			return (data->error->error_g |= ERROR_RGB, 1);
 		rgb++;
 	}
 	return (0);
 }
-
-// bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
-// {
-// 	// int		i;
-// 	// int		j;
-// 	// char	*val;
-	
-// 	// i = 0;
-// 	// j = 0;
-// 	// while (str[i] && str[i] != ',')
-// 	// 	i++;
-// 	// val = malloc(sizeof(char) * (i + 1));
-// 	// if (!val)
-// 	// 	return (1);
-// 	// while (j < i)
-// 	// {
-// 	// 	val[j] = str[j];
-// 	// 	j++;
-// 	// }
-// 	// val[j] = '\0';
-// 	// printf("%s%s", "val:", val);
-// 	printf("%s%s\n", "str:", str);
-// 	printf("%s%i\n", "int:", ft_atoi(str));
-// 	if (fc == 0)
-// 		data->rgb_floor[rgb] = ft_atoi(str); // ft_atoi direct le str 
-// 	else if (fc == 1)
-// 		data->rgb_ceiling[rgb] = ft_atoi(str);
-// 	return (0); 
-// 	// free(val)
-// }
 
 bool	rgb_value(char *str, t_data *data, int fc)
 {
@@ -74,9 +43,9 @@ bool	rgb_value(char *str, t_data *data, int fc)
 	rgb = 0;
 	loop = 0;
 	while (loop < 3)
-	{ 
+	{
 		if (fc == 0)
-			data->rgb_floor[rgb] = ft_atoi(&str[i]); 
+			data->rgb_floor[rgb] = ft_atoi(&str[i]);
 		else if (fc == 1)
 			data->rgb_ceiling[rgb] = ft_atoi(&str[i]);
 		while (is_digit(str[i]))
@@ -87,14 +56,14 @@ bool	rgb_value(char *str, t_data *data, int fc)
 		loop++;
 	}
 	if (correct_rgb_value(data))
-		return (1); // message error ici
+		return (data->error->error_g |= ERROR_RGB, 1);
 	return (0);
 }
 
-bool	rgb_format(char *str)  
+bool	rgb_format(char *str)
 {
-	int	i;
-	uint8_t	digit_row; //uint 
+	int		i;
+	uint8_t	digit_row;
 
 	digit_row = 0;
 	i = 0;
@@ -113,9 +82,9 @@ bool	rgb_format(char *str)
 	return (0);
 }
 
-bool	count_comma(char *str) //utils digit
+bool	count_comma(char *str)
 {
-	int i;
+	int	i;
 	int	comma;
 
 	comma = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 11:48:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:24:23 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ bool	get_map(t_data *data)
 
 	y = 0;
 	i = 6;
-	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); 
+	data->map = malloc(sizeof(char *) * (data->scene_height - 5));
 	if (!data->map)
 		return (data->error->error_g |= ERROR_MALLOC, 1);
 	while (data->scene[i])
@@ -73,7 +73,7 @@ bool	get_map(t_data *data)
 	data->map[y] = NULL;
 	get_map_size(data);
 	resize_map(data);
-	if (!data->map) 
+	if (!data->map)
 		return (data->error->error_g |= ERROR_MAP, 1);
-	return(0);
+	return (0);
 }

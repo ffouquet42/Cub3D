@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:47:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:48:31 by fllanet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-// void print_rgb2(t_data *data)
-// {
-
-// 	printf("%s%i%i\n","rgb_floor :", 0, data->rgb_floor[0]);
-// 	printf("%s%i%i\n","rgb_floor :", 1, data->rgb_floor[1]);
-// 	printf("%s%i%i\n","rgb_floor :", 2, data->rgb_floor[2]);
-// }
-// void print_rgb3(t_data *data)
-// {
-
-// 	printf("%s%i%i\n","rgb_ceiling :", 0, data->rgb_ceiling[0]);
-// 	printf("%s%i%i\n","rgb_ceiling :", 1, data->rgb_ceiling[1]);
-// 	printf("%s%i%i\n","rgb_ceiling :", 2, data->rgb_ceiling[2]);
-// }
 
 bool	check_rgb(char *rgb, t_data *data, int fc)
 {
@@ -35,13 +20,13 @@ bool	check_rgb(char *rgb, t_data *data, int fc)
 	return (0);
 }
 
-bool	path_is_xpm(char *path) //test 
+bool	path_is_xpm(char *path)
 {
 	int	i;
-	
+
 	i = ft_strlen(path) - 5;
-	if (path[i] != '.' || path[i + 1] != 'x' ||
-		path[i + 2] != 'p' || path[i + 3] != 'm')
+	if (path[i] != '.' || path[i + 1] != 'x'
+		|| path[i + 2] != 'p' || path[i + 3] != 'm')
 		return (1);
 	return (0);
 }
