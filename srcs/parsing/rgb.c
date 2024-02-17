@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:44:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:09:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,6 @@ bool	correct_rgb_value(t_data *data)
 	}
 	return (0);
 }
-
-// bool	save_rgb_value(char *str, t_data *data, int rgb, int fc)
-// {
-// 	// int		i;
-// 	// int		j;
-// 	// char	*val;
-	
-// 	// i = 0;
-// 	// j = 0;
-// 	// while (str[i] && str[i] != ',')
-// 	// 	i++;
-// 	// val = malloc(sizeof(char) * (i + 1));
-// 	// if (!val)
-// 	// 	return (1);
-// 	// while (j < i)
-// 	// {
-// 	// 	val[j] = str[j];
-// 	// 	j++;
-// 	// }
-// 	// val[j] = '\0';
-// 	// printf("%s%s", "val:", val);
-// 	printf("%s%s\n", "str:", str);
-// 	printf("%s%i\n", "int:", ft_atoi(str));
-// 	if (fc == 0)
-// 		data->rgb_floor[rgb] = ft_atoi(str); // ft_atoi direct le str 
-// 	else if (fc == 1)
-// 		data->rgb_ceiling[rgb] = ft_atoi(str);
-// 	return (0); 
-// 	// free(val)
-// }
 
 bool	rgb_value(char *str, t_data *data, int fc)
 {
