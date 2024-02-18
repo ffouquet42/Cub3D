@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 19:13:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:15:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ bool	init_data(t_data *data)
 	t_game	game;
 	t_raycast ray;
 
-	printf("1");
 	game = (t_game){0};
 	ray = (t_raycast){0};
 	data->game = &game;
