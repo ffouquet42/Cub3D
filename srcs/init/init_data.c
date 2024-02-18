@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 18:41:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:13:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,13 @@ bool	init_images(t_data *data)
 	int	i;
 
 	i = 0;
-	(void)data;
-	printf("3");
 	clean_nl_scene(data);
-	printf("4");
 	while (i < 4)
 	{
 		if (init_image(data, i))
 			return (1); 
 		i++;
 	}
-	printf("5");
 	return (0);
 }
 
@@ -85,9 +81,7 @@ bool	init_data(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (data->error->error_g |= ERROR_INIT_MLX, 1);
-	printf("2");
 	if (init_images(data))
 		return (data->error->error_g |= ERROR_INIT_IMG, 1);
-	printf("6");
 	return (0);
 }

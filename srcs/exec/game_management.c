@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/18 16:59:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:12:19 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int 	key_release(int keycode, t_data *data) // voir uint
 int key_press(int keycode, t_data *data) // voir uint 
 {
 	if (keycode == KEY_ESC)
-		exit(1); //exit free a faire 
+		free_all(data);
 	if (keycode == KEY_W)
 		data->game->key_w = 1;
 	if (keycode == KEY_S)
