@@ -17,11 +17,17 @@ SRCS		=	srcs/main.c							\
 				srcs/parsing/scene.c				\
 				srcs/parsing/sort_scene.c			\
 				srcs/parsing/wall.c					\
-				srcs/exec/game.c					\
+				srcs/exec/game_management.c			\
+				srcs/exec/move.c					\
+				srcs/exec/rotate.c					\
+				srcs/exec/raycasting.c				\
+				srcs/exec/draw.c					\
+				srcs/utils/draw_utils.c				\
 				srcs/utils/libft.c					\
 				srcs/utils/print.c					\
 				srcs/utils/digit.c					\
 				srcs/utils/free.c					\
+				srcs/utils/trash.c					\
 				srcs/utils/scene_utils.c			\
 				srcs/utils/get_next_line.c			\
 

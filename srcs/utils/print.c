@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/14 14:10:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/17 23:22:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putstr(char *str, int fd)
 		write(fd, str++, 1);
 }
 
-void	parsing_msg_error(t_error *error) //Rename for more spaces 
+void	parsing_msg_error(t_error *error) // couper en 2 
 {
 	if (error->error_g & ERROR_ARG)
 		ft_putstr(E_PARS_ARGS, 2);
