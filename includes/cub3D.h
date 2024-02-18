@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 17:12:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:41:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,6 @@ typedef struct s_game
 	double	plane_x; //
 	double	plane_y; //
 	
-	// double	cur_time;
-	// double	old_time;
 	int		key_w; // uint8_t
 	int		key_s;
 	int		key_a;
@@ -327,5 +325,7 @@ void	pick_texture(t_data *cub, t_raycast *ray);
 void	set_textures_variables(t_data *data, t_raycast *ray, int x);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
+
+void print_map(char **map);
 
 #endif

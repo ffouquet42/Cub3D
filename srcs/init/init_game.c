@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 20:37:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:44:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ bool	init_game(t_data *data)
 {
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)
-		return (data->error->error_g |= ERROR_MLX_WIN, 1); // peut etre exit
+		return (data->error->error_g |= ERROR_MLX_WIN, 1);
+	// printf("oui");
+	// print_map(data->map);
 	get_player_pos(data);
 	return (0);
 }

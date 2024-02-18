@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 17:14:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:52:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,26 @@ bool	init_image(t_data *data, int i)
 	data->images[i].add = mlx_get_data_addr(data->images[i].mlx_img,
 		&data->images[i].bpp, &data->images[i].rowlen,
 		&data->images[i].end);
-	if (!data->images[i].add)
-		return (1);
+	// if (!data->images[i].add)
+	// 	return (1);
 	return (0);
 }
 
 bool	init_images(t_data *data)
 {
-	int	i;
+	// int	i;
 
-	i = 0;
+	// i = 0;
+	(void)data;
+	printf("3");
 	clean_nl_scene(data);
-	while (i < 4)
-	{
-		if (init_image(data, i))
-			return (1); 
-		i++;
-	}
+	printf("4");
+	// while (i < 4)
+	// {
+	// 	if (init_image(data, i))
+	// 		return (1); 
+	// 	i++;
+	// }
 	return (0);
 }
 
@@ -73,6 +76,7 @@ bool	init_data(t_data *data)
 	t_game	game;
 	t_raycast ray;
 
+	printf("1");
 	game = (t_game){0};
 	ray = (t_raycast){0};
 	data->game = &game;
@@ -80,7 +84,9 @@ bool	init_data(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (data->error->error_g |= ERROR_INIT_MLX, 1);
+	printf("2");
 	if (init_images(data))
 		return (data->error->error_g |= ERROR_INIT_IMG, 1);
+	printf("4");
 	return (0);
 }
