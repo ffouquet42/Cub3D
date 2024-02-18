@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 14:40:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:12:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,15 +170,18 @@ int		main(int argc, char **argv);
 //**********************************************//
 
 //---------------   init_data.c   --------------//
+
 bool	init_data(t_data *data);
 
 //---------------   init_game.c   --------------//
+
 bool	init_game(t_data *data);
 void	get_player_pos(t_data *data);
 void	get_first_orientation(t_data *data, char c);
 void	get_first_orientation_two(t_data *data, char c);
 
 //---------------   init_images.c   ------------//
+
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
 void	clean_nl_scene(t_data *data);
@@ -188,11 +191,13 @@ void	clean_nl_scene(t_data *data);
 //**********************************************//
 
 //---------------   map.c   --------------------//
+
 bool	get_map(t_data *data);
 void	get_map_size(t_data *data);
 void	resize_map(t_data *data);
 
 //---------------   parse_map.c   --------------//
+
 bool	parse_map(t_data *data);
 bool	check_map_char(t_data *data);
 bool	is_map_char(char c, char *set);
@@ -200,22 +205,26 @@ bool	one_start_pos(t_data *data);
 bool	char_is_in_set(char c, char *set);
 
 //---------------   parse_scene.c   ------------//
+
 bool	parse_scene(t_data *data);
 bool	path_is_xpm(char *path);
 bool	check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   parsing.c   ----------------//
+
 bool	parsing(int argc, char **argv, t_data *data);
 bool	check_args(int argc, char **argv, t_data *data);
 bool	is_cub(char **argv);
 
 //---------------   rgb.c   --------------------//
+
 bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
 bool	correct_rgb_value(t_data *data);
 
 //---------------   scene.c   ------------------//
+
 bool	get_data_scene(char *scene_path, t_data *data);
 int		scene_len(char *scene_path, t_data *data);
 bool	get_scene(int fd, t_data *data);
@@ -223,9 +232,11 @@ void	clean_scene(t_data *data);
 bool	remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
+
 bool	sort_scene(t_data *data);
 char 	**sort_scene_2(t_data *data);
 //---------------   wall.c   -------------------//
+
 bool	closed_by_wall(t_data *data);
 bool	no_void_around(t_data *data, char *charset);
 bool	test_around(char **map, int y, int x, char *charset);
@@ -236,17 +247,19 @@ bool	test_around(char **map, int y, int x, char *charset);
 //**********************************************//
 
 //---------------   digit.c   ------------------//
+
 bool	only_digit_or_comma(char *str);
-// bool	only_digit(char *str);
 bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
+
 void	free_mlx(t_data *data);
 void	free_map(t_data *data); 
 void	free_scene(t_data *data);
-void	free_map_scene(t_data *data);
+void	free_all(t_data *data);
 
 //---------------   get_next_line.c   ----------//
+
 char	*get_next_line(int fd);
 char	*merge_stash_and_buff(char *stash, char *buff);
 char	*buff_to_stash(char *buff);
@@ -314,7 +327,5 @@ void	pick_texture(t_data *cub, t_raycast *ray);
 void	set_textures_variables(t_data *data, t_raycast *ray, int x);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
-
-void 	exit_all();
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 14:49:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:09:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static	void	free_map(t_data *data)
+void	free_map(t_data *data)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ static	void	free_map(t_data *data)
 	free(data->map);
 }
 
-static	void	free_scene(t_data *data)
+void	free_scene(t_data *data)
 {
 	int	i;
 	i = 0;
@@ -34,7 +34,7 @@ static	void	free_scene(t_data *data)
 	}
 }
 
-static	void	free_mlx(t_data *data)
+void	free_mlx(t_data *data)
 {
 	uint8_t i;
 
