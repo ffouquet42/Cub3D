@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 00:18:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 14:40:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,6 @@ bool	only_digit_or_comma(char *str);
 bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
-void 	free_all(t_data *data);
 void	free_mlx(t_data *data);
 void	free_map(t_data *data); 
 void	free_scene(t_data *data);
@@ -258,7 +257,6 @@ char	*stash_to_line(char *stash, char *buf);
 
 void	parsing_msg_error(t_error *error);
 void	ft_putstr(char *str, int fd);
-void	print_map();
 
 //---------------	libft.c			  ----------//
 
@@ -317,6 +315,6 @@ void	set_textures_variables(t_data *data, t_raycast *ray, int x);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
 
-int exit_all();
+void 	exit_all();
 
 #endif
