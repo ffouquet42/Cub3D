@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 22:10:34 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/18 19:02:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+// void	resize_map(t_data *data)
+// {
+// 	int		y;
+// 	int		x;
+
+// 	y = 0;
+// 	while (data->map[y])
+// 	{
+// 		x = 0;
+// 		while (data->map[y][x])
+// 		{
+// 			if (data->map[y][x] == '\n' || data->map[y][x] == '\n')
+// 				data->map[y][x] = '\0';
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// }
 
 void	resize_map(t_data *data)
 {
