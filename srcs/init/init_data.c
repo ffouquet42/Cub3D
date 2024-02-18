@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 00:05:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:14:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ bool	init_image(t_data *data, int i)
 	data->images[i].add = mlx_get_data_addr(data->images[i].mlx_img,
 		&data->images[i].bpp, &data->images[i].rowlen,
 		&data->images[i].end);
+	if (!data->images[i].add)
+		return (1);
 	return (0);
 }
 
