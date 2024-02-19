@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 15:30:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:05:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	set_textures_variables(t_data *data, t_raycast *ray, int x)
 void	pick_texture(t_data *cub, t_raycast *ray)
 {
 	if (ray->side == 0 && ray->diray_x < 0)
-		cub->game->texture = 3;
-	else if (ray->side == 0 && ray->diray_x > 0)
 		cub->game->texture = 2;
+	else if (ray->side == 0 && ray->diray_x > 0)
+		cub->game->texture = 3;
 	else if (ray->side == 1 && ray->diray_y < 0)
-		cub->game->texture = 1;
-	else if (ray->side == 1 && ray->diray_y > 0)
 		cub->game->texture = 0;
+	else if (ray->side == 1 && ray->diray_y > 0)
+		cub->game->texture = 1;
 }
 
 void	draw_textures(t_data *data, t_raycast *ray, int x)

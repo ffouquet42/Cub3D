@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 16:48:35 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:53:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ bool	init_images(t_data *data)
 	while (i < 4)
 	{
 		if (init_image(data, i))
-			return (1); // msg err
+			return (1); 
 		i++;
 	}
 	return (0);
@@ -96,5 +96,5 @@ bool	init_struct(t_data *data)
 	ft_memset(data->img, 0, sizeof(t_image));
 	if (!data->img)
 		return (1);
-	return (1);
+	return (0);
 }

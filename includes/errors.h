@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/15 13:10:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:51:52 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_error
 
 # define E_PARS_ARGS COLOR_RED "Error\nNeed a single argument, a .cub map.\n" COLOR_RESET
 # define E_PARS_FILE COLOR_RED "Error\nOPEN FAILURE. Need an existing file. \n" COLOR_RESET
-# define E_PARS_CUB COLOR_RED "Error\nInvalid file format. Need a .cub map. \n" COLOR_RESET
+# define E_PARS_CUB COLOR_RED "Error\nInvalid file format or invalid path. Need a .cub map. \n" COLOR_RESET
 # define E_EMPTY_MAP COLOR_RED "Error\nInformation is missing or the map is too small\n" COLOR_RESET
 # define E_EMPTY_LINE COLOR_RED "Error\nThere are one or more empty lines on the map\n" COLOR_RESET
 # define E_GET_SCENE COLOR_RED "Error\nGet scene failed.\n" COLOR_RESET

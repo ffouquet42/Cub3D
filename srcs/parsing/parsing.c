@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 22:30:23 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/19 16:51:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ bool	is_cub(char **argv)
 	len = ft_strlen(argv[1]);
 	if (argv[1][0] != 'm' || argv[1][1] != 'a' || argv[1][2] != 'p'
 	|| argv[1][3] != 's' || argv[1][4] != '/')
-		return (1); // msg error : map should be in maps/
+		return (1); 
 	if (argv[1][len - 4] != '.' || argv[1][len - 3] != 'c' ||
 		argv[1][len - 2] != 'u' || argv[1][len - 1] != 'b')
-		return (1); // msg error : end by .cub
+		return (1); 
 	return (0);
 }
 

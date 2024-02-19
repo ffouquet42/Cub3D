@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:46:34 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 02:37:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:59:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ void	init_cast_img(t_data *data)
 {
 	data->img->mlx_img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!data->img->mlx_img)
-		free_all(data); // exit
-	
+		free_all(data); 
 	data->img->add = mlx_get_data_addr(data->img->mlx_img,
 			&(data->img->bpp), &(data->img->rowlen),
 			&(data->img->end));
