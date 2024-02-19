@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 15:14:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:37:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,3 @@ void init_struct(t_data *data)
 	data->img = (t_image *)malloc(sizeof(t_image));
 	ft_memset(data->img, 0, sizeof(t_image));
 }
-
-
