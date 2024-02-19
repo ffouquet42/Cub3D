@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 02:34:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:30:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	set_textures_variables(t_data *data, t_raycast *ray, int x)
 	(void)x;
 	ray->wall_x = 0;
 	ray->tex_pos = 0;
-	ray->draw_start = -ray->line_height / 2 + WIN_HEIGHT / 2;
+	ray->draw_start = WIN_HEIGHT / 2 - ray->line_height / 2;
 	if (ray->draw_start < 0 || ray->draw_start > WIN_HEIGHT)
 		ray->draw_start = 0;
-	ray->draw_end = ray->line_height / 2 + WIN_HEIGHT / 2;
+	ray->draw_end = WIN_HEIGHT / 2 + ray->line_height / 2;
 	if (ray->draw_end >= WIN_HEIGHT)
 		ray->draw_end = WIN_HEIGHT - 1;
 	if (ray->side == 0)
@@ -66,14 +66,13 @@ void	draw_textures(t_data *data, t_raycast *ray, int x)
 
 	pick_texture(data, data->ray);
 	set_textures_variables(data, data->ray, x);
-	i = ray->draw_start;
-	while (i >= 0)
+	i = 0;
+	while (i < ray->draw_start)
 	{
 		ft_mlx_pixel_put(data->img, x, i, get_rgb(data->rgb_ceiling));
-		i--;
+		i++;
 	}
-	i = ray->draw_start;
-	while (i <= ray->draw_end)
+	while (i < ray->draw_end)
 	{
 		ft_mlx_pixel_put(data->img, x, i,
 			get_color(data, ray->tex_x, ray->tex_pos, data->game->texture));
