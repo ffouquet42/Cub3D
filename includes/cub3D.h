@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 23:23:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:16:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ int		main(int argc, char **argv);
 //---------------   init_data.c   --------------//
 
 bool	init_data(t_data *data);
+void 	init_struct(t_data *data);
 
 //---------------   init_game.c   --------------//
 
@@ -186,12 +187,7 @@ void	clean_nl_scene(t_data *data);
 
 //**********************************************//
 //					PARSER						//
-//**********************************************//
-
-//---------------   map.c   --------------------//
-
-bool	get_map(t_data *data);
-void	get_map_size(t_data *data);
+//************************void init_struct(t_data *data)a *data);
 void	resize_map(t_data *data);
 
 //---------------   parse_map.c   --------------//
@@ -240,6 +236,9 @@ bool	no_void_around(t_data *data, char *charset);
 bool	test_around(char **map, int y, int x, char *charset);
 
 
+bool	get_map(t_data *data);
+
+
 //**********************************************//
 //					UTILS						//
 //**********************************************//
@@ -278,6 +277,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
+void	*ft_memset(void *s, int c, size_t n);
 
 //---------------	scene_utils.c ----------//
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:22:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/11 22:46:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:17:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,26 @@ int	ft_atoi(const char *str)
 	return (res * pos);
 }
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	char	*str;
 
-	str = (char *)s;
 	i = 0;
 	while (i < n)
+		*(unsigned char *)(s + i++) = (unsigned char)c;
+	return (s);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+
+	str = s;
+	while (n)
 	{
-		str[i] = '\0';
-		i++;
+		*str = 0;
+		str++;
+		n--;
 	}
 }
 
