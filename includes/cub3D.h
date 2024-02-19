@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 16:48:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:10:02 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -315,14 +315,14 @@ void	get_rotate_speed(t_data *data);
 
 void	raycast(t_data *data);
 void	init_cast_img(t_data *data);
-void	set_side_dist(t_data *data, t_raycast *ray);
-void	set_camera(t_data *data, t_raycast *ray, int x);
+void	set_side_dist(t_data *data);
+void	set_camera(t_data *data, int x);
 
 //---------------	draw.c ----------//
 
-void	draw_textures(t_data *data, t_raycast *ray, int x);
-void	pick_texture(t_data *cub, t_raycast *ray);
-void	set_textures_variables(t_data *data, t_raycast *ray, int x);
+void	draw_textures(t_data *data, int x);
+void	pick_texture(t_data *data);
+void	set_textures_variables(t_data *data,int x);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
 
