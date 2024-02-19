@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 23:43:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:03:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	free_all(t_data *data)
 	free_mlx(data);
 }
 
-int	quit_loop(t_data *data) {
+int	quit_loop(t_data *data) 
+{
 	mlx_loop_end(data->mlx);
 	return (0);
 }
