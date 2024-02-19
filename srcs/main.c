@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 02:43:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:50:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 		return (free_all(data), 1);
 	if (init_data(data))
 	{
-		free_all(data);
 	 	return(parsing_msg_error(data->error), 1);
 	}
 	if (game_management(data))
