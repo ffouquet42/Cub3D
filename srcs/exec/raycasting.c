@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:46:34 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 17:11:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:17:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	set_camera(t_data *data, int x)
 		data->ray->delta_dist_y = INT_MAX;
 }
 
-void	set_side_dist(t_data *data)
+void	set_dist(t_data *data)
 {
 	if (data->ray->diray_x < 0)
 	{
@@ -57,7 +57,7 @@ void	set_side_dist(t_data *data)
 	}
 }
 
-void	init_cast_img(t_data *data) 
+void	cast_img_addr(t_data *data) 
 {
 	data->img->mlx_img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!data->img->mlx_img)
@@ -103,11 +103,11 @@ void	raycast(t_data *data)
 	int		x;
 
 	x = 0;
-	init_cast_img(data);
+	cast_img_addr(data);
 	while (x < WIN_WIDTH)
 	{
 		set_camera(data, x);
-		set_side_dist(data);
+		set_dist(data);
 		check_hit(data);
 		draw_textures(data, x);
 		x++;

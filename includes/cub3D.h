@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 17:10:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:16:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,8 +314,8 @@ void	get_rotate_speed(t_data *data);
 //---------------	raycasting.c ----------//
 
 void	raycast(t_data *data);
-void	init_cast_img(t_data *data);
-void	set_side_dist(t_data *data);
+void	cast_img_addr(t_data *data);
+void	set_dist(t_data *data);
 void	set_camera(t_data *data, int x);
 
 //---------------	draw.c ----------//
