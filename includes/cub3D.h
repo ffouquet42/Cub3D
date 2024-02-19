@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 15:16:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:48:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,10 @@ int		main(int argc, char **argv);
 //---------------   init_data.c   --------------//
 
 bool	init_data(t_data *data);
-void 	init_struct(t_data *data);
+bool	init_struct(t_data *data);
+bool	init_images(t_data *data);
+bool	init_image(t_data *data, int i);
+void	clean_nl_scene(t_data *data);
 
 //---------------   init_game.c   --------------//
 
@@ -178,12 +181,6 @@ bool	init_game(t_data *data);
 void	get_player_pos(t_data *data);
 void	get_first_orientation(t_data *data, char c);
 void	get_first_orientation_two(t_data *data, char c);
-
-//---------------   init_images.c   ------------//
-
-bool	init_images(t_data *data);
-bool	init_image(t_data *data, int i);
-void	clean_nl_scene(t_data *data);
 
 //**********************************************//
 //					PARSER						//

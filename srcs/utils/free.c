@@ -6,11 +6,17 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 15:53:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:50:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+int	quit_loop(t_data *data) 
+{
+	mlx_loop_end(data->mlx);
+	return (0);
+}
 
 void	free_map(t_data *data)
 {
@@ -51,7 +57,6 @@ void	free_mlx(t_data *data)
 		mlx_destroy_display(data->mlx);
 	if (data->mlx)
 		free(data->mlx);
-	// exit(0);
 }
 
 void	free_all(t_data *data) 
@@ -64,17 +69,17 @@ void	free_all(t_data *data)
 		free(data->f_scene);
 	if (data->f2_scene)
 		free(data->f2_scene);
-	free(data->error);
-	free(data->game);
-	free(data->img);
-	free(data->ray);
+	if (data->error)
+		free(data->error);
+	if (data->game)
+		free(data->game);
+	if (data->img)
+		free(data->img);
+	if (data->ray)
+		free(data->ray);
 	free_mlx(data);
-	free(data);
+	if (data)
+		free(data);
 	exit(0);
 }
 
-int	quit_loop(t_data *data) 
-{
-	mlx_loop_end(data->mlx);
-	return (0);
-}

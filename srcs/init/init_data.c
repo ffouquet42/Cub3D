@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 16:46:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:48:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool	init_data(t_data *data)
 	return (0);
 }
 
-void init_struct(t_data *data)
+bool	init_struct(t_data *data)
 {
 	data->error = (t_error *)malloc(sizeof(t_error));
 	ft_memset(data->error, 0, sizeof(t_error));
@@ -96,4 +96,5 @@ void init_struct(t_data *data)
 	ft_memset(data->img, 0, sizeof(t_image));
 	if (!data->img)
 		return (1);
+	return (1);
 }
