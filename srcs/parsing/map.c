@@ -6,30 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 20:07:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:59:28 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-// void	resize_map(t_data *data)
-// {
-// 	int		y;
-// 	int		x;
-
-// 	y = 0;
-// 	while (data->map[y])
-// 	{
-// 		x = 0;
-// 		while (data->map[y][x])
-// 		{
-// 			if (data->map[y][x] == '\n' || data->map[y][x] == '\n')
-// 				data->map[y][x] = '\0';
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// }
 
 void	resize_map(t_data *data)
 {
@@ -92,7 +73,6 @@ bool	get_map(t_data *data)
 	data->map[y] = NULL;
 	get_map_size(data);
 	resize_map(data);
-	
 	if (!data->map)
 		return (data->error->error_g |= ERROR_MAP, 1);
 	return (0);

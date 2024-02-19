@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 17:16:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:45:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <stdbool.h>
-#include <limits.h>
+# include <limits.h>
 
 //**********************************************//
 //					DEFINES						//
@@ -92,10 +92,9 @@ typedef struct s_game
 	double	player_pos_y;
 	double	player_or_x;
 	double	player_or_y;
-	double	plane_x; //
-	double	plane_y; //
-	
-	int		key_w; // uint8_t
+	double	plane_x;
+	double	plane_y;
+	int		key_w;
 	int		key_s;
 	int		key_a;
 	int		key_d;
@@ -115,19 +114,9 @@ typedef struct s_image
 	int		img_width;
 }			t_image;
 
-typedef struct s_texture
-{
-	// t_image	*no; // rename
-	// t_image	*so; // rename
-	// t_image	*we; // rename//---------------   cub3D.c   ------------------//
-	// t_image	*ea; // rename
-}			t_texture;
-
 typedef struct s_data
 {
-	
 	t_error		*error;
-	
 	void		*mlx;
 	void		*win;
 	t_game		*game;
@@ -149,7 +138,6 @@ typedef struct s_data
 	double		rotation_speed;
 	t_image		*img;
 }			t_data;
-
 
 //**********************************************//
 //					PROTOTYPES					//
@@ -184,7 +172,8 @@ void	get_first_orientation_two(t_data *data, char c);
 
 //**********************************************//
 //					PARSER						//
-//************************void init_struct(t_data *data)a *data);
+//********************************************* //
+
 void	resize_map(t_data *data);
 
 //---------------   parse_map.c   --------------//
@@ -225,16 +214,13 @@ bool	remove_map_from_scene(t_data *data);
 //---------------   sort_scene.c   -------------//
 
 bool	sort_scene(t_data *data);
-char 	**sort_scene_2(char **scene);
+char	**sort_scene_2(char **scene);
 //---------------   wall.c   -------------------//
 
 bool	closed_by_wall(t_data *data);
 bool	no_void_around(t_data *data, char *charset);
 bool	test_around(char **map, int y, int x, char *charset);
-
-
 bool	get_map(t_data *data);
-
 
 //**********************************************//
 //					UTILS						//
@@ -248,11 +234,10 @@ bool	is_digit(char c);
 //---------------   free.c   -------------------//
 
 void	free_mlx(t_data *data);
-void	free_map(t_data *data); 
+void	free_map(t_data *data);
 void	free_scene(t_data *data);
 void	free_all(t_data *data);
 int		quit_loop(t_data *data);
-
 
 //---------------   get_next_line.c   ----------//
 
@@ -283,8 +268,6 @@ bool	line_is_empty(char *str);
 //---------------	draw_utils.c ----------//
 
 void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
-
-
 //**********************************************//
 //					EXEC						//
 //**********************************************//
@@ -292,11 +275,10 @@ void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
 //---------------	game_management.c ----------//
 
 bool	game_management(t_data *data);
-int 	key_press(int keycode, t_data *data);
-int 	key_release(int keycode, t_data *data);
+int		key_press(int keycode, t_data *data);
+int		key_release(int keycode, t_data *data);
 int		game_loop(t_data *data);
 void	move(t_data *data);
-
 
 //---------------	move.c ----------//
 
@@ -317,15 +299,15 @@ void	raycast(t_data *data);
 void	cast_img_addr(t_data *data);
 void	set_dist(t_data *data);
 void	set_camera(t_data *data, int x);
-
+void	check_hit_2(t_data *data);
+void	check_hit(t_data *data);
 //---------------	draw.c ----------//
 
 void	draw_textures(t_data *data, int x);
 void	pick_texture(t_data *data);
-void	set_textures_variables(t_data *data,int x);
+void	set_textures_variables(t_data *data, int x);
+void	set_textures_variables_2(t_data *data);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
-
-void print_map(char **map);
 
 #endif

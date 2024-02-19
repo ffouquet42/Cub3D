@@ -6,11 +6,24 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:47:32 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/17 23:59:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:32:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+int	get_color(t_data *data, int x, int y, int image)
+{
+	(void)image;
+	return (*(int *)(data->images[data->game->texture].add
+		+ (y * data->images[data->game->texture].rowlen + x
+			* (data->images[data->game->texture].bpp / 8))));
+}
+
+int	get_rgb(int *color)
+{
+	return (color[0] * 0x10000 + color[1] * 0x100 + color[2]);
+}
 
 void	ft_mlx_pixel_put(t_image *img, int x, int y, int color)
 {

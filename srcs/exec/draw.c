@@ -6,23 +6,22 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 17:14:22 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:34:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	get_color(t_data *data, int x, int y, int image)
+void	set_textures_variables_2(t_data *data)
 {
-	(void)image;
-	return (*(int *)(data->images[data->game->texture].add
-		+ (y * data->images[data->game->texture].rowlen + x
-			* (data->images[data->game->texture].bpp / 8))));
-}
-
-int	get_rgb(int *color)
-{
-	return (color[0] * 0x10000 + color[1] * 0x100 + color[2]);
+	if ((data->ray->side == 0 && data->ray->diray_x > 0)
+		|| (data->ray->side == 1 && data->ray->diray_y < 0))
+			data->ray->tex_x = data->images[data->game->texture].img_width
+			- data->ray->tex_x - 1;
+	data->ray->step = 1 * (double)data->images[data->game->texture].img_height
+		/ data->ray->line_height;
+	data->ray->tex_pos = (data->ray->draw_start - WIN_HEIGHT
+			/ 2 + data->ray->line_height / 2) * data->ray->step;
 }
 
 void	set_textures_variables(t_data *data, int x)
@@ -37,15 +36,15 @@ void	set_textures_variables(t_data *data, int x)
 	if (data->ray->draw_end >= WIN_HEIGHT)
 		data->ray->draw_end = WIN_HEIGHT - 1;
 	if (data->ray->side == 0)
-		data->ray->wall_x = data->game->player_pos_y + data->ray->ray_length * data->ray->diray_y;
+		data->ray->wall_x = data->game->player_pos_y + data->ray->ray_length
+			* data->ray->diray_y;
 	else
-		data->ray->wall_x = data->game->player_pos_x + data->ray->ray_length * data->ray->diray_x;
+		data->ray->wall_x = data->game->player_pos_x + data->ray->ray_length
+			* data->ray->diray_x;
 	data->ray->wall_x -= floor(data->ray->wall_x);
-	data->ray->tex_x = (int)(data->ray->wall_x * (double)data->images[data->game->texture].img_width);
-	if ((data->ray->side == 0 && data->ray->diray_x > 0) || (data->ray->side == 1 && data->ray->diray_y < 0))
-		data->ray->tex_x = data->images[data->game->texture].img_width - data->ray->tex_x - 1;
-	data->ray->step = 1 * (double)data->images[data->game->texture].img_height / data->ray->line_height;
-	data->ray->tex_pos = (data->ray->draw_start - WIN_HEIGHT / 2 + data->ray->line_height / 2) * data->ray->step;
+	data->ray->tex_x = (int)(data->ray->wall_x
+			* (double)data->images[data->game->texture].img_width);
+	set_textures_variables_2(data);
 }
 
 void	pick_texture(t_data *data)
@@ -75,7 +74,8 @@ void	draw_textures(t_data *data, int x)
 	while (i < data->ray->draw_end)
 	{
 		ft_mlx_pixel_put(data->img, x, i,
-			get_color(data, data->ray->tex_x, data->ray->tex_pos, data->game->texture));
+			get_color(data, data->ray->tex_x, data->ray->tex_pos,
+				data->game->texture));
 		data->ray->tex_pos += data->ray->step;
 		i++;
 	}

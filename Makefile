@@ -22,8 +22,10 @@ SRCS		=	srcs/main.c							\
 				srcs/exec/rotate.c					\
 				srcs/exec/raycasting.c				\
 				srcs/exec/draw.c					\
+				srcs/exec/check_hit.c				\
 				srcs/utils/draw_utils.c				\
 				srcs/utils/libft.c					\
+				srcs/utils/lib_memory.c				\
 				srcs/utils/print.c					\
 				srcs/utils/digit.c					\
 				srcs/utils/free.c					\

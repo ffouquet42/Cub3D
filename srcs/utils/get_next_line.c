@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:52:20 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/14 16:02:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:15:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,4 +127,3 @@ char	*get_next_line(int fd)
 	line = stash_to_line(stash, buff);
 	return (free(stash), line);
 }
-

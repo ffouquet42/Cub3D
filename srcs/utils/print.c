@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 16:57:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:13:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,23 @@ void	ft_putstr(char *str, int fd)
 		write(fd, str++, 1);
 }
 
-void	parsing_msg_error(t_error *error) // couper en 2  + rename 
+void	parsing_msg_error_2(t_error *error)
+{
+	if (error->error_g & ERROR_RGB)
+		ft_putstr(E_RGB, 2);
+	if (error->error_g & ERROR_INIT_MLX)
+		ft_putstr(E_INIT_MLX, 2);
+	if (error->error_g & ERROR_INIT_IMG)
+		ft_putstr(E_INIT_IMG, 2);
+	if (error->error_g & ERROR_MLX_WIN)
+		ft_putstr(E_MLX_WIN, 2);
+	if (error->error_g & ERROR_POS)
+		ft_putstr(E_GET_P_POS, 2);
+	if (error->error_g & ERROR_MALLOC)
+		ft_putstr(E_MALLOC_FAIL, 2);
+}
+
+void	parsing_msg_error(t_error *error)
 {
 	if (error->error_g & ERROR_ARG)
 		ft_putstr(E_PARS_ARGS, 2);
@@ -46,16 +62,5 @@ void	parsing_msg_error(t_error *error) // couper en 2  + rename
 		ft_putstr(E_CLO_WALL, 2);
 	if (error->error_g & ERROR_XPM)
 		ft_putstr(E_NO_XPM, 2);
-	if (error->error_g & ERROR_RGB)
-		ft_putstr(E_RGB, 2);
-	if (error->error_g & ERROR_INIT_MLX)
-		ft_putstr(E_INIT_MLX , 2);
-	if (error->error_g & ERROR_INIT_IMG)
-		ft_putstr(E_INIT_IMG, 2);
-	if (error->error_g & ERROR_MLX_WIN)
-		ft_putstr(E_MLX_WIN , 2);
-	if (error->error_g & ERROR_POS)
-		ft_putstr(E_GET_P_POS, 2);
-	if (error->error_g & ERROR_MALLOC)
-		ft_putstr(E_MALLOC_FAIL, 2);
+	parsing_msg_error_2(error);
 }

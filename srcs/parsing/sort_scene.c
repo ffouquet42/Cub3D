@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 22:27:41 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/19 18:29:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	**sort_scene_2(char **scene)
 	new_scene = ft_calloc(sizeof(char *), 7);
 	if (!new_scene)
 		return (NULL);
-	i = 0;
-	while (scene[i])
+	i = -1;
+	while (scene[++i])
 	{
 		if (!new_scene[0] && scene[i][0] == 'N' && scene[i][1] == 'O')
 			new_scene[0] = scene[i];
@@ -37,10 +37,8 @@ char	**sort_scene_2(char **scene)
 			new_scene[5] = scene[i];
 		else
 			return (free(new_scene), NULL);
-		i++;
 	}
-	new_scene[6] = NULL;
-	return (new_scene);
+	return (new_scene[6] = NULL, new_scene);
 }
 
 bool	sort_scene(t_data *data)

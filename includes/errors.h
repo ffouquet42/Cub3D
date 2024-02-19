@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 16:51:52 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:43:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_error
 
 # define COLOR_RESET   "\x1b[0m"
 # define COLOR_RED     "\x1b[31m"
-
 
 # define ERROR_ARG				0x1
 # define ERROR_FILE				0x2
@@ -46,32 +45,25 @@ typedef struct s_error
 # define ERROR_POS				0x20000
 # define ERROR_MALLOC			0x40000
 
-
-# define E_PARS_ARGS COLOR_RED "Error\nNeed a single argument, a .cub map.\n" COLOR_RESET
-# define E_PARS_FILE COLOR_RED "Error\nOPEN FAILURE. Need an existing file. \n" COLOR_RESET
-# define E_PARS_CUB COLOR_RED "Error\nInvalid file format or invalid path. Need a .cub map. \n" COLOR_RESET
-# define E_EMPTY_MAP COLOR_RED "Error\nInformation is missing or the map is too small\n" COLOR_RESET
-# define E_EMPTY_LINE COLOR_RED "Error\nThere are one or more empty lines on the map\n" COLOR_RESET
-# define E_GET_SCENE COLOR_RED "Error\nGet scene failed.\n" COLOR_RESET
-# define E_GET_MAP COLOR_RED "Error\nGet map failed.\n" COLOR_RESET
-# define E_RM_MAP COLOR_RED "Error\nRemove map from scene failed.\n" COLOR_RESET
-# define E_SORT_SCE COLOR_RED "Error\nSort scene failed.\n" COLOR_RESET
-# define E_MAP_CHAR COLOR_RED "Error\nInvalid char for map.\n" COLOR_RESET
-# define E_ONE_START COLOR_RED "Error\nNeed one start position.\n" COLOR_RESET
-# define E_CLO_WALL COLOR_RED "Error\nMap must be closed by walls.\n" COLOR_RESET
-# define E_NO_XPM COLOR_RED "Error\nNeed .xpm files for textures.\n" COLOR_RESET
-# define E_RGB COLOR_RED "Error\nInvalid RGB values.\n" COLOR_RESET
-# define E_INIT_MLX COLOR_RED "Error\nInit mlx failed.\n" COLOR_RESET
-# define E_INIT_IMG COLOR_RED "Error\nInit images failed.\n" COLOR_RESET
-# define E_MLX_WIN COLOR_RED "Error\nmlx new window failed.\n" COLOR_RESET
-# define E_GET_P_POS COLOR_RED "Error\nGet player pos failed.\n" COLOR_RESET
-# define E_MALLOC_FAIL COLOR_RED "Error\nA malloc have failed.\n" COLOR_RESET
-
-
-
-# define E_INIT_DATA COLOR_RED "Error\nInit data failed.\n" COLOR_RESET
-
-
-
+# define E_PARS_ARGS "Error\nNeed a single argument, a .cub map.\n"
+# define E_PARS_FILE "Error\nOPEN FAILURE. Need an existing file.\n"
+# define E_PARS_CUB "Error\nInvalid file format/ Invalid path. Need a .cub map.\n"
+# define E_EMPTY_MAP "Error\nInformation is missing or the map is too small\n"
+# define E_EMPTY_LINE "Error\nThere are one or more empty lines on the map\n"
+# define E_GET_SCENE "Error\nGet scene failed.\n"
+# define E_GET_MAP "Error\nGet map failed.\n"
+# define E_RM_MAP "Error\nRemove map from scene failed.\n"
+# define E_SORT_SCE "Error\nSort scene failed.\n"
+# define E_MAP_CHAR "Error\nInvalid char for map.\n"
+# define E_ONE_START "Error\nNeed one start position.\n"
+# define E_CLO_WALL "Error\nMap must be closed by walls.\n"
+# define E_NO_XPM "Error\nNeed .xpm files for textures.\n"
+# define E_RGB "Error\nInvalid RGB values.\n"
+# define E_INIT_MLX "Error\nInit mlx failed.\n"
+# define E_INIT_IMG "Error\nInit images failed.\n"
+# define E_MLX_WIN "Error\nmlx new window failed.\n"
+# define E_GET_P_POS "Error\nGet player pos failed.\n"
+# define E_MALLOC_FAIL "Error\nA malloc have failed.\n"
+# define E_INIT_DATA "Error\nInit data failed.\n"
 
 #endif
