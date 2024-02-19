@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:45:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:40:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,8 +157,8 @@ int		main(int argc, char **argv);
 
 //---------------   init_data.c   --------------//
 
-bool	init_data(t_data *data);
 bool	init_struct(t_data *data);
+bool	init_data(t_data *data);
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
 void	clean_nl_scene(t_data *data);
@@ -174,7 +174,12 @@ void	get_first_orientation_two(t_data *data, char c);
 //					PARSER						//
 //********************************************* //
 
-void	resize_map(t_data *data);
+
+//---------------   map.c   --------------//
+
+bool	get_map(t_data *data);
+void	get_map_size(t_data *data);
+bool	resize_map(t_data *data);
 
 //---------------   parse_map.c   --------------//
 
@@ -215,12 +220,12 @@ bool	remove_map_from_scene(t_data *data);
 
 bool	sort_scene(t_data *data);
 char	**sort_scene_2(char **scene);
+
 //---------------   wall.c   -------------------//
 
 bool	closed_by_wall(t_data *data);
 bool	no_void_around(t_data *data, char *charset);
 bool	test_around(char **map, int y, int x, char *charset);
-bool	get_map(t_data *data);
 
 //**********************************************//
 //					UTILS						//
@@ -233,10 +238,10 @@ bool	is_digit(char c);
 
 //---------------   free.c   -------------------//
 
-void	free_mlx(t_data *data);
+void	free_all(t_data *data);
 void	free_map(t_data *data);
 void	free_scene(t_data *data);
-void	free_all(t_data *data);
+void	free_mlx(t_data *data);
 int		quit_loop(t_data *data);
 
 //---------------   get_next_line.c   ----------//
@@ -250,16 +255,16 @@ char	*stash_to_line(char *stash, char *buf);
 //---------------	print.c			 ----------//
 
 void	parsing_msg_error(t_error *error);
+void	parsing_msg_error_2(t_error *error);
 void	ft_putstr(char *str, int fd);
 
 //---------------	libft.c			  ----------//
 
+void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-char	*ft_strdup(const char *s);
-size_t	ft_strlen(const char *str);
-void	*ft_memset(void *s, int c, size_t n);
 
 //---------------	scene_utils.c ----------//
 
@@ -268,6 +273,9 @@ bool	line_is_empty(char *str);
 //---------------	draw_utils.c ----------//
 
 void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
+int		get_rgb(int *color);
+int		get_color(t_data *data, int x, int y, int image);
+
 //**********************************************//
 //					EXEC						//
 //**********************************************//
@@ -299,15 +307,14 @@ void	raycast(t_data *data);
 void	cast_img_addr(t_data *data);
 void	set_dist(t_data *data);
 void	set_camera(t_data *data, int x);
-void	check_hit_2(t_data *data);
 void	check_hit(t_data *data);
+void	check_hit_2(t_data *data);
+
 //---------------	draw.c ----------//
 
 void	draw_textures(t_data *data, int x);
 void	pick_texture(t_data *data);
 void	set_textures_variables(t_data *data, int x);
 void	set_textures_variables_2(t_data *data);
-int		get_rgb(int *color);
-int		get_color(t_data *data, int x, int y, int image);
 
 #endif

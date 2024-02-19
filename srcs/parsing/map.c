@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 19:39:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:41:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ bool	resize_map(t_data *data)
 	int		x;
 	char	*dest;
 
-	y = 0;
-	while (data->map[y])
+	y = -1;
+	while (data->map[++y])
 	{
 		x = 0;
 		dest = malloc(sizeof(char ) * (data->map_width + 1));
@@ -37,7 +37,6 @@ bool	resize_map(t_data *data)
 		}
 		dest[x] = '\0';
 		data->map[y] = dest;
-		y++;
 	}
 	return (0);
 }
