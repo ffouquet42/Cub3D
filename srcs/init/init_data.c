@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 15:37:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:46:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	init_image(t_data *data, int i)
 		&data->f2_scene[i][2], &data->images[i].img_width,
 		&data->images[i].img_height);
 	if (!data->images[i].mlx_img)
-		return (1);
+		return (1); 
 	verif_wpi = data->images[0].img_width;
 	verif_hpi = data->images[0].img_height;
 	if (verif_wpi != data->images[i].img_width || verif_hpi != data->images[i].img_height)
@@ -48,8 +48,8 @@ bool	init_image(t_data *data, int i)
 	data->images[i].add = mlx_get_data_addr(data->images[i].mlx_img,
 		&data->images[i].bpp, &data->images[i].rowlen,
 		&data->images[i].end);
-	// if (!data->images[i].add)
-	// 	return (1);
+	if (!data->images[i].add)
+		return (1); 
 	return (0);
 }
 
@@ -62,7 +62,7 @@ bool	init_images(t_data *data)
 	while (i < 4)
 	{
 		if (init_image(data, i))
-			return (1); 
+			return (1); // msg err
 		i++;
 	}
 	return (0);
@@ -82,10 +82,18 @@ void init_struct(t_data *data)
 {
 	data->error = (t_error *)malloc(sizeof(t_error));
 	ft_memset(data->error, 0, sizeof(t_error));
+	if (!data->error)
+		return (1);
 	data->game = (t_game *)malloc(sizeof(t_game));
 	ft_memset(data->game, 0, sizeof(t_game));
+	if (!data->game)
+		return (1);
 	data->ray = (t_raycast *)malloc(sizeof(t_raycast));
 	ft_memset(data->ray, 0, sizeof(t_raycast));
+	if (!data->ray)
+		return (1);
 	data->img = (t_image *)malloc(sizeof(t_image));
 	ft_memset(data->img, 0, sizeof(t_image));
+	if (!data->img)
+		return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 02:38:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:42:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	get_first_orientation_two(t_data *data, char c)
 	if (c == 'S')
 	{
 		data->game->player_or_x = 0;
-		data->game->player_or_y = 1;
+		data->game->player_or_y = -1;
 		data->game->plane_x = -0.66;
 		data->game->plane_y = 0;
 	}
@@ -35,7 +35,7 @@ void	get_first_orientation(t_data *data, char c)
 	if (c == 'N')
 	{
 		data->game->player_or_x = 0;
-		data->game->player_or_y = -1;
+		data->game->player_or_y = 1;
 		data->game->plane_x = 0.66;
 		data->game->plane_y = 0;
 	}
