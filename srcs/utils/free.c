@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 19:08:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 23:43:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_scene(t_data *data)
 	}
 }
 
-void	free_mlx(t_data *data) // segfault 
+void	free_mlx(t_data *data)
 {
 	uint8_t i;
 
@@ -64,4 +64,9 @@ void	free_all(t_data *data)
 	if (data->f2_scene)
 		free(data->f2_scene);
 	free_mlx(data);
+}
+
+int	quit_loop(t_data *data) {
+	mlx_loop_end(data->mlx);
+	return (0);
 }

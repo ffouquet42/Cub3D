@@ -1,6 +1,6 @@
 CC			=	gcc
 RM			=	rm -f
-CFLAGS		=	-Wall -Wextra -Werror -I ./include -I./mlx_linux# -g -MMD -g3
+CFLAGS		=	-Wall -Wextra -Werror -g3 -I ./include -I./mlx_linux# -g -MMD -g3
 MLX			=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 NAME		=	cub3D
 
@@ -27,7 +27,6 @@ SRCS		=	srcs/main.c							\
 				srcs/utils/print.c					\
 				srcs/utils/digit.c					\
 				srcs/utils/free.c					\
-				srcs/utils/trash.c					\
 				srcs/utils/scene_utils.c			\
 				srcs/utils/get_next_line.c			\
 

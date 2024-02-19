@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 17:56:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 02:38:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,11 @@ void	get_player_pos(t_data *data)
 			if (data->map[i][j] == 'N' || data->map[i][j] == 'E'
 				|| data->map[i][j] == 'S' || data->map[i][j] == 'W')
 			{
-				data->game->player_pos_x = j + 0.5;
-				data->game->player_pos_y = i + 0.5;
+				data->game->player_pos_x = (double)j + 0.5;
+				data->game->player_pos_y = (double)i + 0.5;
 				get_first_orientation(data, data->map[i][j]);
-				return ;
 			}
-				j++;
+			j++;
 		}
 		i++;
 	}
@@ -79,8 +78,6 @@ bool	init_game(t_data *data)
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)
 		return (data->error->error_g |= ERROR_MLX_WIN, 1);
-	// printf("oui");
-	// print_map(data->map);
 	get_player_pos(data);
 	return (0);
 }

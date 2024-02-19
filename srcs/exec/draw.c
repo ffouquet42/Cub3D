@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/18 00:00:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 02:34:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,11 @@ void	set_textures_variables(t_data *data, t_raycast *ray, int x)
 	else
 		ray->wall_x = data->game->player_pos_x + ray->ray_length * ray->diray_x;
 	ray->wall_x -= floor(ray->wall_x);
-	ray->tex_x = (int)(ray->wall_x
-			* (double)data->images[data->game->texture].img_width);
-	if ((ray->side == 0 && ray->diray_x > 0)
-		|| (ray->side == 1 && ray->diray_y < 0))
-		ray->tex_x = data->images[data->game->texture].img_width
-			- ray->tex_x - 1;
-	ray->step = 1 * (double)data->images[data->game->texture].img_height
-		/ ray->line_height;
-	ray->tex_pos = (ray->draw_start - WIN_HEIGHT
-			/ 2 + ray->line_height / 2) * ray->step;
+	ray->tex_x = (int)(ray->wall_x * (double)data->images[data->game->texture].img_width);
+	if ((ray->side == 0 && ray->diray_x > 0) || (ray->side == 1 && ray->diray_y < 0))
+		ray->tex_x = data->images[data->game->texture].img_width - ray->tex_x - 1;
+	ray->step = 1 * (double)data->images[data->game->texture].img_height / ray->line_height;
+	ray->tex_pos = (ray->draw_start - WIN_HEIGHT / 2 + ray->line_height / 2) * ray->step;
 }
 
 void	pick_texture(t_data *cub, t_raycast *ray)

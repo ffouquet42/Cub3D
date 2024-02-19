@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/18 19:53:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/18 23:23:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,6 +255,8 @@ void	free_mlx(t_data *data);
 void	free_map(t_data *data); 
 void	free_scene(t_data *data);
 void	free_all(t_data *data);
+int		quit_loop(t_data *data);
+
 
 //---------------   get_next_line.c   ----------//
 
@@ -295,8 +297,9 @@ void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
 bool	game_management(t_data *data);
 int 	key_press(int keycode, t_data *data);
 int 	key_release(int keycode, t_data *data);
-int 	game_loop(int keycode, t_data *data);
-void	move(int keycode, t_data *data);
+int		game_loop(t_data *data);
+void	move(t_data *data);
+
 
 //---------------	move.c ----------//
 
