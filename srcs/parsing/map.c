@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 17:59:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:39:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-void	resize_map(t_data *data)
+bool	resize_map(t_data *data)
 {
 	int		y;
 	int		x;
@@ -23,6 +23,8 @@ void	resize_map(t_data *data)
 	{
 		x = 0;
 		dest = malloc(sizeof(char ) * (data->map_width + 1));
+		if (!dest)
+			return (1);
 		while (data->map[y][x] && data->map[y][x] != '\n')
 		{
 			dest[x] = data->map[y][x];
@@ -37,6 +39,7 @@ void	resize_map(t_data *data)
 		data->map[y] = dest;
 		y++;
 	}
+	return (0);
 }
 
 void	get_map_size(t_data *data)
@@ -72,7 +75,8 @@ bool	get_map(t_data *data)
 		data->map[y++] = data->scene[i++];
 	data->map[y] = NULL;
 	get_map_size(data);
-	resize_map(data);
+	if (resize_map(data))
+		return (1);
 	if (!data->map)
 		return (data->error->error_g |= ERROR_MAP, 1);
 	return (0);
