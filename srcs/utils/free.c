@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 15:51:25 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:53:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	free_mlx(t_data *data)
 	while (i < 4)
 	{
 		if (data->images[i].mlx_img)
-			mlx_destroy_image(data->mlx, data->images[i++].mlx_img);
+			mlx_destroy_image(data->mlx, data->images[i].mlx_img);
+		i++;
 	}
 	if (data->mlx)
 		mlx_destroy_display(data->mlx);
