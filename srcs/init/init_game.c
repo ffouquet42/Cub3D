@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:09:31 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:50:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,10 @@ void	get_player_pos(t_data *data)
 
 bool	init_game(t_data *data)
 {
+	t_game		game;
+	
+	game = (t_game){0};
+	data->game = &game;
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)
 		return (data->error->error_g |= ERROR_MLX_WIN, 1);

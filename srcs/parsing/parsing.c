@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:02:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:46:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool	check_args(int argc, char **argv, t_data *data)
 	return (0);
 }
 
-bool	parsing(int argc, char **argv, t_data *data)
+bool	fparsing(int argc, char **argv, t_data *data)
 {
 	if (check_args(argc, argv, data))
 		return (parsing_msg_error(data->error), 1);
