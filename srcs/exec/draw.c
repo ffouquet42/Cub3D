@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 18:34:11 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:06:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	set_textures_variables(t_data *data, int x)
 		data->ray->wall_x = data->game->player_pos_x + data->ray->ray_length
 			* data->ray->diray_x;
 	data->ray->wall_x -= floor(data->ray->wall_x);
+	printf("ouiiiiiiiiiiiiiiii");
 	data->ray->tex_x = (int)(data->ray->wall_x
 			* (double)data->images[data->game->texture].img_width);
 	set_textures_variables_2(data);

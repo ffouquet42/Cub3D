@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 18:23:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:29:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,12 @@ bool	game_management(t_data *data)
 {
 	if (init_game(data))
 		return (1);
-	mlx_hook(data->win, KeyPress, KeyPressMask, key_press, data);
-	mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release, data);
-	mlx_loop_hook(data->mlx, game_loop, data);
-	mlx_hook(data->win, 17, 0, (void *)free_all, data);
-	mlx_loop(data->mlx);
-	free_all(data);
+	printf("%s%i", "key_a:", data->game->key_a);
+	// mlx_hook(data->win, KeyPress, KeyPressMask, key_press, data);
+	// mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release, data);
+	// mlx_loop_hook(data->mlx, game_loop, data);
+	// mlx_hook(data->win, 17, 0, (void *)free_all, data);
+	// mlx_loop(data->mlx);
+	// free_all(data);
 	return (0);
 }

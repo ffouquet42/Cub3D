@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:16:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:23:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,16 @@ void	free_all(t_data *data)
 		free(data->f_scene);
 	if (data->f2_scene)
 		free(data->f2_scene);
-	if (data->error)
-		free(data->error);
-	if (data->game)
-		free(data->game);
-	if (data->img)
-		free(data->img);
-	if (data->ray)
-		free(data->ray);
+	// if (data->error)
+	// 	free(data->error);
+	// if (data->game)
+	// 	free(data->game);
+	// if (data->img)
+	// 	free(data->img);
+	// if (data->ray)
+	// 	free(data->ray);
 	free_mlx(data);
-	if (data)
-		free(data);
+	// if (data)
+	// 	free(data);
 	exit(0);
 }
