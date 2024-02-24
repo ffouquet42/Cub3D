@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 20:45:03 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/02/24 23:03:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,19 @@ typedef struct s_game
 	double	player_or_y;
 	double	plane_x;
 	double	plane_y;
+	int		texture;
+}			t_game;
+
+typedef struct s_key
+{
 	int		key_w;
 	int		key_s;
 	int		key_a;
 	int		key_d;
 	int		key_right;
 	int		key_left;
-	int		texture;
-}			t_game;
+}			t_key;
+
 
 typedef struct s_image
 {
@@ -112,16 +117,20 @@ typedef struct s_image
 	int		end;
 	int		img_height;
 	int		img_width;
+	// t_image		images[4];
+	
 }			t_image;
 
 typedef struct s_data
 {
 	t_error		*error;
-	void		*mlx;
-	void		*win;
+	t_image		*img;
 	t_game		*game;
+	t_key		*key;
 	t_raycast	*ray;
 	t_image		images[4];
+	void		*mlx;
+	void		*win;
 	char		**scene;
 	char		**f_scene;
 	char		**f2_scene;
@@ -136,7 +145,6 @@ typedef struct s_data
 	int			mouse_x;
 	double		speed;
 	double		rotation_speed;
-	t_image		*img;
 }			t_data;
 
 //**********************************************//
