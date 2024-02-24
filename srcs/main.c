@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/24 23:18:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/24 23:23:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	// t_raycast ray;
 	// t_image image;
 	
-
+	t_data data = {0};
 	ft_memset(&data, 0, sizeof(t_data));
 	ft_memset(&error, 0, sizeof(t_error));
 	// ft_memset(&key, 0, sizeof(t_key));
