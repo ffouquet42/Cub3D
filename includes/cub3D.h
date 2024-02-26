@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/24 23:03:33 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:56:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@
 # define KEY_ESC	65307
 
 /*WINDOWS SIZE*/
-
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 
