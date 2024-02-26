@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/26 18:04:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:10:14 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ bool	init_data(t_data *data)
 	
 	// t_image		image;
 
-	ft_memset(data->images, 0, sizeof(t_image));
+	// ft_memset(data->images, 0, sizeof(t_image));
 	// data->img = &image;
 	data->mlx = mlx_init();
 	if (!data->mlx)
