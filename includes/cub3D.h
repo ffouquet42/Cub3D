@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/26 17:56:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:50:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ int		main(int argc, char **argv);
 
 //---------------   init_data.c   --------------//
 
-bool	init_struct(t_data *data);
+// bool	init_struct(t_data *data);
 bool	init_data(t_data *data);
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/27 14:11:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:01:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ bool	game_management(t_data *data)
 {
 	if (init_data(data))
 		return (1);
-
+	// mlx_put_image_to_window(data->mlx, data->win, data->images[0], 0, 0);
 	//print images to check if good initialize
 	// if (init_game(data))
 	// 	return (1);

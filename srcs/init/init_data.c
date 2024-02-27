@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/26 18:10:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:49:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool	init_images(t_data *data)
 
 	i = 0;
 	clean_nl_scene(data);
-	while (i < 4)
+	while (i < 4) // not modular
 	{
 		if (init_image(data, i))
 			return (1);
