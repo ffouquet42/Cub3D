@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/27 19:30:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:43:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,11 @@ bool	init_images(t_data *data)
 	uint8_t	i; 
 	
 	i = 0;
-	clean_nl_scene(data);
+	clean_nl_scene(data); // call in other fct, end of parsing 
 	while (i < NB_IMAGES) // not modular, change by (init_images)
 	{
 		if (init_image(data, i))
 			return (1);
-		mlx_put_image_to_window(data->mlx, data->win, &data->images[i], i * 50 , i * 50);
 		i++;
 	}
 	return (0);
