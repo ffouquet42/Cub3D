@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:46:34 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/24 23:06:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:59:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	cast_img_addr(t_data *data)
 
 void	raycast(t_data *data)
 {
-	// t_raycast		*ray;
+	// t_raycast		ray;
 	
 	// ft_memset(&ray, 0, sizeof(t_raycast));
 	// data->ray = ray;

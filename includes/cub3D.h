@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/27 17:50:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:34:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 //					DEFINES						//
 //**********************************************//
 
-/*GNL BUFFER*/
+/*Gnl Buffer*/
 # define BUFFER_SIZE 100
 
-/*KEYCODE*/
+/*Keycode*/
 # define KEY_W 119
 # define KEY_A 97
 # define KEY_D 100
@@ -48,13 +48,20 @@
 # define KEY_SHIFT	65505
 # define KEY_ESC	65307
 
-/*WINDOWS SIZE*/
+/*Windows size*/
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 
-/*SPEED*/
+/*Speed*/
 # define MOVESPEED 0.05
 # define ROTSPEED 0.02
+
+/*Number of textures*/
+
+// If you want more than 256 textures, don't forget to change the uint8 to uint16 
+// in the init_image fct(./srcs/init/init_data)
+
+# define NB_IMAGES 4
 
 //**********************************************//
 //					STRUCTURES					//
@@ -116,7 +123,6 @@ typedef struct s_image
 	int		end;
 	int		img_height;
 	int		img_width;
-	// t_image		images[4];
 	
 }			t_image;
 
@@ -127,7 +133,7 @@ typedef struct s_data
 	t_game		*game;
 	t_key		*key;
 	t_raycast	*ray;
-	t_image		images[4];
+	t_image		images[NB_IMAGES]; // test norme 
 	void		*mlx;
 	void		*win;
 	char		**scene;
@@ -141,9 +147,9 @@ typedef struct s_data
 	int			rgb_ceiling[3];
 	bool		run;
 	bool		mouse;
-	int			mouse_x;
-	double		speed;
-	double		rotation_speed;
+	int			mouse_x; // struct game
+	double		speed; // struct game 
+	double		rotation_speed; // struct game 
 }			t_data;
 
 //**********************************************//

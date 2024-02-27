@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/27 17:49:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:30:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	clean_nl_scene(t_data *data)
 {
-	int		i;
+	int		i; // uint, if f2_scene ok, not more than 6 lines 
 	int		j;
 
 	i = 0;
@@ -46,24 +46,26 @@ bool	init_image(t_data *data, int i)
 	if (verif_wpi != data->images[i].img_width
 		|| verif_hpi != data->images[i].img_height)
 		return (1);
-	data->images[i].add = mlx_get_data_addr(data->images[i].mlx_img,
-			&data->images[i].bpp, &data->images[i].rowlen,
-			&data->images[i].end);
-	if (!data->images[i].add)
-		return (1);
+	// data->images[i].add = mlx_get_data_addr(data->images[i].mlx_img,
+	// 		&data->images[i].bpp, &data->images[i].rowlen,
+	// 		&data->images[i].end);
+	// if (!data->images[i].add)
+	// 	return (1);
 	return (0);
 }
 
 bool	init_images(t_data *data)
 {
-	int	i;
-
+	//uint16_t if more than 256 textures 
+	uint8_t	i; 
+	
 	i = 0;
 	clean_nl_scene(data);
-	while (i < 4) // not modular
+	while (i < NB_IMAGES) // not modular, change by (init_images)
 	{
 		if (init_image(data, i))
 			return (1);
+		mlx_put_image_to_window(data->mlx, data->win, &data->images[i], i * 50 , i * 50);
 		i++;
 	}
 	return (0);
@@ -71,10 +73,9 @@ bool	init_images(t_data *data)
 
 bool	init_data(t_data *data)
 {
+	// t_image	image;
 	
-	// t_image		image;
-
-	// ft_memset(data->images, 0, sizeof(t_image));
+	// image = (t_image){0};
 	// data->img = &image;
 	data->mlx = mlx_init();
 	if (!data->mlx)
