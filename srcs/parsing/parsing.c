@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/24 21:48:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:16:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	check_args(int argc, char **argv, t_data *data)
 	if (argc != 2)
 		return (data->error->error_g |= ERROR_ARG, 1);
 	fd = open(argv[1], O_RDONLY);
-	if (ft_strlen(argv[1]) < 10 || fd < 0 || fd > 1024)
+	if (ft_strlen(argv[1]) < 10 || fd < 0 || fd > 1024) //to recheck
 		return (data->error->error_g |= ERROR_FILE, 1);
 	close (fd);
 	if (is_cub(argv))

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/27 19:41:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:25:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,15 @@ bool	game_management(t_data *data)
 {
 	if (init_data(data))
 		return (1);
-	int i = 0;
-
-	while(i < NB_IMAGES)
-	{
-		mlx_put_image_to_window(data->mlx, data->win, data->images[i].mlx_img, i * 10 , i * 10);
-		i++;
-	}
+	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
+	if (!data->win)
+		return (data->error->error_g |= ERROR_MLX_WIN, 1);
+	// int i = 0;
+	// while(i < NB_IMAGES)
+	// {
+	// 	mlx_put_image_to_window(data->mlx, data->win, data->images[i].mlx_img, i * 10 , i * 10);
+	// 	i++;
+	// }
 	// if (init_game(data))
 	// 	return (1);
 	// printf("%s%i", "key_a:", data->key->key_a);

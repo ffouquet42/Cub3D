@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/24 23:21:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:25:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	get_first_orientation(t_data *data, char c)
 	{
 		data->game->player_or_x = 1;
 		data->game->player_or_y = 0;
-		data->game->plane_x = 0;
+		data->game->plane_x = 0; 
 		data->game->plane_y = 0.66;
 	}
 	get_first_orientation_two(data, c);
@@ -82,9 +82,6 @@ bool	init_game(t_data *data)
 	// data->game = &game;
 	// ft_memset(&key, 0, sizeof(t_key));
 	// data->key = &key;
-	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
-	if (!data->win)
-		return (data->error->error_g |= ERROR_MLX_WIN, 1);
-	get_player_pos(data);
+	// get_player_pos(data);  
 	return (0);
 }

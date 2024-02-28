@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/27 19:43:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:18:44 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ bool	init_data(t_data *data)
 	
 	// image = (t_image){0};
 	// data->img = &image;
+	get_player_pos(data); //recode with fct in parsing 
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (data->error->error_g |= ERROR_INIT_MLX, 1);

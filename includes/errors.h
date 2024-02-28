@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:43:13 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:30:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_error
 {
-	uint16_t	error_g;
+	uint32_t	error_g;
 }				t_error;
 
 # define COLOR_RESET   "\x1b[0m"
