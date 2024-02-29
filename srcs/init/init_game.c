@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 03:55:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:29:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,3 @@ void	get_player_pos(t_data *data)
 		i++;
 	}
 }
-
-// bool	init_game(t_data *data)
-// {
-// 	// t_game		game;
-// 	// t_key		key;
-	
-// 	// ft_memset(&game, 0, sizeof(t_game));
-// 	// data->game = &game;
-// 	// ft_memset(&key, 0, sizeof(t_key));
-// 	// data->key = &key;
-// 	// get_player_pos(data);  
-// 	return (0);
-// }
