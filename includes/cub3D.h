@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 10:57:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:25:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,22 @@
 # define INFOS_LEN 6
 
 /*Number of textures*/
-
 # define NB_IMAGES 4
 
 /*Windows size*/
-# define WIN_WIDTH 1920
+# define WIN_WIDTH 	1920
 # define WIN_HEIGHT 1080
 
 /*Keycode*/
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_D 100
-# define KEY_S 115
-# define KEY_M 109
+# define KEY_A 		97
+# define KEY_D 		100
+# define KEY_M 		109
+# define KEY_S 		115
+# define KEY_W 		119
 # define KEY_LEFT	65361
 # define KEY_RIGHT	65363
-# define KEY_SHIFT	65505
 # define KEY_ESC	65307
+# define KEY_SHIFT	65505
 
 /*Speed*/
 # define MOVESPEED 0.05
@@ -140,14 +139,13 @@ typedef struct s_data
 	int			scene_height;
 	char		**scene;
 	char		**infos;
-	void		*mlx;
-	void		*win;
-	char		**f2_scene;
 	char		**map;
 	int			map_height;
 	int			map_width;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
+	void		*mlx;
+	void		*win;
 	bool		run;
 	bool		mouse;
 	int			mouse_x; // struct game
@@ -174,9 +172,6 @@ bool	parsing(int argc, char **argv, t_data *data);
 //---------------   scene.c   ------------------//
 
 bool	parse_scene(char **scene_path, t_data *data);
-
-//---------------   sort_scene.c   -------------//
-
 
 //---------------   map.c   --------------//
 

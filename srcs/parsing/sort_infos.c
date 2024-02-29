@@ -6,14 +6,14 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:58:12 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 10:22:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:23:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
 
-// bool	sort_infos(t_data *data)
+// bool	check_infos(t_data *data)
 // {
 // 	sort_infos_2(data->infos);
 // 	if ((data->infos[0][0] != 'N' && data->infos[0][1] != 'O')

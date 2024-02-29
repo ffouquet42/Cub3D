@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 10:59:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:17:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ static	bool	sort_infos(char **infos)
 	uint8_t		i;
 
 	i = 0;
-	
 	while (i < INFOS_LEN)
 	{
 		tmp = infos[i];
-		printf("%s%s","tmp:", tmp);
 		if (tmp[0] == 'N' && tmp[1] == 'O')
 			infos[0] = tmp;
 		else if (tmp[0] == 'S' && tmp[1] == 'O')
@@ -52,8 +50,6 @@ static	bool	sort_infos(char **infos)
 			infos[4]= tmp;
 		else if (tmp[0] == 'C')
 			infos[5] = tmp;
-		else
-			return (EXIT_FAILURE); // other place  
 		i++;
 	}
 	infos[6] = NULL;
