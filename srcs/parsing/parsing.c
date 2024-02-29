@@ -6,17 +6,17 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 03:52:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 04:07:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	is_cub(char *argv)
+bool	is_cub(char *argv) //to recheck for ./map
 {
 	uint16_t	len;
 
-	len = ft_strlen(argv[1]);
+	len = ft_strlen(argv);
 	if (argv[0] != 'm' || argv[1] != 'a' || argv[2] != 'p'
 		|| argv[3] != 's' || argv[4] != '/')
 		return (false);
@@ -26,7 +26,7 @@ bool	is_cub(char *argv)
 	return (true);
 }
 
-bool	check_args(int argc, char **argv, t_data *data)
+bool	is_valid_arg(int argc, char **argv, t_data *data)
 {	
 	int	fd;
 
@@ -37,18 +37,18 @@ bool	check_args(int argc, char **argv, t_data *data)
 		if (!is_cub(argv[1]))
 			data->error->error_g |= ERROR_CUB;
 		fd = open(argv[1], O_RDONLY);
-		if (ft_strlen(argv[1]) < 10 || fd < 0 || fd > 1024) //to recheck for ./map
+		if (ft_strlen(argv[1]) < 10 || fd < 0 || fd > 1024) 
 			data->error->error_g |= ERROR_FILE;
 		close (fd);
 	}
 	if (data->error->error_g)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (false);
+	return (true);
 }
 
 bool	parsing(int argc, char **argv, t_data *data)
 {
-	if (check_args(argc, argv, data))
+	if (!is_valid_arg(argc, argv, data))
 		return (EXIT_FAILURE);
 	if (get_data_scene(argv[1], data))
 		return (EXIT_FAILURE);

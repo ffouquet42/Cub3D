@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 03:45:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 04:12:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@
 /*Gnl Buffer*/
 # define BUFFER_SIZE 100
 
+/*Number of textures*/
+
+// If you want more than 256 textures, don't forget to change the uint8 to uint16 
+// in the init_image fct(./srcs/init/init_data)
+
+# define NB_IMAGES 4
+
+/*Windows size*/
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
+
 /*Keycode*/
 # define KEY_W 119
 # define KEY_A 97
@@ -48,20 +59,9 @@
 # define KEY_SHIFT	65505
 # define KEY_ESC	65307
 
-/*Windows size*/
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
-
 /*Speed*/
 # define MOVESPEED 0.05
 # define ROTSPEED 0.02
-
-/*Number of textures*/
-
-// If you want more than 256 textures, don't forget to change the uint8 to uint16 
-// in the init_image fct(./srcs/init/init_data)
-
-# define NB_IMAGES 4
 
 //**********************************************//
 //					STRUCTURES					//
@@ -92,17 +92,6 @@ typedef struct s_raycast
 	int		draw_end;
 }			t_raycast;
 
-typedef struct s_game
-{
-	double	player_pos_x;
-	double	player_pos_y;
-	double	player_or_x;
-	double	player_or_y;
-	double	plane_x;
-	double	plane_y;
-	int		texture;
-}			t_game;
-
 typedef struct s_key
 {
 	int		key_w;
@@ -113,6 +102,16 @@ typedef struct s_key
 	int		key_left;
 }			t_key;
 
+typedef struct s_game
+{
+	double	player_pos_x;
+	double	player_pos_y;
+	double	player_or_x;
+	double	player_or_y;
+	double	plane_x;
+	double	plane_y;
+	int		texture;
+}			t_game;
 
 typedef struct s_image
 {
@@ -130,10 +129,10 @@ typedef struct s_data
 {
 	t_error		*error;
 	t_image		*img;
+	t_image		images[NB_IMAGES]; // test norme 
 	t_game		*game;
 	t_key		*key;
 	t_raycast	*ray;
-	t_image		images[NB_IMAGES]; // test norme 
 	void		*mlx;
 	void		*win;
 	char		**scene;
@@ -156,36 +155,19 @@ typedef struct s_data
 //					PROTOTYPES					//
 //**********************************************//
 
-//---------------   cub3D.c   ------------------//
+//---------------   main.c   ------------------//
 
 int		main(int argc, char **argv);
 
-//*****************wrap_mlx_init*****************************//
+//**********************************************//
 //					PARSING						//
 //**********************************************//
 
-//**********************************************//
-//					INIT						//
-//**********************************************//
+//---------------   parsing.c   ----------------//
 
-//---------------   init_data.c   --------------//
-
-// bool	init_struct(t_data *data);
-bool	init_data(t_data *data);
-bool	init_images(t_data *data);
-bool	init_image(t_data *data, int i);
-void	clean_nl_scene(t_data *data);
-
-//---------------   init_game.c   --------------//
-
-bool	init_game(t_data *data);
-void	get_player_pos(t_data *data);
-void	get_first_orientation(t_data *data, char c);
-void	get_first_orientation_two(t_data *data, char c);
-
-//**********************************************//
-//					PARSER						//
-//********************************************* //
+bool	parsing(int argc, char **argv, t_data *data);
+bool	is_valid_arg(int argc, char **argv, t_data *data);
+bool	is_cub(char *argv);
 
 //---------------   map.c   --------------//
 
@@ -206,12 +188,6 @@ bool	char_is_in_set(char c, char *set);
 bool	parse_scene(t_data *data);
 bool	path_is_xpm(char *path);
 bool	check_rgb(char *rgb, t_data *data, int fc);
-
-//---------------   parsing.c   ----------------//
-
-bool	parsing(int argc, char **argv, t_data *data);
-bool	check_args(int argc, char **argv, t_data *data);
-bool	is_cub(char *argv);
 
 //---------------   rgb.c   --------------------//
 
@@ -238,6 +214,66 @@ char	**sort_scene_2(char **scene);
 bool	closed_by_wall(t_data *data);
 bool	no_void_around(t_data *data, char *charset);
 bool	test_around(char **map, int y, int x, char *charset);
+
+//**********************************************//
+//					INIT						//
+//**********************************************//
+
+//---------------   init_data.c   --------------//
+
+// bool	init_struct(t_data *data);
+bool	init_data(t_data *data);
+bool	init_images(t_data *data);
+bool	init_image(t_data *data, int i);
+void	clean_nl_scene(t_data *data);
+
+//---------------   init_game.c   --------------//
+
+bool	init_game(t_data *data);
+void	get_player_pos(t_data *data);
+void	set_first_orientation(t_data *data, char c);
+void	set_first_orientation_two(t_data *data, char c);
+
+//**********************************************//
+//					EXEC						//
+//**********************************************//
+
+//---------------	game_management.c ----------//
+
+bool	game_management(t_data *data);
+int		key_press(int keycode, t_data *data);
+int		key_release(int keycode, t_data *data);
+int		game_loop(t_data *data);
+void	move(t_data *data);
+
+//---------------	move.c ----------//
+
+void	move_right(t_data *data);
+void	move_down(t_data *data);
+void	move_left(t_data *data);
+void	move_up(t_data *data);
+
+//---------------	rotate.c ----------//
+
+void	rotate_left(t_data *data);
+void	rotate_right(t_data *data);
+void	get_rotate_speed(t_data *data);
+
+//---------------	raycasting.c ----------//
+
+void	raycast(t_data *data);
+void	cast_img_addr(t_data *data);
+void	set_dist(t_data *data);
+void	set_camera(t_data *data, int x);
+void	check_hit(t_data *data);
+void	check_hit_2(t_data *data);
+
+//---------------	draw.c ----------//
+
+void	draw_textures(t_data *data, int x);
+void	pick_texture(t_data *data);
+void	set_textures_variables(t_data *data, int x);
+void	set_textures_variables_2(t_data *data);
 
 //**********************************************//
 //					UTILS						//
@@ -287,46 +323,5 @@ bool	line_is_empty(char *str);
 void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
-
-//**********************************************//
-//					EXEC						//
-//**********************************************//
-
-//---------------	game_management.c ----------//
-
-bool	game_management(t_data *data);
-int		key_press(int keycode, t_data *data);
-int		key_release(int keycode, t_data *data);
-int		game_loop(t_data *data);
-void	move(t_data *data);
-
-//---------------	move.c ----------//
-
-void	move_right(t_data *data);
-void	move_down(t_data *data);
-void	move_left(t_data *data);
-void	move_up(t_data *data);
-
-//---------------	rotate.c ----------//
-
-void	rotate_left(t_data *data);
-void	rotate_right(t_data *data);
-void	get_rotate_speed(t_data *data);
-
-//---------------	raycasting.c ----------//
-
-void	raycast(t_data *data);
-void	cast_img_addr(t_data *data);
-void	set_dist(t_data *data);
-void	set_camera(t_data *data, int x);
-void	check_hit(t_data *data);
-void	check_hit_2(t_data *data);
-
-//---------------	draw.c ----------//
-
-void	draw_textures(t_data *data, int x);
-void	pick_texture(t_data *data);
-void	set_textures_variables(t_data *data, int x);
-void	set_textures_variables_2(t_data *data);
 
 #endif

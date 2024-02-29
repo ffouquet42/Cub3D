@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/28 17:30:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 03:57:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,25 @@ typedef struct s_error
 # define ERROR_POS				0x20000
 # define ERROR_MALLOC			0x40000
 
-# define E_PARS_ARGS "Error\nNeed a single argument, a .cub map.\n"
-# define E_PARS_FILE "Error\nOPEN FAILURE. Need an existing file.\n"
-# define E_PARS_CUB "Error\nInvalid file format/ Invalid path. Need a .cub map.\n"
-# define E_EMPTY_MAP "Error\nInformation is missing or the map is too small\n"
-# define E_EMPTY_LINE "Error\nThere are one or more empty lines on the map\n"
-# define E_GET_SCENE "Error\nGet scene failed.\n"
-# define E_GET_MAP "Error\nGet map failed.\n"
-# define E_RM_MAP "Error\nRemove map from scene failed.\n"
-# define E_SORT_SCE "Error\nSort scene failed.\n"
-# define E_MAP_CHAR "Error\nInvalid char for map.\n"
-# define E_ONE_START "Error\nNeed one start position.\n"
-# define E_CLO_WALL "Error\nMap must be closed by walls.\n"
-# define E_NO_XPM "Error\nNeed .xpm files for textures.\n"
-# define E_RGB "Error\nInvalid RGB values.\n"
-# define E_INIT_MLX "Error\nInit mlx failed.\n"
-# define E_INIT_IMG "Error\nInit images failed.\n"
-# define E_MLX_WIN "Error\nmlx new window failed.\n"
-# define E_GET_P_POS "Error\nGet player pos failed.\n"
-# define E_MALLOC_FAIL "Error\nA malloc have failed.\n"
-# define E_INIT_DATA "Error\nInit data failed.\n"
+# define E_PARS_ARGS "Need a single argument, a .cub map.\n"
+# define E_PARS_FILE "OPEN FAILURE. Need an existing file.\n"
+# define E_PARS_CUB "Invalid file format/ Invalid path. Need a .cub map.\n"
+# define E_EMPTY_MAP "Information is missing or the map is too small\n"
+# define E_EMPTY_LINE "There are one or more empty lines on the map\n"
+# define E_GET_SCENE "Get scene failed.\n"
+# define E_GET_MAP "Get map failed.\n"
+# define E_RM_MAP "Remove map from scene failed.\n"
+# define E_SORT_SCE "Sort scene failed.\n"
+# define E_MAP_CHAR "Invalid char for map.\n"
+# define E_ONE_START "Need one start position.\n"
+# define E_CLO_WALL "Map must be closed by walls.\n"
+# define E_NO_XPM "Need .xpm files for textures.\n"
+# define E_RGB "Invalid RGB values.\n"
+# define E_INIT_MLX "Init mlx failed.\n"
+# define E_INIT_IMG "Init images failed.\n"
+# define E_MLX_WIN "mlx new window failed.\n"
+# define E_GET_P_POS "Get player pos failed.\n"
+# define E_MALLOC_FAIL "A malloc have failed.\n"
+# define E_INIT_DATA "Init data failed.\n"
 
 #endif

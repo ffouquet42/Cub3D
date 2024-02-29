@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:57:27 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 03:16:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 03:55:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	set_first_orientation(t_data *data, char c)
 		data->game->plane_x = 0; 
 		data->game->plane_y = 0.66;
 	}
-	get_first_orientation_two(data, c);
+	set_first_orientation_two(data, c);
 }
 
 void	get_player_pos(t_data *data)
