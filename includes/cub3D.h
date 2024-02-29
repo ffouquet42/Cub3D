@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 04:12:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 04:33:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,8 +166,16 @@ int		main(int argc, char **argv);
 //---------------   parsing.c   ----------------//
 
 bool	parsing(int argc, char **argv, t_data *data);
-bool	is_valid_arg(int argc, char **argv, t_data *data);
-bool	is_cub(char *argv);
+// bool	is_valid_arg(int argc, char **argv, t_data *data);
+// bool	is_cub(char *argv);
+
+//---------------   scene.c   ------------------//
+
+bool	get_data_scene(char **scene_path, t_data *data);
+int		scene_len(char *scene_path, t_data *data);
+bool	get_scene(int fd, t_data *data);
+void	clean_scene(t_data *data);
+bool	remove_map_from_scene(t_data *data);
 
 //---------------   map.c   --------------//
 
@@ -195,14 +203,6 @@ bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
 bool	correct_rgb_value(t_data *data);
-
-//---------------   scene.c   ------------------//
-
-bool	get_data_scene(char *scene_path, t_data *data);
-int		scene_len(char *scene_path, t_data *data);
-bool	get_scene(int fd, t_data *data);
-void	clean_scene(t_data *data);
-bool	remove_map_from_scene(t_data *data);
 
 //---------------   sort_scene.c   -------------//
 

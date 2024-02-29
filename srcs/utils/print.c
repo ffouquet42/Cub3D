@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/29 03:58:22 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 04:54:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,22 @@ void	parsing_msg_error_2(t_error *error)
 		ft_putstr(E_MALLOC_FAIL, 2);
 }
 
-void	parsing_msg_error(t_error *error)
+static void	arg_error(t_error *error)
 {
-	ft_putstr("Error\n", 2);
+	ft_putstr("Argument or file error:\n", 2);
 	if (error->error_g & ERROR_ARG)
 		ft_putstr(E_PARS_ARGS, 2);
 	if (error->error_g & ERROR_FILE)
 		ft_putstr(E_PARS_FILE, 2);
 	if (error->error_g & ERROR_CUB)
 		ft_putstr(E_PARS_CUB, 2);
+}
+
+void	msg_error(t_error *error)
+{
+	ft_putstr("ERROR\n", 2);
+	
+	arg_error(error);
 	if (error->error_g & ERROR_EMPTY)
 		ft_putstr(E_EMPTY_MAP, 2);
 	if (error->error_g & ERROR_SCENE)

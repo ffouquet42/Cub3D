@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:00:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 04:34:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ int	scene_len(char *scene_path, t_data *data)
 
 	fd = open(scene_path, O_RDONLY);
 	if (fd < 0 || fd > 1024)
-		return (data->error->error_g |= ERROR_FILE, close (fd), -1);
+		return (data->error->error_g |= ERROR_FILE, close (fd), -1); //check close
 	len = 0;
 	line = get_next_line(fd);
 	if (!line)
-		return (data->error->error_g |= ERROR_MALLOC, close (fd), -1);
+		return (data->error->error_g |= ERROR_MALLOC, close (fd), -1); // change error
 	while (line)
 	{		
 		if (!(line_is_empty(line)))
@@ -109,16 +109,16 @@ int	scene_len(char *scene_path, t_data *data)
 	return (close(fd), len);
 }
 
-bool	get_data_scene(char *scene_path, t_data *data)
+bool	get_data_scene(char **scene_path, t_data *data)
 {
 	int		fd;
 
-	data->scene_height = scene_len(scene_path, data);
+	data->scene_height = scene_len(scene_path[1], data);
 	if (data->scene_height < 9)
 		return (data->error->error_g |= ERROR_EMPTY, 1);
-	fd = open(scene_path, O_RDONLY);
+	fd = open(scene_path[1], O_RDONLY);
 	if (fd < 0 || fd > 1024)
-		return (data->error->error_g |= ERROR_FILE, close (fd), 1);
+		return (data->error->error_g |= ERROR_FILE, close (fd), 1); // verif close
 	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
 	if (!data->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), 1);
