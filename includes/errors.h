@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 03:57:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 08:10:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_error
 # define ERROR_ARG				0x1
 # define ERROR_FILE				0x2
 # define ERROR_CUB				0x4
-# define ERROR_EMPTY			0x8
+# define ERROR_EMPTY_S			0x8
 # define ERROR_EMPTY_LINE		0x10
 # define ERROR_SCENE			0X20
 # define ERROR_MAP				0X40
@@ -47,8 +47,8 @@ typedef struct s_error
 
 # define E_PARS_ARGS "Need a single argument, a .cub map.\n"
 # define E_PARS_FILE "OPEN FAILURE. Need an existing file.\n"
-# define E_PARS_CUB "Invalid file format/ Invalid path. Need a .cub map.\n"
-# define E_EMPTY_MAP "Information is missing or the map is too small\n"
+# define E_PARS_CUB "Invalid file format. Need a .cub map.\n"
+# define E_EMPTY_SCENE "Information is missing or the map is too small\n"
 # define E_EMPTY_LINE "There are one or more empty lines on the map\n"
 # define E_GET_SCENE "Get scene failed.\n"
 # define E_GET_MAP "Get map failed.\n"
@@ -63,7 +63,7 @@ typedef struct s_error
 # define E_INIT_IMG "Init images failed.\n"
 # define E_MLX_WIN "mlx new window failed.\n"
 # define E_GET_P_POS "Get player pos failed.\n"
-# define E_MALLOC_FAIL "A malloc have failed.\n"
 # define E_INIT_DATA "Init data failed.\n"
+# define E_MALLOC_FAIL "A malloc have failed.\n"
 
 #endif

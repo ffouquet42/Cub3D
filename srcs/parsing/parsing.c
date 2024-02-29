@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 04:37:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 07:45:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	bool	is_valid_arg(int argc, char **argv, t_data *data)
 	if (argv[1])
 	{
 		fd = open(argv[1], O_RDONLY);
-		if (fd < 0 || fd > 1024) 
+		if (fd < FD_MIN || fd > FD_MAX) 
 			data->error->error_g |= ERROR_FILE;
 		if (!is_cub(argv[1]))
 			data->error->error_g |= ERROR_CUB;
@@ -47,13 +47,13 @@ bool	parsing(int argc, char **argv, t_data *data)
 {
 	if (!is_valid_arg(argc, argv, data))
 		return (EXIT_FAILURE);
-	if (get_data_scene(argv, data) || get_map(data))
-		return (EXIT_FAILURE);
-	if (remove_map_from_scene(data))
+	if (parse_scene(argv, data))
 		return (EXIT_FAILURE);
 	if (sort_scene(data))
+		return (EXIT_FAILURE); // in get_data_scene?
+	if(get_map(data))
 		return (EXIT_FAILURE);
-	if (parse_scene(data) || parse_map(data))
+	if (parse_scene2(data) || parse_map(data))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

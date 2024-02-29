@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 04:33:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 08:05:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,17 @@
 //					DEFINES						//
 //**********************************************//
 
+/* Max/Min value of the file desciptor*/
+# define FD_MAX 1024
+# define FD_MIN 0
+
 /*Gnl Buffer*/
 # define BUFFER_SIZE 100
 
-/*Number of textures*/
+/*Length of the desired scene*/ 
+# define SCENE_LEN 6
 
-// If you want more than 256 textures, don't forget to change the uint8 to uint16 
-// in the init_image fct(./srcs/init/init_data)
+/*Number of textures*/
 
 # define NB_IMAGES 4
 
@@ -136,7 +140,7 @@ typedef struct s_data
 	void		*mlx;
 	void		*win;
 	char		**scene;
-	char		**f_scene;
+	char		**infos;
 	char		**f2_scene;
 	char		**map;
 	int			map_height;
@@ -166,22 +170,22 @@ int		main(int argc, char **argv);
 //---------------   parsing.c   ----------------//
 
 bool	parsing(int argc, char **argv, t_data *data);
-// bool	is_valid_arg(int argc, char **argv, t_data *data);
-// bool	is_cub(char *argv);
 
 //---------------   scene.c   ------------------//
 
-bool	get_data_scene(char **scene_path, t_data *data);
-int		scene_len(char *scene_path, t_data *data);
-bool	get_scene(int fd, t_data *data);
-void	clean_scene(t_data *data);
-bool	remove_map_from_scene(t_data *data);
+bool	parse_scene(char **scene_path, t_data *data);
+
+//---------------   sort_scene.c   -------------//
+
+bool	sort_scene(t_data *data);
+char	**sort_scene_2(char **scene);
 
 //---------------   map.c   --------------//
 
 bool	get_map(t_data *data);
 void	get_map_size(t_data *data);
 bool	resize_map(t_data *data);
+
 
 //---------------   parse_map.c   --------------//
 
@@ -193,7 +197,7 @@ bool	char_is_in_set(char c, char *set);
 
 //---------------   parse_scene.c   ------------//
 
-bool	parse_scene(t_data *data);
+bool	parse_scene2(t_data *data);
 bool	path_is_xpm(char *path);
 bool	check_rgb(char *rgb, t_data *data, int fc);
 
@@ -203,11 +207,6 @@ bool	count_comma(char *str);
 bool	rgb_format(char *str);
 bool	rgb_value(char *str, t_data *data, int fc);
 bool	correct_rgb_value(t_data *data);
-
-//---------------   sort_scene.c   -------------//
-
-bool	sort_scene(t_data *data);
-char	**sort_scene_2(char **scene);
 
 //---------------   wall.c   -------------------//
 
@@ -221,15 +220,12 @@ bool	test_around(char **map, int y, int x, char *charset);
 
 //---------------   init_data.c   --------------//
 
-// bool	init_struct(t_data *data);
 bool	init_data(t_data *data);
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
 void	clean_nl_scene(t_data *data);
 
-//---------------   init_game.c   --------------//
 
-bool	init_game(t_data *data);
 void	get_player_pos(t_data *data);
 void	set_first_orientation(t_data *data, char c);
 void	set_first_orientation_two(t_data *data, char c);
@@ -279,18 +275,18 @@ void	set_textures_variables_2(t_data *data);
 //					UTILS						//
 //**********************************************//
 
-//---------------   digit.c   ------------------//
+//---------------	libft.c			  ----------//
 
-bool	only_digit_or_comma(char *str);
-bool	is_digit(char c);
+void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_strlen(const char *str);
+int		ft_atoi(const char *str);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_bzero(void *s, size_t n);
 
-//---------------   free.c   -------------------//
+//---------------	print.c			 ----------//
 
-void	free_all(t_data *data);
-void	free_map(t_data *data);
-void	free_scene(t_data *data);
-void	free_mlx(t_data *data);
-int		quit_loop(t_data *data);
+void	msg_error(t_error *error);
+void	parsing_msg_error_2(t_error *error);
 
 //---------------   get_next_line.c   ----------//
 
@@ -300,28 +296,25 @@ char	*buff_to_stash(char *buff);
 bool	search_newline(const char *buff);
 char	*stash_to_line(char *stash, char *buf);
 
-//---------------	print.c			 ----------//
+//---------------   digit.c   ------------------//
 
-void	parsing_msg_error(t_error *error);
-void	parsing_msg_error_2(t_error *error);
-void	ft_putstr(char *str, int fd);
-
-//---------------	libft.c			  ----------//
-
-void	*ft_memset(void *s, int c, size_t n);
-size_t	ft_strlen(const char *str);
-int		ft_atoi(const char *str);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
+bool	only_digit_or_comma(char *str);
+bool	is_digit(char c);
 
 //---------------	scene_utils.c ----------//
 
-bool	line_is_empty(char *str);
+int		scene_len(char *scene_path, t_data *data);
+bool	is_line_empty(char *str);
 
 //---------------	draw_utils.c ----------//
 
 void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
 int		get_rgb(int *color);
 int		get_color(t_data *data, int x, int y, int image);
+
+//---------------   free.c   -------------------//
+
+void	free_all(t_data *data);
+int		quit_loop(t_data *data);
 
 #endif

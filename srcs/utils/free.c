@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/21 20:23:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 07:01:44 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	quit_loop(t_data *data)
 	return (0);
 }
 
-void	free_map(t_data *data)
+static	void	free_map(t_data *data)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	free_map(t_data *data)
 	free(data->map);
 }
 
-void	free_scene(t_data *data)
+static	void	free_scene(t_data *data)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ void	free_scene(t_data *data)
 	}
 }
 
-void	free_mlx(t_data *data)
+static	void	free_mlx(t_data *data)
 {
 	uint8_t	i;
 
@@ -70,16 +70,6 @@ void	free_all(t_data *data)
 		free(data->f_scene);
 	if (data->f2_scene)
 		free(data->f2_scene);
-	// if (data->error)
-	// 	free(data->error);
-	// if (data->game)
-	// 	free(data->game);
-	// if (data->img)
-	// 	free(data->img);
-	// if (data->ray)
-	// 	free(data->ray);
 	free_mlx(data);
-	// if (data)
-	// 	free(data);
 	exit(0);
 }
