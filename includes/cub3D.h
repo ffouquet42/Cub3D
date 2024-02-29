@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/27 19:34:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 03:45:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,7 +211,7 @@ bool	check_rgb(char *rgb, t_data *data, int fc);
 
 bool	parsing(int argc, char **argv, t_data *data);
 bool	check_args(int argc, char **argv, t_data *data);
-bool	is_cub(char **argv);
+bool	is_cub(char *argv);
 
 //---------------   rgb.c   --------------------//
 
