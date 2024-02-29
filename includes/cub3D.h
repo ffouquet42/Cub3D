@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 08:05:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:57:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define BUFFER_SIZE 100
 
 /*Length of the desired scene*/ 
-# define SCENE_LEN 6
+# define INFOS_LEN 6
 
 /*Number of textures*/
 
@@ -137,15 +137,15 @@ typedef struct s_data
 	t_game		*game;
 	t_key		*key;
 	t_raycast	*ray;
-	void		*mlx;
-	void		*win;
+	int			scene_height;
 	char		**scene;
 	char		**infos;
+	void		*mlx;
+	void		*win;
 	char		**f2_scene;
 	char		**map;
 	int			map_height;
 	int			map_width;
-	int			scene_height;
 	int			rgb_floor[3];
 	int			rgb_ceiling[3];
 	bool		run;
@@ -177,15 +177,12 @@ bool	parse_scene(char **scene_path, t_data *data);
 
 //---------------   sort_scene.c   -------------//
 
-bool	sort_scene(t_data *data);
-char	**sort_scene_2(char **scene);
 
 //---------------   map.c   --------------//
 
 bool	get_map(t_data *data);
 void	get_map_size(t_data *data);
 bool	resize_map(t_data *data);
-
 
 //---------------   parse_map.c   --------------//
 

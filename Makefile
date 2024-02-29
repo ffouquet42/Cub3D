@@ -15,7 +15,7 @@ SRCS		=	srcs/main.c							\
 				srcs/parsing/parsing.c				\
 				srcs/parsing/rgb.c					\
 				srcs/parsing/scene.c				\
-				srcs/parsing/sort_scene.c			\
+				srcs/parsing/sort_infos.c			\
 				srcs/parsing/wall.c					\
 				srcs/exec/game_management.c			\
 				srcs/exec/move.c					\
