@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 11:25:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:49:18 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ typedef struct s_data
 	int			scene_height;
 	char		**scene;
 	char		**infos;
+	uint8_t 	sort_index;
 	char		**map;
 	int			map_height;
 	int			map_width;
@@ -271,6 +272,7 @@ void	set_textures_variables_2(t_data *data);
 
 void	*ft_memset(void *s, int c, size_t n);
 size_t	ft_strlen(const char *str);
+void 	ft_swap(t_data *data, uint8_t index);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);

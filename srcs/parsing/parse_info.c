@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_scene.c                                      :+:      :+:    :+:   */
+/*   parse_info.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 07:39:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:44:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ bool	parse_scene2(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		if (path_is_xpm(data->f2_scene[i]))
+		if (path_is_xpm(data->infos[i]))
 			return (data->error->error_g |= ERROR_XPM, 1);
 		i++;
 	}
 	fc = 0;
 	while (i < 6)
 	{
-		if (check_rgb(data->f2_scene[i], data, fc))
+		if (check_rgb(data->infos[i], data, fc))
 			return (data->error->error_g |= ERROR_RGB, 1);
 		i++;
 		fc++;

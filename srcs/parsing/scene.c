@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 11:17:26 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:51:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,32 @@ static void print_map(char **map)
 	printf("%s", "\n");
 }
 
-static	bool	sort_infos(char **infos)
+static	bool	sort_infos(t_data *data)
 {
-	char		*tmp;
-	uint8_t		i;
-
-	i = 0;
-	while (i < INFOS_LEN)
+	uint8_t i; 
+	 
+	while (data->sort_index < INFOS_LEN) //infos[i]
 	{
-		tmp = infos[i];
-		if (tmp[0] == 'N' && tmp[1] == 'O')
-			infos[0] = tmp;
-		else if (tmp[0] == 'S' && tmp[1] == 'O')
-			infos[1] = tmp;
-		else if (tmp[0] == 'E' && tmp[1] == 'A')
-			infos[2] = tmp;
-		else if (tmp[0] == 'W' && tmp[1] == 'E')
-			infos[3]= tmp;
-		else if (tmp[0] == 'F')
-			infos[4]= tmp;
-		else if (tmp[0] == 'C')
-			infos[5] = tmp;
-		i++;
+		i = data->sort_index;	
+		if (data->infos[i][0] == 'N' && data->infos[i][1] == 'O')
+			ft_swap(data, 0);
+		else if (data->infos[i][0] == 'S' && data->infos[i][1] == 'O')
+			ft_swap(data, 1);
+		else if (data->infos[i][0] == 'E' && data->infos[i][1] == 'A')
+			ft_swap(data, 2);
+		else if (data->infos[i][0] == 'W' && data->infos[i][1] == 'E')
+			ft_swap(data, 3);
+		else if (data->infos[i][0] == 'F')
+			ft_swap(data, 4);
+		else if (data->infos[i][0] == 'C')
+			ft_swap(data, 5);
+		data->sort_index++;
 	}
-	infos[6] = NULL;
+	data->infos[6] = NULL;
 	return (EXIT_SUCCESS);
 }
 
-static	void	clean_infos(t_data *data)
+static	void	clean_infos(t_data *data) //merge with get_info
 {
 	char	*tmp;
 	int		i;
@@ -147,7 +145,7 @@ bool	parse_scene(char **scene_path, t_data *data)
 	if (get_infos(data))
 		return (EXIT_FAILURE);
 	print_map(data->infos);
-	if (sort_infos(data->infos))
+	if (sort_infos(data))
 		return (EXIT_FAILURE);
 	print_map(data->infos);
 	return (close(fd),0);

@@ -6,23 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:22:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 18:26:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:51:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	if (!str)
-		return (0);
-	while (str[len])
-		len++;
-	return (len);
-}
 
 int	ft_atoi(const char *str)
 {
@@ -47,4 +35,26 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res * pos);
+}
+
+void ft_swap(t_data *data, uint8_t index) 
+{
+    char *temp;
+	temp = *data->infos[index];
+    *data->infos[index] = *data->infos[data->sort_index];
+    *data->infos[data->sort_index] = temp;
+
+	data->sort_index = -1;
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[len])
+		len++;
+	return (len);
 }

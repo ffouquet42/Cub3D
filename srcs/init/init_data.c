@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/28 18:18:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:22:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	clean_nl_scene(t_data *data)
 	int		j;
 
 	i = 0;
-	while (data->f2_scene[i])
+	while (data->infos[i])
 	{
 		j = 0;
-		while (data->f2_scene[i][j])
+		while (data->infos[i][j])
 		{
-			if (data->f2_scene[i][j] == '\n' || data->f2_scene[i][j] == '\r')
-				data->f2_scene[i][j] = '\0';
+			if (data->infos[i][j] == '\n' || data->infos[i][j] == '\r')
+				data->infos[i][j] = '\0';
 			j++;
 		}
 		i++;
@@ -37,7 +37,7 @@ bool	init_image(t_data *data, int i)
 	int	verif_hpi;
 
 	data->images[i].mlx_img = mlx_xpm_file_to_image(data->mlx,
-			&data->f2_scene[i][2], &data->images[i].img_width,
+			&data->infos[i][2], &data->images[i].img_width,
 			&data->images[i].img_height);
 	if (!data->images[i].mlx_img)
 		return (1);
