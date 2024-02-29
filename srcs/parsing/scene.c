@@ -6,30 +6,30 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 13:11:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:19:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static void print_map(char **map)
-{
-	int i = 0;
-	int j = 0;
-	while(map[i])
-	{
-		j = 0;
-		while(map[i][j])
-		{
-			printf("%c", map[i][j]);
-			j++;
-		}
-		i++;
-	}
-	printf("%s", "\n");
-}
+// static void print_map(char **map)
+// {
+// 	int i = 0;
+// 	int j = 0;
+// 	while(map[i])
+// 	{
+// 		j = 0;
+// 		while(map[i][j])
+// 		{
+// 			printf("%c", map[i][j]);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	printf("%s", "\n");
+// }
 
-static	bool	sort_infos(t_data *data)
+static	bool	sort_infos(t_data *data) //to test
 {
 	uint8_t i; 
 	 
@@ -141,9 +141,7 @@ bool	parse_scene(char **scene_path, t_data *data)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), EXIT_FAILURE);
 	if (get_scene(fd, data) || get_infos(data))
 		return (EXIT_FAILURE);
-	print_map(data->infos);
 	if (sort_infos(data))
 		return (EXIT_FAILURE);
-	print_map(data->infos);
 	return (close(fd),0);
 }

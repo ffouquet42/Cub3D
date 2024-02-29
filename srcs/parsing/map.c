@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 19:41:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:23:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool	resize_map(t_data *data)
 	return (0);
 }
 
-void	get_map_size(t_data *data)
+void	get_map_size(t_data *data) // dim
 {
 	int	x;
 	int	y;
@@ -56,7 +56,7 @@ void	get_map_size(t_data *data)
 			z = x;
 		y++;
 	}
-	data->map_height = data->scene_height - 6;
+	data->map_height = data->scene_height - INFOS_LEN;
 	data->map_width = z - 1;
 }
 
@@ -66,17 +66,15 @@ bool	get_map(t_data *data)
 	int		y;
 
 	y = 0;
-	i = 6;
-	data->map = malloc(sizeof(char *) * (data->scene_height - 5));
+	i = INFOS_LEN;
+	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); //-INFOS_LEN + 1
 	if (!data->map)
-		return (data->error->error_g |= ERROR_MALLOC, 1);
+		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);
 	while (data->scene[i])
 		data->map[y++] = data->scene[i++];
 	data->map[y] = NULL;
 	get_map_size(data);
 	if (resize_map(data))
-		return (1);
-	if (!data->map)
-		return (data->error->error_g |= ERROR_MAP, 1);
-	return (0);
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
