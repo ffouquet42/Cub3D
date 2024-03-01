@@ -10,6 +10,7 @@ SRCS		=	srcs/main.c							\
 				srcs/init/init_data.c				\
 				srcs/init/init_game.c				\
 				srcs/parsing/map.c					\
+				srcs/parsing/infos.c				\
 				srcs/parsing/parse_map.c			\
 				srcs/parsing/parse_infos.c			\
 				srcs/parsing/parsing.c				\

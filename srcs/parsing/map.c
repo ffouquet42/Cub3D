@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 13:23:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:11:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ bool	get_map(t_data *data)
 
 	y = 0;
 	i = INFOS_LEN;
+
+	// get_map fct 
 	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); //-INFOS_LEN + 1
 	if (!data->map)
 		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);

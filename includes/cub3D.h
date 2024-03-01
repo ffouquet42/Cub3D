@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 12:49:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:09:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,10 @@ bool	parsing(int argc, char **argv, t_data *data);
 
 bool	parse_scene(char **scene_path, t_data *data);
 
+//---------------   infos.c   ------------------//
+
+bool	get_infos(t_data *data);
+
 //---------------   map.c   --------------//
 
 bool	get_map(t_data *data);
@@ -310,5 +314,7 @@ int		get_color(t_data *data, int x, int y, int image);
 
 void	free_all(t_data *data);
 int		quit_loop(t_data *data);
+
+void print_map(char **map);
 
 #endif

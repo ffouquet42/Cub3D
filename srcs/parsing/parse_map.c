@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fllanet <fllanet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/17 22:21:08 by fllanet          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:44:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	char_is_in_set(char c, char *set)
 	return (0);
 }
 
-bool	one_start_pos(t_data *data)
+bool	one_start_pos(t_data *data) //get_pos + set_or
 {
 	int	pos;
 	int	y;
