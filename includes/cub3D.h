@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 18:58:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:08:49 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,11 +136,11 @@ typedef struct s_data
 	t_game		*game;
 	t_key		*key;
 	t_raycast	*ray;
-	int			scene_height;
 	char		**scene;
 	char		**infos;
-	uint8_t 	sort_index;
 	char		**map;
+	int			scene_height;
+	uint8_t 	sort_index;
 	int			map_height;
 	int			map_width;
 	int			rgb_floor[3];
@@ -178,15 +178,13 @@ bool	parse_scene(char **scene_path, t_data *data);
 
 bool	get_infos(t_data *data);
 
-//---------------   map.c   --------------//
-
-bool	get_map(t_data *data);
-
 //---------------   parse_infos.c   --------------//
 
 bool	parse_infos(t_data *data);
-bool	path_is_xpm(char *path);
-bool	check_rgb(char *rgb, t_data *data, int fc);
+
+//---------------   map.c   --------------//
+
+bool	get_map(t_data *data);
 
 //---------------   parse_map.c   --------------//
 
