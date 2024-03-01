@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 16:44:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:57:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	char_is_in_set(char c, char *set)
 	return (0);
 }
 
-bool	one_start_pos(t_data *data) //get_pos + set_or
+static	bool	one_start_pos(t_data *data) //get_pos + set_or
 {
 	int	pos;
 	int	y;
@@ -50,7 +50,7 @@ bool	one_start_pos(t_data *data) //get_pos + set_or
 	return (0);
 }
 
-bool	is_map_char(char c, char *set)
+static	bool	is_map_char(char c, char *set)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ bool	is_map_char(char c, char *set)
 	return (0);
 }
 
-bool	check_map_char(t_data *data)
+static	bool	check_map_char(t_data *data)
 {
 	int	y;
 	int	x;

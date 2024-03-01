@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 18:09:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:58:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,22 +181,17 @@ bool	get_infos(t_data *data);
 //---------------   map.c   --------------//
 
 bool	get_map(t_data *data);
-void	get_map_size(t_data *data);
-bool	resize_map(t_data *data);
+
+//---------------   parse_infos.c   --------------//
+
+bool	parse_infos(t_data *data);
+bool	path_is_xpm(char *path);
+bool	check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   parse_map.c   --------------//
 
 bool	parse_map(t_data *data);
-bool	check_map_char(t_data *data);
-bool	is_map_char(char c, char *set);
-bool	one_start_pos(t_data *data);
 bool	char_is_in_set(char c, char *set);
-
-//---------------   parse_scene.c   ------------//
-
-bool	parse_scene2(t_data *data);
-bool	path_is_xpm(char *path);
-bool	check_rgb(char *rgb, t_data *data, int fc);
 
 //---------------   rgb.c   --------------------//
 

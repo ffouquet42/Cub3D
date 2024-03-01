@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 18:11:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:26:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-bool	resize_map(t_data *data)
+static	bool	resize_map(t_data *data)
 {
 	int		y;
 	int		x;
@@ -41,7 +41,7 @@ bool	resize_map(t_data *data)
 	return (0);
 }
 
-void	get_map_size(t_data *data) // dim
+static	void	get_map_size(t_data *data) // dim
 {
 	int	x;
 	int	y;

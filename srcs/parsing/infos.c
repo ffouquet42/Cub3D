@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/01 18:08:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:05:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static	bool	sort_infos(t_data *data)
 			ft_swap(data, 0);
 		else if (data->infos[i][0] == 'S' && data->infos[i][1] == 'O')
 			ft_swap(data, 1);
-		else if (data->infos[i][0] == 'E' && data->infos[i][1] == 'A')
-			ft_swap(data, 2);
 		else if (data->infos[i][0] == 'W' && data->infos[i][1] == 'E')
+			ft_swap(data, 2);
+		else if (data->infos[i][0] == 'E' && data->infos[i][1] == 'A')
 			ft_swap(data, 3);
 		else if (data->infos[i][0] == 'F')
 			ft_swap(data, 4);
@@ -37,7 +37,7 @@ static	bool	sort_infos(t_data *data)
 	return (EXIT_SUCCESS);
 }
 
-static	void	clean_infos(t_data *data) //merge with get_info
+static	void	get_clean_infos(t_data *data)
 {
 	char	*tmp;
 	int		i;
@@ -58,25 +58,19 @@ static	void	clean_infos(t_data *data) //merge with get_info
 				j++;
 		}
 		data->scene[i][k] = '\0';
+		data->infos[i] = data->scene[i];
 		i++;
 	}
+	data->infos[i] = NULL;
 }
 
 bool	get_infos(t_data *data)
 {
-	int		i;
 
-	clean_infos(data);
 	data->infos = malloc(sizeof(char *) * (7));
 	if (!data->infos)
 		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);
-	i = 0;
-	while (i < INFOS_LEN)
-	{	
-		data->infos[i] = data->scene[i]; // one line
-		i++;
-	}
-	data->infos[i] = NULL;
+	get_clean_infos(data);
 	sort_infos(data);
 	return (EXIT_SUCCESS);
 }

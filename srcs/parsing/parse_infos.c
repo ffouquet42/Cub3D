@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 13:27:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:50:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,22 @@ bool	parse_infos(t_data *data)
 	int	fc;
 
 	i = 0;
+
+	//parse images fct
 	while (i < NB_IMAGES) //++i
 	{
 		if (path_is_xpm(data->infos[i]))
-			return (data->error->error_g |= ERROR_XPM, 1);
+			return (data->error->error_g |= ERROR_XPM, EXIT_FAILURE);
 		i++;
 	}
 	fc = 0;
+	//parse color fct 
 	while (i < INFOS_LEN)
 	{
 		if (check_rgb(data->infos[i], data, fc))
-			return (data->error->error_g |= ERROR_RGB, 1);
+			return (data->error->error_g |= ERROR_RGB, EXIT_FAILURE);
 		i++;
 		fc++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
