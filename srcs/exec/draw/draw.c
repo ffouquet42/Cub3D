@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:41:26 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/24 21:55:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/02 22:59:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 void	set_textures_variables_2(t_data *data)
 {

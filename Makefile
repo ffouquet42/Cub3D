@@ -1,27 +1,25 @@
 CC			=	gcc
 RM			=	rm -f
-CFLAGS		=	-Wall -Wextra -Werror -g3 -I ./include -I./mlx_linux# -g -MMD -g3
+CFLAGS		=	-Wall -Wextra -Werror -g3 -I ./include -I./mlx_linux # -g -MMD
 MLX			=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 NAME		=	cub3D
 
-#CFLAGS		= 	-Wall -Wextra -Werror -g3 -I./srcs/includes
-
 SRCS		=	srcs/main.c							\
 				srcs/init/init_data.c				\
-				srcs/init/init_game.c				\
-				srcs/parsing/map.c					\
-				srcs/parsing/infos.c				\
-				srcs/parsing/parse_map.c			\
-				srcs/parsing/parse_infos.c			\
 				srcs/parsing/parsing.c				\
-				srcs/parsing/rgb.c					\
-				srcs/parsing/scene.c				\
-				srcs/parsing/wall.c					\
+				srcs/init/init_game.c				\
+				srcs/parsing/scene/scene.c			\
+				srcs/parsing/infos/infos.c			\
+				srcs/parsing/infos/parse_infos.c	\
+				srcs/parsing/infos/rgb.c			\
+				srcs/parsing/map/map.c				\
+				srcs/parsing/map/parse_map.c		\
+				srcs/parsing/map/wall.c				\
 				srcs/exec/game_management.c			\
 				srcs/exec/move.c					\
 				srcs/exec/rotate.c					\
 				srcs/exec/raycasting.c				\
-				srcs/exec/draw.c					\
+				srcs/exec/draw/draw.c				\
 				srcs/exec/check_hit.c				\
 				srcs/utils/draw_utils.c				\
 				srcs/utils/libft.c					\

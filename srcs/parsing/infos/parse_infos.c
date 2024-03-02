@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 19:40:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/02 23:18:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static	bool	check_rgb(char *rgb, t_data *data, int fc)
 {
@@ -31,6 +31,22 @@ static	bool	path_is_xpm(char *path)
 	return (0);
 }
 
+
+static bool		parse_image(t_data *data)
+{
+	uint8_t i;
+
+	i = 0;
+	
+	while (i < NB_IMAGES) //++i
+	{
+		if (path_is_xpm(data->infos[i]))
+			return (data->error->error_g |= ERROR_XPM, EXIT_FAILURE);
+		i++;
+	}
+	return (EXIT_SUCCESS);
+}
+
 static	bool	is_valid_infos(t_data *data)
 {
 	if ((data->infos[0][0] != 'N' && data->infos[0][1] != 'O')
@@ -44,23 +60,16 @@ static	bool	is_valid_infos(t_data *data)
 
 bool	parse_infos(t_data *data)
 {
-	int	i;
 	int	fc;
-
-	i = 0;
-
+	int i; 
+	
 	if(!is_valid_infos(data))
 		return(EXIT_FAILURE);
-
-	// fct parse image 
-	while (i < NB_IMAGES) //++i
-	{
-		if (path_is_xpm(data->infos[i]))
-			return (data->error->error_g |= ERROR_XPM, EXIT_FAILURE);
-		i++;
-	}
+	if(parse_image(data))
+		return(EXIT_FAILURE);
 	fc = 0;
-	//parse color fct 
+	
+	i = NB_IMAGES;
 	while (i < INFOS_LEN)
 	{
 		if (check_rgb(data->infos[i], data, fc))
