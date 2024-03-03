@@ -6,12 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:26:54 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/03 01:17:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:19:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
 
 bool	is_digit(char c)
 {
@@ -22,7 +21,7 @@ bool	is_only_digits_or_commas(char *str)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (str[i])
 	{
 		if (!is_digit(str[i]) || str[i] != ',')

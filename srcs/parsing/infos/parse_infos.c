@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/03 01:15:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:22:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool 	parse_colors(t_data *data)
 	// 	|| rgb_format(str) || rgb_value(str));
 }
 
-static bool		parse_images(t_data *data)
+static bool		parse_images(t_data *data) //not finised, verif that the path exist
 {
 	uint8_t i;
 
@@ -51,11 +51,11 @@ static	bool	is_valid_infos(t_data *data)
 
 bool	parse_infos(t_data *data)
 { 	
-	if(!is_valid_infos(data))
+	if (!is_valid_infos(data))
 		return(data->error->error_g |= ERROR_SORT_S, EXIT_FAILURE);
-	else if(parse_images(data))
+	else if (parse_images(data))
 		return(data->error->error_g |= ERROR_XPM,EXIT_FAILURE);
-	else if(parse_colors(data))
+	else if (parse_colors(data))
 		return(data->error->error_g |= ERROR_RGB, EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
