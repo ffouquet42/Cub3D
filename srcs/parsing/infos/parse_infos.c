@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/03 18:22:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:28:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static bool 	parse_colors(t_data *data)
 {
-	// printf("%c", data->infos[4][0]);
-	// printf("%c",data->infos[5][0]);
+	printf("%c", data->infos[4][1]);
+	printf("%c",data->infos[5][1]);
 	if (!is_only_digits_or_commas(data->infos[4]))
 		printf("oui");
 	if (!is_only_digits_or_commas(data->infos[5]))
