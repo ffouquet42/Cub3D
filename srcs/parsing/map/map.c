@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/02 22:58:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:07:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,25 @@ static	void	get_map_size(t_data *data) // dim
 	data->map_width = z - 1;
 }
 
-bool	get_map(t_data *data)
+static void cpy_map(t_data *data)
 {
-	int		i;
-	int		y;
-
-	y = 0;
+	
+	uint8_t		i;
+	uint8_t		y;
+	
 	i = INFOS_LEN;
-
-	// get_map fct 
-	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); //-INFOS_LEN + 1
-	if (!data->map)
-		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);
+	y = 0;
 	while (data->scene[i])
 		data->map[y++] = data->scene[i++];
 	data->map[y] = NULL;
+}
+
+bool	get_map(t_data *data)
+{
+	data->map = malloc(sizeof(char *) * (data->scene_height - 5)); //-INFOS_LEN + 1
+	if (!data->map)
+		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);
+	cpy_map(data);
 	get_map_size(data);
 	if (resize_map(data))
 		return (EXIT_FAILURE);

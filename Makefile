@@ -19,16 +19,16 @@ SRCS		=	srcs/main.c							\
 				srcs/exec/move.c					\
 				srcs/exec/rotate.c					\
 				srcs/exec/raycasting.c				\
-				srcs/exec/draw/draw.c				\
 				srcs/exec/check_hit.c				\
-				srcs/utils/draw_utils.c				\
+				srcs/exec/draw/draw.c				\
 				srcs/utils/libft.c					\
+				srcs/utils/infos_utils.c				\
+				srcs/utils/draw_utils.c				\
 				srcs/utils/lib_memory.c				\
 				srcs/utils/print.c					\
-				srcs/utils/digit.c					\
-				srcs/utils/free.c					\
 				srcs/utils/scene_utils.c			\
 				srcs/utils/get_next_line.c			\
+				srcs/utils/free.c					\
 
 OBJS		=	$(SRCS:.c=.o)
 

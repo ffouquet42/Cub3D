@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 19:14:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 01:16:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ static	bool	is_cub(char *argv)
 	uint16_t	len;
 
 	len = ft_strlen(argv);
-	if (argv[len - 4] != '.' || argv[len - 3] != 'c' ||
-		argv[len - 2] != 'u' || argv[len - 1] != 'b')
-		return (false);
-	return (true);
+	return (argv[len - 4] == '.' && argv[len - 3] == 'c' &&
+		argv[len - 2] == 'u' && argv[len - 1] == 'b');
 }
 
 static	bool	is_valid_arg(int argc, char **argv, t_data *data)

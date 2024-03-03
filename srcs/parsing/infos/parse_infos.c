@@ -6,76 +6,56 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/02 23:18:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 01:15:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	bool	check_rgb(char *rgb, t_data *data, int fc)
+static bool 	parse_colors(t_data *data)
 {
-	if (only_digit_or_comma(&rgb[1]) || count_comma(&rgb[1])
-		|| rgb_format(&rgb[1]) || rgb_value(&rgb[1], data, fc))
-		return (1);
-	return (0);
+	// printf("%c", data->infos[4][0]);
+	// printf("%c",data->infos[5][0]);
+	if (!is_only_digits_or_commas(data->infos[4]))
+		printf("oui");
+	if (!is_only_digits_or_commas(data->infos[5]))
+		printf("non");
+	return(0);
+
+	// return (is_only_digits_or_commas(data->infos[4]) || count_comma(str)
+	// 	|| rgb_format(str) || rgb_value(str));
 }
 
-static	bool	path_is_xpm(char *path)
-{
-	int	i;
-
-	i = ft_strlen(path) - 5; 
-	if (path[i] != '.' || path[i + 1] != 'x'
-		|| path[i + 2] != 'p' || path[i + 3] != 'm')
-		return (1);
-	return (0);
-}
-
-
-static bool		parse_image(t_data *data)
+static bool		parse_images(t_data *data)
 {
 	uint8_t i;
 
 	i = 0;
 	
-	while (i < NB_IMAGES) //++i
+	while (i < NB_IMAGES)
 	{
-		if (path_is_xpm(data->infos[i]))
-			return (data->error->error_g |= ERROR_XPM, EXIT_FAILURE);
-		i++;
+		if (!is_path_xpm(data->infos[i++])) // test is_path_xpm
+			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
 
 static	bool	is_valid_infos(t_data *data)
-{
-	if ((data->infos[0][0] != 'N' && data->infos[0][1] != 'O')
-		|| (data->infos[1][0] != 'S' && data->infos[1][1] != 'O')
-		|| (data->infos[2][0] != 'W' && data->infos[2][1] != 'E')
-		|| (data->infos[3][0] != 'E' && data->infos[3][1] != 'A')
-		|| (data->infos[4][0] != 'F') || (data->infos[5][0] != 'C'))
-		return (data->error->error_g |= ERROR_SORT_S, false);
-	return (true);
+{		
+	return ((data->infos[0][0] == 'N' && data->infos[0][1] == 'O')
+		&& (data->infos[1][0] == 'S' && data->infos[1][1] == 'O')
+		&& (data->infos[2][0] == 'W' && data->infos[2][1] == 'E')
+		&& (data->infos[3][0] == 'E' && data->infos[3][1] == 'A')
+		&& (data->infos[4][0] == 'F') && (data->infos[5][0] == 'C')); 
 }
 
 bool	parse_infos(t_data *data)
-{
-	int	fc;
-	int i; 
-	
+{ 	
 	if(!is_valid_infos(data))
-		return(EXIT_FAILURE);
-	if(parse_image(data))
-		return(EXIT_FAILURE);
-	fc = 0;
-	
-	i = NB_IMAGES;
-	while (i < INFOS_LEN)
-	{
-		if (check_rgb(data->infos[i], data, fc))
-			return (data->error->error_g |= ERROR_RGB, EXIT_FAILURE);
-		i++;
-		fc++;
-	}
+		return(data->error->error_g |= ERROR_SORT_S, EXIT_FAILURE);
+	else if(parse_images(data))
+		return(data->error->error_g |= ERROR_XPM,EXIT_FAILURE);
+	else if(parse_colors(data))
+		return(data->error->error_g |= ERROR_RGB, EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

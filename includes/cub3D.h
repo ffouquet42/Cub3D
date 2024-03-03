@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 19:08:49 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:52:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,9 @@ bool	get_infos(t_data *data);
 
 bool	parse_infos(t_data *data);
 
+//---------------   rgb.c   --------------------//
+
+
 //---------------   map.c   --------------//
 
 bool	get_map(t_data *data);
@@ -190,13 +193,6 @@ bool	get_map(t_data *data);
 
 bool	parse_map(t_data *data);
 bool	char_is_in_set(char c, char *set);
-
-//---------------   rgb.c   --------------------//
-
-bool	count_comma(char *str);
-bool	rgb_format(char *str);
-bool	rgb_value(char *str, t_data *data, int fc);
-bool	correct_rgb_value(t_data *data);
 
 //---------------   wall.c   -------------------//
 
@@ -279,23 +275,16 @@ void	ft_bzero(void *s, size_t n);
 void	msg_error(t_error *error);
 void	parsing_msg_error_2(t_error *error);
 
-//---------------   get_next_line.c   ----------//
-
-char	*get_next_line(int fd);
-char	*merge_stash_and_buff(char *stash, char *buff);
-char	*buff_to_stash(char *buff);
-bool	search_newline(const char *buff);
-char	*stash_to_line(char *stash, char *buf);
-
-//---------------   digit.c   ------------------//
-
-bool	only_digit_or_comma(char *str);
-bool	is_digit(char c);
-
 //---------------	scene_utils.c ----------//
 
 int		scene_len(char *scene_path, t_data *data);
 bool	is_line_empty(char *str);
+
+//---------------   infos_utils.c   -------------------//
+
+bool	is_path_xpm(char *path);
+bool	is_only_digits_or_commas(char *str);
+bool	is_digit(char c);
 
 //---------------	draw_utils.c ----------//
 
@@ -307,6 +296,14 @@ int		get_color(t_data *data, int x, int y, int image);
 
 void	free_all(t_data *data);
 int		quit_loop(t_data *data);
+
+//---------------   get_next_line.c   ----------//
+
+char	*get_next_line(int fd);
+char	*merge_stash_and_buff(char *stash, char *buff);
+char	*buff_to_stash(char *buff);
+bool	search_newline(const char *buff);
+char	*stash_to_line(char *stash, char *buf);
 
 void print_map(char **map);
 
