@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/02 22:57:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:54:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static	bool	get_scene(int fd, t_data *data)
 	return (EXIT_SUCCESS);
 }
 
-bool	parse_scene(char **scene_path, t_data *data)
+bool		parse_scene(char **scene_path, t_data *data)
 {
 	int		fd;
 
