@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/03 18:34:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:37:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool 	parse_colors(t_data *data)
 	// 	|| rgb_format(str) || rgb_value(str));
 }
 
-static bool		parse_images(t_data *data) //not finised, verif that the path exist, too hardcode
+static bool		parse_images(t_data *data) //not finised, verif that the path exist, is_path_valid
 {
 	uint8_t i;
 
