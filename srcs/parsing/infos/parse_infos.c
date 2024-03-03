@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/03 18:28:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:34:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static bool 	parse_colors(t_data *data)
 {
-	printf("%c", data->infos[4][1]);
-	printf("%c",data->infos[5][1]);
 	if (!is_only_digits_or_commas(data->infos[4]))
 		printf("oui");
 	if (!is_only_digits_or_commas(data->infos[5]))
@@ -26,7 +24,7 @@ static bool 	parse_colors(t_data *data)
 	// 	|| rgb_format(str) || rgb_value(str));
 }
 
-static bool		parse_images(t_data *data) //not finised, verif that the path exist
+static bool		parse_images(t_data *data) //not finised, verif that the path exist, too hardcode
 {
 	uint8_t i;
 
@@ -34,7 +32,7 @@ static bool		parse_images(t_data *data) //not finised, verif that the path exist
 	
 	while (i < NB_IMAGES)
 	{
-		if (!is_path_xpm(data->infos[i++])) // test is_path_xpm
+		if (!is_path_xpm(data->infos[i++]))
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
