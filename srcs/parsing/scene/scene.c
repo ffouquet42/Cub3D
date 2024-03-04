@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 17:19:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:33:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,19 @@ static	bool	get_scene(int fd, t_data *data)
 
 bool		parse_scene(char **scene_path, t_data *data)
 {
+	t_scene	scene;
 	int		fd;
-
-	data->scene_height = scene_len(scene_path[1], data);
-	if (data->scene_height < 9)
+	
+	scene = (t_scene){0};
+	data->scene = &scene;
+	data->scene->scene_height = scene_len(scene_path[1], data);
+	if (data->scene->scene_height < 9)
 		return (data->error->error_g |= ERROR_EMPTY_S, EXIT_FAILURE);
 	fd = open(scene_path[1], O_RDONLY);
 	if (fd < FD_MIN || fd > FD_MAX)
 		return (data->error->error_g |= ERROR_FILE, close (fd), EXIT_FAILURE); // verif close
-	data->scene = malloc(sizeof(char *) * (data->scene_height + 1));
-	if (!data->scene)
+	data->scene->scene = malloc(sizeof(char *) * (data->scene->scene_height + 1));
+	if (!data->scene->scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), EXIT_FAILURE);
 	if (get_scene(fd, data))
 		return (EXIT_FAILURE);
