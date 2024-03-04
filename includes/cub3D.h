@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 17:16:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:19:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,6 +198,7 @@ bool	parsing(int argc, char **argv, t_data *data);
 //---------------   scene.c   ------------------//
 
 bool	parse_scene(char **scene_path, t_data *data);
+void	clean_nl_scene(t_data *data);
 
 //---------------   infos.c   ------------------//
 
@@ -235,8 +236,6 @@ bool	test_around(char **map, int y, int x, char *charset);
 bool	init_data(t_data *data);
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
-void	clean_nl_scene(t_data *data);
-
 
 void	get_player_pos(t_data *data);
 void	set_first_orientation(t_data *data, char c);

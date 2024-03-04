@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 03:57:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:19:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	void	clean_nl_scene(t_data *data)
+void	clean_nl_scene(t_data *data)
 {
 	uint8_t		i;
 	int			j;
