@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 02:54:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:52:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,32 +130,50 @@ typedef struct s_image
 
 typedef struct s_rgb
 {
+	char 	*floor;
+	char 	*ceiling;
+	bool	flag;
 	uint8_t	commas;
     uint8_t	digit_row;
 	uint8_t	rgb_floor[3];
 	uint8_t	rgb_ceiling[3];
 }			t_rgb;
 
+typedef struct s_map
+{
+	char		**map;
+	int			map_height;
+	int			map_width;
+}			t_map;
+
+typedef struct s_infos
+{
+	t_rgb		*rgb;
+	char		**infos;
+	uint8_t 	sort_infos_index;
+}			t_infos;
+
+typedef struct s_scene
+{
+	t_infos		*infos;
+	t_map 		*map;
+	char		**scene;
+	int			scene_height;
+}			t_scene;
+
 typedef struct s_data
 {
 	t_error		*error;
-	t_rgb		*rgb;
+	t_scene		*scene;
 	t_image		*img;
-	t_image		images[NB_IMAGES]; // test norme 
+	t_image		images[NB_IMAGES];
 	t_game		*game;
-	t_key		*key;
-	t_raycast	*ray;
-	char		**scene;
-	char		**infos;
-	char		**map;
-	int			scene_height;
-	uint8_t 	sort_index;
-	int			map_height;
-	int			map_width;
+	t_key		*key; // init dans game 
+	t_raycast	*ray; // init dans game
 	void		*mlx;
 	void		*win;
-	bool		run;
-	bool		mouse;
+	bool		run; // game
+	bool		mouse; // game
 	int			mouse_x; // struct game
 	double		speed; // struct game 
 	double		rotation_speed; // struct game 

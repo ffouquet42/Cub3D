@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/03 00:07:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:40:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static	void	get_map_size(t_data *data) // dim
 static void cpy_map(t_data *data)
 {
 	
-	uint8_t		i;
-	uint8_t		y;
+	int 	i;
+	int 	y;
 	
 	i = INFOS_LEN;
 	y = 0;

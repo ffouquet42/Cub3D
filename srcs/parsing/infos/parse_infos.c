@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 03:44:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:33:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ static bool 	parse_colors(t_data *data)
     
     rgb = (t_rgb){0};
 	data->rgb = &rgb;
+
+	rgb.floor = data->infos[4];
 	
 	len = ft_strlen(data->infos[i]) - 1;
-	if (len < 5 || len > 11)                                        //rgb max and min format
+	if (len < 5 || len > 11)                           //rgb max and min format
         return (EXIT_FAILURE);
 	if (!are_rgbs_valid(data->infos[i]))
 		return(EXIT_FAILURE);

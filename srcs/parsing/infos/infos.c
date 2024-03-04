@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/03 18:23:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:45:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static	bool	sort_infos(t_data *data)
 {
 	uint8_t i; 
 	 
-	while (data->sort_index < INFOS_LEN)
+	while (data->sort_infos_index < INFOS_LEN)
 	{
-		i = data->sort_index;	
+		i = data->sort_infos_index;	
 		if (data->infos[i][0] == 'N' && data->infos[i][1] == 'O')
 			ft_swap(data, 0);
 		else if (data->infos[i][0] == 'S' && data->infos[i][1] == 'O')
@@ -31,7 +31,7 @@ static	bool	sort_infos(t_data *data)
 			ft_swap(data, 4);
 		else if (data->infos[i][0] == 'C')
 			ft_swap(data, 5);
-		data->sort_index++;
+		sort_infos_index++;
 	}
 	data->infos[6] = NULL;
 	return (EXIT_SUCCESS);

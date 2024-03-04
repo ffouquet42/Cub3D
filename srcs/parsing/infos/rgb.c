@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 03:11:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:37:44 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ bool are_rgbs_valid(char *rgbs)
     uint8_t i;
     
     i = 0;
+
+	char *rgbs;
+
     while(rgbs[++i])
     {
         if (!is_digit(rgbs[i]) && rgbs[i] != ',' && rgbs[i] != '\n') //only_digit_or_commas
