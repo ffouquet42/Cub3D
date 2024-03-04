@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 16:52:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:16:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ typedef struct s_key
 
 typedef struct s_game
 {
+	t_key		*key;  
+	t_raycast	*ray; 
 	double	player_pos_x;
 	double	player_pos_y;
 	double	player_or_x;
@@ -114,14 +116,19 @@ typedef struct s_game
 	double	plane_x;
 	double	plane_y;
 	int		texture;
+	bool		run; 
+	bool		mouse; 
+	int			mouse_x; 
+	double		speed; 
+	double		rotation_speed;
 }			t_game;
 
 typedef struct s_image
 {
-	void	*mlx_img;	
-	char	*add;	
-	int		bpp;		
-	int		rowlen;		
+	void	*mlx_img;
+	char	*add;
+	int		bpp;
+	int		rowlen;
 	int		end;
 	int		img_height;
 	int		img_width;
@@ -141,14 +148,16 @@ typedef struct s_rgb
 
 typedef struct s_map
 {
-	char		**map;
-	int			map_height;
-	int			map_width;
+	char	**map;
+	int		map_height;
+	int		map_width;
 }			t_map;
 
 typedef struct s_infos
 {
 	t_rgb		*rgb;
+	t_image		*img;
+	t_image		images[NB_IMAGES];
 	char		**infos;
 	uint8_t 	sort_infos_index;
 }			t_infos;
@@ -165,18 +174,9 @@ typedef struct s_data
 {
 	t_error		*error;
 	t_scene		*scene;
-	t_image		*img;
-	t_image		images[NB_IMAGES];
 	t_game		*game;
-	t_key		*key; // init dans game 
-	t_raycast	*ray; // init dans game
 	void		*mlx;
 	void		*win;
-	bool		run; // game
-	bool		mouse; // game
-	int			mouse_x; // struct game
-	double		speed; // struct game 
-	double		rotation_speed; // struct game 
 }			t_data;
 
 //**********************************************//
