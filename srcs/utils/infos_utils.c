@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:26:54 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/03 23:53:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 01:43:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,6 @@
 bool	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
-}
-
-bool	is_only_digits_or_commas(char *str)
-{
-	int	i;
-
-	i = 1;
-	while (str[i])
-	{
-		if (!is_digit(str[i]) && str[i] != ',' && str[i] != '\n')
-			return (false);
-		i++;
-	}
-	return (true);
 }
 
 bool	is_path_xpm(char *path)

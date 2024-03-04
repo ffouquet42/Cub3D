@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/01 18:06:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:53:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ int	main(int argc, char **argv)
 	
 	data = (t_data){0};
 	error = (t_error){0};
-
 	data.error = &error;
-	
+	write(1, "Loading...",10);
 	if (parsing(argc, argv, &data))
 		return (msg_error(data.error), free_all(&data), EXIT_FAILURE);
 	// if (game_management(&data))

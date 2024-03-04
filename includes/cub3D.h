@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/03 00:52:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:54:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ typedef struct s_game
 typedef struct s_image
 {
 	void	*mlx_img;	
-	char	*add;		
+	char	*add;	
 	int		bpp;		
 	int		rowlen;		
 	int		end;
@@ -128,9 +128,18 @@ typedef struct s_image
 	
 }			t_image;
 
+typedef struct s_rgb
+{
+	uint8_t	commas;
+    uint8_t	digit_row;
+	uint8_t	rgb_floor[3];
+	uint8_t	rgb_ceiling[3];
+}			t_rgb;
+
 typedef struct s_data
 {
 	t_error		*error;
+	t_rgb		*rgb;
 	t_image		*img;
 	t_image		images[NB_IMAGES]; // test norme 
 	t_game		*game;
@@ -143,8 +152,6 @@ typedef struct s_data
 	uint8_t 	sort_index;
 	int			map_height;
 	int			map_width;
-	int			rgb_floor[3];
-	int			rgb_ceiling[3];
 	void		*mlx;
 	void		*win;
 	bool		run;
@@ -184,6 +191,7 @@ bool	parse_infos(t_data *data);
 
 //---------------   rgb.c   --------------------//
 
+bool 	are_rgbs_valid(char *rgbs);
 
 //---------------   map.c   --------------//
 
@@ -226,14 +234,10 @@ bool	game_management(t_data *data);
 int		key_press(int keycode, t_data *data);
 int		key_release(int keycode, t_data *data);
 int		game_loop(t_data *data);
-void	move(t_data *data);
 
 //---------------	move.c ----------//
 
-void	move_right(t_data *data);
-void	move_down(t_data *data);
-void	move_left(t_data *data);
-void	move_up(t_data *data);
+void	move(t_data *data);
 
 //---------------	rotate.c ----------//
 
@@ -283,7 +287,6 @@ bool	is_line_empty(char *str);
 //---------------   infos_utils.c   -------------------//
 
 bool	is_path_xpm(char *path);
-bool	is_only_digits_or_commas(char *str);
 bool	is_digit(char c);
 
 //---------------	draw_utils.c ----------//
