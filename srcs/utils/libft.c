@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:22:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/01 19:14:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/04 22:45:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ int	ft_atoi(const char *str)
 	return (res * pos);
 }
 
-void ft_swap(t_data *data, uint8_t index) 
+void ft_swap(t_infos *infos, uint8_t index) 
 {
-	if (index != data->sort_index)
+	if (index != infos->sort_index)
 	{
     	char *tmp;
 		
-		tmp = data->infos[index];
-    	data->infos[index] = data->infos[data->sort_index];
-    	data->infos[data->sort_index] = tmp;
-		data->sort_index = -1;	
+		tmp = infos->infos[index];
+    	infos->infos[index] = infos->infos[infos->sort_index];
+    	infos->infos[infos->sort_index] = tmp;
+		infos->sort_index = -1;	
 	}
 }
 

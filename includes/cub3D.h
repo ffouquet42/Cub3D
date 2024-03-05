@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 17:19:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/05 00:34:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@
 
 /*Number of textures*/
 # define NB_IMAGES 4
+
+/*Format Rgb*/
+# define FLOOR 4
+# define CEILING 5
+# define FORMAT_MIN 5
+# define FORMAT_MAX 11
 
 /*Windows size*/
 # define WIN_WIDTH 	1920
@@ -137,9 +143,6 @@ typedef struct s_image
 
 typedef struct s_rgb
 {
-	char 	*floor;
-	char 	*ceiling;
-	bool	flag;
 	uint8_t	commas;
     uint8_t	digit_row;
 	uint8_t	rgb_floor[3];
@@ -155,11 +158,11 @@ typedef struct s_map
 
 typedef struct s_infos
 {
-	t_rgb		*rgb;
 	t_image		*img;
 	t_image		images[NB_IMAGES];
+	t_rgb		*rgb;
 	char		**infos;
-	uint8_t 	sort_infos_index;
+	uint8_t 	sort_index;
 }			t_infos;
 
 typedef struct s_scene
@@ -167,7 +170,7 @@ typedef struct s_scene
 	t_infos		*infos;
 	t_map 		*map;
 	char		**scene;
-	int			scene_height;
+	int			height;
 }			t_scene;
 
 typedef struct s_data
@@ -208,9 +211,13 @@ bool	get_infos(t_data *data);
 
 bool	parse_infos(t_data *data);
 
+//---------------   image.c   --------------------//
+
+bool	parse_images(t_infos *infos);
+
 //---------------   rgb.c   --------------------//
 
-bool 	are_rgbs_valid(char *rgbs);
+bool 	parse_colors(t_infos *infos);
 
 //---------------   map.c   --------------//
 
@@ -284,12 +291,10 @@ void	set_textures_variables_2(t_data *data);
 
 //---------------	libft.c			  ----------//
 
-void	*ft_memset(void *s, int c, size_t n);
 size_t	ft_strlen(const char *str);
-void 	ft_swap(t_data *data, uint8_t index);
-int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
+void 	ft_swap(t_infos *infos, uint8_t index);
+int		ft_atoi(const char *str);
 
 //---------------	print.c			 ----------//
 

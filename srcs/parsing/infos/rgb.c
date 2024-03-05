@@ -6,68 +6,67 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 16:37:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/05 01:17:14 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-// static	bool	correct_rgb_value(t_data *data)
-// {
-// 	int	rgb;
+static	bool	correct_rgb_value(t_data *data)
+{
+	int	rgb;
 
-// 	rgb = 0;
-// 	while (rgb < 3)
-// 	{
-// 		if (data->rgb_floor[rgb] < 0 || data->rgb_floor[rgb] > 255)
-// 			return (data->error->error_g |= ERROR_RGB, 1);
-// 		rgb++;
-// 	}
-// 	rgb = 0;
-// 	while (rgb < 3)
-// 	{
-// 		if (data->rgb_ceiling[rgb] < 0 || data->rgb_ceiling[rgb] > 255)
-// 			return (data->error->error_g |= ERROR_RGB, 1);
-// 		rgb++;
-// 	}
-// 	return (0);
-// }
+	rgb = 0;
+	while (rgb < 3)
+	{
+		if (data->rgb_floor[rgb] < 0 || data->rgb_floor[rgb] > 255)
+			return (data->error->error_g |= ERROR_RGB, 1);
+		rgb++;
+	}
+	rgb = 0;
+	while (rgb < 3)
+	{
+		if (data->rgb_ceiling[rgb] < 0 || data->rgb_ceiling[rgb] > 255)
+			return (data->error->error_g |= ERROR_RGB, 1);
+		rgb++;
+	}
+	return (0);
+}
 
-// static	bool	rgb_value(char *str)
-// {
-// 	int	i;
-// 	int	rgb;
-// 	int	loop;
+static	bool	rgb_value(char *str)
+{
+	int	i;
+	int	rgb;
+	int	loop;
 
-// 	i = 0;
-// 	rgb = 0;
-// 	loop = 0;
-// 	while (loop < 3)
-// 	{
-//
-// 			data->rgb_floor[rgb] = ft_atoi(&str[i]);
-// 	
-// 			data->rgb_ceiling[rgb] = ft_atoi(&str[i]);
-// 		while (is_digit(str[i]))
-// 			i++;
-// 		if (str[i] == ',')
-// 			i++;
-// 		rgb++;
-// 		loop++;
-// 	}
-// 	if (correct_rgb_value(data))
-// 		return (1);
-// 	return (0);
-// }
+	i = 0;
+	rgb = 0;
+	loop = 0;
+	while (loop < 3)
+	{
 
-bool are_rgbs_valid(char *rgbs)
+			data->rgb_floor[rgb] = ft_atoi(&str[i]);
+	
+			data->rgb_ceiling[rgb] = ft_atoi(&str[i]);
+		while (is_digit(str[i]))
+			i++;
+		if (str[i] == ',')
+			i++;
+		rgb++;
+		loop++;
+	}
+	if (correct_rgb_value(data))
+		return (1);
+	return (0);
+}
+
+static bool are_rgbs_valid(char *rgbs)
 {
     uint8_t i;
-    
+
+    if (len < FORMAT_MIN || len > FORMAT_MAX)                           //rgb max and min format
+        return (EXIT_FAILURE);
     i = 0;
-
-	char *rgbs;
-
     while(rgbs[++i])
     {
         if (!is_digit(rgbs[i]) && rgbs[i] != ',' && rgbs[i] != '\n') //only_digit_or_commas
@@ -89,3 +88,16 @@ bool are_rgbs_valid(char *rgbs)
     return(true);
 }
 
+bool 	parse_colors(t_infos *infos)
+{
+    t_rgb	rgb;
+    
+    rgb = (t_rgb){0};
+	infos->rgb = &rgb;
+
+	if (!are_rgbs_valid(infos->infos[FLOOR]))
+		return(EXIT_FAILURE);
+    if (!are_rgbs_valid(infos->infos[CEILING]))
+		return(EXIT_FAILURE);
+	return(EXIT_SUCCESS);
+}

@@ -6,38 +6,38 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/04 16:45:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/05 00:55:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	bool	sort_infos(t_data *data)
+static	bool	sort_infos(t_infos *infos)
 {
 	uint8_t i; 
 	 
-	while (data->sort_infos_index < INFOS_LEN)
+	while (infos->sort_index < INFOS_LEN)
 	{
-		i = data->sort_infos_index;	
-		if (data->infos[i][0] == 'N' && data->infos[i][1] == 'O')
-			ft_swap(data, 0);
-		else if (data->infos[i][0] == 'S' && data->infos[i][1] == 'O')
-			ft_swap(data, 1);
-		else if (data->infos[i][0] == 'W' && data->infos[i][1] == 'E')
-			ft_swap(data, 2);
-		else if (data->infos[i][0] == 'E' && data->infos[i][1] == 'A')
-			ft_swap(data, 3);
-		else if (data->infos[i][0] == 'F')
-			ft_swap(data, 4);
-		else if (data->infos[i][0] == 'C')
-			ft_swap(data, 5);
-		sort_infos_index++;
+		i = infos->sort_index;	
+		if (infos->infos[i][0] == 'N' && infos->infos[i][1] == 'O')
+			ft_swap(infos, 0);
+		else if (infos->infos[i][0] == 'S' && infos->infos[i][1] == 'O')
+			ft_swap(infos, 1);
+		else if (infos->infos[i][0] == 'W' && infos->infos[i][1] == 'E')
+			ft_swap(infos, 2);
+		else if (infos->infos[i][0] == 'E' && infos->infos[i][1] == 'A')
+			ft_swap(infos, 3);
+		else if (infos->infos[i][0] == 'F')
+			ft_swap(infos, 4);
+		else if (infos->infos[i][0] == 'C')
+			ft_swap(infos, 5);
+		infos->sort_index++;
 	}
-	data->infos[6] = NULL;
+	infos->infos[6] = NULL;
 	return (EXIT_SUCCESS);
 }
 
-static	void	get_clean_infos(t_data *data)
+static	void	get_clean_infos(t_scene *scene)
 {
 	char	*tmp;
 	int		i;
@@ -49,28 +49,31 @@ static	void	get_clean_infos(t_data *data)
 	{
 		j = 0;
 		k = 0;
-		tmp = data->scene[i];
+		tmp = scene->scene[i];
 		while (tmp[j])
 		{
 			if (tmp[j] != ' ')
-				data->scene[i][k++] = tmp[j++];
+				scene->scene[i][k++] = tmp[j++];
 			else
 				j++;
 		}
-		data->scene[i][k] = '\0';
-		data->infos[i] = data->scene[i];
+		scene->scene[i][k] = '\0';
+		scene->infos->infos[i] = scene->scene[i];
 		i++;
 	}
-	data->infos[i] = NULL;
+	scene->infos->infos[i] = NULL;
 }
 
 bool	get_infos(t_data *data)
 {
+	t_infos infos;
 
-	data->infos = malloc(sizeof(char *) * (7));
-	if (!data->infos)
+	infos = (t_infos){0};
+	data->scene->infos = &infos;
+	infos.infos = malloc(sizeof(char *) * (7));
+	if (!infos.infos)
 		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);
-	get_clean_infos(data);
-	sort_infos(data);
+	get_clean_infos(data->scene);
+	sort_infos(&infos);
 	return (EXIT_SUCCESS);
 }
