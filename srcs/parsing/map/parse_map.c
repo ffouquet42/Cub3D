@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 03:09:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 03:34:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static	bool	is_char_valid(t_data *data)
 		x = 0;
 		while (data->scene->map->map[y][x])
 		{
-			if (!char_is_in_set(data->scene->map->map[y][x], "01NSEW ")) //get_player_pos
+			if (!char_is_in_set(data->scene->map->map[y][x], "01NSEW "))
 				return (false);
-			else if (char_is_in_set(data->scene->map->map[y][x], "NSEW"))
+			else if (char_is_in_set(data->scene->map->map[y][x], "NSEW"))  //get_player_pos
 			{
 				pos++;
-				data->game->player_pos_x = (double)x;
-				data->game->player_pos_y = (double)y;
+				data->game->player_pos_x = (double)x + 0.5;
+				data->game->player_pos_y = (double)y + 0.5;
 			}
 			x++;
 		}
