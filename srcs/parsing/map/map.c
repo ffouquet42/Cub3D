@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 02:34:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 03:21:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,15 @@ static void cpy_map(t_scene *scene)
 {
 	int 	i;
 	int 	y;
+	int 	len;
 	
 	i = INFOS_LEN;
 	y = 0;
-	while (scene->scene[i])
+	while (scene->scene[i] && scene->scene[i] != '\n')
+	{
 		scene->map->map[y++] = scene->scene[i++];
+		
+	}
 	scene->map->map[y] = NULL;
 }
 
