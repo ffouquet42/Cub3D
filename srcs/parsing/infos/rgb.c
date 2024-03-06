@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/05 01:17:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/05 01:20:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static bool are_rgbs_valid(char *rgbs)
         if (data->rgb->digit_row > 3)                                          //not more than 3 digit in a row
 			return (false);
     }
-    if (data->rgb->commas != 2)                                                //only_two_commas
+    if (data->rgb->commas != 2)                                           //only_two_commas
 		return (false);
     return(true);
 }

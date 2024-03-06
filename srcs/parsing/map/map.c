@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/05 01:14:11 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 01:13:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 static	bool	resize_map(t_map *map)
 {
+	char	*tmp;
 	int		y;
 	int		x;
-	char	*tmp;
 
 	y = -1;
 	while (map->map[++y])
 	{
 		x = 0;
+		tmp = map->map[y];
 		while (map->map[y][x] && map->map[y][x] != '\n')
-		{
-			dest[x] = map->map[y][x];
 			x++;
-		}
 		while (x < map->map_width)
 		{
-			dest[x] = ' ';
+			map->map[y][x] = ' ';
 			x++;
 		}
-		dest[x] = '\0';
-		map->map[y] = dest;
+		map->map[y][x] = '\0';
 	}
 	return (EXIT_SUCCESS);
 }
