@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:50:42 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 01:13:13 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:34:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	bool	resize_map(t_map *map)
+static		void resize_map(t_map *map) //merge in cpy_map
 {
 	char	*tmp;
 	int		y;
@@ -23,7 +23,7 @@ static	bool	resize_map(t_map *map)
 	{
 		x = 0;
 		tmp = map->map[y];
-		while (map->map[y][x] && map->map[y][x] != '\n')
+		while (map->map[y][x] && map->map[y][x] != '\n') 
 			x++;
 		while (x < map->map_width)
 		{
@@ -32,10 +32,9 @@ static	bool	resize_map(t_map *map)
 		}
 		map->map[y][x] = '\0';
 	}
-	return (EXIT_SUCCESS);
 }
 
-static	void	get_map_size(t_scene *scene) // dim
+static	void	get_map_size(t_scene *scene) // merge in cpy_map
 {
 	int	x;
 	int	y;

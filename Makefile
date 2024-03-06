@@ -23,11 +23,12 @@ SRCS		=	srcs/main.c								\
 				srcs/exec/check_hit.c					\
 				srcs/exec/draw/draw.c					\
 				srcs/utils/libft.c						\
+				srcs/utils/parsing_utils/lib_memory.c	\
+				srcs/utils/parsing_utils/get_next_line.c\
+				srcs/utils/parsing_utils/print.c		\
+				srcs/utils/parsing_utils/scene_utils.c	\
 				srcs/utils/parsing_utils/infos_utils.c	\
-				srcs/utils/parsing_utilslib_memory.c	\
-				srcs/utils/parsing_utilsprint.c			\
-				srcs/utils/parsing_utilsscene_utils.c	\
-				srcs/utils/parsing_utilsget_next_line.c	\
+				srcs/utils/parsing_utils/map_utils.c	\
 				srcs/utils/exec_utils/draw_utils.c		\
 				srcs/utils/free.c						\
 

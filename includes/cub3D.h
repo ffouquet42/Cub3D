@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/05 00:34:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 03:02:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,7 @@
 
 typedef struct s_raycast
 {
-	double	camera;
-	double	diray_x;
-	double	diray_y;
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
-	double	ray_length;
-	int		step_x;
-	int		step_y;
-	int		hit;
-	int		side;
-	int		line_height;
-	double	wall_x;
-	int		tex_x;
-	double	step;
-	double	tex_pos;
-	int		draw_start;
-	int		draw_end;
+	
 }			t_raycast;
 
 typedef struct s_key
@@ -115,16 +95,8 @@ typedef struct s_game
 {
 	t_key		*key;  
 	t_raycast	*ray; 
-	double	player_pos_x;
-	double	player_pos_y;
-	double	player_or_x;
-	double	player_or_y;
-	double	plane_x;
-	double	plane_y;
-	int		texture;
-	bool		run; 
-	bool		mouse; 
-	int			mouse_x; 
+	double		player_pos_x;
+	double		player_pos_y;
 	double		speed; 
 	double		rotation_speed;
 }			t_game;
@@ -138,7 +110,6 @@ typedef struct s_image
 	int		end;
 	int		img_height;
 	int		img_width;
-	
 }			t_image;
 
 typedef struct s_rgb
@@ -310,6 +281,10 @@ bool	is_line_empty(char *str);
 
 bool	is_path_xpm(char *path);
 bool	is_digit(char c);
+
+//---------------   infos_utils.c   -------------------//
+
+bool	char_is_in_set(char c, char *set);
 
 //---------------	draw_utils.c ----------//
 

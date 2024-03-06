@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:47:32 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/19 18:32:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:15:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 int	get_color(t_data *data, int x, int y, int image)
 {

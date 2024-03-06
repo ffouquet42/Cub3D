@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:52:20 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/19 18:15:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:15:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 char	*stash_to_line(char *stash, char *buff)
 {

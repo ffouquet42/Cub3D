@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 06:18:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/02/29 12:11:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:15:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 bool	is_line_empty(char *str)
 {
