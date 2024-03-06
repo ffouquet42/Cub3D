@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 16:13:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 22:42:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,7 +285,7 @@ bool	is_digit(char c);
 
 //---------------   infos_utils.c   -------------------//
 
-bool	char_is_in_set(char c, char *set);
+bool	is_char_in_set(char c, char *set);
 
 //---------------	draw_utils.c ----------//
 

@@ -22,7 +22,7 @@ SRCS		=	srcs/main.c								\
 				srcs/exec/raycasting.c					\
 				srcs/exec/check_hit.c					\
 				srcs/exec/draw/draw.c					\
-				srcs/utils/libft.c						\
+				srcs/utils/parsing_utils/libft.c		\
 				srcs/utils/parsing_utils/lib_memory.c	\
 				srcs/utils/parsing_utils/get_next_line.c\
 				srcs/utils/parsing_utils/print.c		\

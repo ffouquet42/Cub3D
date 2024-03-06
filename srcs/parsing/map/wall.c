@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/02 22:58:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 22:55:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ bool	test_around(char **map, int y, int x, char *charset)
 	return (0);
 }
 
-bool	no_void_around(t_data *data, char *charset)
+bool	is_void_around(t_map *map, char *charset)
 {
 	int	y;
 	int	x;
 
 	y = 1;
-	while (y < data->map_height - 1)
+	while (y < map->height - 1)
 	{
 		x = 1;
-		while (x < data->map_width - 1)
+		while (x < map->width - 1)
 		{
-			if (char_is_in_set(data->map[y][x], charset))
+			if (is_char_in_set(map->map[y][x], charset))
 			{
-				if (test_around(data->map, y, x, charset))
+				if (test_around(map->map, y, x, charset))
 					return (1);
 			}
 			x++;
@@ -48,29 +48,31 @@ bool	no_void_around(t_data *data, char *charset)
 	return (0);
 }
 
-bool	closed_by_wall(t_data *data)
+bool	is_closed_by_wall(t_map *map)
 {
 	int		i;
 
 	i = 0;
-	while (i < data->map_width)
+
+	// 2 fct 
+	while (i < map->width)
 	{
-		if ((data->map[0][i] != '1' && data->map[0][i] != ' ')
-			|| (data->map[data->map_height - 1][i] != '1'
-			&& data->map[data->map_height - 1][i] != ' '))
-			return (1);
+		if ((map->map[0][i] != '1' && map->map[0][i] != ' ')
+			|| (map->map[map->height - 1][i] != '1'
+			&& map->map[map->height - 1][i] != ' '))
+			return (false);
 		i++;
 	}
 	i = 0;
-	while (i < data->map_height)
+	while (i < map->height)
 	{
-		if ((data->map[i][0] != '1' && data->map[i][0] != ' ')
-			|| (data->map[i][data->map_width - 1] != '1'
-			&& data->map[i][data->map_width - 1] != ' '))
-			return (1);
+		if ((map->map[i][0] != '1' && map->map[i][0] != ' ')
+			|| (map->map[i][map->width - 1] != '1'
+			&& map->map[i][map->width - 1] != ' '))
+			return (false);
 		i++;
 	}
-	if (no_void_around(data, "0NSEW"))
-		return (1);
-	return (0);
+	if (no_void_around(map, "0NSEW"))
+		return (false);
+	return (true);
 }

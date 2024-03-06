@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 03:34:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 22:25:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static	bool	is_char_valid(t_data *data)
 		x = 0;
 		while (data->scene->map->map[y][x])
 		{
-			if (!char_is_in_set(data->scene->map->map[y][x], "01NSEW "))
+			if (!is_char_in_set(data->scene->map->map[y][x], "01NSEW "))
 				return (false);
-			else if (char_is_in_set(data->scene->map->map[y][x], "NSEW"))  //get_player_pos
+			else if (is_char_in_set(data->scene->map->map[y][x], "NSEW"))  //get_player_pos
 			{
 				pos++;
 				data->game->player_pos_x = (double)x + 0.5;
@@ -36,7 +36,7 @@ static	bool	is_char_valid(t_data *data)
 		}
 		y++;
 	}
-	if (pos != 1)
+	if (pos != 1) //return (data->error->error_g |= ERROR_START, 1);
 		return (false);
 	return (true);
 }
@@ -49,8 +49,6 @@ bool	parse_map(t_data *data)
 	data->game = &game;
 	if (!is_char_valid(data))
 		return (data->error->error_g |= ERROR_CHAR, 1);
-//	if (one_start_pos(data))
-//		return (data->error->error_g |= ERROR_START, 1);
 	if (closed_by_wall(data))
 		return (data->error->error_g |= ERROR_WALL, 1);
 	return (0);
