@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 03:02:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:13:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@
 # define BUFFER_SIZE 100
 
 /*Length of the desired scene*/ 
-# define INFOS_LEN 6
+# define INFOS_LEN	6
 
 /*Number of textures*/
-# define NB_IMAGES 4
+# define NB_IMAGES	4
 
 /*Format Rgb*/
-# define FLOOR 4
-# define CEILING 5
+# define RGB 		3
+# define FLOOR		4
+# define CEILING 	5
 # define FORMAT_MIN 5
 # define FORMAT_MAX 11
 
@@ -69,8 +70,8 @@
 # define KEY_SHIFT	65505
 
 /*Speed*/
-# define MOVESPEED 0.05
-# define ROTSPEED 0.02
+# define MOVESPEED	0.05
+# define ROTSPEED	0.02
 
 //**********************************************//
 //					STRUCTURES					//
@@ -116,15 +117,15 @@ typedef struct s_rgb
 {
 	uint8_t	commas;
     uint8_t	digit_row;
-	uint8_t	rgb_floor[3];
-	uint8_t	rgb_ceiling[3];
+	uint8_t	rgb_floor[RGB];
+	uint8_t	rgb_ceiling[RGB];
 }			t_rgb;
 
 typedef struct s_map
 {
 	char	**map;
-	int		map_height;
-	int		map_width;
+	int		height;
+	int		width;
 }			t_map;
 
 typedef struct s_infos
