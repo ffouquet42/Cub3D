@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 02:03:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:32:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ bool	parse_map(t_data *data)
 	
 	map = (t_map){0};
 	data->scene->map = &map;
-	
 	if (get_map(data->scene))
 		return (data->error->error_g |= ERROR_MAP, EXIT_FAILURE); 
 	if (!are_chars_valid(data->scene->map))

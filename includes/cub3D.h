@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 00:12:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:00:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ bool	parse_images(t_infos *infos);
 
 //---------------   rgb.c   --------------------//
 
-bool 	parse_colors(t_infos *infos);
+bool 	parse_rgb(t_infos *infos);
 
 //---------------   map.c   --------------//
 
