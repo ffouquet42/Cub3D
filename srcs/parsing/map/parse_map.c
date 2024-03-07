@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 01:56:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 02:03:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static	bool	are_chars_valid(t_map *map)
 		{
 			if (!is_char_in_set(map->map[y][x], "01NSEW "))
 				return (false);
-			else if (is_char_in_set(map->map[y][x], "NSEW"))  //get_player_pos utils
+			else if (is_char_in_set(map->map[y][x], "NSEW"))  //get_player_pos utils, 
 			{
 				pos++;
 				map->p_pos_x = (double)x + 0.5;
@@ -73,7 +73,7 @@ bool	parse_map(t_data *data)
 	
 	if (get_map(data->scene))
 		return (data->error->error_g |= ERROR_MAP, EXIT_FAILURE); 
-	if (!is_char_valid(data->scene->map))
+	if (!are_chars_valid(data->scene->map))
 		return (data->error->error_g |= ERROR_CHAR, EXIT_FAILURE);
 	if (is_closed_by_wall(data))
 		return (data->error->error_g |= ERROR_WALL, EXIT_FAILURE);
