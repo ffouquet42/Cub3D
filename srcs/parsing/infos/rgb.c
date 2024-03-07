@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 20:10:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:40:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool are_rgb_valid(char *rgb)
     i = 0;
 	while (rgb[++i])
 	{
-		if (!is_digit(rgb[i]) && rgb[i] != "," && rgb[i] != "\n")
+		if (!is_digit(rgb[i]) && rgb[i] != ',' && rgb[i] != '\n')
 			return (false);
 		j = 0;
 		while (is_digit(rgb[i]))
@@ -63,9 +63,9 @@ bool 	parse_rgb(t_infos *infos)
 	
 	if (!are_rgb_valid(infos->infos[FLOOR]))
 		return(EXIT_FAILURE);
-	cpy_rgb(rgb.rgb_floor, infos->infos[FLOOR]);
+	// cpy_rgb(rgb.rgb_floor, infos->infos[FLOOR]);
     if (!are_rgb_valid(infos->infos[CEILING]))
 		return(EXIT_FAILURE);
-	cpy_rgb(rgb.rgb_ceiling, infos->infos[CEILING]);
+	// cpy_rgb(rgb.rgb_ceiling, infos->infos[CEILING]);
 	return(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 20:00:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:45:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,14 +172,18 @@ int		main(int argc, char **argv);
 
 bool	parsing(int argc, char **argv, t_data *data);
 
+//---------------   parse_arg.c   ------------------//
+
+bool	parse_arg(int argc, char **argv, t_data *data);
+
 //---------------   scene.c   ------------------//
 
 bool	parse_scene(char **scene_path, t_data *data);
-void	clean_nl_scene(t_data *data);
+// void	clean_nl_scene(t_data *data);
 
 //---------------   infos.c   ------------------//
 
-bool	get_infos(t_data *data);
+bool	get_infos(t_scene *scene);
 
 //---------------   parse_infos.c   --------------//
 
@@ -193,20 +197,13 @@ bool	parse_images(t_infos *infos);
 
 bool 	parse_rgb(t_infos *infos);
 
-//---------------   map.c   --------------//
-
-bool	get_map(t_data *data);
-
 //---------------   parse_map.c   --------------//
 
 bool	parse_map(t_data *data);
-bool	char_is_in_set(char c, char *set);
 
 //---------------   wall.c   -------------------//
 
-bool	closed_by_wall(t_data *data);
-bool	no_void_around(t_data *data, char *charset);
-bool	test_around(char **map, int y, int x, char *charset);
+bool	is_closed_by_wall(t_map *map);
 
 //**********************************************//
 //					INIT						//
@@ -218,7 +215,6 @@ bool	init_data(t_data *data);
 bool	init_images(t_data *data);
 bool	init_image(t_data *data, int i);
 
-void	get_player_pos(t_data *data);
 void	set_first_orientation(t_data *data, char c);
 void	set_first_orientation_two(t_data *data, char c);
 
@@ -243,22 +239,6 @@ void	rotate_left(t_data *data);
 void	rotate_right(t_data *data);
 void	get_rotate_speed(t_data *data);
 
-//---------------	raycasting.c ----------//
-
-void	raycast(t_data *data);
-void	cast_img_addr(t_data *data);
-void	set_dist(t_data *data);
-void	set_camera(t_data *data, int x);
-void	check_hit(t_data *data);
-void	check_hit_2(t_data *data);
-
-//---------------	draw.c ----------//
-
-void	draw_textures(t_data *data, int x);
-void	pick_texture(t_data *data);
-void	set_textures_variables(t_data *data, int x);
-void	set_textures_variables_2(t_data *data);
-
 //**********************************************//
 //					UTILS						//
 //**********************************************//
@@ -266,7 +246,6 @@ void	set_textures_variables_2(t_data *data);
 //---------------	libft.c			  ----------//
 
 size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t nmemb, size_t size);
 void 	ft_swap(t_infos *infos, uint8_t index);
 int		ft_atoi(const char *str);
 
@@ -285,15 +264,9 @@ bool	is_line_empty(char *str);
 bool	is_path_xpm(char *path);
 bool	is_digit(char c);
 
-//---------------   infos_utils.c   -------------------//
+//---------------   map_utils.c   -------------------//
 
 bool	is_char_in_set(char c, char *set);
-
-//---------------	draw_utils.c ----------//
-
-void	ft_mlx_pixel_put(t_image *img, int x, int y, int color);
-int		get_rgb(int *color);
-int		get_color(t_data *data, int x, int y, int image);
 
 //---------------   free.c   -------------------//
 

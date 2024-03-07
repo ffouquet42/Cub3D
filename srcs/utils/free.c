@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/02/29 12:54:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:41:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,59 +15,48 @@
 int	quit_loop(t_data *data)
 {
 	mlx_loop_end(data->mlx);
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
-static	void	free_map(t_data *data)
+static	void	free_tab(char **tab) 
 {
 	int	i;
 
 	i = 0;
-	while (data->map[i])
-		free(data->map[i++]);
-	free(data->map);
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }
 
-static	void	free_scene(t_data *data)
-{
-	int	i;
+// static	void	free_mlx(t_data *data)
+// {
+// 	uint8_t	i;
 
-	i = 0;
-	if (data->scene)
-	{
-		while (data->scene[i])
-			free(data->scene[i++]);
-		free(data->scene);
-	}
-}
-
-static	void	free_mlx(t_data *data)
-{
-	uint8_t	i;
-
-	i = 0;
-	if (data->win)
-		mlx_destroy_window(data->mlx, data->win);
-	while (i < 4)
-	{
-		if (data->images[i].mlx_img)
-			mlx_destroy_image(data->mlx, data->images[i].mlx_img);
-		i++;
-	}
-	if (data->mlx)
-		mlx_destroy_display(data->mlx);
-	if (data->mlx)
-		free(data->mlx);
-}
+// 	i = 0;
+// 	if (data->win)
+// 		mlx_destroy_window(data->mlx, data->win);
+// 	while (i < 4)
+// 	{
+// 		if (data->images[i].mlx_img)
+// 			mlx_destroy_image(data->mlx, data->images[i].mlx_img);
+// 		i++;
+// 	}
+// 	if (data->mlx)
+// 		mlx_destroy_display(data->mlx);
+// 	if (data->mlx)
+// 		free(data->mlx);
+// }
 
 void	free_all(t_data *data)
 {
-	if (data->scene)
-		free_scene(data);
-	if (data->infos)
-		free(data->infos);
-	if (data->map)
-		free_map(data);
-	free_mlx(data);
-	exit(0);
+	if (data->scene->scene)
+		free_tab(data->scene->scene);
+	// if (data->scene->infos->infos)
+	// 	free_tab(data->scene->infos->infos);
+	// if (data->scene->map->map)
+	// 	free_tab(data->scene->map->map);
+	// // free_mlx(data);
+	// if (data)
+	// 	free(data);
+	exit(EXIT_SUCCESS);
 }

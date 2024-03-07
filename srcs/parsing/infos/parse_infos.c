@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 20:08:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:36:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	parse_infos(t_data *data)
 	infos = (t_infos){0};
 	data->scene->infos = &infos;
 
-	if (get_infos(data))
+	if (get_infos(data->scene))
 		return(data->error->error_g |= ERROR_SORT_S, EXIT_FAILURE); // bad error
 	if (!are_identifers_valid(data->scene->infos))
 		return(data->error->error_g |= ERROR_SORT_S, EXIT_FAILURE);

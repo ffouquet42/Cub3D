@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/04 02:53:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:52:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,9 @@ void print_map(char **map)
 {
 	printf("%s", "map:\n");
 	int i = 0;
-	int j = 0;
 	while(map[i])
 	{
-		j = 0;
-		while(map[i][j])
-		{
-			printf("%c", map[i][j]);
-			j++;
-		}
+		printf("%s%i%s", "ligne", i, map[i]);
 		i++;
 	}
 	printf("%s", "\n");
@@ -39,6 +33,7 @@ int	main(int argc, char **argv)
 	error = (t_error){0};
 	data.error = &error;
 	write(1, "Loading...",10);
+	//init_struct
 	if (parsing(argc, argv, &data))
 		return (msg_error(data.error), free_all(&data), EXIT_FAILURE);
 	// if (game_management(&data))

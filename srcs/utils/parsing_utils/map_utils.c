@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:15:46 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/06 20:22:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:33:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ bool	is_char_in_set(char c, char *set) // rename
 	while (set[i])
 	{
 		if (c == set[i])
-			return (1);
+			return (true);
 		i++;
 	}
-	return (0);
+	return (false);
 }

@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:22:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/04 22:45:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:50:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 int	ft_atoi(const char *str)
 {

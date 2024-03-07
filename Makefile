@@ -5,23 +5,18 @@ MLX			=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 NAME		=	cub3D
 
 SRCS		=	srcs/main.c								\
-				srcs/init/init_data.c					\
-				srcs/init/init_game.c					\
 				srcs/parsing/parsing.c					\
+				srcs/parsing/arg/parse_arg.c			\
 				srcs/parsing/scene/scene.c				\
 				srcs/parsing/infos/infos.c				\
 				srcs/parsing/infos/parse_infos.c		\
 				srcs/parsing/infos/image.c				\
 				srcs/parsing/infos/rgb.c				\
-				srcs/parsing/map/map.c					\
 				srcs/parsing/map/parse_map.c			\
 				srcs/parsing/map/wall.c					\
 				srcs/exec/game_management.c				\
 				srcs/exec/move.c						\
 				srcs/exec/rotate.c						\
-				srcs/exec/raycasting.c					\
-				srcs/exec/check_hit.c					\
-				srcs/exec/draw/draw.c					\
 				srcs/utils/parsing_utils/libft.c		\
 				srcs/utils/parsing_utils/lib_memory.c	\
 				srcs/utils/parsing_utils/get_next_line.c\
@@ -29,7 +24,6 @@ SRCS		=	srcs/main.c								\
 				srcs/utils/parsing_utils/scene_utils.c	\
 				srcs/utils/parsing_utils/infos_utils.c	\
 				srcs/utils/parsing_utils/map_utils.c	\
-				srcs/utils/exec_utils/draw_utils.c		\
 				srcs/utils/free.c						\
 
 OBJS		=	$(SRCS:.c=.o)

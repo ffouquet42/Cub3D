@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 20:12:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:24:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ bool		parse_scene(char **scene_path, t_data *data)
 		return (data->error->error_g |= ERROR_MALLOC, EXIT_FAILURE);
 	fd = open(scene_path[1], O_RDONLY);
 	if (fd < FD_MIN || fd > FD_MAX)
-		return (data->error->error_g |= ERROR_FILE, close (fd), EXIT_FAILURE); // verif close
+		return (data->error->error_g |= ERROR_FILE, EXIT_FAILURE);
 	if (get_scene(fd, data))
 		return (EXIT_FAILURE);
-	// clean_nl_scene(data); 
+	// clean_nl_scene(data);
 	return (close(fd), EXIT_SUCCESS);
 }

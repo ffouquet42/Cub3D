@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 19:32:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:46:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static	bool	get_map(t_scene *scene)
 	scene->map->map = malloc(sizeof(char *) * (scene->height - 5)); //-INFOS_LEN + 1
 	if (!scene->map)
 		return (EXIT_FAILURE);
-	while (scene->scene[i] && scene->scene[i] != '\n')
+	while (scene->scene[i])
 	{
 		len = ft_strlen(scene->scene[i]);
 		if (len > scene->map->width)
@@ -74,7 +74,7 @@ bool	parse_map(t_data *data)
 		return (data->error->error_g |= ERROR_MAP, EXIT_FAILURE); 
 	if (!are_chars_valid(data->scene->map))
 		return (data->error->error_g |= ERROR_CHAR, EXIT_FAILURE);
-	if (is_closed_by_wall(data))
-		return (data->error->error_g |= ERROR_WALL, EXIT_FAILURE);
+	// if (is_closed_by_wall(&map))
+	// 	return (data->error->error_g |= ERROR_WALL, EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
