@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 22:55:21 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:57:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool	is_void_around(t_map *map, char *charset)
 	return (0);
 }
 
-bool	is_closed_by_wall(t_map *map)
+bool	is_closed_by_wall(t_map *map) // one main fct 
 {
 	int		i;
 

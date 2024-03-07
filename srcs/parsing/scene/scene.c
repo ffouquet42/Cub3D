@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/06 21:51:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:44:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ bool		parse_scene(char **scene_path, t_data *data)
 	scene.height = scene_len(scene_path[1], data);
 	if (scene.height < 9)
 		return (data->error->error_g |= ERROR_EMPTY_S, EXIT_FAILURE);
-	fd = open(scene_path[1], O_RDONLY);
-	if (fd < FD_MIN || fd > FD_MAX)
-		return (data->error->error_g |= ERROR_FILE, close (fd), EXIT_FAILURE); // verif close
 	scene.scene = malloc(sizeof(char *) * (scene.height + 1));
 	if (!scene.scene)
 		return (data->error->error_g |= ERROR_MALLOC, close(fd), EXIT_FAILURE);
+	fd = open(scene_path[1], O_RDONLY);
+	if (fd < FD_MIN || fd > FD_MAX)
+		return (data->error->error_g |= ERROR_FILE, close (fd), EXIT_FAILURE); // verif close
 	if (get_scene(fd, data))
 		return (EXIT_FAILURE);
 	// clean_nl_scene(data); 
-	return (close(fd), 0);
+	return (close(fd), EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:49:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/04 03:55:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:59:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	game_loop(t_data *data)
 {
 	move(data);
 	raycast(data);
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	key_release(int keycode, t_data *data)
@@ -35,7 +35,7 @@ int	key_release(int keycode, t_data *data)
 		data->key->key_left = false;
 	if (keycode == KEY_SHIFT)
 		data->run = false;
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	key_press(int keycode, t_data *data)
@@ -56,25 +56,24 @@ int	key_press(int keycode, t_data *data)
 		data->key->key_left = true;
 	if (keycode == KEY_SHIFT)
 		data->run = true;
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 bool	game_management(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (data->error->error_g |= ERROR_INIT_MLX, 1);
+		return (data->error->error_g |= ERROR_INIT_MLX, EXIT_FAILURE);
 	if (init_data(data))
-		return (1);
+		return (EXIT_FAILURE);
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)
-		return (data->error->error_g |= ERROR_MLX_WIN, 1);
-	get_player_pos(data); //recode with fct in parsing
+		return (data->error->error_g |= ERROR_MLX_WIN, EXIT_FAILURE);
 	// mlx_hook(data->win, KeyPress, KeyPressMask, key_press, data);
 	// mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release, data);
 	// mlx_loop_hook(data->mlx, game_loop, data);
 	// mlx_hook(data->win, 17, 0, (void *)free_all, data);
 	// mlx_loop(data->mlx);
 	// free_all(data);
-	return (0);
+	return (EXIT_SUCCESS);
 }
