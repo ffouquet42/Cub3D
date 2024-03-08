@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 15:05:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:34:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,18 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_error	error;
 	t_scene	scene;
+	t_infos infos;
+	t_map 	map;
 	
 	data = (t_data){0};
 	error = (t_error){0};
 	data.error = &error;
 	scene = (t_scene){0};
 	data.scene = &scene;
-
+	infos = (t_infos){0};
+	data.scene->infos = &infos;
+	map = (t_map){0};
+	data.scene->map = &map;
 	write(1, "Loading...\n", 11);
 	if (parsing(argc, argv, &data))
 		return (msg_error(data.error), free_all(&data), EXIT_FAILURE);

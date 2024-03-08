@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 12:27:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:46:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ static	bool	are_chars_valid(t_map *map)
 	int	pos;
 
 	y = 0;
+	pos = 0;
 	while (map->map[y])
 	{
 		x = 0;
 		while (map->map[y][x])
 		{
-			if (!is_char_in_set(map->map[y][x], "01NSEW "))
+			if (!is_char_in_set(map->map[y][x], "01NSEW \n"))
 				return (false);
 			else if (is_char_in_set(map->map[y][x], "NSEW"))  //get_player_pos utils, 
 			{
@@ -36,9 +37,7 @@ static	bool	are_chars_valid(t_map *map)
 		}
 		y++;
 	}
-	if (pos != 1)
-		return (false);
-	return (true);
+	return (pos == 1);
 }
 
 static	bool	get_map(t_scene *scene)
@@ -67,7 +66,7 @@ static	bool	get_map(t_scene *scene)
 bool	parse_map(t_data *data)
 {
 	if (get_map(data->scene))
-		return (data->error->error_g |= ERROR_MAP, EXIT_FAILURE); 
+		return (data->error->error_g |= ERROR_MAP, EXIT_FAILURE);
 	if (!are_chars_valid(data->scene->map))
 		return (data->error->error_g |= ERROR_CHAR, EXIT_FAILURE);
 	// if (is_closed_by_wall(&map))
