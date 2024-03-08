@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 15:22:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:51:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	parse_infos(t_data *data)
 		return(data->error->error_g |= ERROR_SORT_S, EXIT_FAILURE);
 	if (parse_images(data->scene->infos))
 		return(data->error->error_g |= ERROR_XPM, EXIT_FAILURE);
-	// if (parse_rgb(data->scene->infos))
-	// 	return(data->error->error_g |= ERROR_RGB, EXIT_FAILURE);
+	if (parse_rgb(data->scene->infos))
+		return(data->error->error_g |= ERROR_RGB, EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

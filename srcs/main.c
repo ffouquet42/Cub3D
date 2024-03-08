@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 15:34:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:04:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(int argc, char **argv)
 	t_scene	scene;
 	t_infos infos;
 	t_map 	map;
-	
+	t_rgb	rgb;
+	//fct init_struct
 	data = (t_data){0};
 	error = (t_error){0};
 	data.error = &error;
@@ -41,6 +42,8 @@ int	main(int argc, char **argv)
 	data.scene->infos = &infos;
 	map = (t_map){0};
 	data.scene->map = &map;
+	rgb = (t_rgb){0};
+	data.scene->infos->rgb = &rgb;
 	write(1, "Loading...\n", 11);
 	if (parsing(argc, argv, &data))
 		return (msg_error(data.error), free_all(&data), EXIT_FAILURE);
