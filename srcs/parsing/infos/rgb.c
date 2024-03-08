@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 20:40:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:27:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 // 	}
 // }
 
-static bool are_rgb_valid(char *rgb)
+static bool are_rgb_valid(char *rgb) //to test 
 {
     uint8_t i;
 	uint8_t j;
@@ -56,11 +56,6 @@ static bool are_rgb_valid(char *rgb)
 
 bool 	parse_rgb(t_infos *infos)
 {
-    t_rgb	rgb;
-    
-    rgb = (t_rgb){0};
-	infos->rgb = &rgb;
-	
 	if (!are_rgb_valid(infos->infos[FLOOR]))
 		return(EXIT_FAILURE);
 	// cpy_rgb(rgb.rgb_floor, infos->infos[FLOOR]);

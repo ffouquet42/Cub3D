@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:49:44 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 21:06:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:25:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,4 @@
 // 		return (data->error->error_g |= ERROR_INIT_IMG, 1);
 // 	return (0);
 // }
+

@@ -15,8 +15,8 @@ SRCS		=	srcs/main.c								\
 				srcs/parsing/map/parse_map.c			\
 				srcs/parsing/map/wall.c					\
 				srcs/exec/game_management.c				\
-				srcs/exec/move.c						\
-				srcs/exec/rotate.c						\
+				srcs/exec/move/move.c					\
+				srcs/exec/move/rotate.c					\
 				srcs/utils/parsing_utils/libft.c		\
 				srcs/utils/parsing_utils/lib_memory.c	\
 				srcs/utils/parsing_utils/get_next_line.c\

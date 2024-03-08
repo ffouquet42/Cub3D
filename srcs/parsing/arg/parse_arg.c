@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 00:44:14 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/08 00:44:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:27:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ bool	parse_arg(int argc, char **argv, t_data *data)
 		fd = open(argv[1], O_RDONLY);
 		if (fd < FD_MIN || fd > FD_MAX) 
 			data->error->error_g |= ERROR_FILE;
+		else 
+			close(fd);
 		if (!is_cub(argv[1]))
 			data->error->error_g |= ERROR_CUB;
-		close(fd);
 	}
 	if (data->error->error_g)
 		return (EXIT_FAILURE);
