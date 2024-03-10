@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 16:11:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:24:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 static bool are_rgb_valid(char *rgb) //to test 
 {
     uint8_t i;
+	uint8_t j;
     int 	len;
-	char 	*tmp;
 	
     len = ft_strlen(rgb) - 1;
     if (len < FORMAT_MIN || len > FORMAT_MAX)
@@ -41,12 +41,13 @@ static bool are_rgb_valid(char *rgb) //to test
     i = 0;
 	while (rgb[++i])
 	{
+		j = 0;
 		if (!is_digit(rgb[i]) && rgb[i] != ',' && rgb[i] != '\n')
 			return (false);
-		while (is_digit(rgb[i]))
-			i++;
-		tmp = &rgb[i];
-		if (ft_atoi(tmp) < 0 || ft_atoi(tmp) > 255 || i == 1) //==2
+		while (is_digit(rgb[i++]))
+			j++;
+		printf("line[%i] = [%d]", i, rgb[i]);
+		if (j > 3)
 			return (false);
 	}
     return (true);
