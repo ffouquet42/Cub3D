@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/06 02:15:52 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:21:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	void	ft_putstr(char *str, int fd)
+static inline	void	ft_putstr(char *str, int fd)
 {
 	if (fd < 0)
 		return ;
@@ -20,7 +20,7 @@ static	void	ft_putstr(char *str, int fd)
 		write(fd, str++, 1);
 }
 
-void	parsing_msg_error_2(t_error *error)
+static inline	void	parsing_msg_error_2(t_error *error)
 {
 	if (error->error_g & ERROR_RGB)
 		ft_putstr(E_RGB, 2);
@@ -34,7 +34,7 @@ void	parsing_msg_error_2(t_error *error)
 		ft_putstr(E_GET_P_POS, 2);
 }
 
-static void	general_error(t_error *error)
+static inline	void	general_error(t_error *error)
 {
 	if (error->error_g & ERROR_FILE)
 		ft_putstr(E_PARS_FILE, 2);
@@ -42,7 +42,7 @@ static void	general_error(t_error *error)
 		ft_putstr(E_MALLOC_FAIL, 2);
 }
 
-static void	arg_error(t_error *error)
+static inline	void	arg_error(t_error *error)
 {
 	// ft_putstr("Argument or file error(s):\n", 2);
 	if (error->error_g & ERROR_ARG)
@@ -51,7 +51,7 @@ static void	arg_error(t_error *error)
 		ft_putstr(E_PARS_CUB, 2);
 }
 
-void	msg_error(t_error *error)
+inline	void	msg_error(t_error *error)
 {
 	ft_putstr("ERROR\n", 2);
 	
