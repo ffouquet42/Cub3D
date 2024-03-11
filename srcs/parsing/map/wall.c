@@ -6,11 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:36:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 20:46:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:08:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../../../includes/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 // bool	test_around(char **map, int y, int x, char *charset)
 // {

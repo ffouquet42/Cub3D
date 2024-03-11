@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 20:03:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:05:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static inline	bool are_rgb_valid(char *rgb, uint8_t tab[RGB])
 
 bool 	parse_rgb(t_infos *infos)
 {
-	if (!are_rgb_valid(infos->infos[FLOOR], infos->rgb->rgb_floor))
+	if (!are_rgb_valid(infos->infos[FLOOR], infos->rgb->rgb_floor)) // to muck value in the rgb_floor
 		return(EXIT_FAILURE);
     if (!are_rgb_valid(infos->infos[CEILING], infos->rgb->rgb_ceiling))
 		return(EXIT_FAILURE);
