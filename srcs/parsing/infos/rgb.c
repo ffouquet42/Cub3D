@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 18:01:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:16:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static bool are_rgb_valid(char *rgb, uint8_t tab[RGB])
+static inline	bool are_rgb_valid(char *rgb, uint8_t tab[RGB])
 {
     uint8_t i;
 	uint8_t j;

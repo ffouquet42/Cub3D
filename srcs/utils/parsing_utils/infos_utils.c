@@ -6,18 +6,18 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:26:54 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/06 02:15:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:59:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-bool	is_digit(char c)
+inline	bool is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-bool	is_path_xpm(char *path)
+inline	bool	is_path_xpm(char *path)
 {
 	int	i;
 

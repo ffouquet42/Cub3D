@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/11 18:48:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:18:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static	inline void	get_clean_infos(t_scene *scene)
 	scene->infos->infos[i] = NULL;
 }
 
-bool	get_infos(t_scene *scene) // in parse info
+bool	get_infos(t_scene *scene)
 {
 	scene->infos->infos = malloc(sizeof(char *) * (7));
 	if (!scene->infos->infos)

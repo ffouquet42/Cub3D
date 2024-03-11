@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:53:22 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 18:49:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:18:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ bool	parsing(int argc, char **argv, t_data *data)
 		return (EXIT_FAILURE);
 	if (parse_scene(argv, data))
 		return (EXIT_FAILURE);
-	print_map(data->scene->scene);
+	// print_map(data->scene->scene);
 	if (parse_infos(data))
 		return (EXIT_FAILURE);
-	print_map(data->scene->infos->infos);
+	// print_map(data->scene->infos->infos);
 	if (parse_map(data))
 		return (EXIT_FAILURE);
-	print_map(data->scene->map->map);
+	// print_map(data->scene->map->map);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 15:36:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:02:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static	void	free_tab(char **tab)
 // 		free(data->mlx);
 // }
 
-void	free_all(t_data *data)
+inline	void	free_all(t_data *data)
 {
 	if (data->scene->scene)
 		free_tab(data->scene->scene);

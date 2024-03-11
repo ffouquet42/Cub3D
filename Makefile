@@ -18,7 +18,6 @@ SRCS		=	srcs/main.c								\
 				srcs/exec/move/move.c					\
 				srcs/exec/move/rotate.c					\
 				srcs/utils/parsing_utils/libft.c		\
-				srcs/utils/parsing_utils/lib_memory.c	\
 				srcs/utils/parsing_utils/get_next_line.c\
 				srcs/utils/parsing_utils/print.c		\
 				srcs/utils/parsing_utils/scene_utils.c	\
