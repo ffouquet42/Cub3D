@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 16:04:33 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:08:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void print_map(char **map)
 	int i = 0;
 	while(map[i])
 	{
-		printf("%s%i%s", "ligne", i, map[i]);
+		printf("line[%i] = %s", i,  map[i]);
 		i++;
 	}
-	printf("%s", "\n");
 }
 
 int	main(int argc, char **argv)
