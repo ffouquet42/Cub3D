@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/11 18:06:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:48:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	void	sort_infos(t_infos *infos)
+static	inline	void	sort_infos(t_infos *infos)
 {
 	uint8_t i; 
 	 
@@ -36,7 +36,7 @@ static	void	sort_infos(t_infos *infos)
 	infos->infos[6] = NULL;
 }
 
-static	void	get_clean_infos(t_scene *scene)
+static	inline void	get_clean_infos(t_scene *scene)
 {
 	char	*tmp;
 	int		i;

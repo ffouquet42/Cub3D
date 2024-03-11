@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 15:46:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:51:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	bool	are_chars_valid(t_map *map)
+static	inline	bool	are_chars_valid(t_map *map)
 {
 	int	y;
 	int	x;
@@ -40,7 +40,7 @@ static	bool	are_chars_valid(t_map *map)
 	return (pos == 1);
 }
 
-static	bool	get_map(t_scene *scene)
+static	inline	bool	get_map(t_scene *scene)
 {
 	int 	i;
 	int 	y;

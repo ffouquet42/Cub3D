@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 00:44:14 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/08 14:27:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:50:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	bool	is_cub(char *argv) 
+static	inline	bool	is_cub(char *argv) 
 {
 	uint16_t	len;
 

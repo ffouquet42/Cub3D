@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 16:09:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:55:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	bool	are_identifers_valid(t_infos *infos)
+static	inline	bool	are_identifers_valid(t_infos *infos)
 {		
 	return ((infos->infos[0][0] == 'N' && infos->infos[0][1] == 'O')
 		&& (infos->infos[1][0] == 'S' && infos->infos[1][1] == 'O')
