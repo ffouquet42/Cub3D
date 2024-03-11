@@ -8,7 +8,7 @@ SRCS		=	srcs/main.c								\
 				srcs/parsing/parsing.c					\
 				srcs/parsing/arg/parse_arg.c			\
 				srcs/parsing/scene/scene.c				\
-				srcs/parsing/infos/infos.c				\
+				srcs/parsing/infos/get_infos.c			\
 				srcs/parsing/infos/parse_infos.c		\
 				srcs/parsing/infos/image.c				\
 				srcs/parsing/infos/rgb.c				\

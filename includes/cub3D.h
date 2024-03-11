@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 13:46:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:12:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,6 @@ typedef struct s_image
 
 typedef struct s_rgb
 {
-	uint8_t	commas;
-    uint8_t	digit_row;
 	uint8_t	rgb_floor[RGB];
 	uint8_t	rgb_ceiling[RGB];
 }			t_rgb;

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/08 15:05:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:27:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 // 	int			j;
 
 // 	i = 0;
-// 	while (data->infos[i])
+// 	while (data->scene->infos->infos[i])
 // 	{
 // 		j = 0;
-// 		while (data->infos[i][j])
+// 		while (data->scene->infos->infos[i][j])
 // 		{
-// 			if (data->infos[i][j] == '\n' || data->infos[i][j] == '\r')
-// 				data->infos[i][j] = '\0';
+// 			if (data->scene->infos->infos[i][j] == '\n' || data->scene->infos->infos[i][j] == '\r')
+// 				data->scene->infos->infos[i][j] = '\0';
 // 			j++;
 // 		}
 // 		i++;
 // 	}
 // }
 
-static	bool	get_scene(int fd, t_data *data)
+static	inline bool	get_scene(int fd, t_data *data)
 {
 	char	*line;
 	int		i;
@@ -75,5 +75,6 @@ bool		parse_scene(char **scene_path, t_data *data)
 		return (data->error->error_g |= ERROR_FILE, EXIT_FAILURE);
 	if (get_scene(fd, data))
 		return (EXIT_FAILURE);
+	// clean_nl_scene(data);
 	return (close(fd), EXIT_SUCCESS);
 }
