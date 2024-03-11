@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 18:12:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:24:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,6 @@ int		ft_atoi(const char *str);
 //---------------	print.c			 ----------//
 
 void	msg_error(t_error *error);
-void	parsing_msg_error_2(t_error *error);
 
 //---------------	scene_utils.c ----------//
 

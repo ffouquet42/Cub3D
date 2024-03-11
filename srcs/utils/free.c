@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:17:06 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 19:02:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:33:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	quit_loop(t_data *data)
 	return (EXIT_SUCCESS);
 }
 
-static	void	free_tab(char **tab) 
+static	inline	void	free_tab(char **tab) 
 {
 	int	i;
 

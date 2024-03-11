@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 18:51:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:38:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static	inline	bool	are_chars_valid(t_map *map)
 			{
 				pos++;
 				map->p_pos_x = (double)x + 0.5;
-				map->p_pos_y = (double)y + 0.5;
+				map->p_pos_y = (double)y + 0.5; // add 0.5 in t_game
 			}
 			x++;
 		}

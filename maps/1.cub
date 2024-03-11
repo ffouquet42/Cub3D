@@ -4,7 +4,7 @@ EA ./textures/we.xpm
 WE ./textures/ea.xpm
 
 F 1,110,152
-C 225,30,0
+C 225,30,4
 
 111111
 101101
