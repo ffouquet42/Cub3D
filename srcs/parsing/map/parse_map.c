@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 19:38:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:39:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static	inline	bool	are_chars_valid(t_map *map)
 
 	y = 0;
 	pos = 0;
-	while (map->map[y])
+	while (map->map[y]) //-1
 	{
 		x = 0;
-		while (map->map[y][x])
+		while (map->map[y][x]) //-1
 		{
 			if (!is_char_in_set(map->map[y][x], "01NSEW \n"))
 				return (false);

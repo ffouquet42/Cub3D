@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/13 22:02:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:34:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static inline	bool is_rgb_valid(char *rgb, uint8_t tab[RGB])
 		i--;
 		if (j == 0 || j > 3 || tmp < 0 || tmp > 255 
 			|| (rgb[i] != ',' && rgb[i] != '\n'))
-			return (false); //error
+			return (false); 
 		else 
 			tab[commas] = tmp;
 		commas++;
