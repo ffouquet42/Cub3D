@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/14 09:21:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:19:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	t_infos infos;
 	t_map 	map;
 	t_rgb	rgb;
-	//fct init_struct
+	
 	data = (t_data){0};
 	error = (t_error){0};
 	data.error = &error;
