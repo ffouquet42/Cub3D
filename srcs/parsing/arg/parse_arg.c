@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 00:44:14 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/11 20:07:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 06:17:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,5 @@ bool	parse_arg(int argc, char **argv, t_data *data)
 		if (!is_cub(argv[1]))
 			data->error->error_g |= ERROR_CUB;
 	}
-	if (data->error->error_g)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	return (data->error->error_g);
 }

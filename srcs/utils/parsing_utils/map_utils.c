@@ -6,20 +6,38 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:15:46 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/11 19:36:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 04:11:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-inline bool	is_char_in_set(char c, char *set) // rename
+inline void get_player_pos(t_map *map, int x, int y)
+{
+	if (is_char_in_set(map->map[y][x], "NSEW"))
+	{
+		map->pos++;
+		map->p_pos_x = (double)x + 0.5;
+		map->p_pos_y = (double)y + 0.5; // 0.5 dans t_game
+	}
+}
+
+inline bool	is_void_around(t_map *map, int x, int y, char *charset) 
+{
+	return (!is_char_in_set(map->map[y - 1][x], charset) 
+		|| !is_char_in_set(map->map[y + 1][x], charset)
+		|| !is_char_in_set(map->map[y][x - 1], charset)
+		|| !is_char_in_set(map->map[y][x + 1], charset));
+}
+
+inline bool	is_char_in_set(char c, char *set)
 {
 	int	i; //uint 
 
-	i = 0;
-	while (set[i])
+	i = -1;
+	while (set[++i])
 	{
-		if (c == set[i++])
+		if (c == set[i])
 			return (true);
 	}
 	return (false);

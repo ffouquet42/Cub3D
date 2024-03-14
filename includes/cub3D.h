@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 19:24:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 04:17:30 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ typedef struct s_rgb
 typedef struct s_map
 {
 	char	**map;
+	int		pos;
 	double	p_pos_x;
 	double	p_pos_y;
 	int		height;
@@ -199,10 +200,6 @@ bool 	parse_rgb(t_infos *infos);
 
 bool	parse_map(t_data *data);
 
-//---------------   wall.c   -------------------//
-
-bool	is_closed_by_wall(t_map *map);
-
 //**********************************************//
 //					INIT						//
 //**********************************************//
@@ -241,11 +238,6 @@ void	get_rotate_speed(t_data *data);
 //					UTILS						//
 //**********************************************//
 
-//---------------   init_struct.c   -------------------//
-
-void	init_struct(t_data *data);
-void	*ft_memset(void *s, int c, size_t n);
-
 //---------------	libft.c			  ----------//
 
 size_t	ft_strlen(const char *str);
@@ -269,6 +261,8 @@ bool	is_digit(char c);
 //---------------   map_utils.c   -------------------//
 
 bool	is_char_in_set(char c, char *set);
+bool	is_void_around(t_map *map, int x, int y, char *charset);
+void 	get_player_pos(t_map *map, int x, int y);
 
 //---------------   free.c   -------------------//
 

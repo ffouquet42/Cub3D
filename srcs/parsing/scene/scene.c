@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/13 22:46:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/13 23:27:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,5 @@ bool		parse_scene(char **scene_path, t_data *data)
 	if (get_scene(fd, data))
 		return (EXIT_FAILURE);
 	// clean_nl_scene(data);
-	printf("last_line[%i]:%s",data->scene->height , data->scene->scene[data->scene->height]);
 	return (close(fd), EXIT_SUCCESS);
 }

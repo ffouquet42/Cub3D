@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/13 22:39:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 06:47:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@ static	inline	bool	are_chars_valid(t_map *map)
 {
 	int	y;
 	int	x;
-	int	pos;
 
-	y = 0;
-	pos = 0;
-	while (map->map[y]) //-1
+	y = -1;
+	while (map->map[++y])
 	{
-		x = 0;
-		while (map->map[y][x]) //-1
+		x = -1;
+		while (map->map[y][++x]) 
 		{
 			if (!is_char_in_set(map->map[y][x], "01NSEW \n"))
 				return (false);
-			else if (is_char_in_set(map->map[y][x], "NSEW"))  //get_player_pos utils, 
+			if (x == 0 || x == map->width - 1 || y == 0 || y == map->height - 1)
 			{
-				pos++;
-				map->p_pos_x = (double)x + 0.5;
-				map->p_pos_y = (double)y + 0.5; // add 0.5 in t_game
+				if (map->map[y][x] != '1' && map->map[y][x] != ' ' 
+						&& map->map[y][x] != '\n')
+					return (false);
 			}
-			x++;
+			if (is_char_in_set(map->map[y][x], "0NSEW"))
+				if (is_void_around(map, x, y, "01NSEW"))
+					return (false);
+			get_player_pos(map, x, y);
 		}
-		y++;
 	}
-	return (pos == 1);
+	return (map->pos == 1);
 }
 
 static	inline	bool	get_map(t_scene *scene)
@@ -55,7 +55,7 @@ static	inline	bool	get_map(t_scene *scene)
 	{
 		len = ft_strlen(scene->scene[i]);
 		if (len > scene->map->width)
-			scene->map->width = len;
+			scene->map->width = len - 1;
 		scene->map->map[y++] = scene->scene[i++];
 	}
 	scene->map->map[y] = NULL;
@@ -69,7 +69,5 @@ bool	parse_map(t_data *data)
 		return (data->error->error_g |= ERROR_MAP, EXIT_FAILURE);
 	if (!are_chars_valid(data->scene->map))
 		return (data->error->error_g |= ERROR_CHAR, EXIT_FAILURE);
-	// if (is_closed_by_wall(&map))
-	// 	return (data->error->error_g |= ERROR_WALL, EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

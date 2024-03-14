@@ -13,7 +13,6 @@ SRCS		=	srcs/main.c								\
 				srcs/parsing/infos/image.c				\
 				srcs/parsing/infos/rgb.c				\
 				srcs/parsing/map/parse_map.c			\
-				srcs/parsing/map/wall.c					\
 				srcs/exec/game_management.c				\
 				srcs/exec/move/move.c					\
 				srcs/exec/move/rotate.c					\
