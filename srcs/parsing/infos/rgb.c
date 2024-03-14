@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/13 22:34:17 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 08:59:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static inline	bool is_rgb_valid(char *rgb, uint8_t tab[RGB])
     return (true);
 }
 
-bool 	parse_rgb(t_infos *infos)
+bool 	parse_rgb(t_scene *scene)
 {
-	if (!is_rgb_valid(infos->infos[FLOOR], infos->rgb->rgb_floor)) // to much value in the rgb_floor
+	if (!is_rgb_valid(scene->scene[FLOOR], scene->infos->rgb->rgb_floor)) // to much value in the rgb_floor
 		return(EXIT_FAILURE);
-    if (!is_rgb_valid(infos->infos[CEILING], infos->rgb->rgb_ceiling))
+    if (!is_rgb_valid(scene->scene[CEILING], scene->infos->rgb->rgb_ceiling))
 		return(EXIT_FAILURE);
 	return(EXIT_SUCCESS);
 }

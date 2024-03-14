@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:22:53 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/11 19:00:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 08:46:18 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ int	ft_atoi(const char *str)
 	return (res * pos);
 }
 
-inline	void ft_swap(t_infos *infos, uint8_t index) 
+inline	void ft_swap(t_scene *scene, uint8_t index) 
 {
-	if (index != infos->sort_index)
+	if (index != scene->infos->sort_index)
 	{
     	char *tmp;
 		
-		tmp = infos->infos[index];
-    	infos->infos[index] = infos->infos[infos->sort_index];
-    	infos->infos[infos->sort_index] = tmp;
-		infos->sort_index = -1;	
+		tmp = scene->scene[index];
+    	scene->scene[index] = scene->scene[scene->infos->sort_index];
+    	scene->scene[scene->infos->sort_index] = tmp;
+		scene->infos->sort_index = -1;	
 	}
 }
 

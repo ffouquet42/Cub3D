@@ -6,15 +6,15 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/11 16:08:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 09:21:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-void print_map(char **map)
+void print_map(char **map, int j)
 {
-	printf("%s", "map:\n");
+	printf("map%i:\n", j);
 	int i = 0;
 	while(map[i])
 	{

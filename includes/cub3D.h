@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/14 04:17:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/14 09:22:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ typedef struct s_rgb
 
 typedef struct s_map
 {
-	char	**map;
 	int		pos;
 	double	p_pos_x;
 	double	p_pos_y;
@@ -134,7 +133,6 @@ typedef struct s_infos
 	t_image		*img;
 	t_image		images[NB_IMAGES];
 	t_rgb		*rgb;
-	char		**infos;
 	uint8_t 	sort_index;
 }			t_infos;
 
@@ -180,21 +178,21 @@ bool	parse_arg(int argc, char **argv, t_data *data);
 bool	parse_scene(char **scene_path, t_data *data);
 // void	clean_nl_scene(t_data *data);
 
-//---------------   infos.c   ------------------//
-
-bool	get_infos(t_scene *scene);
-
 //---------------   parse_infos.c   --------------//
 
 bool	parse_infos(t_data *data);
 
+//---------------   get_infos.c   ------------------//
+
+bool	get_infos(t_scene *scene);
+
 //---------------   image.c   --------------------//
 
-bool	parse_images(t_infos *infos);
+bool	parse_images(t_scene *scene);
 
 //---------------   rgb.c   --------------------//
 
-bool 	parse_rgb(t_infos *infos);
+bool 	parse_rgb(t_scene *scene);
 
 //---------------   parse_map.c   --------------//
 
@@ -241,7 +239,7 @@ void	get_rotate_speed(t_data *data);
 //---------------	libft.c			  ----------//
 
 size_t	ft_strlen(const char *str);
-void 	ft_swap(t_infos *infos, uint8_t index);
+void 	ft_swap(t_scene *scene, uint8_t index); 
 int		ft_atoi(const char *str);
 
 //---------------	print.c			 ----------//
@@ -261,8 +259,8 @@ bool	is_digit(char c);
 //---------------   map_utils.c   -------------------//
 
 bool	is_char_in_set(char c, char *set);
-bool	is_void_around(t_map *map, int x, int y, char *charset);
-void 	get_player_pos(t_map *map, int x, int y);
+bool	is_void_around(t_scene *scene, int x, int y, char *charset);
+void 	get_player_pos(t_scene *scene, int x, int y);
 
 //---------------   free.c   -------------------//
 
@@ -277,6 +275,6 @@ char	*buff_to_stash(char *buff);
 bool	search_newline(const char *buff);
 char	*stash_to_line(char *stash, char *buf);
 
-void print_map(char **map);
+void print_map(char **map,int j);
 
 #endif
