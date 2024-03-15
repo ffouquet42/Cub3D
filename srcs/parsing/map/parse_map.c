@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/14 10:24:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:54:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,16 @@ static	inline	bool	are_chars_valid(t_scene *scene)
 	int	x;
 
 	y = INFOS_LEN - 1;
-	printf("width:%i", scene->map->width);
-	printf("height:%i", scene->map->height);
 	while (scene->scene[++y])
 	{
 		x = -1;
 		while (scene->scene[y][++x]) 
 		{
+			printf("char invalid map[%i][%i]\n", y,x);
 			if (!is_char_in_set(scene->scene[y][x], "01NSEW \n"))
 				return (false);
 			if (x == 0 || x == scene->map->width - 1 || y == INFOS_LEN || y == scene->map->height - 1)
 			{
-				printf("map[%i][%i]:%c\n", y, x, scene->scene[y][x]);
 				if (scene->scene[y][x] != '1' && scene->scene[y][x] != ' ' 
 						&& scene->scene[y][x] != '\n')
 					return (false);
@@ -43,7 +41,7 @@ static	inline	bool	are_chars_valid(t_scene *scene)
 	return (scene->map->pos == 1);
 }
 
-static	inline	void	get_size_map(t_scene *scene)
+static	inline	void	get_size_map(t_scene *scene) // in get_player_pos
 {
 	int 	i;
 	int 	len;

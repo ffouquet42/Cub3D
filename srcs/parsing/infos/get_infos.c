@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/14 08:49:27 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:47:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static	inline void	clean_infos(t_scene *scene)
 		tmp = scene->scene[i];
 		while (tmp[j]) 
 		{
-			if (tmp[j] != ' ')
+			if (tmp[j] != ' ' && tmp[j] != '\t')
 				scene->scene[i][k++] = tmp[j++];
 			else
 				j++;
