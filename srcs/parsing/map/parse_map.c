@@ -6,42 +6,48 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/15 14:54:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:36:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static	inline	bool	are_chars_valid(t_scene *scene)
-{
-	int	y;
-	int	x;
 
-	y = INFOS_LEN - 1;
-	while (scene->scene[++y])
-	{
-		x = -1;
-		while (scene->scene[y][++x]) 
-		{
-			printf("char invalid map[%i][%i]\n", y,x);
-			if (!is_char_in_set(scene->scene[y][x], "01NSEW \n"))
-				return (false);
-			if (x == 0 || x == scene->map->width - 1 || y == INFOS_LEN || y == scene->map->height - 1)
-			{
-				if (scene->scene[y][x] != '1' && scene->scene[y][x] != ' ' 
-						&& scene->scene[y][x] != '\n')
-					return (false);
-			}
-			if (is_char_in_set(scene->scene[y][x], "0NSEW"))
-				if (is_void_around(scene, x, y, "01NSEW"))
-					return (false);
-			get_player_pos(scene, x, y);
-		}
-	}
-	return (scene->map->pos == 1);
+static is_area_well_composed()
+{
+	are_rgbs_valid() // see commit
 }
 
-static	inline	void	get_size_map(t_scene *scene) // in get_player_pos
+
+static inline bool is_closed_area(t_scene *scene)
+{
+	(void)scene;
+	return (true);	
+}
+
+static inline bool	find_valid_area(t_scene *scene)
+{
+	int x;
+	int y;
+
+	y = INFOS_LEN - 1;
+	while(scene->scene[++y])
+	{
+		x = -1;
+		while(scene->scene[y][++x])
+		{
+			if (scene->scene[y][x] == '1')
+			{	
+				x++;
+				// if (is_closed_area(scene))
+				// 	return (EXIT_SUCCESS);
+			}
+		}
+	}
+	return (EXIT_SUCCESS);
+}
+
+static	inline	void	get_size_map(t_scene *scene) 
 {
 	int 	i;
 	int 	len;
@@ -59,7 +65,7 @@ static	inline	void	get_size_map(t_scene *scene) // in get_player_pos
 bool	parse_map(t_data *data)
 {
 	get_size_map(data->scene);
-	if (!are_chars_valid(data->scene))
-		return (data->error->error_g |= ERROR_CHAR, EXIT_FAILURE);
+	if (!find_valid_area(data->scene))
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

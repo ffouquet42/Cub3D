@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 22:45:31 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/11 19:21:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:45:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ static inline	void	general_error(t_error *error)
 
 static inline	void	arg_error(t_error *error)
 {
-	// ft_putstr("Argument or file error(s):\n", 2);
+	// general errrr
+
+	// if (error->error_g & error_gen)
+		// ft_putstr("error gen");
 	if (error->error_g & ERROR_ARG)
 		ft_putstr(E_PARS_ARGS, 2);
 	if (error->error_g & ERROR_CUB)
@@ -53,7 +56,7 @@ static inline	void	arg_error(t_error *error)
 
 inline	void	msg_error(t_error *error)
 {
-	ft_putstr("ERROR\n", 2);
+	ft_putstr("Error\n", 2);
 	
 	arg_error(error);
 	general_error(error);

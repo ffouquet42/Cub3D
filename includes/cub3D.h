@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/14 09:22:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:07:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ typedef struct s_rgb
 typedef struct s_map
 {
 	int		pos;
+	int		one_pos_x;
+	int 	one_pos_y;
 	double	p_pos_x;
 	double	p_pos_y;
 	int		height;

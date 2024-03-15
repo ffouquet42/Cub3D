@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/07 00:46:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:44:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,17 @@ typedef struct s_error
 # define COLOR_RESET   "\x1b[0m"
 # define COLOR_RED     "\x1b[31m"
 
+// General error for msg_error here..
+
 # define ERROR_ARG				(uint8_t)0x1
 # define ERROR_FILE				(uint8_t)0x2  
 # define ERROR_CUB				(uint8_t)0x4
+
 # define ERROR_EMPTY_S			(uint8_t)0x8
 # define ERROR_EMPTY_LINE		(uint8_t)0x10
 # define ERROR_SCENE			(uint8_t)0X20
+
+
 # define ERROR_MAP				(uint8_t)0X40
 # define ERROR_RM_MAP			(uint8_t)0x80
 # define ERROR_SORT_S			(uint16_t)0x100
