@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/15 16:07:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:57:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ bool	get_infos(t_scene *scene);
 
 //---------------   image.c   --------------------//
 
-bool	parse_images(t_scene *scene);
+bool	parse_textures(t_scene *scene);
 
 //---------------   rgb.c   --------------------//
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/15 15:44:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:54:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_error
 // General error for msg_error here..
 
 # define ERROR_ARG				(uint8_t)0x1
-# define ERROR_FILE				(uint8_t)0x2  
+# define ERROR_FILE				(uint8_t)0x2 
 # define ERROR_CUB				(uint8_t)0x4
 
 # define ERROR_EMPTY_S			(uint8_t)0x8

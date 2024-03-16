@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 10:13:34 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/14 08:59:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:27:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static inline	bool is_rgb_valid(char *rgb, uint8_t tab[RGB])
 	commas = 0;
 	while (rgb[++i])
 	{
-		j = 0;
 		if (commas > 2)
 			return (false); 
 		tmp = ft_atoi(&rgb[i]);
+		j = 0;
 		while (is_digit(rgb[i++]))
 			j++;
 		i--;

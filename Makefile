@@ -10,7 +10,7 @@ SRCS		=	srcs/main.c								\
 				srcs/parsing/scene/scene.c				\
 				srcs/parsing/infos/get_infos.c			\
 				srcs/parsing/infos/parse_infos.c		\
-				srcs/parsing/infos/image.c				\
+				srcs/parsing/infos/textures.c			\
 				srcs/parsing/infos/rgb.c				\
 				srcs/parsing/map/parse_map.c			\
 				srcs/exec/game_management.c				\

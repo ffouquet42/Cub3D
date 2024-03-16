@@ -6,11 +6,20 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/15 13:47:46 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:22:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
+
+static	inline	bool	are_identifers_valid(t_scene *scene)
+{		
+	return ((scene->scene[0][0] == 'N' && scene->scene[0][1] == 'O')
+		&& (scene->scene[1][0] == 'S' && scene->scene[1][1] == 'O')
+		&& (scene->scene[2][0] == 'W' && scene->scene[2][1] == 'E')
+		&& (scene->scene[3][0] == 'E' && scene->scene[3][1] == 'A')
+		&& (scene->scene[4][0] == 'F') && (scene->scene[5][0] == 'C')); 
+}
 
 static	inline	void	sort_infos(t_scene *scene)
 {
@@ -42,8 +51,8 @@ static	inline void	clean_infos(t_scene *scene)
 	int		j;
 	int		k;
 
-	i = 0;
-	while (i < INFOS_LEN)
+	i = -1;
+	while (++i < INFOS_LEN)
 	{
 		j = 0;
 		k = 0;
@@ -56,7 +65,6 @@ static	inline void	clean_infos(t_scene *scene)
 				j++;
 		}
 		scene->scene[i][k] = '\0';
-		i++;
 	}
 }
 
@@ -64,5 +72,5 @@ bool	get_infos(t_scene *scene)
 {
 	clean_infos(scene);
 	sort_infos(scene);
-	return (EXIT_SUCCESS);
+	return (are_identifers_valid(scene));
 }

@@ -6,22 +6,19 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/15 16:36:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:09:29 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-
-static is_area_well_composed()
-{
-	are_rgbs_valid() // see commit
-}
-
-
 static inline bool is_closed_area(t_scene *scene)
 {
-	(void)scene;
+	scene[y][x] == 'S';
+	if (scene->scene[y][x + 1] == '1')
+		
+	if (scene->scene[y -1][x +1 ] == '1')
+	
 	return (true);	
 }
 
@@ -37,14 +34,12 @@ static inline bool	find_valid_area(t_scene *scene)
 		while(scene->scene[y][++x])
 		{
 			if (scene->scene[y][x] == '1')
-			{	
-				x++;
-				// if (is_closed_area(scene))
-				// 	return (EXIT_SUCCESS);
-			}
+				if (is_closed_area(scene))
+					return (EXIT_SUCCESS); 
+			//reset map
 		}
 	}
-	return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
 }
 
 static	inline	void	get_size_map(t_scene *scene) 
@@ -67,5 +62,6 @@ bool	parse_map(t_data *data)
 	get_size_map(data->scene);
 	if (!find_valid_area(data->scene))
 		return (EXIT_FAILURE);
+	// are_char_valid 
 	return (EXIT_SUCCESS);
 }
