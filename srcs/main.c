@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:26 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/14 10:19:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 20:23:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void print_map(char **map, int j)
 		printf("line[%i] = %s", i,  map[i]);
 		i++;
 	}
+	printf("\n");
 }
 
 int	main(int argc, char **argv)

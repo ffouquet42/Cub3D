@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/16 15:54:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 19:02:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_error
 # define ERROR_EMPTY_S			(uint8_t)0x8
 # define ERROR_EMPTY_LINE		(uint8_t)0x10
 # define ERROR_SCENE			(uint8_t)0X20
-
 
 # define ERROR_MAP				(uint8_t)0X40
 # define ERROR_RM_MAP			(uint8_t)0x80

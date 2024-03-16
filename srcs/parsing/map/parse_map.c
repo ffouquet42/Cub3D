@@ -6,37 +6,53 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/16 17:09:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/16 20:25:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static inline bool is_closed_area(t_scene *scene)
+static	bool	is_area_closed(t_scene *scene, int x, int y)
 {
-	scene[y][x] == 'S';
-	if (scene->scene[y][x + 1] == '1')
-		
-	if (scene->scene[y -1][x +1 ] == '1')
-	
-	return (true);	
+
+	(void)x;
+	(void)y;
+	if (scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] == 'T')
+		return (true);
+	else if (scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] != '1')
+		return (false);
+	if (!scene->map->f_o)
+	{
+		scene->map->f_o |= 1;
+		scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] = 'T';
+	}
+	else 
+		scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] = 'x';
+	is_area_closed(scene,scene->map->o_pos_x++,scene->map->o_pos_y);
+	is_area_closed(scene,scene->map->o_pos_x,scene->map->o_pos_y--);
+	is_area_closed(scene,scene->map->o_pos_x--,scene->map->o_pos_y);
+	is_area_closed(scene,scene->map->o_pos_x,scene->map->o_pos_y++);
+	return (EXIT_SUCCESS);
 }
 
 static inline bool	find_valid_area(t_scene *scene)
 {
-	int x;
-	int y;
-
-	y = INFOS_LEN - 1;
-	while(scene->scene[++y])
+	scene->map->o_pos_y = INFOS_LEN - 1;
+	while(scene->scene[++scene->map->o_pos_y])
 	{
-		x = -1;
-		while(scene->scene[y][++x])
+		scene->map->o_pos_x = -1;
+		while(scene->scene[scene->map->o_pos_y][++scene->map->o_pos_x])
 		{
-			if (scene->scene[y][x] == '1')
-				if (is_closed_area(scene))
-					return (EXIT_SUCCESS); 
-			//reset map
+			printf("pos y:%i\n",scene->map->o_pos_y );
+			printf("pos x:%i\n",scene->map->o_pos_x );
+			if (is_area_closed(scene,scene->map->o_pos_x,scene->map->o_pos_y))
+				return (EXIT_SUCCESS);
+			printf("pos y:%i\n",scene->map->o_pos_y );
+			printf("pos x:%i\n",scene->map->o_pos_x );
+			print_map(scene->scene, 5);
+			break;
+			// else 		// verif if need, verif if the scene is changeg even the area is not closed
+				//reset map
 		}
 	}
 	return (EXIT_FAILURE);
@@ -59,9 +75,10 @@ static	inline	void	get_size_map(t_scene *scene)
 
 bool	parse_map(t_data *data)
 {
-	get_size_map(data->scene);
+	get_size_map(data->scene); // not util
 	if (!find_valid_area(data->scene))
 		return (EXIT_FAILURE);
 	// are_char_valid 
+	// get_player_pos dans are_char_valid
 	return (EXIT_SUCCESS);
 }
