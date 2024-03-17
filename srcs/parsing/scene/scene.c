@@ -6,32 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:07:08 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/13 23:27:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/17 16:35:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-// void	clean_nl_scene(t_data *data)
-// {
-// 	uint8_t		i;
-// 	int			j;
-
-// 	i = 0;
-// 	while (data->scene->infos->infos[i])
-// 	{
-// 		j = 0;
-// 		while (data->scene->infos->infos[i][j])
-// 		{
-// 			if (data->scene->infos->infos[i][j] == '\n' || data->scene->infos->infos[i][j] == '\r')
-// 				data->scene->infos->infos[i][j] = '\0';
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// }
-
-static	inline bool	get_scene(int fd, t_data *data)
+static bool	get_scene(int fd, t_data *data)
 {
 	char	*line;
 	int		i;
@@ -60,7 +41,7 @@ static	inline bool	get_scene(int fd, t_data *data)
 	return (EXIT_SUCCESS);
 }
 
-bool		parse_scene(char **scene_path, t_data *data)
+bool	parse_scene(char **scene_path, t_data *data)
 {
 	int		fd;
 

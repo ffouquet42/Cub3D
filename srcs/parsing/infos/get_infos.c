@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:01:37 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/16 16:22:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/17 16:21:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static	inline	bool	are_identifers_valid(t_scene *scene)
 		&& (scene->scene[4][0] == 'F') && (scene->scene[5][0] == 'C')); 
 }
 
-static	inline	void	sort_infos(t_scene *scene)
+static	void	sort_infos(t_scene *scene)
 {
 	uint8_t i; 
 	 
@@ -44,7 +44,7 @@ static	inline	void	sort_infos(t_scene *scene)
 	}
 }
 
-static	inline void	clean_infos(t_scene *scene)
+static void	clean_infos(t_scene *scene)
 {
 	char	*tmp;
 	int		i;

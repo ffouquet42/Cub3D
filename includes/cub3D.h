@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:39:37 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/16 17:58:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/17 17:37:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,14 +121,9 @@ typedef struct s_rgb
 
 typedef struct s_map
 {
-	int		pos;
-	bool 	f_o;
-	int		o_pos_x;
-	int 	o_pos_y;
+	int		nb_s_pos;
 	double	p_pos_x;
 	double	p_pos_y;
-	int		height;
-	int		width;
 }			t_map;
 
 typedef struct s_infos
@@ -149,6 +144,7 @@ typedef struct s_scene
 
 typedef struct s_data
 {
+	//stock struct in array
 	t_error		*error;
 	t_scene		*scene;
 	t_game		*game;

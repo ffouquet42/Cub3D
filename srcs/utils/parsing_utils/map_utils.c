@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:15:46 by mfeldman          #+#    #+#             */
-/*   Updated: 2024/03/16 16:14:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/17 18:01:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ inline void get_player_pos(t_scene *scene, int x, int y)
 {
 	if (is_char_in_set(scene->scene[y][x], "NSEW"))
 	{
-		scene->map->pos++;
+		scene->map->nb_s_pos++;
 		scene->map->p_pos_x = (double)x + 0.5;
 		scene->map->p_pos_y = (double)y + 0.5; // 0.5 dans t_game
 	}

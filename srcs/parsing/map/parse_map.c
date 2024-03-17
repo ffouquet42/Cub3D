@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:35:35 by fllanet           #+#    #+#             */
-/*   Updated: 2024/03/16 21:00:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2024/03/17 18:07:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 static	bool	is_map_closed(t_scene *scene, int x, int y)
 {
-	(void)x;
-	(void)y;
 	// protect : if(scene->scene[scene->map->o_pos_y][scene->map->o_pos_x])
-	if (scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] != '1')
+	if (scene->scene[y][x] != '0')
 		return (false);
-	else if (scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] == 'T')
+	else if (scene->scene[y][x] == 'T')
 		return (true);
-	if (!scene->map->f_o)
-	{
-		scene->map->f_o |= 1;
-		scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] = 'T';
-	}
 	else 
-		scene->scene[scene->map->o_pos_y][scene->map->o_pos_x] = 'x';
-	
+		scene->scene[y][x] = 'x';
 	// if ()
 	is_map_closed(scene,scene->map->o_pos_x++,scene->map->o_pos_y);
 	is_map_closed(scene,scene->map->o_pos_x,scene->map->o_pos_y--);
@@ -37,46 +29,24 @@ static	bool	is_map_closed(t_scene *scene, int x, int y)
 	return (false);
 }
 
-static inline bool	find_valid_map(t_scene *scene)
+static  bool	find_valid_map(t_scene *scene)
 {
-	scene->map->o_pos_y = INFOS_LEN - 1;
-	while(scene->scene[++scene->map->o_pos_y])
-	{
-		scene->map->o_pos_x = -1;
-		while(scene->scene[scene->map->o_pos_y][++scene->map->o_pos_x])
-		{
-			printf("pos y:%i\n",scene->map->o_pos_y );
-			printf("pos x:%i\n",scene->map->o_pos_x );
-			if (is_map_closed(scene,scene->map->o_pos_x,scene->map->o_pos_y))
-				return (EXIT_SUCCESS);
-			printf("pos y:%i\n",scene->map->o_pos_y );
-			printf("pos x:%i\n",scene->map->o_pos_x );
-			print_map(scene->scene, 5);
-			// else 		// verif if need, verif if the scene is changeg even the area is not closed
-				//reset map
-		}
-	}
-	return (EXIT_FAILURE);
-}
-
-static	inline	void	get_size_map(t_scene *scene) 
-{
-	int 	i;
-	int 	len;
+	uint8_t x;
+	uint8_t y;
 	
-	i = INFOS_LEN;
-	while (scene->scene[i++])
+	y = INFOS_LEN - 1;
+	while (scene->scene[++y])
 	{
-		len = ft_strlen(scene->scene[i]);
-		if (len > scene->map->width)
-			scene->map->width = len - 1;
+		x = -1;
+		while(scene->scene[y][++x])
+			get_player_pos(scene, x ,y);
 	}
-	scene->map->height = scene->height - INFOS_LEN;
+	
+	return (EXIT_FAILURE);
 }
 
 bool	parse_map(t_data *data)
 {
-	get_size_map(data->scene); // not util
 	if (!find_valid_map(data->scene))
 		return (EXIT_FAILURE);
 	printf("ouiiiiiiiiiiiiiiiiiiiiii");
